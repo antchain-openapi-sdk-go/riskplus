@@ -9,9 +9,9 @@ import (
 	"io"
 )
 
-/**
- * Model for initing client
- */
+// Description:
+//
+// Model for initing client
 type Config struct {
 	// accesskey id
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -20,26 +20,66 @@ type Config struct {
 	// security token
 	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
 	// http protocol
+	//
+	// example:
+	//
+	// http
 	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 	// read timeout
+	//
+	// example:
+	//
+	// 10
 	ReadTimeout *int `json:"readTimeout,omitempty" xml:"readTimeout,omitempty"`
 	// connect timeout
+	//
+	// example:
+	//
+	// 10
 	ConnectTimeout *int `json:"connectTimeout,omitempty" xml:"connectTimeout,omitempty"`
 	// http proxy
+	//
+	// example:
+	//
+	// http://localhost
 	HttpProxy *string `json:"httpProxy,omitempty" xml:"httpProxy,omitempty"`
 	// https proxy
+	//
+	// example:
+	//
+	// https://localhost
 	HttpsProxy *string `json:"httpsProxy,omitempty" xml:"httpsProxy,omitempty"`
 	// endpoint
+	//
+	// example:
+	//
+	// cs.aliyuncs.com
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// proxy white list
+	//
+	// example:
+	//
+	// http://localhost
 	NoProxy *string `json:"noProxy,omitempty" xml:"noProxy,omitempty"`
 	// max idle conns
+	//
+	// example:
+	//
+	// 3
 	MaxIdleConns *int `json:"maxIdleConns,omitempty" xml:"maxIdleConns,omitempty"`
 	// user agent
+	//
+	// example:
+	//
+	// Alibabacloud/1
 	UserAgent *string `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
 	// socks5 proxy
 	Socks5Proxy *string `json:"socks5Proxy,omitempty" xml:"socks5Proxy,omitempty"`
 	// socks5 network
+	//
+	// example:
+	//
+	// TCP
 	Socks5NetWork *string `json:"socks5NetWork,omitempty" xml:"socks5NetWork,omitempty"`
 	// 长链接最大空闲时长
 	MaxIdleTimeMillis *int `json:"maxIdleTimeMillis,omitempty" xml:"maxIdleTimeMillis,omitempty"`
@@ -152,8 +192,14 @@ func (s *Config) SetMaxRequestsPerHost(v int) *Config {
 // air引擎输出infoCode
 type AirInfoCodes struct {
 	// infoCode
+	// example:
+	//
+	// name
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// infoCode描述
+	// example:
+	//
+	// xxx
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 }
 
@@ -178,8 +224,14 @@ func (s *AirInfoCodes) SetDescription(v string) *AirInfoCodes {
 // 企业风险等级分布统计
 type RtopLevelDistribution struct {
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 等级
+	// example:
+	//
+	// EX_HIGH_RISK
 	Level *string `json:"level,omitempty" xml:"level,omitempty" require:"true"`
 }
 
@@ -204,6 +256,9 @@ func (s *RtopLevelDistribution) SetLevel(v string) *RtopLevelDistribution {
 // infocode
 type InfoCodes struct {
 	// infocode
+	// example:
+	//
+	// infocode
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 }
 
@@ -223,10 +278,19 @@ func (s *InfoCodes) SetName(v string) *InfoCodes {
 // air引擎决策流输出信息
 type AirDecisionFlows struct {
 	// 决策结果
+	// example:
+	//
+	// review
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty"`
 	// air引擎输出的infoCodes信息
+	// example:
+	//
+	// info_codes
 	InfoCodes []*AirInfoCodes `json:"info_codes,omitempty" xml:"info_codes,omitempty" type:"Repeated"`
 	// 策略名称
+	// example:
+	//
+	// name
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -256,6 +320,9 @@ func (s *AirDecisionFlows) SetName(v string) *AirDecisionFlows {
 // 营销盾半圈投返回节点关联任务信息
 type UmktCampaignRelationTaskInfo struct {
 	// 关联资源id
+	// example:
+	//
+	// bizCode1
 	ResourceId *string `json:"resource_id,omitempty" xml:"resource_id,omitempty" require:"true"`
 	// 任务状态
 	// WFE-待执行
@@ -263,8 +330,14 @@ type UmktCampaignRelationTaskInfo struct {
 	// ECN - 执行中
 	// C - 取消
 	// F - 执行失败
+	// example:
+	//
+	// D
 	TaskStatus *string `json:"task_status,omitempty" xml:"task_status,omitempty" require:"true"`
 	// 错误信息
+	// example:
+	//
+	// odps2oss执行失败
 	ErrMsg *string `json:"err_msg,omitempty" xml:"err_msg,omitempty" require:"true"`
 }
 
@@ -294,10 +367,19 @@ func (s *UmktCampaignRelationTaskInfo) SetErrMsg(v string) *UmktCampaignRelation
 // 删除参数
 type OutParams struct {
 	// 输出参数
+	// example:
+	//
+	// rate
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 参数描述
+	// example:
+	//
+	// 率利
 	Desc *string `json:"desc,omitempty" xml:"desc,omitempty" require:"true"`
 	// 参数值
+	// example:
+	//
+	// accept
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -327,18 +409,36 @@ func (s *OutParams) SetValue(v string) *OutParams {
 // 安全场景参数
 type SecurityScene struct {
 	// 接入渠道
+	// example:
+	//
+	// web
 	AccessChannel *string `json:"access_channel,omitempty" xml:"access_channel,omitempty"`
 	// 事件信息
 	CtuParams *string `json:"ctu_params,omitempty" xml:"ctu_params,omitempty"`
 	// 产品名称
+	// example:
+	//
+	// mobile_cashier
 	ProductName *string `json:"product_name,omitempty" xml:"product_name,omitempty"`
 	// 产品节点
+	// example:
+	//
+	// code
 	ProductNode *string `json:"product_node,omitempty" xml:"product_node,omitempty"`
 	// 扩展参数
+	// example:
+	//
+	// 1234
 	SecuritySceneParams *string `json:"security_scene_params,omitempty" xml:"security_scene_params,omitempty"`
 	// 系统名称
+	// example:
+	//
+	// mobilecashier
 	SystemName *string `json:"system_name,omitempty" xml:"system_name,omitempty"`
 	// 总金额
+	// example:
+	//
+	// 10.0
 	TotalFee *string `json:"total_fee,omitempty" xml:"total_fee,omitempty"`
 }
 
@@ -395,10 +495,19 @@ type Contact struct {
 	// 5姐妹
 	// 6朋友
 	// 7其他
+	// example:
+	//
+	// 1
 	Kind *string `json:"kind,omitempty" xml:"kind,omitempty" require:"true"`
 	// 联系人姓名
+	// example:
+	//
+	// 张三
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 联系人手机号
+	// example:
+	//
+	// 12345
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
 }
 
@@ -428,10 +537,19 @@ func (s *Contact) SetMobile(v string) *Contact {
 // 批量查询输出模型分
 type BatchQueryOutputModelInfo struct {
 	// 变量名称
+	// example:
+	//
+	// aft_v3
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 变量值
+	// example:
+	//
+	// 4.0
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 	// 变量值类型
+	// example:
+	//
+	// Double
 	ValueType *string `json:"value_type,omitempty" xml:"value_type,omitempty" require:"true"`
 }
 
@@ -461,8 +579,14 @@ func (s *BatchQueryOutputModelInfo) SetValueType(v string) *BatchQueryOutputMode
 // 反欺诈风险数据服务风险规则详情
 type RiskDetail struct {
 	// 反欺诈风险数据服务命中规则风险权重
+	// example:
+	//
+	// 1
 	RuleWeight *string `json:"rule_weight,omitempty" xml:"rule_weight,omitempty" require:"true"`
 	// 反欺诈风险数据服务命中规则名称
+	// example:
+	//
+	// 贷款车辆厂商指导价与实际不符
 	RuleName *string `json:"rule_name,omitempty" xml:"rule_name,omitempty" require:"true"`
 }
 
@@ -487,12 +611,24 @@ func (s *RiskDetail) SetRuleName(v string) *RiskDetail {
 // 经营数据
 type EcMonthData struct {
 	// 月份格式为YYYYMM
+	// example:
+	//
+	// 202210
 	Month *string `json:"month,omitempty" xml:"month,omitempty" require:"true"`
 	// 实际结算金额/销售收入 单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 22300000.00
 	PurchaseAmount *int64 `json:"purchase_amount,omitempty" xml:"purchase_amount,omitempty" require:"true"`
 	// GMV，单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 22300000.00
 	Gmv *int64 `json:"gmv,omitempty" xml:"gmv,omitempty" require:"true"`
 	// 退货率。单位：%，格式：数字，小数点后两位
+	// example:
+	//
+	// 3.08
 	RetRate *int64 `json:"ret_rate,omitempty" xml:"ret_rate,omitempty" require:"true"`
 }
 
@@ -527,8 +663,14 @@ func (s *EcMonthData) SetRetRate(v int64) *EcMonthData {
 // 回流事件记录属性项
 type BackflowEventRecordProperty struct {
 	// 属性code
+	// example:
+	//
+	// mobile
 	Key *string `json:"key,omitempty" xml:"key,omitempty" require:"true"`
 	// 属性value，统一为字符串
+	// example:
+	//
+	// 18941147005
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -553,24 +695,54 @@ func (s *BackflowEventRecordProperty) SetValue(v string) *BackflowEventRecordPro
 // 月供
 type TermDetail struct {
 	// 期数
+	// example:
+	//
+	// 1
 	Term *string `json:"term,omitempty" xml:"term,omitempty" require:"true"`
 	// 期供金额
+	// example:
+	//
+	// 1999.98
 	TermAmount *int64 `json:"term_amount,omitempty" xml:"term_amount,omitempty" require:"true"`
 	// 当期本金
+	// example:
+	//
+	// 1999.98
 	TermPrincipal *int64 `json:"term_principal,omitempty" xml:"term_principal,omitempty" require:"true"`
 	// 当期利息（分期产生的利息/手续费）
+	// example:
+	//
+	// 1999.98
 	TermFee *int64 `json:"term_fee,omitempty" xml:"term_fee,omitempty" require:"true"`
 	// 应还款日期
+	// example:
+	//
+	// yyyy-MM-dd
 	SettleDate *string `json:"settle_date,omitempty" xml:"settle_date,omitempty" require:"true"`
 	// 罚息
+	// example:
+	//
+	// 1999.98
 	Penalty *int64 `json:"penalty,omitempty" xml:"penalty,omitempty"`
 	// 担保费
+	// example:
+	//
+	// 1999.98
 	GuaranteeFee *int64 `json:"guarantee_fee,omitempty" xml:"guarantee_fee,omitempty"`
 	// 违约金
+	// example:
+	//
+	// 1999.98
 	LiquidatedDamages *int64 `json:"liquidated_damages,omitempty" xml:"liquidated_damages,omitempty"`
 	// 服务费
+	// example:
+	//
+	// 1999.98
 	ServerFee *int64 `json:"server_fee,omitempty" xml:"server_fee,omitempty"`
 	// 减免金额
+	// example:
+	//
+	// 1999.98
 	DeductAmount *int64 `json:"deduct_amount,omitempty" xml:"deduct_amount,omitempty"`
 }
 
@@ -635,10 +807,19 @@ func (s *TermDetail) SetDeductAmount(v int64) *TermDetail {
 // 营销盾批量查询单条结果
 type BaseCustomerUmktInfoModel struct {
 	// 用户凭证
+	// example:
+	//
+	// 15011111605
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty"`
 	// 输入模板
+	// example:
+	//
+	// MOBILE
 	QueryTemplate *string `json:"query_template,omitempty" xml:"query_template,omitempty"`
 	// 实时营销结果
+	// example:
+	//
+	// 1
 	UmktResult *int64 `json:"umkt_result,omitempty" xml:"umkt_result,omitempty"`
 }
 
@@ -668,12 +849,24 @@ func (s *BaseCustomerUmktInfoModel) SetUmktResult(v int64) *BaseCustomerUmktInfo
 // 营销盾半圈投节点任务信息
 type UmktCampaignNodeTaskInfo struct {
 	// 节点id
+	// example:
+	//
+	// xxxxx
 	NodeId *string `json:"node_id,omitempty" xml:"node_id,omitempty" require:"true"`
 	// 节点任务状态
+	// example:
+	//
+	// D
 	NodeTaskStatus *string `json:"node_task_status,omitempty" xml:"node_task_status,omitempty" require:"true"`
 	// 节点任务执行日期 yyyy-MM-dd格式
+	// example:
+	//
+	// 2025-12-25
 	ExecDate *string `json:"exec_date,omitempty" xml:"exec_date,omitempty" require:"true"`
 	// 节点任务关联资源任务列表
+	// example:
+	//
+	// [{"resourceId":"bizCode","taskStatus":"D"}]
 	RelTaskList []*UmktCampaignRelationTaskInfo `json:"rel_task_list,omitempty" xml:"rel_task_list,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -708,10 +901,19 @@ func (s *UmktCampaignNodeTaskInfo) SetRelTaskList(v []*UmktCampaignRelationTaskI
 // 企业类型分布统计
 type RtopTypeDistribution struct {
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 当前类型下的等级分布
+	// example:
+	//
+	// undefined
 	LevelDistribution []*RtopLevelDistribution `json:"levelDistribution,omitempty" xml:"levelDistribution,omitempty" require:"true" type:"Repeated"`
 	// 类型
+	// example:
+	//
+	// MLM
 	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
 }
 
@@ -741,12 +943,21 @@ func (s *RtopTypeDistribution) SetType(v string) *RtopTypeDistribution {
 // 营销盾离线圈客任务详细信息
 type UmktOfflineDecisionTaskDetailInfo struct {
 	// 任务id
+	// example:
+	//
+	// 1
 	TaskId *int64 `json:"task_id,omitempty" xml:"task_id,omitempty" require:"true"`
 	// 圈客计划id
 	DecisionPlanId *int64 `json:"decision_plan_id,omitempty" xml:"decision_plan_id,omitempty" require:"true"`
 	// 圈客结果状态
+	// example:
+	//
+	// D
 	DecisionResultStatus *string `json:"decision_result_status,omitempty" xml:"decision_result_status,omitempty" require:"true"`
 	// 圈客结果状态描述
+	// example:
+	//
+	// 已完成
 	StatusRemark *string `json:"status_remark,omitempty" xml:"status_remark,omitempty" require:"true"`
 }
 
@@ -781,21 +992,45 @@ func (s *UmktOfflineDecisionTaskDetailInfo) SetStatusRemark(v string) *UmktOffli
 // 还款账单明细Object
 type BillDetail struct {
 	// 对账流水号，在扣款回盘文件中返回，用于对账
+	// example:
+	//
+	// xxxx
 	SerialNumber *string `json:"serial_number,omitempty" xml:"serial_number,omitempty"`
 	// 还款期数
+	// example:
+	//
+	// 1
 	RpyTerm *int64 `json:"rpy_term,omitempty" xml:"rpy_term,omitempty" require:"true"`
 	// 账单维度的还款总额（单位：分），单笔账单本利罚之和
+	// example:
+	//
+	// 1999.98
 	RpyAmt *int64 `json:"rpy_amt,omitempty" xml:"rpy_amt,omitempty" require:"true"`
 	// 实还本金（单位：分）
+	// example:
+	//
+	// 1999.98
 	RpyPrincipal *int64 `json:"rpy_principal,omitempty" xml:"rpy_principal,omitempty" require:"true"`
 	// 实还利息（单位：分）
+	// example:
+	//
+	// 1999.98
 	RpyFeeAmt *int64 `json:"rpy_fee_amt,omitempty" xml:"rpy_fee_amt,omitempty" require:"true"`
 	// 实还罚息（单位：分）
+	// example:
+	//
+	// 1999.98
 	RpyMuclt *int64 `json:"rpy_muclt,omitempty" xml:"rpy_muclt,omitempty" require:"true"`
 	// 其他科目金额，可能会其他类型的金额,用json数组的格式提高扩展性，涉及到保费和咨询服务费的项目，需要提供此字段。
 	//
+	// example:
+	//
+	// [{"fee":"费用（单位：分）","type":"（费用大项）1:保费, 2:信用评估费类","subType":"费用子项） 57:担保咨询服务费（属于信用评估费类型）  50:信用评估费（属于信用评估费类型）  40保费","insureMode":"分期乐内部担保模式号"}]
 	OtherInfo *string `json:"other_info,omitempty" xml:"other_info,omitempty"`
 	// 用户实还日，用户主动发起是当前日；定时扣款是应还日，格式=yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	RpyDate *string `json:"rpy_date,omitempty" xml:"rpy_date,omitempty"`
 }
 
@@ -850,12 +1085,24 @@ func (s *BillDetail) SetRpyDate(v string) *BillDetail {
 // 电商支用订单详情
 type EcLoanAppls struct {
 	// 客户ID
+	// example:
+	//
+	// 232
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
 	// 申请单号 系统的申请单号
+	// example:
+	//
+	// 1232
 	OrderNo *string `json:"order_no,omitempty" xml:"order_no,omitempty" require:"true"`
 	// 提款单状态
+	// example:
+	//
+	// 1
 	OrderStatus *string `json:"order_status,omitempty" xml:"order_status,omitempty" require:"true"`
 	// 借据号
+	// example:
+	//
+	// 123
 	LoanNo *string `json:"loan_no,omitempty" xml:"loan_no,omitempty" require:"true"`
 }
 
@@ -890,8 +1137,14 @@ func (s *EcLoanAppls) SetLoanNo(v string) *EcLoanAppls {
 // 营销盾触达媒介参数信息
 type ActionParamInfo struct {
 	// 触达媒介类型
+	// example:
+	//
+	// ROBOT_CALL
 	ContentType *string `json:"content_type,omitempty" xml:"content_type,omitempty" require:"true"`
 	// 触达媒介参数列表
+	// example:
+	//
+	// ["a","b"]
 	ActionParam []*string `json:"action_param,omitempty" xml:"action_param,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -916,8 +1169,14 @@ func (s *ActionParamInfo) SetActionParam(v []*string) *ActionParamInfo {
 // 涉众风险企业特征
 type RtopCrowdRiskFeatureTag struct {
 	// 标签描述
+	// example:
+	//
+	// XXX公司法人发生变更
 	TagExplanation *string `json:"tag_explanation,omitempty" xml:"tag_explanation,omitempty" require:"true"`
 	// 标签名称
+	// example:
+	//
+	// 法人变更
 	TagName *string `json:"tag_name,omitempty" xml:"tag_name,omitempty" require:"true"`
 }
 
@@ -944,7 +1203,13 @@ type DecisionFlow struct {
 	// 输出参数
 	DecisionFlow *OutParams `json:"decision_flow,omitempty" xml:"decision_flow,omitempty"`
 	// 决策结果
+	// example:
+	//
+	// reject
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty" require:"true"`
+	// infocodes
+	// example:
+	//
 	// infocodes
 	InfoCodes *InfoCodes `json:"info_codes,omitempty" xml:"info_codes,omitempty"`
 }
@@ -975,13 +1240,25 @@ func (s *DecisionFlow) SetInfoCodes(v *InfoCodes) *DecisionFlow {
 // 用户混合营销决策结果
 type RpspInfoModel struct {
 	// 流量分层计划code
+	// example:
+	//
+	// planCode1
 	PlanCode *string `json:"plan_code,omitempty" xml:"plan_code,omitempty" require:"true"`
 	// 场景策略Id
+	// example:
+	//
+	// 15000
 	SceneStrategyId *int64 `json:"scene_strategy_id,omitempty" xml:"scene_strategy_id,omitempty" require:"true"`
 	// 客群分层结果
+	// example:
+	//
+	// 1
 	RpspResult *string `json:"rpsp_result,omitempty" xml:"rpsp_result,omitempty" require:"true"`
 	//
 	// json 结构的营销额外输出信息
+	// example:
+	//
+	// {"f_01":"95.0"}
 	RpspOutPutInfo *string `json:"rpsp_out_put_info,omitempty" xml:"rpsp_out_put_info,omitempty" require:"true"`
 }
 
@@ -1016,19 +1293,34 @@ func (s *RpspInfoModel) SetRpspOutPutInfo(v string) *RpspInfoModel {
 // 优惠券信息
 type CouponInfo struct {
 	// 优惠券Id
+	// example:
+	//
+	// 123
 	CouponId *string `json:"coupon_id,omitempty" xml:"coupon_id,omitempty" require:"true"`
 	// 优惠券名称
+	// example:
+	//
+	// 折扣券
 	CouponName *string `json:"coupon_name,omitempty" xml:"coupon_name,omitempty" require:"true"`
 	// 优惠券状态
 	// unUsed-未使用
 	// Used-已使用
 	// Expired-过期
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 使用场景
 	// 01-提款使用
 	// 02-还款使用
+	// example:
+	//
+	// 01
 	UseCondition *string `json:"use_condition,omitempty" xml:"use_condition,omitempty" require:"true"`
 	// 优惠码
+	// example:
+	//
+	// 123
 	CouponCode *string `json:"coupon_code,omitempty" xml:"coupon_code,omitempty"`
 	// 优惠券类型
 	// 01-金额优惠
@@ -1036,6 +1328,9 @@ type CouponInfo struct {
 	// 03-折扣优惠
 	// 04-期数优惠
 	// 05-固定利率
+	// example:
+	//
+	// 03
 	CouponType *string `json:"coupon_type,omitempty" xml:"coupon_type,omitempty"`
 	// 优惠券面额
 	// coupon_type=01 时为优惠金额
@@ -1043,24 +1338,54 @@ type CouponInfo struct {
 	// coupon_type=03 时为折扣值（如6 折）
 	// coupon_type=04 时为减免期数
 	// coupon_type=05 时为折扣值（如 8.88 为利率8.88%）
+	// example:
+	//
+	// 01
 	CouponValue *string `json:"coupon_value,omitempty" xml:"coupon_value,omitempty"`
 	// 当 coupon_type=01 时，才会有优惠金额
+	// example:
+	//
+	// 1
 	CouponAmount *string `json:"coupon_amount,omitempty" xml:"coupon_amount,omitempty"`
 	// 过期时间yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	ExpiredTime *string `json:"expired_time,omitempty" xml:"expired_time,omitempty"`
 	// 生效时间yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	EffectiveTime *string `json:"effective_time,omitempty" xml:"effective_time,omitempty"`
+	// 使用规则
+	// example:
+	//
 	// 使用规则
 	UseDetail *string `json:"use_detail,omitempty" xml:"use_detail,omitempty"`
 	// 贷款最低金额
+	// example:
+	//
+	// 10
 	MinAmount *string `json:"min_amount,omitempty" xml:"min_amount,omitempty"`
 	// 贷款最高金额
+	// example:
+	//
+	// 100
 	MaxAmount *string `json:"max_amount,omitempty" xml:"max_amount,omitempty"`
 	// 最低贷款期数
+	// example:
+	//
+	// 1
 	MinPeriod *string `json:"min_period,omitempty" xml:"min_period,omitempty"`
 	// 最高贷款期数
+	// example:
+	//
+	// 12
 	MaxPeriod *string `json:"max_period,omitempty" xml:"max_period,omitempty"`
 	// 贷款最低期限天数
+	// example:
+	//
+	// 30
 	MinDay *string `json:"min_day,omitempty" xml:"min_day,omitempty"`
 	// 还款方式
 	// 1-等额本息
@@ -1070,26 +1395,44 @@ type CouponInfo struct {
 	// 5-到期一次性还本付息
 	// 6-等本等费-总费率
 	// 7-等额本息(长期)
+	// example:
+	//
+	// 1
 	RepaymentMethod *string `json:"repayment_method,omitempty" xml:"repayment_method,omitempty"`
 	// 是否有贷款期数要求
 	// 0：否
 	// 1：是
+	// example:
+	//
+	// 0
 	IsPeriodLimit *string `json:"is_period_limit,omitempty" xml:"is_period_limit,omitempty"`
 	// 贷款期限要求还款条件
 	// 01：可提前还款
 	// 02：不可提前还款
 	// isPeriodLimit=1 && repayCondition=01 代表：有可提前还款锁期
 	// isPeriodLimit=1 && repayCondition=02 代表：有不可提前还款锁期
+	// example:
+	//
+	// 01
 	RepayCondition *string `json:"repay_condition,omitempty" xml:"repay_condition,omitempty"`
 	// 还款场景
 	// 01-到期还款
 	// 02-即期还款
+	// example:
+	//
+	// 01
 	RepayWays *string `json:"repay_ways,omitempty" xml:"repay_ways,omitempty"`
 	// 优惠模板Id
+	// example:
+	//
+	// 123
 	CouponModelNo *string `json:"coupon_model_no,omitempty" xml:"coupon_model_no,omitempty"`
 	// 至到期:X年X月X日
 	// 0：不是至到期券
 	// 1：是至到期券
+	// example:
+	//
+	// X年X月X日
 	ToMaturity *string `json:"to_maturity,omitempty" xml:"to_maturity,omitempty"`
 }
 
@@ -1214,10 +1557,19 @@ func (s *CouponInfo) SetToMaturity(v string) *CouponInfo {
 // 用户的混合策略圈客结果
 type UmktInfoModel struct {
 	// 场景策略id
+	// example:
+	//
+	// 1
 	SceneStrategyId *int64 `json:"scene_strategy_id,omitempty" xml:"scene_strategy_id,omitempty" require:"true"`
 	// 实时营销结果
+	// example:
+	//
+	// 1
 	UmktResult *int64 `json:"umkt_result,omitempty" xml:"umkt_result,omitempty" require:"true"`
 	// json 结构的营销额外输出信息
+	// example:
+	//
+	// {"f_01":"95.0"}
 	UmktOutPutInfo *string `json:"umkt_out_put_info,omitempty" xml:"umkt_out_put_info,omitempty" require:"true"`
 }
 
@@ -1247,18 +1599,39 @@ func (s *UmktInfoModel) SetUmktOutPutInfo(v string) *UmktInfoModel {
 // 监管风险标签
 type RtopRiskTag struct {
 	// 标签ID
+	// example:
+	//
+	// CMN00010
 	TagId *string `json:"tag_id,omitempty" xml:"tag_id,omitempty" require:"true"`
 	// 标签名称
+	// example:
+	//
+	// 网站失联
 	TagName *string `json:"tag_name,omitempty" xml:"tag_name,omitempty" require:"true"`
 	// 标签类型
+	// example:
+	//
+	// CMN
 	TagType *string `json:"tag_type,omitempty" xml:"tag_type,omitempty"`
 	// 标签文本
+	// example:
+	//
+	// 网站失联
 	TagText *string `json:"tag_text,omitempty" xml:"tag_text,omitempty"`
 	// 线索概览
+	// example:
+	//
+	// 企业已列入经营异常名录
 	TagClue *string `json:"tag_clue,omitempty" xml:"tag_clue,omitempty"`
 	// 线索明细类型
+	// example:
+	//
+	// 01
 	ClueDetailType *string `json:"clue_detail_type,omitempty" xml:"clue_detail_type,omitempty"`
 	// 线索明细
+	// example:
+	//
+	// 通过登记的住所或者经营场所无法联系
 	TagClueDetail *string `json:"tag_clue_detail,omitempty" xml:"tag_clue_detail,omitempty"`
 }
 
@@ -1308,14 +1681,29 @@ func (s *RtopRiskTag) SetTagClueDetail(v string) *RtopRiskTag {
 // 回执统计数据详情
 type StatisticInfoDetail struct {
 	// actionDriverCode类型
+	// example:
+	//
+	// 1
 	ActionDriverCode *int64 `json:"action_driver_code,omitempty" xml:"action_driver_code,omitempty"`
 	// 成功数
+	// example:
+	//
+	// 123
 	SuccessCount *int64 `json:"success_count,omitempty" xml:"success_count,omitempty"`
 	// 失败数
+	// example:
+	//
+	// 123
 	FailCount *int64 `json:"fail_count,omitempty" xml:"fail_count,omitempty"`
 	// 待触达的手机号数
+	// example:
+	//
+	// 0
 	WaitingSubTaskCount *int64 `json:"waiting_sub_task_count,omitempty" xml:"waiting_sub_task_count,omitempty"`
 	// 已收到的回执数
+	// example:
+	//
+	// 10
 	TotalCount *int64 `json:"total_count,omitempty" xml:"total_count,omitempty"`
 }
 
@@ -1355,10 +1743,19 @@ func (s *StatisticInfoDetail) SetTotalCount(v int64) *StatisticInfoDetail {
 // air引擎输出的决策域信息
 type AirDomainInfos struct {
 	// 决策域信息
+	// example:
+	//
+	// air_domain
 	DomainCode *string `json:"domain_code,omitempty" xml:"domain_code,omitempty"`
 	// 决策域信息
+	// example:
+	//
+	// review
 	DomainDecision *string `json:"domain_decision,omitempty" xml:"domain_decision,omitempty"`
 	// 决策流输出
+	// example:
+	//
+	// [{"decision":"review","name":"租赁测试策略"}]
 	DecisionFlows []*AirDecisionFlows `json:"decision_flows,omitempty" xml:"decision_flows,omitempty" type:"Repeated"`
 }
 
@@ -1388,8 +1785,14 @@ func (s *AirDomainInfos) SetDecisionFlows(v []*AirDecisionFlows) *AirDomainInfos
 // 反欺诈风险数据服务规则细节信息
 type RuleDetail struct {
 	// 规则细节名称
+	// example:
+	//
+	// 出现次数
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 规则细节值
+	// example:
+	//
+	// 19
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -1414,6 +1817,9 @@ func (s *RuleDetail) SetValue(v string) *RuleDetail {
 // 补充信息
 type Additional struct {
 	// 骑手标识；1-骑手
+	// example:
+	//
+	// 1
 	Deliveryman *string `json:"deliveryman,omitempty" xml:"deliveryman,omitempty"`
 }
 
@@ -1433,8 +1839,14 @@ func (s *Additional) SetDeliveryman(v string) *Additional {
 // 天枢系统专用RepayResult结构体
 type RepayResult struct {
 	// 客户编码
+	// example:
+	//
+	// xxx
 	CustomNo *string `json:"custom_no,omitempty" xml:"custom_no,omitempty" require:"true"`
 	// 当前期数
+	// example:
+	//
+	// 1
 	Period *string `json:"period,omitempty" xml:"period,omitempty" require:"true"`
 	// 应还总额
 	NeedAmount *int64 `json:"need_amount,omitempty" xml:"need_amount,omitempty" require:"true"`
@@ -1471,12 +1883,24 @@ type RepayResult struct {
 	// 期末本金
 	RemainCorpus *int64 `json:"remain_corpus,omitempty" xml:"remain_corpus,omitempty" require:"true"`
 	// 借据编号
+	// example:
+	//
+	// sss
 	ReceiptNo *string `json:"receipt_no,omitempty" xml:"receipt_no,omitempty" require:"true"`
 	// 还款状态1：已还清 2 未还 3 部分还款
+	// example:
+	//
+	// 1
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 应还日期
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	SettleDate *string `json:"settle_date,omitempty" xml:"settle_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 还款日期
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	TradeDate *string `json:"trade_date,omitempty" xml:"trade_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 已还担保费
 	AlreadyGuaranteeFee *int64 `json:"already_guarantee_fee,omitempty" xml:"already_guarantee_fee,omitempty" require:"true"`
@@ -1655,10 +2079,19 @@ func (s *RepayResult) SetOverdueDays(v int64) *RepayResult {
 // 反欺诈风险数据服务风险信息
 type RiskInfo struct {
 	// 反欺诈风险数据服务风险组描述
+	// example:
+	//
+	// 贷款车辆存在异常关联记录
 	RiskGroupDesc *string `json:"risk_group_desc,omitempty" xml:"risk_group_desc,omitempty" require:"true"`
 	// 反欺诈风险数据服务风险组名
+	// example:
+	//
+	// 存在异常关联
 	RiskGroup *string `json:"risk_group,omitempty" xml:"risk_group,omitempty" require:"true"`
 	// 反欺诈风险数据服务风险组类别
+	// example:
+	//
+	// 车辆风险
 	RiskGroupCategory *string `json:"risk_group_category,omitempty" xml:"risk_group_category,omitempty" require:"true"`
 	// 反欺诈风险数据服务风险组信息
 	RiskDetails []*RiskDetail `json:"risk_details,omitempty" xml:"risk_details,omitempty" require:"true" type:"Repeated"`
@@ -1695,16 +2128,34 @@ func (s *RiskInfo) SetRiskDetails(v []*RiskDetail) *RiskInfo {
 // 天枢更新渠道返回
 type UpdateCustomerRelationResponseData struct {
 	// id
+	// example:
+	//
+	// 123
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 	// 渠道编码
+	// example:
+	//
+	// 123
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty"`
 	// 渠道id
+	// example:
+	//
+	// 123AA
 	ChannelNo *string `json:"channel_no,omitempty" xml:"channel_no,omitempty"`
 	// 客户号
+	// example:
+	//
+	// PCM123
 	CustomerNo *string `json:"customer_no,omitempty" xml:"customer_no,omitempty"`
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	CreateTime *string `json:"create_time,omitempty" xml:"create_time,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 更新时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	UpdateTime *string `json:"update_time,omitempty" xml:"update_time,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 }
 
@@ -1749,10 +2200,19 @@ func (s *UpdateCustomerRelationResponseData) SetUpdateTime(v string) *UpdateCust
 // 短信模板
 type SmsTemplate struct {
 	// 场景策略ID
+	// example:
+	//
+	// 5617
 	SceneStrategyId *string `json:"scene_strategy_id,omitempty" xml:"scene_strategy_id,omitempty" require:"true"`
 	// 计划名称
+	// example:
+	//
+	// 测试计划名称
 	SceneStrategyName *string `json:"scene_strategy_name,omitempty" xml:"scene_strategy_name,omitempty" require:"true"`
 	// 模板内容
+	// example:
+	//
+	// 测试模版内容
 	TemplateContent *string `json:"template_content,omitempty" xml:"template_content,omitempty" require:"true"`
 }
 
@@ -1801,6 +2261,9 @@ func (s *BackflowEventRecord) SetProperties(v []*BackflowEventRecordProperty) *B
 // 风险维度
 type RtopCompanyRiskFactor struct {
 	// 维度名称
+	// example:
+	//
+	// 1
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 维度分数
 	Score *int64 `json:"score,omitempty" xml:"score,omitempty"`
@@ -1846,14 +2309,29 @@ func (s *TestStruct) SetTestField(v []*SecurityScene) *TestStruct {
 // 天枢系统专用Material结构体
 type Material struct {
 	// 资料类型0-风控报告1-合同2-图片3-附件
+	// example:
+	//
+	// 0
 	MType *string `json:"m_type,omitempty" xml:"m_type,omitempty" require:"true"`
 	// 大类编码00-风控报告10-合同20身份证图片26人脸图片30-附件
+	// example:
+	//
+	// 00
 	BigCode *string `json:"big_code,omitempty" xml:"big_code,omitempty" require:"true"`
 	// 小类编码
 	// 201-身份证人脸面202身份证国徽面212-活体人脸图片
+	// example:
+	//
+	// 201
 	SmallCode *string `json:"small_code,omitempty" xml:"small_code,omitempty" require:"true"`
 	// 资料名称
+	// example:
+	//
+	// 资料名称
 	MeterialName *string `json:"meterial_name,omitempty" xml:"meterial_name,omitempty" require:"true"`
+	// 文件地址
+	// example:
+	//
 	// 文件地址
 	FilePath *string `json:"file_path,omitempty" xml:"file_path,omitempty" require:"true"`
 }
@@ -1894,6 +2372,9 @@ func (s *Material) SetFilePath(v string) *Material {
 // 用户借款是否结清
 type CustomReceiptStatus struct {
 	// 是否结清
+	// example:
+	//
+	// true, false
 	ReceiptFlag *bool `json:"receipt_flag,omitempty" xml:"receipt_flag,omitempty"`
 }
 
@@ -1913,9 +2394,18 @@ func (s *CustomReceiptStatus) SetReceiptFlag(v bool) *CustomReceiptStatus {
 // 天枢系统RiskData结构体
 type RiskData struct {
 	// 联系人信息列表
+	// example:
+	//
+	// [{}]
 	Contacts []*Contact `json:"contacts,omitempty" xml:"contacts,omitempty" require:"true" type:"Repeated"`
 	// 人脸对比分
+	// example:
+	//
+	// x
 	FacePoint *string `json:"face_point,omitempty" xml:"face_point,omitempty"`
+	// 活体供应商
+	// example:
+	//
 	// 活体供应商
 	FaceSource *string `json:"face_source,omitempty" xml:"face_source,omitempty"`
 }
@@ -1946,22 +2436,49 @@ func (s *RiskData) SetFaceSource(v string) *RiskData {
 // 还款信息列表
 type RepayInfos struct {
 	// 期次
+	// example:
+	//
+	// 1
 	Period *int64 `json:"period,omitempty" xml:"period,omitempty" require:"true"`
 	// 实还总额
+	// example:
+	//
+	// 1
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty" require:"true"`
 	// 实还本金
+	// example:
+	//
+	// 1
 	Principal *int64 `json:"principal,omitempty" xml:"principal,omitempty" require:"true"`
 	// 实还利息
+	// example:
+	//
+	// 1
 	Interest *int64 `json:"interest,omitempty" xml:"interest,omitempty" require:"true"`
 	// 实还通道手续费
+	// example:
+	//
+	// 1
 	ChannelAmt *int64 `json:"channel_amt,omitempty" xml:"channel_amt,omitempty" require:"true"`
 	// 实还手续费
+	// example:
+	//
+	// 1
 	Fee *int64 `json:"fee,omitempty" xml:"fee,omitempty" require:"true"`
 	// 实收罚息
+	// example:
+	//
+	// 1
 	Punish *int64 `json:"punish,omitempty" xml:"punish,omitempty" require:"true"`
 	// 担保费
+	// example:
+	//
+	// 1
 	GuaranteeFee *int64 `json:"guarantee_fee,omitempty" xml:"guarantee_fee,omitempty" require:"true"`
 	// 违约金
+	// example:
+	//
+	// 1
 	LiquidatedDamages *int64 `json:"liquidated_damages,omitempty" xml:"liquidated_damages,omitempty" require:"true"`
 }
 
@@ -2021,10 +2538,19 @@ func (s *RepayInfos) SetLiquidatedDamages(v int64) *RepayInfos {
 // 安全数据服务请求参数
 type SecurityDataQueryStruct struct {
 	// 请求数据参数
+	// example:
+	//
+	// {}
 	Params *string `json:"params,omitempty" xml:"params,omitempty" require:"true"`
 	// 请求数据类型
+	// example:
+	//
+	// IP
 	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
 	// 请求数据版本
+	// example:
+	//
+	// 1.0
 	Version *string `json:"version,omitempty" xml:"version,omitempty" require:"true"`
 }
 
@@ -2064,20 +2590,38 @@ type UserAggregationInfo struct {
 	// 7: 授信冻结
 	// 8: 可重新授信
 	// 9: 授信拒绝
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 总额度
+	// example:
+	//
+	// 100
 	CreditAmount *int64 `json:"credit_amount,omitempty" xml:"credit_amount,omitempty"`
 	// 可用额度
+	// example:
+	//
+	// 100
 	AvailableAmount *int64 `json:"available_amount,omitempty" xml:"available_amount,omitempty"`
 	// 待还总金额
+	// example:
+	//
+	// 100
 	ShouldPayAmount *int64 `json:"should_pay_amount,omitempty" xml:"should_pay_amount,omitempty"`
 	// 逾期总金额
 	OverdueAmount *int64 `json:"overdue_amount,omitempty" xml:"overdue_amount,omitempty"`
 	// 下一期应还金额
 	NextPeriodAmount *int64 `json:"next_period_amount,omitempty" xml:"next_period_amount,omitempty"`
 	// 下一期还款时间yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	NextPeriodRepayTime *string `json:"next_period_repay_time,omitempty" xml:"next_period_repay_time,omitempty"`
 	// 下次可授信时间yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	NextApplyTime *string `json:"next_apply_time,omitempty" xml:"next_apply_time,omitempty"`
 	// 优惠券列表
 	CouponList []*CouponInfo `json:"coupon_list,omitempty" xml:"coupon_list,omitempty" type:"Repeated"`
@@ -2139,8 +2683,14 @@ func (s *UserAggregationInfo) SetCouponList(v []*CouponInfo) *UserAggregationInf
 // 场景决策列表
 type SceneInfos struct {
 	// 决策结果
+	// example:
+	//
+	// accept
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty" require:"true"`
 	// 场景code
+	// example:
+	//
+	// ANFAPP
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
 }
 
@@ -2165,14 +2715,29 @@ func (s *SceneInfos) SetSceneCode(v string) *SceneInfos {
 // 触达策略信息
 type ActionPlanDetailInfo struct {
 	// 场景策略id
+	// example:
+	//
+	// 1
 	SceneStrategyId *int64 `json:"scene_strategy_id,omitempty" xml:"scene_strategy_id,omitempty" require:"true"`
 	// 场景策略名称
+	// example:
+	//
+	// 蚂蚁营销
 	SceneStrategyName *string `json:"scene_strategy_name,omitempty" xml:"scene_strategy_name,omitempty" require:"true"`
 	// 场景策略状态
+	// example:
+	//
+	// ONLINE
 	SceneStrategyStatus *string `json:"scene_strategy_status,omitempty" xml:"scene_strategy_status,omitempty" require:"true"`
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 修改时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtModified *string `json:"gmt_modified,omitempty" xml:"gmt_modified,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 触达媒介参数信息
 	ActionParamInfo []*ActionParamInfo `json:"action_param_info,omitempty" xml:"action_param_info,omitempty" require:"true" type:"Repeated"`
@@ -2219,47 +2784,107 @@ func (s *ActionPlanDetailInfo) SetActionParamInfo(v []*ActionParamInfo) *ActionP
 // 标签信息
 type RiskLabelInfo struct {
 	// 线索明细类型(字段停用)
+	// example:
+	//
+	// s d d f d f
 	ClueDetailType *string `json:"clue_detail_type,omitempty" xml:"clue_detail_type,omitempty" require:"true"`
 	// odps数据产出时间，冗余字段，业务上不需要，以备错误排查
+	// example:
+	//
+	// 20190823
 	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
 	// 数据产生时间
+	// example:
+	//
+	// yyyy-MM-dd hh:mm:ss
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" require:"true"`
 	// 记录唯一ID
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 0-正常 1-删除
+	// example:
+	//
+	// is_deleted
 	IsDeleted *int64 `json:"is_deleted,omitempty" xml:"is_deleted,omitempty" require:"true"`
 	// 企业ID
+	// example:
+	//
+	// A123445
 	MctOneId *string `json:"mct_one_id,omitempty" xml:"mct_one_id,omitempty" require:"true"`
 	// 操作人ID
+	// example:
+	//
+	// 123
 	OperatorId *string `json:"operator_id,omitempty" xml:"operator_id,omitempty" require:"true"`
 	// 操作类型
 	// add、delete、update
+	// example:
+	//
+	// add
 	OpType *string `json:"op_type,omitempty" xml:"op_type,omitempty" require:"true"`
 	// 企业名称
+	// example:
+	//
+	// 东方财富公司
 	OrgName *string `json:"org_name,omitempty" xml:"org_name,omitempty" require:"true"`
 	// 线索类型
+	// example:
+	//
+	// 列表
 	RiskDetailType *string `json:"risk_detail_type,omitempty" xml:"risk_detail_type,omitempty" require:"true"`
 	// 风险维度
 	//
+	// example:
+	//
+	// 风险维度
 	RiskDimensionType *string `json:"risk_dimension_type,omitempty" xml:"risk_dimension_type,omitempty" require:"true"`
 	// 线索概览
+	// example:
+	//
+	// s d f g
 	TagClue *string `json:"tag_clue,omitempty" xml:"tag_clue,omitempty" require:"true"`
 	// 线索明细
+	// example:
+	//
+	// 11
 	TagClueDetail *string `json:"tag_clue_detail,omitempty" xml:"tag_clue_detail,omitempty" require:"true"`
 	// 标签ID
+	// example:
+	//
+	// NM23
 	TagId *string `json:"tag_id,omitempty" xml:"tag_id,omitempty" require:"true"`
 	// 线索列表表头，英文逗号分隔
 	//
+	// example:
+	//
+	// 日期
 	TagListHeaders *string `json:"tag_list_headers,omitempty" xml:"tag_list_headers,omitempty" require:"true"`
 	// 标签列表，排序字段
+	// example:
+	//
+	// 日期
 	TagListOrderColumn *string `json:"tag_list_order_column,omitempty" xml:"tag_list_order_column,omitempty" require:"true"`
 	// 标签列表排序方式
+	// example:
+	//
+	// 顺序
 	TagListOrderType *string `json:"tag_list_order_type,omitempty" xml:"tag_list_order_type,omitempty" require:"true"`
 	// 标签文本
+	// example:
+	//
+	// 1233
 	TagText *string `json:"tag_text,omitempty" xml:"tag_text,omitempty" require:"true"`
 	// 趋势图表名
+	// example:
+	//
+	// XX趋势图
 	TagTrendChartName *string `json:"tag_trend_chart_name,omitempty" xml:"tag_trend_chart_name,omitempty" require:"true"`
 	// 数据同步到公有云时间(业务上赋值当天)
+	// example:
+	//
+	// 20190823
 	UpdateDate *string `json:"update_date,omitempty" xml:"update_date,omitempty" require:"true"`
 }
 
@@ -2375,21 +3000,39 @@ func (s *RiskLabelInfo) SetUpdateDate(v string) *RiskLabelInfo {
 type SubMerchantOrder struct {
 	// 是否开通线上预授权，
 	// TRUE/FALSE
+	// example:
+	//
+	// xxxx
 	AppPreAuth *string `json:"app_pre_auth,omitempty" xml:"app_pre_auth,omitempty"`
 	// 申请单创建时间
+	// example:
+	//
+	// xxxx
 	ApplyTime *string `json:"apply_time,omitempty" xml:"apply_time,omitempty" require:"true"`
 	// 本申请单的请求类型，
 	// 商户预校验: ZHIFUTONG_CONSULT
 	// 商户创建: ZHIFUTONG_CREATE
 	// 商户修改: ZHIFUTONG_MODIFY
 	//
+	// example:
+	//
+	// xxxx
 	ApplyType *string `json:"apply_type,omitempty" xml:"apply_type,omitempty" require:"true"`
 	// 进件生成的卡编号，在发起结算时可以作为结算账号
+	// example:
+	//
+	// xxxx
 	CardAliasNo *string `json:"card_alias_no,omitempty" xml:"card_alias_no,omitempty"`
 	// 外部商户id
+	// example:
+	//
+	// xxxx
 	ExternalId *string `json:"external_id,omitempty" xml:"external_id,omitempty" require:"true"`
 	// 是否开通线下预授权，
 	// TRUE/FALSE
+	// example:
+	//
+	// xxxx
 	FacePreAuth *string `json:"face_pre_auth,omitempty" xml:"face_pre_auth,omitempty"`
 	// 风控审核状态，
 	// CREATE: 已创建待审批
@@ -2397,37 +3040,70 @@ type SubMerchantOrder struct {
 	// PASS: 风控审核通过
 	// REJECT: 风控审批拒绝
 	//
+	// example:
+	//
+	// xxxx
 	FkAudit *string `json:"fk_audit,omitempty" xml:"fk_audit,omitempty"`
 	// 风控审批备注
+	// example:
+	//
+	// xxxx
 	FkAuditMemo *string `json:"fk_audit_memo,omitempty" xml:"fk_audit_memo,omitempty"`
 	// 判断个人当面付权限版本，
 	// TRUE: 表示是标准版
 	// FALSE: 表示受限版
 	//
+	// example:
+	//
+	// xxxx
 	IsFaceLimit *string `json:"is_face_limit,omitempty" xml:"is_face_limit,omitempty"`
 	// 客资审核状态，
 	// CREATE: 已创建待审批
 	// SKIP: 跳过客资审批步骤
 	// PASS: 客资审核通过
 	// REJECT: 客资审批拒绝
+	// example:
+	//
+	// xxxx
 	KzAudit *string `json:"kz_audit,omitempty" xml:"kz_audit,omitempty"`
 	// 客资审批备注
+	// example:
+	//
+	// xxxx
 	KzAuditMemo *string `json:"kz_audit_memo,omitempty" xml:"kz_audit_memo,omitempty"`
 	// 进件时填写的商户名称
+	// example:
+	//
+	// xxxx
 	MerchantName *string `json:"merchant_name,omitempty" xml:"merchant_name,omitempty"`
 	// 入驻申请单号
+	// example:
+	//
+	// xxxx
 	OrderId *string `json:"order_id,omitempty" xml:"order_id,omitempty" require:"true"`
 	// 申请单处理失败时，通过此此段返回具体的失败理由，
 	// 与kf_audit_memo和kz_audit_memo配合使用
+	// example:
+	//
+	// xxxx
 	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
 	// 签约支付宝账号（脱敏）
+	// example:
+	//
+	// xxxx
 	SafeBindingLogonId *string `json:"safe_binding_logon_id,omitempty" xml:"safe_binding_logon_id,omitempty"`
 	// 二级商户id，当总体申请状态status为99时，smid才算进件完成
+	// example:
+	//
+	// xxxx
 	Smid *string `json:"smid,omitempty" xml:"smid,omitempty"`
 	// 申请总体状态，
 	// 99: 已完结
 	// -1: 失败
 	// 031: 审核中
+	// example:
+	//
+	// xxxx
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 二级商户确认状态，
 	// CREATE: 已发起二级商户确认
@@ -2435,6 +3111,9 @@ type SubMerchantOrder struct {
 	// FAIL: 签约失败
 	// NOT_CONFIRM: 商户未确认
 	// FINISH: 签约完成
+	// example:
+	//
+	// xxxx
 	SubConfirm *string `json:"sub_confirm,omitempty" xml:"sub_confirm,omitempty"`
 }
 
@@ -2541,12 +3220,24 @@ type RtopCompanyFeedback struct {
 	// 主键
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 企业ID
+	// example:
+	//
+	// 1
 	CompanyId *string `json:"company_id,omitempty" xml:"company_id,omitempty" require:"true"`
 	// 反馈原因
+	// example:
+	//
+	// 1
 	FeedbackReason *string `json:"feedback_reason,omitempty" xml:"feedback_reason,omitempty" require:"true"`
 	// 反馈原因详情
+	// example:
+	//
+	// 1
 	FeedbackReasonDetail *string `json:"feedback_reason_detail,omitempty" xml:"feedback_reason_detail,omitempty" require:"true"`
 	// 评论
+	// example:
+	//
+	// 1
 	Comment *string `json:"comment,omitempty" xml:"comment,omitempty" require:"true"`
 }
 
@@ -2586,12 +3277,24 @@ func (s *RtopCompanyFeedback) SetComment(v string) *RtopCompanyFeedback {
 // 上传文件运行结果
 type RuntimeResult struct {
 	// 上传成功
+	// example:
+	//
+	// 0
 	Code *int64 `json:"code,omitempty" xml:"code,omitempty" require:"true"`
 	// true代表上传成功，false代表上传失败
+	// example:
+	//
+	// true, false
 	Success *bool `json:"success,omitempty" xml:"success,omitempty" require:"true"`
 	// 上文件传成功
+	// example:
+	//
+	// OK
 	Resultmsg *string `json:"resultmsg,omitempty" xml:"resultmsg,omitempty" require:"true"`
 	// 文件上传结果
+	// example:
+	//
+	// [fileInfoReceive api success!]
 	Data *string `json:"data,omitempty" xml:"data,omitempty" require:"true"`
 }
 
@@ -2626,14 +3329,29 @@ func (s *RuntimeResult) SetData(v string) *RuntimeResult {
 // qmp分层信息
 type DecisionInfo struct {
 	// 状态
+	// example:
+	//
+	// DECISION_SUCCESS
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 计划配置ID
+	// example:
+	//
+	// 1
 	OfflineDecisionPlanId *int64 `json:"offline_decision_plan_id,omitempty" xml:"offline_decision_plan_id,omitempty" require:"true"`
 	// 总数量
+	// example:
+	//
+	// 111
 	TotalNum *int64 `json:"total_num,omitempty" xml:"total_num,omitempty" require:"true"`
 	// 分层结果数
+	// example:
+	//
+	// 12
 	DecisionNum *int64 `json:"decision_num,omitempty" xml:"decision_num,omitempty" require:"true"`
 	// 文件路径
+	// example:
+	//
+	// https://test-oss.oss-cn-shang
 	FileUrl *string `json:"file_url,omitempty" xml:"file_url,omitempty" require:"true"`
 }
 
@@ -2673,12 +3391,21 @@ func (s *DecisionInfo) SetFileUrl(v string) *DecisionInfo {
 // 监测企业的特征信息
 type RtopMonitorCompanyFeature struct {
 	// 特征的描述
+	// example:
+	//
+	// 有企业地址变更历史，变更过经营范围
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// 特征的名称
+	// example:
+	//
+	// 关联风险
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 特征里的风险标签列表
 	RiskTags []*string `json:"risk_tags,omitempty" xml:"risk_tags,omitempty" type:"Repeated"`
 	// 特征的评分
+	// example:
+	//
+	// 80
 	Score *int `json:"score,omitempty" xml:"score,omitempty" require:"true"`
 }
 
@@ -2713,30 +3440,66 @@ func (s *RtopMonitorCompanyFeature) SetScore(v int) *RtopMonitorCompanyFeature {
 // 风报接口返回结构体
 type RtopCompanyRiskInfo struct {
 	// 区域类型
+	// example:
+	//
+	// place_type
 	PlaceType *string `json:"place_type,omitempty" xml:"place_type,omitempty"`
 	// 区域
+	// example:
+	//
+	// 天津市
 	PlaceName *string `json:"place_name,omitempty" xml:"place_name,omitempty"`
 	// 企业唯一id
+	// example:
+	//
+	// mct_one_id
 	MctOneId *string `json:"mct_one_id,omitempty" xml:"mct_one_id,omitempty"`
 	// 企业统一社会信用代码
+	// example:
+	//
+	// uc_code
 	UcCode *string `json:"uc_code,omitempty" xml:"uc_code,omitempty"`
 	// 工商注册号
+	// example:
+	//
+	// reg_no
 	RegNo *string `json:"reg_no,omitempty" xml:"reg_no,omitempty"`
 	// 组织机构代码
+	// example:
+	//
+	// org_code
 	OrgCode *string `json:"org_code,omitempty" xml:"org_code,omitempty"`
 	// 企业名
+	// example:
+	//
+	// org_name
 	OrgName *string `json:"org_name,omitempty" xml:"org_name,omitempty"`
 	// 风险评分
+	// example:
+	//
+	// risk_score
 	RiskScore *string `json:"risk_score,omitempty" xml:"risk_score,omitempty"`
 	// 风险变化程度排序，根据分值波动大小，标签变更次数排序
+	// example:
+	//
+	// risk_shift_rank
 	RiskShiftRank *string `json:"risk_shift_rank,omitempty" xml:"risk_shift_rank,omitempty"`
 	// 风险定性
+	// example:
+	//
+	// risk_type
 	RiskType *string `json:"risk_type,omitempty" xml:"risk_type,omitempty"`
 	// 风险标签id列表
 	RiskTagsId []*string `json:"risk_tags_id,omitempty" xml:"risk_tags_id,omitempty" type:"Repeated"`
 	// 线索
+	// example:
+	//
+	// tags_clue
 	TagsClue *string `json:"tags_clue,omitempty" xml:"tags_clue,omitempty"`
 	// 风险线索明细
+	// example:
+	//
+	// tags_clue_detail
 	TagsClueDetail *string `json:"tags_clue_detail,omitempty" xml:"tags_clue_detail,omitempty"`
 }
 
@@ -2816,36 +3579,84 @@ func (s *RtopCompanyRiskInfo) SetTagsClueDetail(v string) *RtopCompanyRiskInfo {
 // 企业年报信息
 type RtopRiskStormCompanyAnnualReport struct {
 	// 年报个数
+	// example:
+	//
+	// 2
 	AnnualReportCount *int64 `json:"annual_report_count,omitempty" xml:"annual_report_count,omitempty"`
 	// 年报是否发生股权转让
+	// example:
+	//
+	// true
 	AnnualReportHasEquityTransfer *bool `json:"annual_report_has_equity_transfer,omitempty" xml:"annual_report_has_equity_transfer,omitempty"`
 	// 年报是否对外提供担保
+	// example:
+	//
+	// true
 	AnnualReportHasExternalGuarantee *bool `json:"annual_report_has_external_guarantee,omitempty" xml:"annual_report_has_external_guarantee,omitempty"`
 	// 年报是否对外投资
+	// example:
+	//
+	// true
 	AnnualReportHasExternalInvest *bool `json:"annual_report_has_external_invest,omitempty" xml:"annual_report_has_external_invest,omitempty"`
 	// 营业总收入中主营业务收入
+	// example:
+	//
+	// 1000
 	AnnualReportMainBusinessIncome *string `json:"annual_report_main_business_income,omitempty" xml:"annual_report_main_business_income,omitempty"`
 	// 年报净利润
+	// example:
+	//
+	// 1000
 	AnnualReportNetProfit *string `json:"annual_report_net_profit,omitempty" xml:"annual_report_net_profit,omitempty"`
 	// 年报发布日期
+	// example:
+	//
+	// 2018-09-09
 	AnnualReportReleaseDate *string `json:"annual_report_release_date,omitempty" xml:"annual_report_release_date,omitempty"`
 	// 年报股东实缴出资额（万元（实缴出资额用两个冒号::分割）
+	// example:
+	//
+	// 100::200:2
 	AnnualReportShActualPaid *string `json:"annual_report_sh_actual_paid,omitempty" xml:"annual_report_sh_actual_paid,omitempty"`
 	// 年报公司人数
+	// example:
+	//
+	// 200
 	AnnualReportStaffCount *int64 `json:"annual_report_staff_count,omitempty" xml:"annual_report_staff_count,omitempty"`
 	// 资产总额
+	// example:
+	//
+	// 1000
 	AnnualReportTotalAssets *string `json:"annual_report_total_assets,omitempty" xml:"annual_report_total_assets,omitempty"`
 	// 负债总额
+	// example:
+	//
+	// 1000
 	AnnualReportTotalLiabilities *string `json:"annual_report_total_liabilities,omitempty" xml:"annual_report_total_liabilities,omitempty"`
 	// 营业总收入
+	// example:
+	//
+	// 1000
 	AnnualReportTotalOperatingIncome *string `json:"annual_report_total_operating_income,omitempty" xml:"annual_report_total_operating_income,omitempty"`
 	// 年报所有者权益合计
+	// example:
+	//
+	// 1000
 	AnnualReportTotalOwnerEquity *string `json:"annual_report_total_owner_equity,omitempty" xml:"annual_report_total_owner_equity,omitempty"`
 	// 年报利润总额
+	// example:
+	//
+	// 1000
 	AnnualReportTotalProfit *string `json:"annual_report_total_profit,omitempty" xml:"annual_report_total_profit,omitempty"`
 	// 纳税总额
+	// example:
+	//
+	// 1000
 	AnnualReportTotalTax *string `json:"annual_report_total_tax,omitempty" xml:"annual_report_total_tax,omitempty"`
 	// 年报报送年度
+	// example:
+	//
+	// 2018
 	AnnualReportYear *string `json:"annual_report_year,omitempty" xml:"annual_report_year,omitempty"`
 }
 
@@ -2942,6 +3753,9 @@ type CustomerRpspInfosModel struct {
 	// 归属用户的混合分层决策结果
 	RpspResults []*RpspInfoModel `json:"rpsp_results,omitempty" xml:"rpsp_results,omitempty" require:"true" type:"Repeated"`
 	// 用户凭证
+	// example:
+	//
+	// 8002c3d97e7d4d20a0647c75dfab1efe
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 }
 
@@ -2966,7 +3780,13 @@ func (s *CustomerRpspInfosModel) SetCustomerKey(v string) *CustomerRpspInfosMode
 // 信护盾产品查询信息
 type QueryInfo struct {
 	// key
+	// example:
+	//
+	// key
 	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// value
+	// example:
+	//
 	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
@@ -3039,16 +3859,34 @@ func (s *StrategyUploadResult) SetSceneStrategyId(v int64) *StrategyUploadResult
 // 全局动态中的企业
 type RtopRiskyCompany struct {
 	// 企业ID
+	// example:
+	//
+	// 1
 	CompanyId *string `json:"company_id,omitempty" xml:"company_id,omitempty" require:"true"`
 	// 异动分数
+	// example:
+	//
+	// 1
 	ChangeScore *string `json:"change_score,omitempty" xml:"change_score,omitempty" require:"true"`
 	// 异动程度
+	// example:
+	//
+	// 1
 	ChangeLevel *string `json:"change_level,omitempty" xml:"change_level,omitempty" require:"true"`
 	// 新增企业的时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	NewAddedTime *string `json:"new_added_time,omitempty" xml:"new_added_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 总公司注册地
+	// example:
+	//
+	// 1
 	HeadRegisterPlace *string `json:"head_register_place,omitempty" xml:"head_register_place,omitempty" require:"true"`
 	// 数据的时间
+	// example:
+	//
+	// 1
 	DataTime *string `json:"data_time,omitempty" xml:"data_time,omitempty" require:"true"`
 }
 
@@ -3092,23 +3930,46 @@ func (s *RtopRiskyCompany) SetDataTime(v string) *RtopRiskyCompany {
 
 // zhima.customer.ep.identification.query
 // 在认证完成后,商户可以查询认证的状态和结果
-//
 type ZhimaQueryResp struct {
 	// 认证的企业证件号
+	// example:
+	//
+	// 91330000327827106L
 	EpCertNo *string `json:"ep_cert_no,omitempty" xml:"ep_cert_no,omitempty"`
 	// 认证的企业名
+	// example:
+	//
+	// 芝麻信用管理有限公司
 	EpName *string `json:"ep_name,omitempty" xml:"ep_name,omitempty"`
 	// 认证不通过的错误码
+	// example:
+	//
+	// BIZ_LICENSE_LEGAL_INFO_NO_MATCH
 	FailedCode *string `json:"failed_code,omitempty" xml:"failed_code,omitempty"`
 	// 认证是否通过，通过为true，不通过为false
+	// example:
+	//
+	// “true“,”false”
 	Passed *string `json:"passed,omitempty" xml:"passed,omitempty"`
 	//  10000是成功，其余是失败
+	// example:
+	//
+	// OK/40002
 	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty" require:"true"`
 	//
+	// example:
+	//
+	// Success/Invalid Arguments
 	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty" require:"true"`
 	//
+	// example:
+	//
+	// isv.invalid-app-id
 	SubCode *string `json:"sub_code,omitempty" xml:"sub_code,omitempty"`
 	//
+	// example:
+	//
+	// 无效的AppID参数
 	SubMsg *string `json:"sub_msg,omitempty" xml:"sub_msg,omitempty"`
 }
 
@@ -3163,34 +4024,76 @@ func (s *ZhimaQueryResp) SetSubMsg(v string) *ZhimaQueryResp {
 // 企业涉众风险详细信息
 type RtopCrowdRiskSummaryResp struct {
 	// 活跃市
+	// example:
+	//
+	// 杭州市
 	ActiveCity *string `json:"active_city,omitempty" xml:"active_city,omitempty"`
 	// 活跃县
+	// example:
+	//
+	// 西湖区
 	ActiveCounty *string `json:"active_county,omitempty" xml:"active_county,omitempty"`
 	// 活跃省
+	// example:
+	//
+	// 浙江省
 	ActiveProvince *string `json:"active_province,omitempty" xml:"active_province,omitempty"`
 	// 风险标签
 	ClueTags []*string `json:"clue_tags,omitempty" xml:"clue_tags,omitempty" type:"Repeated"`
 	// 企业ID
+	// example:
+	//
+	// 123456789
 	CompanyId *string `json:"company_id,omitempty" xml:"company_id,omitempty" require:"true"`
 	// 企业名称
+	// example:
+	//
+	// XXXXX有限公司
 	CompanyName *string `json:"company_name,omitempty" xml:"company_name,omitempty" require:"true"`
 	// 风险等级
+	// example:
+	//
+	// EX_HIGH_RISK
 	CrowdRiskLevel *string `json:"crowd_risk_level,omitempty" xml:"crowd_risk_level,omitempty"`
 	// 涉众风险分数
+	// example:
+	//
+	// 80
 	CrowdRiskScore *int64 `json:"crowd_risk_score,omitempty" xml:"crowd_risk_score,omitempty"`
 	// 涉众风险类型
+	// example:
+	//
+	// MLM
 	CrowdRiskType *string `json:"crowd_risk_type,omitempty" xml:"crowd_risk_type,omitempty"`
 	// 发现时间
+	// example:
+	//
+	// 2018-07-15
 	DetectedTime *string `json:"detected_time,omitempty" xml:"detected_time,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 影响金额
+	// example:
+	//
+	// 100
 	MoneyInvolved *int64 `json:"money_involved,omitempty" xml:"money_involved,omitempty"`
 	// 影响人数
+	// example:
+	//
+	// 100
 	PeopleInvolved *int64 `json:"people_involved,omitempty" xml:"people_involved,omitempty"`
 	// 注册市
+	// example:
+	//
+	// 杭州市
 	RegisteredCity *string `json:"registered_city,omitempty" xml:"registered_city,omitempty"`
 	// 注册县
+	// example:
+	//
+	// 西湖区
 	RegisteredCounty *string `json:"registered_county,omitempty" xml:"registered_county,omitempty"`
 	// 注册省
+	// example:
+	//
+	// 浙江省
 	RegisteredProvince *string `json:"registered_province,omitempty" xml:"registered_province,omitempty"`
 }
 
@@ -3280,8 +4183,14 @@ func (s *RtopCrowdRiskSummaryResp) SetRegisteredProvince(v string) *RtopCrowdRis
 // 天枢-电商-申请人信息
 type EcApplicantPersonInfo struct {
 	// 如果合作方传输，会在我行H5进件页面反显展示
+	// example:
+	//
+	// 张三
 	ApplicantName *string `json:"applicant_name,omitempty" xml:"applicant_name,omitempty"`
 	// 申请人身份证号码
+	// example:
+	//
+	// 6230582100000003260
 	IdNo *string `json:"id_no,omitempty" xml:"id_no,omitempty"`
 }
 
@@ -3306,8 +4215,14 @@ func (s *EcApplicantPersonInfo) SetIdNo(v string) *EcApplicantPersonInfo {
 // 回执统计结果
 type StatisticResult struct {
 	// 有效任务总数量
+	// example:
+	//
+	// 123
 	ValidCount *int64 `json:"valid_count,omitempty" xml:"valid_count,omitempty" require:"true"`
 	// 各类actionDriverCode的统计结果集合
+	// example:
+	//
+	// List<StatisticInfoDetail>
 	StatisticInfoDetailList []*StatisticInfoDetail `json:"statistic_info_detail_list,omitempty" xml:"statistic_info_detail_list,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -3332,30 +4247,69 @@ func (s *StatisticResult) SetStatisticInfoDetailList(v []*StatisticInfoDetail) *
 // 标签配置全量信息
 type RiskLabelConfigInfo struct {
 	// id
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 线索ID
+	// example:
+	//
+	// 124
 	TagId *string `json:"tag_id,omitempty" xml:"tag_id,omitempty" require:"true"`
 	// 标签文本
+	// example:
+	//
+	// 233444
 	TagText *string `json:"tag_text,omitempty" xml:"tag_text,omitempty" require:"true"`
+	// 风险维度
+	// example:
+	//
 	// 风险维度
 	RiskDimensionType *string `json:"risk_dimension_type,omitempty" xml:"risk_dimension_type,omitempty" require:"true"`
 	// 线索类型
+	// example:
+	//
+	// 列表
 	RiskDetailType *string `json:"risk_detail_type,omitempty" xml:"risk_detail_type,omitempty" require:"true"`
 	// 趋势图表名
+	// example:
+	//
+	// XX趋势图
 	TagTrendChartName *string `json:"tag_trend_chart_name,omitempty" xml:"tag_trend_chart_name,omitempty" require:"true"`
 	// 线索列表表头，英文逗号分隔
+	// example:
+	//
+	// 日期
 	TagListHeaders *string `json:"tag_list_headers,omitempty" xml:"tag_list_headers,omitempty" require:"true"`
 	// 标签列表，排序字段
+	// example:
+	//
+	// 日期
 	TagListOrderColumn *string `json:"tag_list_order_column,omitempty" xml:"tag_list_order_column,omitempty" require:"true"`
 	// 标签列表排序方式
+	// example:
+	//
+	// 顺序
 	TagListOrderType *string `json:"tag_list_order_type,omitempty" xml:"tag_list_order_type,omitempty" require:"true"`
 	// 标记删除
+	// example:
+	//
+	// 0
 	IsDelete *int64 `json:"is_delete,omitempty" xml:"is_delete,omitempty" require:"true"`
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 修改时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtModified *string `json:"gmt_modified,omitempty" xml:"gmt_modified,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 操作人ID
+	// example:
+	//
+	// 1233
 	OperatorId *string `json:"operator_id,omitempty" xml:"operator_id,omitempty" require:"true"`
 }
 
@@ -3435,8 +4389,14 @@ func (s *RiskLabelConfigInfo) SetOperatorId(v string) *RiskLabelConfigInfo {
 // 输出参数
 type OutParam struct {
 	// 输出参数名称
+	// example:
+	//
+	// creditLimit
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 输出参数值
+	// example:
+	//
+	// 19000
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -3461,12 +4421,24 @@ func (s *OutParam) SetValue(v string) *OutParam {
 // 策略详情
 type StrategyDetails struct {
 	// 策略id
+	// example:
+	//
+	// 1
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
+	// 策略名称
+	// example:
+	//
 	// 策略名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 决策结果
+	// example:
+	//
+	// accept
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty" require:"true"`
 	// 场景码
+	// example:
+	//
+	// scene_code
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
 }
 
@@ -3501,10 +4473,19 @@ func (s *StrategyDetails) SetSceneCode(v string) *StrategyDetails {
 // 反欺诈风险数据服务决策结果
 type SecurityResultInfos struct {
 	// 反欺诈风险数据服务风险建议决策
+	// example:
+	//
+	// reject
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty" require:"true"`
 	// 反欺诈风险数据服务风险分
+	// example:
+	//
+	// 100.0
 	RiskScore *int64 `json:"risk_score,omitempty" xml:"risk_score,omitempty" require:"true"`
 	// 反欺诈风险数据服务场景码
+	// example:
+	//
+	// EC_TEST
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
 }
 
@@ -3534,8 +4515,14 @@ func (s *SecurityResultInfos) SetSceneCode(v string) *SecurityResultInfos {
 // 企业影响人数年龄分布统计
 type RtopAgeDistribution struct {
 	// 年龄
+	// example:
+	//
+	// above20
 	Age *string `json:"age,omitempty" xml:"age,omitempty" require:"true"`
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 }
 
@@ -3560,8 +4547,14 @@ func (s *RtopAgeDistribution) SetCount(v int) *RtopAgeDistribution {
 // 客群详细信息
 type CustomerInfo struct {
 	// 查询的用户凭证列表
+	// example:
+	//
+	// 15022321363
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 	// 客户属性的额外信息
+	// example:
+	//
+	// {"test_score": 22.0}
 	Properties *string `json:"properties,omitempty" xml:"properties,omitempty"`
 }
 
@@ -3586,125 +4579,305 @@ func (s *CustomerInfo) SetProperties(v string) *CustomerInfo {
 // 企业信息
 type CompanyInfo struct {
 	// 活跃地json
+	// example:
+	//
+	// 活跃地json
 	ActiveAddrJson *string `json:"active_addr_json,omitempty" xml:"active_addr_json,omitempty" require:"true"`
+	// 活跃市(字段停用)
+	// example:
+	//
 	// 活跃市(字段停用)
 	ActiveCity *string `json:"active_city,omitempty" xml:"active_city,omitempty" require:"true"`
 	// 活跃县(字段停用)
+	// example:
+	//
+	// 活跃县(字段停用)
 	ActiveCounty *string `json:"active_county,omitempty" xml:"active_county,omitempty" require:"true"`
+	// 活跃省(字段停用)
+	// example:
+	//
 	// 活跃省(字段停用)
 	ActiveProvince *string `json:"active_province,omitempty" xml:"active_province,omitempty" require:"true"`
 	// 类经融行业分类
+	// example:
+	//
+	// 类金融
 	Categories *string `json:"categories,omitempty" xml:"categories,omitempty" require:"true"`
 	// 核准日期
+	// example:
+	//
+	// 20191023
 	CheckDate *string `json:"check_date,omitempty" xml:"check_date,omitempty" require:"true"`
 	// 删除标志
+	// example:
+	//
+	// 0
 	DelFlag *string `json:"del_flag,omitempty" xml:"del_flag,omitempty" require:"true"`
 	// odps数据产生时间，业务上不关心
+	// example:
+	//
+	// 20190922
 	Dt *string `json:"dt,omitempty" xml:"dt,omitempty" require:"true"`
 	// 企业曾用名
+	// example:
+	//
+	// [123,45tee]
 	FormerOrgNames *string `json:"former_org_names,omitempty" xml:"former_org_names,omitempty" require:"true"`
 	// {"mct_one_id":"ID1","org_name":"总公司名称1"}
+	// example:
+	//
+	// 总公司,json格式
 	HeadOffice *string `json:"head_office,omitempty" xml:"head_office,omitempty" require:"true"`
 	// 记录ID
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 影响金额
+	// example:
+	//
+	// 300
 	InvolvedAmount *int64 `json:"involved_amount,omitempty" xml:"involved_amount,omitempty" require:"true"`
 	// 影响人数
+	// example:
+	//
+	// 100
 	InvolvedPeople *int64 `json:"involved_people,omitempty" xml:"involved_people,omitempty" require:"true"`
 	// 重要关联企业,json格式
+	// example:
+	//
+	// [{"mct_one_id":"ID1","org_name":"企业名称1","relation_desc":"关联描述1"},{"mct_one_id":"ID2","org_name":"企业名称2","relation_desc":"关联描述2"}]
 	KeyRelaOrgs *string `json:"key_rela_orgs,omitempty" xml:"key_rela_orgs,omitempty" require:"true"`
 	// 法人
+	// example:
+	//
+	// 张三
 	LegalRepresentative *string `json:"legal_representative,omitempty" xml:"legal_representative,omitempty" require:"true"`
 	// 企业ID
+	// example:
+	//
+	// 12
 	MctOneId *string `json:"mct_one_id,omitempty" xml:"mct_one_id,omitempty" require:"true"`
+	// 经营地json
+	// example:
+	//
 	// 经营地json
 	OperatingAddrJson *string `json:"operating_addr_json,omitempty" xml:"operating_addr_json,omitempty" require:"true"`
 	// 经营市(字段停用)
+	// example:
+	//
+	// 经营市(字段停用)
 	OperatingCity *string `json:"operating_city,omitempty" xml:"operating_city,omitempty" require:"true"`
+	// 经营县(字段停用)
+	// example:
+	//
 	// 经营县(字段停用)
 	OperatingCounty *string `json:"operating_county,omitempty" xml:"operating_county,omitempty" require:"true"`
 	// 经营地址(字段停用)
+	// example:
+	//
+	// 经营地址(字段停用)
 	OperatingPlace *string `json:"operating_place,omitempty" xml:"operating_place,omitempty" require:"true"`
 	// 经营省(字段停用)
+	// example:
+	//
+	// operating_province
 	OperatingProvince *string `json:"operating_province,omitempty" xml:"operating_province,omitempty" require:"true"`
 	// 营运状态(1:营运0:不营运)
+	// example:
+	//
+	// 1
 	OprtActvState *string `json:"oprt_actv_state,omitempty" xml:"oprt_actv_state,omitempty" require:"true"`
 	// 经营期限至
+	// example:
+	//
+	// 20210201
 	OprtEndDate *string `json:"oprt_end_date,omitempty" xml:"oprt_end_date,omitempty" require:"true"`
 	// 经营范围
+	// example:
+	//
+	// 工商
 	OprtScope *string `json:"oprt_scope,omitempty" xml:"oprt_scope,omitempty" require:"true"`
 	// 经营期限自
+	// example:
+	//
+	// 20190201
 	OprtStartDate *string `json:"oprt_start_date,omitempty" xml:"oprt_start_date,omitempty" require:"true"`
 	// 操作类型
 	//
+	// example:
+	//
+	// add、delete、update
 	OpType *string `json:"op_type,omitempty" xml:"op_type,omitempty" require:"true"`
 	// 组织机构代码
+	// example:
+	//
+	// 246667
 	OrgCode *string `json:"org_code,omitempty" xml:"org_code,omitempty" require:"true"`
 	// 电子邮箱
+	// example:
+	//
+	// werr@163.com
 	OrgEmail *string `json:"org_email,omitempty" xml:"org_email,omitempty" require:"true"`
 	// 企业名
+	// example:
+	//
+	// 恒生电子
 	OrgName *string `json:"org_name,omitempty" xml:"org_name,omitempty" require:"true"`
 	// 注册资本折人民币(万元)
+	// example:
+	//
+	// 3000000000
 	OrgRegCptlRmb *string `json:"org_reg_cptl_rmb,omitempty" xml:"org_reg_cptl_rmb,omitempty" require:"true"`
 	// 企业状态
+	// example:
+	//
+	// 正常
 	OrgState *string `json:"org_state,omitempty" xml:"org_state,omitempty" require:"true"`
 	// 联系电话
+	// example:
+	//
+	// 1234567
 	OrgTel *string `json:"org_tel,omitempty" xml:"org_tel,omitempty" require:"true"`
 	// 企业类型
+	// example:
+	//
+	// 工商
 	OrgType *string `json:"org_type,omitempty" xml:"org_type,omitempty" require:"true"`
 	// 平台名
+	// example:
+	//
+	// p2p平台
 	PlatformName *string `json:"platform_name,omitempty" xml:"platform_name,omitempty" require:"true"`
+	// 平台状态
+	// example:
+	//
 	// 平台状态
 	PlatformStates *string `json:"platform_states,omitempty" xml:"platform_states,omitempty" require:"true"`
 	// 注册资本币种
+	// example:
+	//
+	// 人名币
 	RegisterCapitalCurrency *string `json:"register_capital_currency,omitempty" xml:"register_capital_currency,omitempty" require:"true"`
 	// 注册资本值
+	// example:
+	//
+	// 2300000
 	RegisterCapitalValue *string `json:"register_capital_value,omitempty" xml:"register_capital_value,omitempty" require:"true"`
 	// 注册市
+	// example:
+	//
+	// 宣城市
 	RegisterCity *string `json:"register_city,omitempty" xml:"register_city,omitempty" require:"true"`
 	// 注册区县
+	// example:
+	//
+	// 南海区
 	RegisterCounty *string `json:"register_county,omitempty" xml:"register_county,omitempty" require:"true"`
 	// 注册时间
+	// example:
+	//
+	// 20110203
 	RegisterDate *string `json:"register_date,omitempty" xml:"register_date,omitempty" require:"true"`
 	// 注册地址
+	// example:
+	//
+	// 江苏省
 	RegisterPlace *string `json:"register_place,omitempty" xml:"register_place,omitempty" require:"true"`
 	// 注册省
+	// example:
+	//
+	// 安徽省
 	RegisterProvince *string `json:"register_province,omitempty" xml:"register_province,omitempty" require:"true"`
 	// 登记机关
+	// example:
+	//
+	// XX金融办
 	RegistrationAuthority *string `json:"registration_authority,omitempty" xml:"registration_authority,omitempty" require:"true"`
 	// 工商注册号
+	// example:
+	//
+	// 23456667
 	RegNo *string `json:"reg_no,omitempty" xml:"reg_no,omitempty" require:"true"`
 	// 风报企业ID
+	// example:
+	//
+	// 1234
 	RiskstormCompanyId *string `json:"riskstorm_company_id,omitempty" xml:"riskstorm_company_id,omitempty" require:"true"`
+	// 风险维度
+	// example:
+	//
 	// 风险维度
 	RiskFactors *string `json:"risk_factors,omitempty" xml:"risk_factors,omitempty" require:"true"`
 	// 风险图谱可视化数据
+	// example:
+	//
+	// 风险图谱可视化数据
 	RiskGraphJson *string `json:"risk_graph_json,omitempty" xml:"risk_graph_json,omitempty" require:"true"`
+	// 风险报文
+	// example:
+	//
 	// 风险报文
 	RiskMessage *string `json:"risk_message,omitempty" xml:"risk_message,omitempty" require:"true"`
 	// 风险指数
+	// example:
+	//
+	// 80
 	RiskScore *int64 `json:"risk_score,omitempty" xml:"risk_score,omitempty" require:"true"`
 	// 风险指数，按日的趋势图
+	// example:
+	//
+	// 风险指数
 	RiskScoreTrend *string `json:"risk_score_trend,omitempty" xml:"risk_score_trend,omitempty" require:"true"`
 	// 风险指数周波动
+	// example:
+	//
+	// 2.3
 	RiskScoreWeeklyFloat *int64 `json:"risk_score_weekly_float,omitempty" xml:"risk_score_weekly_float,omitempty" require:"true"`
 	// 风险标签(字段停用)
+	// example:
+	//
+	// 经营异常
 	RiskTags *string `json:"risk_tags,omitempty" xml:"risk_tags,omitempty" require:"true"`
 	// 风险标签ID
+	// example:
+	//
+	// NM12,NM34
 	RiskTagsId *string `json:"risk_tags_id,omitempty" xml:"risk_tags_id,omitempty" require:"true"`
+	// 风险定性
+	// example:
+	//
 	// 风险定性
 	RiskType *string `json:"risk_type,omitempty" xml:"risk_type,omitempty" require:"true"`
 	// 搜索内容
+	// example:
+	//
+	// 隐隐科技
 	SearchContent *string `json:"search_content,omitempty" xml:"search_content,omitempty" require:"true"`
+	// 传播人次
+	// example:
+	//
 	// 传播人次
 	SpreadNumber *int64 `json:"spread_number,omitempty" xml:"spread_number,omitempty" require:"true"`
 	// 影响地区人次分布,json格式如下
+	// example:
+	//
+	// [{"place_type":"prov","active_info":[{"place_name":"省1","num":3690},{"place_name":"省2","num":3680}]},{"place_type":"city","active_info":[{"place_name":"市1","num":3690},{"place_name":"市2","num":3680}]}]
 	SpreadNumDistribution *string `json:"spread_num_distribution,omitempty" xml:"spread_num_distribution,omitempty" require:"true"`
 	// 社会统一信用代码
+	// example:
+	//
+	// 2456787878
 	UcCode *string `json:"uc_code,omitempty" xml:"uc_code,omitempty" require:"true"`
 	// 公有云数据库产生时间
+	// example:
+	//
+	// 20190923
 	UpdateDate *string `json:"update_date,omitempty" xml:"update_date,omitempty" require:"true"`
 	// 平台json
+	// example:
+	//
+	//  [{"platform_name":"ptp","platform_states":"平台状态"}]
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty" require:"true"`
 }
 
@@ -4019,22 +5192,49 @@ func (s *CompanyInfo) SetPlatform(v string) *CompanyInfo {
 // 营销盾事件信息同步详情
 type EventResultSyncDetail struct {
 	// 事件唯一id（单个租户全局唯一）
+	// example:
+	//
+	// 12345
 	EventId *string `json:"event_id,omitempty" xml:"event_id,omitempty" require:"true"`
 	// 营销计划id
+	// example:
+	//
+	// 12345
 	PlanId *string `json:"plan_id,omitempty" xml:"plan_id,omitempty" require:"true"`
 	// 消息id
+	// example:
+	//
+	// 1122
 	MsgId *string `json:"msg_id,omitempty" xml:"msg_id,omitempty" require:"true"`
 	// 事件时间
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss.SSS
 	EventTime *string `json:"event_time,omitempty" xml:"event_time,omitempty" require:"true"`
 	// 事件类型：1为富信贴尾
+	// example:
+	//
+	// 1
 	EventType *int64 `json:"event_type,omitempty" xml:"event_type,omitempty" require:"true"`
 	// 1为成功 2为失败
+	// example:
+	//
+	// 1
 	State *int64 `json:"state,omitempty" xml:"state,omitempty" require:"true"`
 	// 用户key类型
+	// example:
+	//
+	// MOBILE
 	KeyType *string `json:"key_type,omitempty" xml:"key_type,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// 15012340000
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 	// 扩展字段
+	// example:
+	//
+	// {"operator":"CMCC"}
 	ExtData *string `json:"ext_data,omitempty" xml:"ext_data,omitempty" require:"true"`
 }
 
@@ -4094,12 +5294,24 @@ func (s *EventResultSyncDetail) SetExtData(v string) *EventResultSyncDetail {
 // 通用响应结构体
 type RpcommonResp struct {
 	// 调用是否成功
+	// example:
+	//
+	// true, false
 	Success *bool `json:"success,omitempty" xml:"success,omitempty" require:"true"`
 	// 结果描述
+	// example:
+	//
+	// success
 	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty" require:"true"`
 	// 结果码
+	// example:
+	//
+	// 0
 	ResponseCode *string `json:"response_code,omitempty" xml:"response_code,omitempty" require:"true"`
 	// 具体返回值.jsonString形式
+	// example:
+	//
+	// {"a":1}
 	Data *string `json:"data,omitempty" xml:"data,omitempty" require:"true"`
 }
 
@@ -4134,8 +5346,14 @@ func (s *RpcommonResp) SetData(v string) *RpcommonResp {
 // 申请人信息
 type ApplicantPersonInfo struct {
 	// 申请人姓名
+	// example:
+	//
+	// 张三
 	ApplicantName *string `json:"applicant_name,omitempty" xml:"applicant_name,omitempty"`
 	// 申请人身份证号码
+	// example:
+	//
+	// 6230582100000003260
 	IdNo *string `json:"id_no,omitempty" xml:"id_no,omitempty"`
 }
 
@@ -4160,18 +5378,39 @@ func (s *ApplicantPersonInfo) SetIdNo(v string) *ApplicantPersonInfo {
 // 门店账户信息
 type StoreAccountInfo struct {
 	// 结算银行卡号
+	// example:
+	//
+	// 2023343380112
 	BankCardNo *string `json:"bank_card_no,omitempty" xml:"bank_card_no,omitempty" require:"true"`
 	// 结算银行账户名称
+	// example:
+	//
+	// 交通银行
 	BankAccountName *string `json:"bank_account_name,omitempty" xml:"bank_account_name,omitempty" require:"true"`
 	// 结算银行code
+	// example:
+	//
+	// ICBC
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty" require:"true"`
 	// 商户号(支付通道给的商户编号)
+	// example:
+	//
+	// 202334332380
 	MerchantNo *string `json:"merchant_no,omitempty" xml:"merchant_no,omitempty" require:"true"`
 	// 银行虚拟户卡号(监管户的账户信息)
+	// example:
+	//
+	// 3242352345234
 	EVirtualBankCardNo *string `json:"e_virtual_bank_card_no,omitempty" xml:"e_virtual_bank_card_no,omitempty" require:"true"`
 	// 银行虚拟户账户名称(监管户的账户信息)
+	// example:
+	//
+	// 账户1
 	EVirtualBankAccountName *string `json:"e_virtual_bank_account_name,omitempty" xml:"e_virtual_bank_account_name,omitempty" require:"true"`
 	// 银行虚拟户银行code(监管户的账户信息)
+	// example:
+	//
+	// SEFG
 	EVirtualBankCode *string `json:"e_virtual_bank_code,omitempty" xml:"e_virtual_bank_code,omitempty" require:"true"`
 }
 
@@ -4221,18 +5460,39 @@ func (s *StoreAccountInfo) SetEVirtualBankCode(v string) *StoreAccountInfo {
 // 客户信息结果
 type CustomInfoResult struct {
 	// 社会信用代码
+	// example:
+	//
+	// 923231293311125216
 	CreditCode *string `json:"credit_code,omitempty" xml:"credit_code,omitempty" require:"true"`
 	// 公司名称
+	// example:
+	//
+	// 测试查询科技有限公司
 	CompanyName *string `json:"company_name,omitempty" xml:"company_name,omitempty" require:"true"`
 	// 法人姓名
+	// example:
+	//
+	// 王华
 	LegalName *string `json:"legal_name,omitempty" xml:"legal_name,omitempty" require:"true"`
 	// 身份证号
+	// example:
+	//
+	// 320101111111111111
 	IdCard *string `json:"id_card,omitempty" xml:"id_card,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// 15899998888
 	PhoneNumber *string `json:"phone_number,omitempty" xml:"phone_number,omitempty" require:"true"`
 	// 账号
+	// example:
+	//
+	// 111111111
 	Account *string `json:"account,omitempty" xml:"account,omitempty" require:"true"`
 	// 密码
+	// example:
+	//
+	// 1111111
 	Password *string `json:"password,omitempty" xml:"password,omitempty" require:"true"`
 }
 
@@ -4284,6 +5544,9 @@ type RtopTagImage struct {
 	// 标签图片表主键
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 图片
+	// example:
+	//
+	// 1
 	Image *string `json:"image,omitempty" xml:"image,omitempty"`
 }
 
@@ -4308,20 +5571,44 @@ func (s *RtopTagImage) SetImage(v string) *RtopTagImage {
 // 授信信息
 type ApplyInfo struct {
 	// 授信编号
+	// example:
+	//
+	// xxxxx
 	ApplyNo *string `json:"apply_no,omitempty" xml:"apply_no,omitempty"`
 	// 资金方编号
+	// example:
+	//
+	// xxxxx
 	FundCode *string `json:"fund_code,omitempty" xml:"fund_code,omitempty"`
 	// 资金方名称
+	// example:
+	//
+	// xxxxx
 	FundName *string `json:"fund_name,omitempty" xml:"fund_name,omitempty"`
 	// 贷款利率
+	// example:
+	//
+	// xxxxx
 	RateValue *int64 `json:"rate_value,omitempty" xml:"rate_value,omitempty"`
 	// 贷款日利率
+	// example:
+	//
+	// xxxxx
 	RateValueDay *int64 `json:"rate_value_day,omitempty" xml:"rate_value_day,omitempty"`
 	// 年天数
+	// example:
+	//
+	// xxxxx
 	DaysNumYear *int64 `json:"days_num_year,omitempty" xml:"days_num_year,omitempty"`
 	// 总授信额度
+	// example:
+	//
+	// xxxxx
 	TotalAmount *int64 `json:"total_amount,omitempty" xml:"total_amount,omitempty"`
 	// 可用额度
+	// example:
+	//
+	// xxxxx
 	BalanceAmount *int64 `json:"balance_amount,omitempty" xml:"balance_amount,omitempty"`
 }
 
@@ -4376,21 +5663,48 @@ func (s *ApplyInfo) SetBalanceAmount(v int64) *ApplyInfo {
 // 风险基因-点
 type RtopRiskGeneNode struct {
 	// 主企业唯一ID
+	// example:
+	//
+	// 1
 	MainCompanyId *string `json:"main_company_id,omitempty" xml:"main_company_id,omitempty"`
 	// 主企业名称
+	// example:
+	//
+	// 1
 	MainCompanyName *string `json:"main_company_name,omitempty" xml:"main_company_name,omitempty"`
 	// 节点唯一ID
+	// example:
+	//
+	// 1
 	NodeId *string `json:"node_id,omitempty" xml:"node_id,omitempty"`
 	// 节点名称
+	// example:
+	//
+	// 1
 	NodeName *string `json:"node_name,omitempty" xml:"node_name,omitempty"`
 	// 节点证件号码
+	// example:
+	//
+	// 1
 	NodeCertNo *string `json:"node_cert_no,omitempty" xml:"node_cert_no,omitempty"`
 	// 节点类型，枚举值
+	// example:
+	//
+	// company
 	NodeType *string `json:"node_type,omitempty" xml:"node_type,omitempty"`
+	// 节点扩展信息
+	// example:
+	//
 	// 节点扩展信息
 	NodeExtJson *string `json:"node_ext_json,omitempty" xml:"node_ext_json,omitempty"`
 	// 基因模式
+	// example:
+	//
+	// risk_label
 	RiskLabel *string `json:"risk_label,omitempty" xml:"risk_label,omitempty"`
+	// 基因模式
+	// example:
+	//
 	// 基因模式
 	RiskMode *string `json:"risk_mode,omitempty" xml:"risk_mode,omitempty"`
 }
@@ -4451,8 +5765,14 @@ func (s *RtopRiskGeneNode) SetRiskMode(v string) *RtopRiskGeneNode {
 // 企业影响人数分布统计
 type RtopPopulationDistribution struct {
 	// 市
+	// example:
+	//
+	// 杭州市
 	City *string `json:"city,omitempty" xml:"city,omitempty" require:"true"`
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 }
 
@@ -4477,34 +5797,79 @@ func (s *RtopPopulationDistribution) SetCount(v int) *RtopPopulationDistribution
 // 天枢-电商-授信补充-拓展字段
 type EcBizContend struct {
 	// 企业名称
+	// example:
+	//
+	// 张三的贸易有限公司
 	DtEnterpriseName *string `json:"dt_enterprise_name,omitempty" xml:"dt_enterprise_name,omitempty" require:"true"`
 	// 企业社会信用代码
+	// example:
+	//
+	// 91234500123400000R
 	DtSocialCreditno *string `json:"dt_social_creditno,omitempty" xml:"dt_social_creditno,omitempty" require:"true"`
 	// 是否有关联关系Y/N
+	// example:
+	//
+	// Y
 	DtContractFlag *string `json:"dt_contract_flag,omitempty" xml:"dt_contract_flag,omitempty" require:"true"`
 	// 固定经营场所地址
+	// example:
+	//
+	// 广东省深圳市区福田区
 	DtFixedManageArea *string `json:"dt_fixed_manage_area,omitempty" xml:"dt_fixed_manage_area,omitempty"`
 	// 近1个月商户在电商平台的交易额（GMV）
+	// example:
+	//
+	// 10000234
 	DtMerchtAtEmrchPlfLimitLt1m *string `json:"dt_mercht_at_emrch_plf_limit_lt_1m,omitempty" xml:"dt_mercht_at_emrch_plf_limit_lt_1m,omitempty"`
 	// 近6个月的月均GMV
+	// example:
+	//
+	// 10000234
 	DtAvgGmvLt6m *string `json:"dt_avg_gmv_lt_6m,omitempty" xml:"dt_avg_gmv_lt_6m,omitempty" require:"true"`
 	// 近6个月平均退货率
+	// example:
+	//
+	// 8
 	DtAvgRetRateLt6m *string `json:"dt_avg_ret_rate_lt_6m,omitempty" xml:"dt_avg_ret_rate_lt_6m,omitempty" require:"true"`
 	// 近12个月平均退货率
+	// example:
+	//
+	// 10
 	DtAvgRetRateLt12m *string `json:"dt_avg_ret_rate_lt_12m,omitempty" xml:"dt_avg_ret_rate_lt_12m,omitempty" require:"true"`
 	// 退货率的季度均值
+	// example:
+	//
+	// 10
 	DtRetRateQtrAvgVal *string `json:"dt_ret_rate_qtr_avg_val,omitempty" xml:"dt_ret_rate_qtr_avg_val,omitempty"`
 	// 近3个月累计违规处罚金额
+	// example:
+	//
+	// 200.00
 	DtAccuFoulPunishAmtLt3m *string `json:"dt_accu_foul_punish_amt_lt_3m,omitempty" xml:"dt_accu_foul_punish_amt_lt_3m,omitempty" require:"true"`
 	// 是否有重大违规或交易违约
+	// example:
+	//
+	// Y
 	DtIsHaveMajorFoulOrTxnDeflt *string `json:"dt_is_have_major_foul_or_txn_deflt,omitempty" xml:"dt_is_have_major_foul_or_txn_deflt,omitempty" require:"true"`
 	// 过往是否有刷单等虚假贸易记录
+	// example:
+	//
+	// Y
 	DtHisHaveSngEtcVtlFakeTradeRcrd *string `json:"dt_his_have_sng_etc_vtl_fake_trade_rcrd,omitempty" xml:"dt_his_have_sng_etc_vtl_fake_trade_rcrd,omitempty" require:"true"`
 	// 合作时长表
+	// example:
+	//
+	// 抖音：24；天猫：12
 	DtCoDuranTab *string `json:"dt_co_duran_tab,omitempty" xml:"dt_co_duran_tab,omitempty" require:"true"`
 	// 店铺经营品类（准入非翡翠/玉石类、黄金／彩宝／钻石／珍珠类、钟表类、珠宝／文玩类、房产/汽车、汽车售后服务、奢侈品、虚拟/服务、二手、到店美食、物流服务类）
+	// example:
+	//
+	// 玉石类
 	DtEntCustSeg *string `json:"dt_ent_cust_seg,omitempty" xml:"dt_ent_cust_seg,omitempty" require:"true"`
 	// 店铺名称
+	// example:
+	//
+	// 张三的抖音小店
 	DtShopName *string `json:"dt_shop_name,omitempty" xml:"dt_shop_name,omitempty" require:"true"`
 	// 近12个月经营数据
 	MonthData []*EcMonthData `json:"month_data,omitempty" xml:"month_data,omitempty" require:"true" type:"Repeated"`
@@ -4601,6 +5966,9 @@ func (s *EcBizContend) SetMonthData(v []*EcMonthData) *EcBizContend {
 // 天枢文件信息统一结构体
 type DubheFileInfo struct {
 	// 文件访问路径
+	// example:
+	//
+	// https://aa.bb.png?expiredtime=xx
 	FilePath *string `json:"file_path,omitempty" xml:"file_path,omitempty" require:"true"`
 }
 
@@ -4622,6 +5990,9 @@ type CustomerUmktInfosModel struct {
 	// 归属用户的混合营销决策结果
 	UmktResults []*UmktInfoModel `json:"umkt_results,omitempty" xml:"umkt_results,omitempty" require:"true" type:"Repeated"`
 	// 用户凭证
+	// example:
+	//
+	// 8002c3d97e7d4d20a0647c75dfab1efe
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 }
 
@@ -4644,12 +6015,17 @@ func (s *CustomerUmktInfosModel) SetCustomerKey(v string) *CustomerUmktInfosMode
 }
 
 // 模型结果详情
-//
 type ModelDetails struct {
 	// 风险场景编码
+	// example:
+	//
+	// scene_code
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
 	// 该风险场景的风险分值
 	//
+	// example:
+	//
+	// 90
 	Score *string `json:"score,omitempty" xml:"score,omitempty" require:"true"`
 }
 
@@ -4674,8 +6050,14 @@ func (s *ModelDetails) SetScore(v string) *ModelDetails {
 // 资金方信息
 type GwFundRouterResult struct {
 	// 资金方代码
+	// example:
+	//
+	// D2024082100001
 	FundCode *string `json:"fund_code,omitempty" xml:"fund_code,omitempty" require:"true"`
 	// 资金方简称
+	// example:
+	//
+	// 杭银消金
 	AbbreFundName *string `json:"abbre_fund_name,omitempty" xml:"abbre_fund_name,omitempty" require:"true"`
 }
 
@@ -4700,22 +6082,49 @@ func (s *GwFundRouterResult) SetAbbreFundName(v string) *GwFundRouterResult {
 // 标签过滤配置
 type RiskLabelFilterConfigInfo struct {
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 修改时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtModified *string `json:"gmt_modified,omitempty" xml:"gmt_modified,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// id
+	// example:
+	//
+	// 1
 	Id *int64 `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 是否为基本筛选标签
+	// example:
+	//
+	// 1
 	IsBase *int64 `json:"is_base,omitempty" xml:"is_base,omitempty" require:"true"`
 	// 标记删除
+	// example:
+	//
+	// 0
 	IsDelete *int64 `json:"is_delete,omitempty" xml:"is_delete,omitempty" require:"true"`
 	// 操作人员ID
+	// example:
+	//
+	// 1
 	OperatorId *string `json:"operator_id,omitempty" xml:"operator_id,omitempty" require:"true"`
 	// 地区名
+	// example:
+	//
+	// place_name
 	PlaceName *string `json:"place_name,omitempty" xml:"place_name,omitempty" require:"true"`
 	// 地区类型
+	// example:
+	//
+	// place_type
 	PlaceType *string `json:"place_type,omitempty" xml:"place_type,omitempty" require:"true"`
 	// 标签ID
+	// example:
+	//
+	// 1
 	TagId *string `json:"tag_id,omitempty" xml:"tag_id,omitempty" require:"true"`
 }
 
@@ -4775,10 +6184,19 @@ func (s *RiskLabelFilterConfigInfo) SetTagId(v string) *RiskLabelFilterConfigInf
 // AI外呼每个用户维度的参数信息
 type RobotCallCustomerParam struct {
 	// 手机号/手机号md5
+	// example:
+	//
+	// 12345
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 	// 用户维度透传字段
+	// example:
+	//
+	// 12345
 	CustomerOutInfo *string `json:"customer_out_info,omitempty" xml:"customer_out_info,omitempty"`
 	// 外呼话术变量字段
+	// example:
+	//
+	// {"key1":"v1"}
 	Properties *string `json:"properties,omitempty" xml:"properties,omitempty"`
 }
 
@@ -4808,32 +6226,74 @@ func (s *RobotCallCustomerParam) SetProperties(v string) *RobotCallCustomerParam
 // 天枢系统职业信息
 type JobInfo struct {
 	// 职业
+	// example:
+	//
+	// xxx
 	JobType *string `json:"job_type,omitempty" xml:"job_type,omitempty"`
 	// 职务
+	// example:
+	//
+	// xxx
 	WorkPosition *string `json:"work_position,omitempty" xml:"work_position,omitempty"`
 	// 工作年限
+	// example:
+	//
+	// 2
 	JobLife *string `json:"job_life,omitempty" xml:"job_life,omitempty"`
 	// 本单位工作年限
+	// example:
+	//
+	// 1
 	CurrentJobLife *int64 `json:"current_job_life,omitempty" xml:"current_job_life,omitempty"`
 	// 公司名称
+	// example:
+	//
+	// xxx
 	CompanyName *string `json:"company_name,omitempty" xml:"company_name,omitempty"`
 	// 公司行业类型
+	// example:
+	//
+	// xx
 	CompanyIndustryType *string `json:"company_industry_type,omitempty" xml:"company_industry_type,omitempty"`
 	// 公司电话
+	// example:
+	//
+	// 111
 	CompanyTel *string `json:"company_tel,omitempty" xml:"company_tel,omitempty"`
 	// 公司省份
+	// example:
+	//
+	// 浙江
 	CompanyProvince *string `json:"company_province,omitempty" xml:"company_province,omitempty"`
+	// 公司城市
+	// example:
+	//
 	// 公司城市
 	CompanyCity *string `json:"company_city,omitempty" xml:"company_city,omitempty"`
 	// 公司区域
+	// example:
+	//
+	// 公司区域
 	CompanyArea *string `json:"company_area,omitempty" xml:"company_area,omitempty"`
+	// 公司街道
+	// example:
+	//
 	// 公司街道
 	CompanyStreet *string `json:"company_street,omitempty" xml:"company_street,omitempty"`
 	// 公司详细地址
+	// example:
+	//
+	// 公司详细地址
 	CompanyAddress *string `json:"company_address,omitempty" xml:"company_address,omitempty"`
+	// 年收入
+	// example:
+	//
 	// 年收入
 	YearSalary *int64 `json:"year_salary,omitempty" xml:"year_salary,omitempty"`
 	// 贷款用户所属行业类别
+	// example:
+	//
+	// 1
 	InduInvol *string `json:"indu_invol,omitempty" xml:"indu_invol,omitempty"`
 }
 
@@ -4918,15 +6378,33 @@ func (s *JobInfo) SetInduInvol(v string) *JobInfo {
 // 天枢系统居住信息结构体
 type LiveInfo struct {
 	// 居住省份
+	// example:
+	//
+	// 居住省份
 	LiveProvince *string `json:"live_province,omitempty" xml:"live_province,omitempty"`
+	// 居住城市
+	// example:
+	//
 	// 居住城市
 	LiveCity *string `json:"live_city,omitempty" xml:"live_city,omitempty"`
 	// 居住区域
+	// example:
+	//
+	// 居住区域
 	LiveArea *string `json:"live_area,omitempty" xml:"live_area,omitempty"`
+	// 居住街道
+	// example:
+	//
 	// 居住街道
 	LiveStreet *string `json:"live_street,omitempty" xml:"live_street,omitempty"`
 	// 居住详细地址
+	// example:
+	//
+	// 居住详细地址
 	LiveAddress *string `json:"live_address,omitempty" xml:"live_address,omitempty"`
+	// 居住年限
+	// example:
+	//
 	// 居住年限
 	LiveYears *int64 `json:"live_years,omitempty" xml:"live_years,omitempty"`
 }
@@ -4972,10 +6450,19 @@ func (s *LiveInfo) SetLiveYears(v int64) *LiveInfo {
 // 风报风险标签统计
 type RiskStormLabelResp struct {
 	// 标签次数
+	// example:
+	//
+	// 10
 	LabelCount *int `json:"label_count,omitempty" xml:"label_count,omitempty" require:"true"`
 	// 标签id
+	// example:
+	//
+	// cancelled
 	LabelId *string `json:"label_id,omitempty" xml:"label_id,omitempty" require:"true"`
 	// 标签名称
+	// example:
+	//
+	// 注销
 	LabelName *string `json:"label_name,omitempty" xml:"label_name,omitempty" require:"true"`
 }
 
@@ -5009,12 +6496,24 @@ type SupplementFile struct {
 	// 302-行驶证副本
 	// 303-车辆产证（摩托车二手车）
 	//
+	// example:
+	//
+	// xxx
 	FileType *string `json:"file_type,omitempty" xml:"file_type,omitempty" require:"true"`
 	// 材料url
+	// example:
+	//
+	// xxx
 	FileUrl *string `json:"file_url,omitempty" xml:"file_url,omitempty" require:"true"`
 	// 材料名称/描述
+	// example:
+	//
+	// xxx
 	FileDesc *string `json:"file_desc,omitempty" xml:"file_desc,omitempty"`
 	// 材料后缀，如png/jpg/jpeg
+	// example:
+	//
+	// png
 	FileSuffix *string `json:"file_suffix,omitempty" xml:"file_suffix,omitempty"`
 }
 
@@ -5049,16 +6548,34 @@ func (s *SupplementFile) SetFileSuffix(v string) *SupplementFile {
 // 芝麻四要素认证接口
 type ZhimaIdentifyResp struct {
 	// 唯一ID，接口正常的话有此字段
+	// example:
+	//
+	// ZM201505190ad422641448624704506270407
 	BizNo *string `json:"biz_no,omitempty" xml:"biz_no,omitempty"`
 	// 带参数的回调地址，接口正常的话有此字段
+	// example:
+	//
+	// http://zmmcportal.stable.zhimaxy.net/index.htm?biz_content=%7B%22biz_no%22%3A%225f491814480fafe7dc0779a1c452c9f7%22%7D&sign=dsgdsfhgdsfh
 	CertifyUrl *string `json:"certify_url,omitempty" xml:"certify_url,omitempty"`
 	// 蚂蚁调用芝麻的错误码
+	// example:
+	//
+	// OK
 	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty" require:"true"`
 	// 蚂蚁调用芝麻的结果描述
+	// example:
+	//
+	// Success/Invalid Arguments
 	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty" require:"true"`
 	// 蚂蚁调用芝麻的错误码
+	// example:
+	//
+	// isv.invalid-app-id
 	SubCode *string `json:"sub_code,omitempty" xml:"sub_code,omitempty"`
 	// 蚂蚁调用芝麻信息
+	// example:
+	//
+	// 无效的AppID参数
 	SubMsg *string `json:"sub_msg,omitempty" xml:"sub_msg,omitempty"`
 }
 
@@ -5103,17 +6620,38 @@ func (s *ZhimaIdentifyResp) SetSubMsg(v string) *ZhimaIdentifyResp {
 // 短信模板内容
 type CpaasSmsTemplate struct {
 	// 模板类型
+	// example:
+	//
+	// SMS_NOTIFICATION
 	TemplateType *string `json:"template_type,omitempty" xml:"template_type,omitempty"`
 	// 模板名称
+	// example:
+	//
+	// 扩展码测试
 	TemplateName *string `json:"template_name,omitempty" xml:"template_name,omitempty"`
 	// 模板内容
+	// example:
+	//
+	// 扩展码测试
 	TemplateContent *string `json:"template_content,omitempty" xml:"template_content,omitempty"`
 	// 审批状态
+	// example:
+	//
+	// APPROVED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 模版code
+	// example:
+	//
+	// SMS_2306XXXX
 	TemplateCode *string `json:"template_code,omitempty" xml:"template_code,omitempty"`
 	// 审核未通过原因
+	// example:
+	//
+	// 失败原因
 	FailReason *string `json:"fail_reason,omitempty" xml:"fail_reason,omitempty"`
+	// 短信创建时间
+	// example:
+	//
 	// 短信创建时间
 	CreateTime *string `json:"create_time,omitempty" xml:"create_time,omitempty"`
 }
@@ -5164,10 +6702,19 @@ func (s *CpaasSmsTemplate) SetCreateTime(v string) *CpaasSmsTemplate {
 // 输出变量列表
 type VariableDetails struct {
 	// 输出变量名称
+	// example:
+	//
+	// yidun_aft_v3
 	VariableName *string `json:"variable_name,omitempty" xml:"variable_name,omitempty" require:"true"`
 	// 输出变量值
+	// example:
+	//
+	// 66.6
 	VariableValue *string `json:"variable_value,omitempty" xml:"variable_value,omitempty" require:"true"`
 	// 输出变量值类型
+	// example:
+	//
+	// Double
 	VariableType *string `json:"variable_type,omitempty" xml:"variable_type,omitempty" require:"true"`
 }
 
@@ -5197,28 +6744,61 @@ func (s *VariableDetails) SetVariableType(v string) *VariableDetails {
 // 舆情的详情
 type RtopCompanyOpinionDetail struct {
 	// 具体的舆情内容
+	// example:
+	//
+	// 行业整体趋势仍向好,白酒2Q18营收增速略回落,大众品龙头竞争力强化
 	DocContent *string `json:"doc_content,omitempty" xml:"doc_content,omitempty" require:"true"`
 	// 舆情的id
+	// example:
+	//
+	// 1843266597720304871
 	DocId *string `json:"doc_id,omitempty" xml:"doc_id,omitempty" require:"true"`
 	// 舆情的标题
+	// example:
+	//
+	// 扫IC网获金证引擎战略投资;产业+互联网+金融;推进电子产业资源整合_搜狐科技_搜狐网
 	DocTitle *string `json:"doc_title,omitempty" xml:"doc_title,omitempty" require:"true"`
 	// 舆情的url
+	// example:
+	//
+	// http://istock.jrj.com.cn/article,yanbao,30483668.html
 	DocUrl *string `json:"doc_url,omitempty" xml:"doc_url,omitempty" require:"true"`
 	// 情感得分
+	// example:
+	//
+	// 2.80
 	EmotionScore *string `json:"emotion_score,omitempty" xml:"emotion_score,omitempty"`
 	// 实体相关度得分
+	// example:
+	//
+	// 0.71
 	EntityRelevancyScore *string `json:"entity_relevancy_score,omitempty" xml:"entity_relevancy_score,omitempty"`
 	// 命中的关键词
 	HitKeywords *string `json:"hit_keywords,omitempty" xml:"hit_keywords,omitempty"`
 	// 媒体影响力得分
+	// example:
+	//
+	// 6.90
 	MediaInfluenceScore *string `json:"media_influence_score,omitempty" xml:"media_influence_score,omitempty"`
 	// 来源媒体
+	// example:
+	//
+	// 东方媒体
 	MediaName *string `json:"media_name,omitempty" xml:"media_name,omitempty" require:"true"`
 	// 媒体传播得分
+	// example:
+	//
+	// 0.60
 	MediaPropagationScore *string `json:"media_propagation_score,omitempty" xml:"media_propagation_score,omitempty"`
 	// 舆情的发布时间
+	// example:
+	//
+	// 2018-07-15
 	PublishTime *string `json:"publish_time,omitempty" xml:"publish_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 相似文章数
+	// example:
+	//
+	// 2
 	SimilarDocs *int `json:"similar_docs,omitempty" xml:"similar_docs,omitempty"`
 }
 
@@ -5293,12 +6873,24 @@ func (s *RtopCompanyOpinionDetail) SetSimilarDocs(v int) *RtopCompanyOpinionDeta
 // 云通信短信发送结果
 type SmsReponse struct {
 	// 发送回执ID
+	// example:
+	//
+	// 696108134003934432^0
 	BizId *string `json:"biz_id,omitempty" xml:"biz_id,omitempty" require:"true"`
 	// 请求状态码; OK表示成功, 其他表示失败
+	// example:
+	//
+	// OK
 	Code *string `json:"code,omitempty" xml:"code,omitempty" require:"true"`
 	// 是否调用接口成功的描述
+	// example:
+	//
+	// OK
 	Message *string `json:"message,omitempty" xml:"message,omitempty" require:"true"`
 	// 请求ID
+	// example:
+	//
+	// EF2DE797-B632-5DCF-8502-600959436E77
 	RequestId *string `json:"request_id,omitempty" xml:"request_id,omitempty" require:"true"`
 }
 
@@ -5333,14 +6925,29 @@ func (s *SmsReponse) SetRequestId(v string) *SmsReponse {
 // 营销盾圈投任务信息
 type UmktCampaignTaskInfo struct {
 	// 任务唯一id
+	// example:
+	//
+	// xxx-xxx-xxx
 	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty" require:"true"`
 	// 圈投任务执行日期，yyyy-MM-dd格式
+	// example:
+	//
+	// 2025-12-25
 	ExecDate *string `json:"exec_date,omitempty" xml:"exec_date,omitempty" require:"true"`
 	// 圈投任务执行批次
+	// example:
+	//
+	// 202512250020
 	ExecBatch *string `json:"exec_batch,omitempty" xml:"exec_batch,omitempty" require:"true"`
 	// 圈投任务状态
+	// example:
+	//
+	// D
 	CampaignTaskStatus *string `json:"campaign_task_status,omitempty" xml:"campaign_task_status,omitempty" require:"true"`
 	// 节点任务列表
+	// example:
+	//
+	// [{"nodeId":"35d2171b68fd472c8f4cc5c293985d37","execDate":"","nodeTaskStatus":"F","relTaskList":[{"resourceId":"1007", "taskStatus":"F","errMsg":"上游节点执行失败"}]}
 	NodeTaskList []*UmktCampaignNodeTaskInfo `json:"node_task_list,omitempty" xml:"node_task_list,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -5380,40 +6987,94 @@ func (s *UmktCampaignTaskInfo) SetNodeTaskList(v []*UmktCampaignNodeTaskInfo) *U
 // 天枢系统专用ReceiptInfo结构体
 type ReceiptInfo struct {
 	// 客户名
+	// example:
+	//
+	// XXX
 	CustomName *string `json:"custom_name,omitempty" xml:"custom_name,omitempty" require:"true"`
 	// 证件号码
+	// example:
+	//
+	// xxx
 	CardNo *string `json:"card_no,omitempty" xml:"card_no,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// 166****1234
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
 	// 贷款金额
+	// example:
+	//
+	// 1234
 	ApplyAmount *int64 `json:"apply_amount,omitempty" xml:"apply_amount,omitempty" require:"true"`
 	// 发放金额
+	// example:
+	//
+	// 1234
 	LoanAmount *int64 `json:"loan_amount,omitempty" xml:"loan_amount,omitempty" require:"true"`
 	// 期数
+	// example:
+	//
+	// 12
 	Period *int64 `json:"period,omitempty" xml:"period,omitempty" require:"true"`
 	// 当前期数
+	// example:
+	//
+	// 12
 	CurPeriod *int64 `json:"cur_period,omitempty" xml:"cur_period,omitempty" require:"true"`
 	// 还款方式1：等额本息，2：等额本金，3：按月付息到期还本，4：利随本清，5：自由还款
+	// example:
+	//
+	// 1
 	RepayType *string `json:"repay_type,omitempty" xml:"repay_type,omitempty" require:"true"`
 	// 还款日
+	// example:
+	//
+	// XXXX.XX.XX
 	RepayDate *string `json:"repay_date,omitempty" xml:"repay_date,omitempty" require:"true"`
 	// 放款时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	LoanTime *string `json:"loan_time,omitempty" xml:"loan_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 借据状态0：未还清，1：已还清，2：已提前还清
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 已还本金
+	// example:
+	//
+	// 1234
 	AlreadyCorpus *int64 `json:"already_corpus,omitempty" xml:"already_corpus,omitempty" require:"true"`
 	// 已还利息
+	// example:
+	//
+	// 50
 	AlreadyAccrual *int64 `json:"already_accrual,omitempty" xml:"already_accrual,omitempty" require:"true"`
 	// 结清日期
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	AlreadyDate *string `json:"already_date,omitempty" xml:"already_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 审批状态0：通过 1：拒绝 2：审批中 3：失败
+	// example:
+	//
+	// 0
 	WorkflowStatus *string `json:"workflow_status,omitempty" xml:"workflow_status,omitempty" require:"true"`
 	// 借据编号
+	// example:
+	//
+	// 145785
 	ReceiptNo *string `json:"receipt_no,omitempty" xml:"receipt_no,omitempty" require:"true"`
 	// 放款状态(0：放款成功 1：放款失败 2：放款异常 3：放款中）
+	// example:
+	//
+	// 0
 	LoanStatus *string `json:"loan_status,omitempty" xml:"loan_status,omitempty"`
 	// 业务类型 1：现金贷（默认）、2：分期付
+	// example:
+	//
+	// 1
 	ProdType *string `json:"prod_type,omitempty" xml:"prod_type,omitempty"`
 }
 
@@ -5518,10 +7179,19 @@ func (s *ReceiptInfo) SetProdType(v string) *ReceiptInfo {
 // 天枢系统专用RepayRef结构体
 type RepayRef struct {
 	// 客户编码
+	// example:
+	//
+	// xxx
 	CustomNo *string `json:"custom_no,omitempty" xml:"custom_no,omitempty" require:"true"`
 	// 当前期数
+	// example:
+	//
+	// xx
 	Period *string `json:"period,omitempty" xml:"period,omitempty" require:"true"`
 	// 应还总额
+	// example:
+	//
+	// 1
 	NeedAmount *int64 `json:"need_amount,omitempty" xml:"need_amount,omitempty" require:"true"`
 	// 应还本金
 	NeedCorpus *int64 `json:"need_corpus,omitempty" xml:"need_corpus,omitempty" require:"true"`
@@ -5556,12 +7226,24 @@ type RepayRef struct {
 	// 期末本金
 	RemainCorpus *int64 `json:"remain_corpus,omitempty" xml:"remain_corpus,omitempty" require:"true"`
 	// 借据编号
+	// example:
+	//
+	// xx
 	ReceiptNo *string `json:"receipt_no,omitempty" xml:"receipt_no,omitempty" require:"true"`
 	// 还款状态1：已还清 2 未还 3 部分还款
+	// example:
+	//
+	// 1
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 应还日期
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	SettleDate *string `json:"settle_date,omitempty" xml:"settle_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 还款日期
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	TradeDate *string `json:"trade_date,omitempty" xml:"trade_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 }
 
@@ -5691,8 +7373,14 @@ func (s *RepayRef) SetTradeDate(v string) *RepayRef {
 // 回调通用返回体
 type CommonNotyfyResult struct {
 	// 请求id
+	// example:
+	//
+	// 123AA
 	RequestId *string `json:"request_id,omitempty" xml:"request_id,omitempty" require:"true"`
 	// 业务响应Json
+	// example:
+	//
+	// {"a":"b"}
 	BizResponse *string `json:"biz_response,omitempty" xml:"biz_response,omitempty" require:"true"`
 }
 
@@ -5719,20 +7407,41 @@ type RtopStarCompanyInfo struct {
 	// 行业
 	Categories []*string `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
 	// 经营地址
+	// example:
+	//
+	// 广东省珠海市前山金鸡西路
 	OperatingPlace *string `json:"operating_place,omitempty" xml:"operating_place,omitempty"`
 	// 经营省份
+	// example:
+	//
+	// 湖北省
 	OperatingProvince *string `json:"operating_province,omitempty" xml:"operating_province,omitempty"`
 	// 企业名称
+	// example:
+	//
+	// 珠海格力电器股份有限公司
 	OrgName *string `json:"org_name,omitempty" xml:"org_name,omitempty"`
 	// 风险分数
+	// example:
+	//
+	// 80
 	RiskScore *int64 `json:"risk_score,omitempty" xml:"risk_score,omitempty"`
 	// 风险标签
+	// example:
+	//
+	// ["内部被投诉","法定代表人名下企业超过6家"]
 	RiskTags []*string `json:"risk_tags,omitempty" xml:"risk_tags,omitempty" type:"Repeated"`
 	// 风险线索
 	RiskTagDetails []*RtopRiskTag `json:"risk_tag_details,omitempty" xml:"risk_tag_details,omitempty" type:"Repeated"`
 	// 风险标签Id集合
+	// example:
+	//
+	// ["CMN00025", "CMN00011"]
 	RiskTagIds []*string `json:"risk_tag_ids,omitempty" xml:"risk_tag_ids,omitempty" type:"Repeated"`
 	// 统一社会信用代码
+	// example:
+	//
+	// 91440400192548256N
 	UcCode *string `json:"uc_code,omitempty" xml:"uc_code,omitempty"`
 }
 
@@ -5794,6 +7503,9 @@ type PlatformRepayTypeInfo struct {
 	// 1：等额本息
 	// 2：等额本金
 	// 3：按期付息到期还本（先息后本）
+	// example:
+	//
+	// 1
 	RepayType *string `json:"repay_type,omitempty" xml:"repay_type,omitempty" require:"true"`
 	// {”1“，”2“}
 	Periods []*string `json:"periods,omitempty" xml:"periods,omitempty" require:"true" type:"Repeated"`
@@ -5820,8 +7532,14 @@ func (s *PlatformRepayTypeInfo) SetPeriods(v []*string) *PlatformRepayTypeInfo {
 // 企业日期趋势统计
 type RtopDateDistribution struct {
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 年龄
+	// example:
+	//
+	// 2018-09-09
 	Date *string `json:"date,omitempty" xml:"date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 }
 
@@ -5846,36 +7564,81 @@ func (s *RtopDateDistribution) SetDate(v string) *RtopDateDistribution {
 // 天枢系统个人信息结构体
 type PersonalInfo struct {
 	// 客户姓名
+	// example:
+	//
+	// 张三
 	CustomName *string `json:"custom_name,omitempty" xml:"custom_name,omitempty" require:"true"`
 	// 身份证号码(18位)
+	// example:
+	//
+	// 1234555
 	CardNo *string `json:"card_no,omitempty" xml:"card_no,omitempty" require:"true"`
 	// 1-身份证
+	// example:
+	//
+	// 1
 	IdType *string `json:"id_type,omitempty" xml:"id_type,omitempty" require:"true"`
 	// 证件开始日期(格式：YYYY-MM-DD)
 	//
+	// example:
+	//
+	// YYYY-MM-DD
 	CertSignDate *string `json:"cert_sign_date,omitempty" xml:"cert_sign_date,omitempty" require:"true"`
 	// 格式：YYYY-MM-DD，身份证有效期为长期的送: 9999-12-31
+	// example:
+	//
+	// YYYY-MM-DD
 	CertValidate *string `json:"cert_validate,omitempty" xml:"cert_validate,omitempty" require:"true"`
 	// 证件地址
+	// example:
+	//
+	// 浙江
 	CertAdr *string `json:"cert_adr,omitempty" xml:"cert_adr,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// 12344
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
 	// 学历
+	// example:
+	//
+	// 本科
 	Education *string `json:"education,omitempty" xml:"education,omitempty"`
 	// 所在省份 汉字
+	// example:
+	//
+	// 浙江
 	Province *string `json:"province,omitempty" xml:"province,omitempty"`
 	// 所在城市 汉字
+	// example:
+	//
+	// 杭州
 	City *string `json:"city,omitempty" xml:"city,omitempty"`
 	// 地区名称 汉字
+	// example:
+	//
+	// xxx
 	Area *string `json:"area,omitempty" xml:"area,omitempty"`
 	// 详细地址
+	// example:
+	//
+	// xxx
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
 	// 性别M-男
 	// F-女
+	// example:
+	//
+	// M
 	Sex *string `json:"sex,omitempty" xml:"sex,omitempty"`
 	// 民族
+	// example:
+	//
+	// 汉
 	Nation *string `json:"nation,omitempty" xml:"nation,omitempty"`
 	// 婚姻状态：00-未婚，01-已婚，02-离婚，03-丧偶，99-未知
+	// example:
+	//
+	// 00
 	MaritalStatus *string `json:"marital_status,omitempty" xml:"marital_status,omitempty"`
 }
 
@@ -5965,9 +7728,18 @@ func (s *PersonalInfo) SetMaritalStatus(v string) *PersonalInfo {
 // 策略流信息
 type DfSceneInfos struct {
 	// scene_code
+	// example:
+	//
+	// 场景code
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
 	// 拒绝
+	// example:
+	//
+	// reject
 	SceneDecision *string `json:"scene_decision,omitempty" xml:"scene_decision,omitempty" require:"true"`
+	// decision_flow
+	// example:
+	//
 	// decision_flow
 	DecisionFlow *DecisionFlow `json:"decision_flow,omitempty" xml:"decision_flow,omitempty" require:"true"`
 }
@@ -5998,10 +7770,19 @@ func (s *DfSceneInfos) SetDecisionFlow(v *DecisionFlow) *DfSceneInfos {
 // 用户凭证信息
 type CustomerDetail struct {
 	// 用户标识
+	// example:
+	//
+	// "186123456789"
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 	// 渠道参数
+	// example:
+	//
+	// "{"name":"苹果","code":"5643","num":"5"}"
 	ChannelParams *string `json:"channel_params,omitempty" xml:"channel_params,omitempty" require:"true"`
 	// 用户透传字段
+	// example:
+	//
+	// "[{"name":"zhangshan"}]"
 	ExtInfo *string `json:"ext_info,omitempty" xml:"ext_info,omitempty" require:"true"`
 }
 
@@ -6031,16 +7812,34 @@ func (s *CustomerDetail) SetExtInfo(v string) *CustomerDetail {
 // 用户绑定银行卡列表
 type CustomerBankCardInfo struct {
 	// 银行名称
+	// example:
+	//
+	// 工商银行
 	BankName *string `json:"bank_name,omitempty" xml:"bank_name,omitempty" require:"true"`
 	// 银行编码
+	// example:
+	//
+	// ICBC
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty" require:"true"`
 	// 银行卡号
+	// example:
+	//
+	// 6226211215645646
 	BankCardNo *string `json:"bank_card_no,omitempty" xml:"bank_card_no,omitempty" require:"true"`
 	// 是否已签约
+	// example:
+	//
+	// Y/N
 	Signed *string `json:"signed,omitempty" xml:"signed,omitempty"`
 	// 是否为账户代扣银行卡
+	// example:
+	//
+	// Y/N
 	AcctBankCard *string `json:"acct_bank_card,omitempty" xml:"acct_bank_card,omitempty"`
 	// 协议号
+	// example:
+	//
+	// 202515300000000000000158463
 	ProtocolNo *string `json:"protocol_no,omitempty" xml:"protocol_no,omitempty"`
 }
 
@@ -6085,30 +7884,66 @@ func (s *CustomerBankCardInfo) SetProtocolNo(v string) *CustomerBankCardInfo {
 // 期数费用
 type InstallmentTrial struct {
 	// 总期数
+	// example:
+	//
+	// 12
 	TotalPeriod *string `json:"total_period,omitempty" xml:"total_period,omitempty" require:"true"`
 	// 分期应还总金额
+	// example:
+	//
+	// 1999.98
 	TotalAmount *int64 `json:"total_amount,omitempty" xml:"total_amount,omitempty" require:"true"`
 	// 总利息（分期产生的利息/手续费）
+	// example:
+	//
+	// 1999.98
 	TotalFee *int64 `json:"total_fee,omitempty" xml:"total_fee,omitempty" require:"true"`
 	// 期费率，精确到小数点后四位0.1250，表示年利率为12.5%
+	// example:
+	//
+	// 0.1250
 	FeeRate *int64 `json:"fee_rate,omitempty" xml:"fee_rate,omitempty" require:"true"`
 	// 年利率，精确到小数点后四位0.1250，表示年利率为12.5%
+	// example:
+	//
+	// 0.1250
 	YearRate *int64 `json:"year_rate,omitempty" xml:"year_rate,omitempty" require:"true"`
 	// 月供列表
 	TermDetailList []*TermDetail `json:"term_detail_list,omitempty" xml:"term_detail_list,omitempty" require:"true" type:"Repeated"`
 	// 是否最优标识
+	// example:
+	//
+	// true, false
 	Optimal *bool `json:"optimal,omitempty" xml:"optimal,omitempty"`
 	// 总罚息
+	// example:
+	//
+	// 1999.98
 	TotalPenalty *int64 `json:"total_penalty,omitempty" xml:"total_penalty,omitempty"`
 	// 总担保费
+	// example:
+	//
+	// 1999.98
 	TotalGuaranteeFee *int64 `json:"total_guarantee_fee,omitempty" xml:"total_guarantee_fee,omitempty"`
 	// 总违约金
+	// example:
+	//
+	// 1999.98
 	TotalLiquidatedDamages *int64 `json:"total_liquidated_damages,omitempty" xml:"total_liquidated_damages,omitempty"`
 	// 总服务费
+	// example:
+	//
+	// 1999.98
 	TotalServerFee *int64 `json:"total_server_fee,omitempty" xml:"total_server_fee,omitempty"`
 	// 费率折扣，0.95：九五折；0：免息；1/null：不打折
+	// example:
+	//
+	// 0.95
 	Discount *int64 `json:"discount,omitempty" xml:"discount,omitempty"`
 	// 总减免金额
+	// example:
+	//
+	// 1999.98
 	TotalDeductAmount *int64 `json:"total_deduct_amount,omitempty" xml:"total_deduct_amount,omitempty"`
 }
 
@@ -6188,58 +8023,139 @@ func (s *InstallmentTrial) SetTotalDeductAmount(v int64) *InstallmentTrial {
 // 天枢-电商-借据详情
 type EcLoanDetail struct {
 	// 借据号
+	// example:
+	//
+	// ACCAL202301120798255316102054428
 	LoanAcctNo *string `json:"loan_acct_no,omitempty" xml:"loan_acct_no,omitempty" require:"true"`
 	// 贷款金额
+	// example:
+	//
+	// 1.23
 	LoanAmt *int64 `json:"loan_amt,omitempty" xml:"loan_amt,omitempty" require:"true"`
 	// 贷款发放日
+	// example:
+	//
+	// 2023/05/01
 	LoanStartDate *string `json:"loan_start_date,omitempty" xml:"loan_start_date,omitempty" require:"true"`
 	// 贷款到期日
+	// example:
+	//
+	// 2023/05/01
 	LoanEndDate *string `json:"loan_end_date,omitempty" xml:"loan_end_date,omitempty" require:"true"`
 	// 利率类型
+	// example:
+	//
+	// 1
 	RateType *string `json:"rate_type,omitempty" xml:"rate_type,omitempty" require:"true"`
 	// 利率单位
+	// example:
+	//
+	// 1
 	RateUnit *string `json:"rate_unit,omitempty" xml:"rate_unit,omitempty" require:"true"`
 	// 贷款利率 年化利率(%)
+	// example:
+	//
+	// 1.23
 	LoanIntRate *string `json:"loan_int_rate,omitempty" xml:"loan_int_rate,omitempty" require:"true"`
 	// 当前剩余本金
+	// example:
+	//
+	// 1.23
 	CurrRemainCorpus *string `json:"curr_remain_corpus,omitempty" xml:"curr_remain_corpus,omitempty" require:"true"`
 	// 还款方式
+	// example:
+	//
+	// 1
 	LoanRepayType *string `json:"loan_repay_type,omitempty" xml:"loan_repay_type,omitempty" require:"true"`
 	// 最后一次计息日
+	// example:
+	//
+	// 2023/05/01
 	LastCountIntDate *string `json:"last_count_int_date,omitempty" xml:"last_count_int_date,omitempty" require:"true"`
 	// 当前期数
+	// example:
+	//
+	// 25
 	CurrentTerm *string `json:"current_term,omitempty" xml:"current_term,omitempty" require:"true"`
 	// 当期应还日期
+	// example:
+	//
+	// 2023/05/01
 	CurRepayDay *string `json:"cur_repay_day,omitempty" xml:"cur_repay_day,omitempty" require:"true"`
 	// 对应期次应还金额
+	// example:
+	//
+	// 1.23
 	CurRemainAmt *int64 `json:"cur_remain_amt,omitempty" xml:"cur_remain_amt,omitempty" require:"true"`
 	// 当期已还总额
+	// example:
+	//
+	// 1.23
 	CurrentPaidAmt *int64 `json:"current_paid_amt,omitempty" xml:"current_paid_amt,omitempty" require:"true"`
 	// 对应期次应还本金
+	// example:
+	//
+	// 1.23
 	CurPrincipalAmount *int64 `json:"cur_principal_amount,omitempty" xml:"cur_principal_amount,omitempty" require:"true"`
 	// 对应期次已还本金
+	// example:
+	//
+	// 1.23
 	ActPrincipalAmount *int64 `json:"act_principal_amount,omitempty" xml:"act_principal_amount,omitempty" require:"true"`
 	// 对应期次应还利息
+	// example:
+	//
+	// 1.23
 	CurInterestAmount *int64 `json:"cur_interest_amount,omitempty" xml:"cur_interest_amount,omitempty" require:"true"`
 	// 对应期次已还利息
+	// example:
+	//
+	// 1.23
 	ActInterestAmount *int64 `json:"act_interest_amount,omitempty" xml:"act_interest_amount,omitempty" require:"true"`
 	// 对应期次应还正常利息
+	// example:
+	//
+	// 1.23
 	CurNormalInterestAmt *int64 `json:"cur_normal_interest_amt,omitempty" xml:"cur_normal_interest_amt,omitempty" require:"true"`
 	// 对应期次已还正常利息
+	// example:
+	//
+	// 1.23
 	ActCurNormalInterestAmt *int64 `json:"act_cur_normal_interest_amt,omitempty" xml:"act_cur_normal_interest_amt,omitempty" require:"true"`
 	// 对应期次应还罚息
+	// example:
+	//
+	// 1.23
 	CurPrincipalPenaltyAmt *int64 `json:"cur_principal_penalty_amt,omitempty" xml:"cur_principal_penalty_amt,omitempty" require:"true"`
 	// 对应期次已还罚息
+	// example:
+	//
+	// 1.23
 	ActCurPrincipalPenaltyAmt *int64 `json:"act_cur_principal_penalty_amt,omitempty" xml:"act_cur_principal_penalty_amt,omitempty" require:"true"`
 	// 对应期次应还复利
+	// example:
+	//
+	// 1.23
 	CurInterestPenaltyAmt *int64 `json:"cur_interest_penalty_amt,omitempty" xml:"cur_interest_penalty_amt,omitempty" require:"true"`
 	// 对应期次已还复利
+	// example:
+	//
+	// 1.23
 	ActCurInterestPenaltyAmt *int64 `json:"act_cur_interest_penalty_amt,omitempty" xml:"act_cur_interest_penalty_amt,omitempty" require:"true"`
 	// 总期数
+	// example:
+	//
+	// 1
 	TotalNum *string `json:"total_num,omitempty" xml:"total_num,omitempty" require:"true"`
 	// 借据状态
+	// example:
+	//
+	// 1
 	LoanStatus *string `json:"loan_status,omitempty" xml:"loan_status,omitempty" require:"true"`
 	// 总欠款本息
+	// example:
+	//
+	// 1.23
 	TotalOweCorpusInterest *string `json:"total_owe_corpus_interest,omitempty" xml:"total_owe_corpus_interest,omitempty" require:"true"`
 }
 
@@ -6389,6 +8305,9 @@ func (s *EcLoanDetail) SetTotalOweCorpusInterest(v string) *EcLoanDetail {
 // 营销盾离线圈客执行批次信息
 type UmktOfflineDecisionTaskExecBatchInfo struct {
 	// 执行批次
+	// example:
+	//
+	// 202501011930
 	ExecBatch *string `json:"exec_batch,omitempty" xml:"exec_batch,omitempty" require:"true"`
 	// 批次下任务列表
 	OfflineDecisionTaskDetailInfoList []*UmktOfflineDecisionTaskDetailInfo `json:"offline_decision_task_detail_info_list,omitempty" xml:"offline_decision_task_detail_info_list,omitempty" require:"true" type:"Repeated"`
@@ -6415,8 +8334,14 @@ func (s *UmktOfflineDecisionTaskExecBatchInfo) SetOfflineDecisionTaskDetailInfoL
 // 供应商
 type Supplier struct {
 	// 供应商id
+	// example:
+	//
+	// 111
 	SupplierId *string `json:"supplier_id,omitempty" xml:"supplier_id,omitempty" require:"true"`
 	// 供应商名字
+	// example:
+	//
+	// ANTCLOUD
 	SupplierName *string `json:"supplier_name,omitempty" xml:"supplier_name,omitempty" require:"true"`
 }
 
@@ -6441,7 +8366,13 @@ func (s *Supplier) SetSupplierName(v string) *Supplier {
 // 查询结果
 type QueryResult struct {
 	// key
+	// example:
+	//
+	// key
 	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// value
+	// example:
+	//
 	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
@@ -6469,6 +8400,9 @@ type OverdueInfoResponse struct {
 	// 逾期标识
 	// true：逾期
 	// false：未逾期
+	// example:
+	//
+	// true
 	OverDueFlag *bool `json:"over_due_flag,omitempty" xml:"over_due_flag,omitempty" require:"true"`
 	// 逾期天数
 	OverDays *int64 `json:"over_days,omitempty" xml:"over_days,omitempty" require:"true"`
@@ -6491,6 +8425,9 @@ type OverdueInfoResponse struct {
 	// 数据日期
 	SettleDate *string `json:"settle_date,omitempty" xml:"settle_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 借款唯一编号
+	// example:
+	//
+	// R2022xxxxxx
 	ReceiptNo *string `json:"receipt_no,omitempty" xml:"receipt_no,omitempty" require:"true"`
 	// 已还期数
 	AlreadyRepayPeriodCount *int64 `json:"already_repay_period_count,omitempty" xml:"already_repay_period_count,omitempty" require:"true"`
@@ -6501,6 +8438,9 @@ type OverdueInfoResponse struct {
 	// 放款日期
 	LoanTime *string `json:"loan_time,omitempty" xml:"loan_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 结清标志
+	// example:
+	//
+	// true, false
 	SettleFlag *bool `json:"settle_flag,omitempty" xml:"settle_flag,omitempty" require:"true"`
 	// 最近一次还款日期
 	NearestRepayTime *string `json:"nearest_repay_time,omitempty" xml:"nearest_repay_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
@@ -6607,15 +8547,33 @@ func (s *OverdueInfoResponse) SetNearestRepayTime(v string) *OverdueInfoResponse
 // 企管盾票税交接决策服务指标
 type RdaasTaxDecsionServiceIndicator struct {
 	// 决策指标id
+	// example:
+	//
+	// 决策指标id
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 决策服务id
+	// example:
+	//
+	// 700002
 	ServiceId *string `json:"service_id,omitempty" xml:"service_id,omitempty" require:"true"`
 	// 属性名
+	// example:
+	//
+	// weight
 	PropertyName *string `json:"property_name,omitempty" xml:"property_name,omitempty" require:"true"`
 	// 属性值或指标值
+	// example:
+	//
+	// 100
 	PropertyValue *string `json:"property_value,omitempty" xml:"property_value,omitempty"`
 	// 决策租户
+	// example:
+	//
+	// DEFAULT
 	DecisionTenant *string `json:"decision_tenant,omitempty" xml:"decision_tenant,omitempty"`
+	// 创建时间，格式:yyyy-MM-dd HH:mm:ss
+	// example:
+	//
 	// 创建时间，格式:yyyy-MM-dd HH:mm:ss
 	CreateTime *string `json:"create_time,omitempty" xml:"create_time,omitempty"`
 }
@@ -6661,20 +8619,41 @@ func (s *RdaasTaxDecsionServiceIndicator) SetCreateTime(v string) *RdaasTaxDecsi
 // 天枢预览协议信息
 type GetAgreementUrlResponseData struct {
 	// 协议标题
+	// example:
+	//
+	// 授信协议
 	Title *string `json:"title,omitempty" xml:"title,omitempty" require:"true"`
 	// 协议地址
+	// example:
+	//
+	// http:xxxxxxxx
 	AgreementUrl *string `json:"agreement_url,omitempty" xml:"agreement_url,omitempty"`
 	// 协议文件Base64
+	// example:
+	//
+	// 111
 	FileBase64 *string `json:"file_base64,omitempty" xml:"file_base64,omitempty"`
 	// 协议图片文件base64集合
+	// example:
+	//
+	// 111111
 	PicFileBase64List []*string `json:"pic_file_base64_list,omitempty" xml:"pic_file_base64_list,omitempty" type:"Repeated"`
 	// 图片文件oss集合
 	PicOssPathList []*string `json:"pic_oss_path_list,omitempty" xml:"pic_oss_path_list,omitempty" type:"Repeated"`
 	// 机构名称
+	// example:
+	//
+	// 杭银
 	OrganizationName *string `json:"organization_name,omitempty" xml:"organization_name,omitempty" require:"true"`
 	// 协议类型-code
+	// example:
+	//
+	// APPLY
 	FileType *string `json:"file_type,omitempty" xml:"file_type,omitempty" require:"true"`
 	// 协议类型-名称
+	// example:
+	//
+	// 授信协议
 	FileTypeName *string `json:"file_type_name,omitempty" xml:"file_type_name,omitempty" require:"true"`
 }
 
@@ -6729,14 +8708,29 @@ func (s *GetAgreementUrlResponseData) SetFileTypeName(v string) *GetAgreementUrl
 // 贷后异常监控
 type LoanMonitorCust struct {
 	// 合同编号
+	// example:
+	//
+	// CONT20230314000000143225
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty" require:"true"`
 	// 商户GMV 单位：元
+	// example:
+	//
+	// 5000000.00
 	GrossMercVolume *string `json:"gross_merc_volume,omitempty" xml:"gross_merc_volume,omitempty" require:"true"`
 	// 实际销售结算金额 单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 5000000.00
 	ActSaleAmt *string `json:"act_sale_amt,omitempty" xml:"act_sale_amt,omitempty" require:"true"`
 	// 退货率 单位：%
+	// example:
+	//
+	// 20
 	ReturnRate *string `json:"return_rate,omitempty" xml:"return_rate,omitempty" require:"true"`
 	// 已发货未收款金额 单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 5000000.00
 	AccountsReceivable *string `json:"accounts_receivable,omitempty" xml:"accounts_receivable,omitempty" require:"true"`
 }
 
@@ -6776,10 +8770,19 @@ func (s *LoanMonitorCust) SetAccountsReceivable(v string) *LoanMonitorCust {
 // 天枢-电商-企业信息
 type EcEnterpriseInfo struct {
 	// 企业名称
+	// example:
+	//
+	// 张三的贸易有限公司
 	EntName *string `json:"ent_name,omitempty" xml:"ent_name,omitempty" require:"true"`
 	// 申请企业证件类型
+	// example:
+	//
+	// Ent04
 	EntIdType *string `json:"ent_id_type,omitempty" xml:"ent_id_type,omitempty" require:"true"`
 	// 客户企业的统一社会信用代码，有企业信息则必输
+	// example:
+	//
+	// 91234500123400000R
 	EntIdNo *string `json:"ent_id_no,omitempty" xml:"ent_id_no,omitempty" require:"true"`
 }
 
@@ -6809,8 +8812,14 @@ func (s *EcEnterpriseInfo) SetEntIdNo(v string) *EcEnterpriseInfo {
 // 机构平台通知响应结果
 type DefinInnerChannelNotifyResult struct {
 	// 请求编号
+	// example:
+	//
+	// aaaa
 	RequestId *string `json:"request_id,omitempty" xml:"request_id,omitempty" require:"true"`
 	// 业务响应Json
+	// example:
+	//
+	// {"a":"b"}
 	BizResponse *string `json:"biz_response,omitempty" xml:"biz_response,omitempty" require:"true"`
 }
 
@@ -6835,6 +8844,9 @@ func (s *DefinInnerChannelNotifyResult) SetBizResponse(v string) *DefinInnerChan
 // 门店信息
 type StoreInfo struct {
 	// 品牌
+	// example:
+	//
+	// xxx
 	StoreBrand *string `json:"store_brand,omitempty" xml:"store_brand,omitempty" require:"true"`
 	// 品牌，商户入驻时需填写，
 	// TBJHF: 赛鸽出行
@@ -6843,78 +8855,186 @@ type StoreInfo struct {
 	// IFJRJTIJ: 骑士智行
 	// KVMPOH: 巨龙智行
 	// NPGBRVBO: 摩生态A
+	// example:
+	//
+	// IFJRJTIJ
 	TrafficPlatform *string `json:"traffic_platform,omitempty" xml:"traffic_platform,omitempty"`
 	// 门店ID
+	// example:
+	//
+	// xxxx
 	StoreId *string `json:"store_id,omitempty" xml:"store_id,omitempty" require:"true"`
 	// 门店名称
+	// example:
+	//
+	// xxxx
 	StoreName *string `json:"store_name,omitempty" xml:"store_name,omitempty" require:"true"`
 	// 统一社会信用代码
+	// example:
+	//
+	// xxx
 	Usci *string `json:"usci,omitempty" xml:"usci,omitempty" require:"true"`
 	// 门店-省，浙江省
+	// example:
+	//
+	// 浙江省
 	Province *string `json:"province,omitempty" xml:"province,omitempty" require:"true"`
 	// 省编码
+	// example:
+	//
+	// 100001
 	ProvinceCode *string `json:"province_code,omitempty" xml:"province_code,omitempty"`
 	// 门店-市，杭州市
+	// example:
+	//
+	// 杭州市
 	City *string `json:"city,omitempty" xml:"city,omitempty" require:"true"`
 	// 市编码
+	// example:
+	//
+	// xxxx
 	CityCode *string `json:"city_code,omitempty" xml:"city_code,omitempty"`
 	// 门店-区，滨江区
+	// example:
+	//
+	// 滨江区
 	District *string `json:"district,omitempty" xml:"district,omitempty" require:"true"`
 	// 区编码
+	// example:
+	//
+	// xxx
 	DistrictCode *string `json:"district_code,omitempty" xml:"district_code,omitempty"`
 	// 门店-详细地址，
 	// 望江路万达广场一层001号
+	// example:
+	//
+	// 望江路万达广场一层001号
 	Address *string `json:"address,omitempty" xml:"address,omitempty" require:"true"`
 	// 门店-经度
+	// example:
+	//
+	// xxxx
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
 	// 门店-纬度
+	// example:
+	//
+	// xxxx
 	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
 	// 营业执照-开始时间，yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	StoreStartDate *string `json:"store_start_date,omitempty" xml:"store_start_date,omitempty" require:"true"`
 	// 营业执照-结束时间，yyyy-MM-dd，长期上送：9999-12-31
+	// example:
+	//
+	// yyyy-MM-dd
 	StoreEndDate *string `json:"store_end_date,omitempty" xml:"store_end_date,omitempty" require:"true"`
 	// 门店类型，
 	// 个体: 个体工商户；企业
+	// example:
+	//
+	// 个体
 	StoreType *string `json:"store_type,omitempty" xml:"store_type,omitempty" require:"true"`
 	// 法人-姓名
+	// example:
+	//
+	// xxx
 	LegalPersonName *string `json:"legal_person_name,omitempty" xml:"legal_person_name,omitempty" require:"true"`
 	// 法人-身份证号
+	// example:
+	//
+	// xxx
 	LegalPersonIdCard *string `json:"legal_person_id_card,omitempty" xml:"legal_person_id_card,omitempty" require:"true"`
 	// 法人-手机号
+	// example:
+	//
+	// xxx
 	LegalPersonMobile *string `json:"legal_person_mobile,omitempty" xml:"legal_person_mobile,omitempty" require:"true"`
 	// 法人-身份证有效期，，身份证反面格式：如yyyy.MM.dd-长期
+	// example:
+	//
+	// yyyy.MM.dd-长期
 	EffectiveDate *string `json:"effective_date,omitempty" xml:"effective_date,omitempty" require:"true"`
 	// 对公-开户行名称
+	// example:
+	//
+	// xxx
 	BankName *string `json:"bank_name,omitempty" xml:"bank_name,omitempty"`
 	// 对公-开户行编码
+	// example:
+	//
+	// ICBC
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty"`
 	// 对公-支行名称
+	// example:
+	//
+	// xxx
 	BranchName *string `json:"branch_name,omitempty" xml:"branch_name,omitempty"`
 	// 对公-联行号
+	// example:
+	//
+	// xxx
 	CnapsCode *string `json:"cnaps_code,omitempty" xml:"cnaps_code,omitempty"`
 	// 对公-银行账户名称
+	// example:
+	//
+	// xxx
 	AccountName *string `json:"account_name,omitempty" xml:"account_name,omitempty"`
 	// 对公-银行账户号
+	// example:
+	//
+	// xxx
 	AccountNumber *string `json:"account_number,omitempty" xml:"account_number,omitempty"`
 	// 对公-开户行所在省，浙江
+	// example:
+	//
+	// 浙江
 	BankProvince *string `json:"bank_province,omitempty" xml:"bank_province,omitempty"`
 	// 对公-开户行所在市，杭州
+	// example:
+	//
+	// 杭州
 	BankCity *string `json:"bank_city,omitempty" xml:"bank_city,omitempty"`
 	// 对私-银行卡号
+	// example:
+	//
+	// xxxx
 	PayeeBankCard *string `json:"payee_bank_card,omitempty" xml:"payee_bank_card,omitempty"`
 	// 对私-银行名称
+	// example:
+	//
+	// xxx
 	PayeeBankName *string `json:"payee_bank_name,omitempty" xml:"payee_bank_name,omitempty"`
 	// 对私-银行编码
+	// example:
+	//
+	// ICBC
 	PayeeBankCode *string `json:"payee_bank_code,omitempty" xml:"payee_bank_code,omitempty"`
 	// 蚂蚁数科入驻账号
+	// example:
+	//
+	// xxxx
 	LoginTenant *string `json:"login_tenant,omitempty" xml:"login_tenant,omitempty"`
 	// 入驻时间
+	// example:
+	//
+	// yyyy-MM-dd
 	LoginDate *string `json:"login_date,omitempty" xml:"login_date,omitempty"`
 	// 结算支付宝账户，交易资金结算的具体支付宝账号，商户入驻时必填
+	// example:
+	//
+	// xxxx@126.com
 	AlipayLogonId *string `json:"alipay_logon_id,omitempty" xml:"alipay_logon_id,omitempty"`
 	// 支付宝openId
+	// example:
+	//
+	// xxxx
 	InfoSourceOpenId *string `json:"info_source_open_id,omitempty" xml:"info_source_open_id,omitempty"`
 	// 签约支付宝账户，商户入驻时必填（接收支付宝下发的签约协议）
+	// example:
+	//
+	// xxx
 	BindingAlipayLogonId *string `json:"binding_alipay_logon_id,omitempty" xml:"binding_alipay_logon_id,omitempty"`
 }
 
@@ -7114,8 +9234,14 @@ func (s *StoreInfo) SetBindingAlipayLogonId(v string) *StoreInfo {
 // 批量决策单主体查询结果
 type BatchQueryResult struct {
 	// 查询主体
+	// example:
+	//
+	// test
 	QueryKey *string `json:"query_key,omitempty" xml:"query_key,omitempty" require:"true"`
 	// 单用户决策结果
+	// example:
+	//
+	// accept
 	Decision *string `json:"decision,omitempty" xml:"decision,omitempty" require:"true"`
 	// 输出变量信息
 	OutputInfo *BatchQueryOutputModelInfo `json:"output_info,omitempty" xml:"output_info,omitempty" require:"true"`
@@ -7147,91 +9273,214 @@ func (s *BatchQueryResult) SetOutputInfo(v *BatchQueryOutputModelInfo) *BatchQue
 // 营销盾外呼记录
 type CommonRobotCallDetail struct {
 	// 客户请求时的透传字段
+	// example:
+	//
+	// 请求透传字段
 	ExtInfo *string `json:"ext_info,omitempty" xml:"ext_info,omitempty" require:"true"`
 	// 成功触达：OK；未触达：AI_ROBOT_CALL_REQUEST_NOT_EXIST
+	// example:
+	//
+	// OK
 	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty" require:"true"`
 	// 外呼号码
+	// example:
+	//
+	// 130XXXXXX
 	CustomerKey *string `json:"customer_key,omitempty" xml:"customer_key,omitempty" require:"true"`
 	// 呼叫次数
+	// example:
+	//
+	// 1
 	CurrentCallTimes *int64 `json:"current_call_times,omitempty" xml:"current_call_times,omitempty" require:"true"`
 	// 号码模版
+	// example:
+	//
+	// MOBILE/MOBILE/CUSTOMER_ENCRY
 	KeyTemplate *string `json:"key_template,omitempty" xml:"key_template,omitempty" require:"true"`
 	// 导入号码时返回的批次号
+	// example:
+	//
+	// 1
 	BatchId *string `json:"batch_id,omitempty" xml:"batch_id,omitempty" require:"true"`
 	// 2001:批量-预测外呼，2002:批量-AI外呼-不转人工，2003:批量-AI外呼-接通转人工，2004: 批量-AI外呼-智能转人工,2005:批量-语音通知
+	// example:
+	//
+	// 2001
 	CallType *int64 `json:"call_type,omitempty" xml:"call_type,omitempty" require:"true"`
 	// 用户自定义标签
+	// example:
+	//
+	// tag
 	Tag *string `json:"tag,omitempty" xml:"tag,omitempty"`
 	// 外呼id
+	// example:
+	//
+	// 9b2eb6b8
 	CallId *string `json:"call_id,omitempty" xml:"call_id,omitempty" require:"true"`
 	// 外呼任务编号
+	// example:
+	//
+	// 1
 	TaskId *int64 `json:"task_id,omitempty" xml:"task_id,omitempty" require:"true"`
 	// AI话术ID
+	// example:
+	//
+	// 1
 	TemplateId *int64 `json:"template_id,omitempty" xml:"template_id,omitempty"`
 	// 外呼状态编码
+	// example:
+	//
+	// 1
 	StatusCode *int64 `json:"status_code,omitempty" xml:"status_code,omitempty" require:"true"`
 	// 外呼状态描述
+	// example:
+	//
+	// 1
 	StatusDescription *string `json:"status_description,omitempty" xml:"status_description,omitempty" require:"true"`
 	// 转人工状态编码
+	// example:
+	//
+	// 1
 	TransferStatusCode *int64 `json:"transfer_status_code,omitempty" xml:"transfer_status_code,omitempty" require:"true"`
 	// 转人工状态
+	// example:
+	//
+	// 0
 	TransferStatus *string `json:"transfer_status,omitempty" xml:"transfer_status,omitempty" require:"true"`
 	// 分配坐席ID
 	AgentId *int64 `json:"agent_id,omitempty" xml:"agent_id,omitempty"`
 	// 坐席在贵司业务系统唯一标识，用于查询对应agentId；可以为空。
+	// example:
+	//
+	// a
 	AgentTag *string `json:"agent_tag,omitempty" xml:"agent_tag,omitempty"`
 	// 坐席分机号
+	// example:
+	//
+	// a
 	AgentExtension *string `json:"agent_extension,omitempty" xml:"agent_extension,omitempty"`
 	// 导入时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	ImportTime *string `json:"import_time,omitempty" xml:"import_time,omitempty" require:"true"`
 	// 开始通话时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	CallBeginTime *string `json:"call_begin_time,omitempty" xml:"call_begin_time,omitempty" require:"true"`
 	// 振铃时长，单位ms
+	// example:
+	//
+	// 10
 	RingTime *int64 `json:"ring_time,omitempty" xml:"ring_time,omitempty" require:"true"`
 	// 接通时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	AnswerTime *string `json:"answer_time,omitempty" xml:"answer_time,omitempty"`
 	// 通话时长，单位：大于1分钟，显示分钟秒，小于1分钟，显示秒
+	// example:
+	//
+	// 1
 	SpeakingTime *string `json:"speaking_time,omitempty" xml:"speaking_time,omitempty" require:"true"`
 	// 通话时长，单位：秒
+	// example:
+	//
+	// 1
 	SpeakingDuration *int64 `json:"speaking_duration,omitempty" xml:"speaking_duration,omitempty" require:"true"`
 	// 挂断时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	HangupTime *string `json:"hangup_time,omitempty" xml:"hangup_time,omitempty" require:"true"`
 	// 对话轮次
+	// example:
+	//
+	// 1
 	SpeakingTurns *int64 `json:"speaking_turns,omitempty" xml:"speaking_turns,omitempty" require:"true"`
 	// 人工通话时长，单位：大于1分钟，显示分钟秒，小于1分钟，显示秒
+	// example:
+	//
+	// 1
 	AgentSpeakingTime *string `json:"agent_speaking_time,omitempty" xml:"agent_speaking_time,omitempty" require:"true"`
 	// 人工通话时长，单位：秒
+	// example:
+	//
+	// 1
 	AgentSpeakingDuration *int64 `json:"agent_speaking_duration,omitempty" xml:"agent_speaking_duration,omitempty" require:"true"`
 	// 意向标签
+	// example:
+	//
+	// C
 	IntentTag *string `json:"intent_tag,omitempty" xml:"intent_tag,omitempty" require:"true"`
 	// 意向说明
+	// example:
+	//
+	// 确认本人,未承诺还款
 	IntentDescription *string `json:"intent_description,omitempty" xml:"intent_description,omitempty" require:"true"`
 	// 个性标签
+	// example:
+	//
+	// 投诉,非本人
 	IndividualTag *string `json:"individual_tag,omitempty" xml:"individual_tag,omitempty"`
 	// 回复关键词
+	// example:
+	//
+	// 链接,利息
 	Keywords *string `json:"keywords,omitempty" xml:"keywords,omitempty"`
 	// 挂机方式，AI挂机1，坐席挂机2，客户挂机3
+	// example:
+	//
+	// 1
 	HungupType *int64 `json:"hungup_type,omitempty" xml:"hungup_type,omitempty" require:"true"`
 	// 挂机短信，可选值：1、2
 	// 1:发送，2:不发送
+	// example:
+	//
+	// 1
 	Sms *string `json:"sms,omitempty" xml:"sms,omitempty" require:"true"`
 	// 对话录音，URL，可以为空
+	// example:
+	//
+	// 1
 	ChatRecord *string `json:"chat_record,omitempty" xml:"chat_record,omitempty"`
 	// 聊天记录，可以为空
+	// example:
+	//
+	// {}
 	Chats *string `json:"chats,omitempty" xml:"chats,omitempty"`
 	// 可选值：0、1
 	// 0:不添加，1:添加
+	// example:
+	//
+	// 1
 	AddWx *int64 `json:"add_wx,omitempty" xml:"add_wx,omitempty"`
 	// 加微进度，可选值：已申请、加微成功
+	// example:
+	//
+	// 已申请
 	AddWxStatus *string `json:"add_wx_status,omitempty" xml:"add_wx_status,omitempty"`
 	// 是否接通重呼，可选值：0、1
 	// 0正常外呼，1接通重呼
+	// example:
+	//
+	// 1
 	AnswerRecall *int64 `json:"answer_recall,omitempty" xml:"answer_recall,omitempty" require:"true"`
 	// 导入号码时的参数值
+	// example:
+	//
+	// {"电话号码":"13100000000"}
 	Properties *string `json:"properties,omitempty" xml:"properties,omitempty"`
 	// 导入号码时的业务参数值，原样返回
+	// example:
+	//
+	// a
 	BizProperties *string `json:"biz_properties,omitempty" xml:"biz_properties,omitempty"`
 	// 拦截原因：当状态为已拦截时，可选值：黑名单拦截，灰名单拦截，异常号码拦截
+	// example:
+	//
+	// 黑名单拦截
 	InterceptReason *string `json:"intercept_reason,omitempty" xml:"intercept_reason,omitempty"`
 }
 
@@ -7456,8 +9705,14 @@ func (s *CommonRobotCallDetail) SetInterceptReason(v string) *CommonRobotCallDet
 // 商城订单信息
 type GoodsOrderInfo struct {
 	// 商城订单号
+	// example:
+	//
+	// 2023343380112
 	GoodsOrderNo *string `json:"goods_order_no,omitempty" xml:"goods_order_no,omitempty" require:"true"`
 	// 消费金额
+	// example:
+	//
+	// 1000.00
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty" require:"true"`
 }
 
@@ -7482,14 +9737,29 @@ func (s *GoodsOrderInfo) SetAmount(v string) *GoodsOrderInfo {
 // 支付方式锁定结果
 type PayMethodLockResult struct {
 	// 签约结果
+	// example:
+	//
+	// 0、1
 	SignStatus *string `json:"sign_status,omitempty" xml:"sign_status,omitempty" require:"true"`
 	// 账号
+	// example:
+	//
+	// userId
 	AccountId *string `json:"account_id,omitempty" xml:"account_id,omitempty" require:"true"`
 	// 登录号
+	// example:
+	//
+	// userIdA
 	LoginId *string `json:"login_id,omitempty" xml:"login_id,omitempty" require:"true"`
 	// 支付公司
+	// example:
+	//
+	// AliPay
 	PayChannel *string `json:"pay_channel,omitempty" xml:"pay_channel,omitempty" require:"true"`
 	// 绑定账号名称
+	// example:
+	//
+	// someName
 	AccountName *string `json:"account_name,omitempty" xml:"account_name,omitempty" require:"true"`
 }
 
@@ -7529,22 +9799,46 @@ func (s *PayMethodLockResult) SetAccountName(v string) *PayMethodLockResult {
 // 天枢合同
 type Contract struct {
 	// 关联编号
+	// example:
+	//
+	// 123123
 	RelationNo *string `json:"relation_no,omitempty" xml:"relation_no,omitempty" require:"true"`
 	// 合同编号
+	// example:
+	//
+	// 123123
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty" require:"true"`
 	// 合同名称
+	// example:
+	//
+	// 用信合同
 	ContractName *string `json:"contract_name,omitempty" xml:"contract_name,omitempty" require:"true"`
 	// 合同类型
+	// example:
+	//
+	// 0
 	ContractType *string `json:"contract_type,omitempty" xml:"contract_type,omitempty" require:"true"`
 	// 客户编号
+	// example:
+	//
+	// PCM123xxxx
 	CustomNo *string `json:"custom_no,omitempty" xml:"custom_no,omitempty" require:"true"`
 	// 合同存放目录
+	// example:
+	//
+	// https://11111
 	SavePath *string `json:"save_path,omitempty" xml:"save_path,omitempty" require:"true"`
 	// 合同金额
 	ContractAmount *int64 `json:"contract_amount,omitempty" xml:"contract_amount,omitempty" require:"true"`
 	// 用信合同编号
+	// example:
+	//
+	// 123123
 	DisburseContractNo *string `json:"disburse_contract_no,omitempty" xml:"disburse_contract_no,omitempty" require:"true"`
 	// 授信合同编号
+	// example:
+	//
+	// 123123
 	CreditContractNo *string `json:"credit_contract_no,omitempty" xml:"credit_contract_no,omitempty" require:"true"`
 }
 
@@ -7604,17 +9898,35 @@ func (s *Contract) SetCreditContractNo(v string) *Contract {
 // 代扣明细
 type WithholdDetailItem struct {
 	// 贷款申请编号
+	// example:
+	//
+	// xxxx
 	AssetId *string `json:"asset_id,omitempty" xml:"asset_id,omitempty" require:"true"`
 	// 放款编号/借据号
+	// example:
+	//
+	// xxxx
 	CapitalLoanNo *string `json:"capital_loan_no,omitempty" xml:"capital_loan_no,omitempty" require:"true"`
 	// 订单维度的实还总额,保留两位有效数字
 	// 单笔订单代扣的总额(单位:分)
+	// example:
+	//
+	// 1999.98
 	RpyTotalAmt *int64 `json:"rpy_total_amt,omitempty" xml:"rpy_total_amt,omitempty" require:"true"`
 	// 还款类型，0-待还、1-正常还款、2-部分提前还、 3-逾期还款 、4-全部提前还 、5-坏账代偿、 6-回购
+	// example:
+	//
+	// 1
 	RpyTpe *int64 `json:"rpy_tpe,omitempty" xml:"rpy_tpe,omitempty" require:"true"`
 	// 代扣日期，用户实还日，用户主动发起是当前日；定时扣款是应还日，格式=yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	RpyDate *string `json:"rpy_date,omitempty" xml:"rpy_date,omitempty" require:"true"`
 	// 还款账单明细,如果是提前结清,会有多条
+	// example:
+	//
+	// [{}]
 	BillDetails []*BillDetail `json:"bill_details,omitempty" xml:"bill_details,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -7659,10 +9971,19 @@ func (s *WithholdDetailItem) SetBillDetails(v []*BillDetail) *WithholdDetailItem
 // 天枢-电商-跳转链接
 type EcLinkUrl struct {
 	// 根据传输的操作类型，返回对应的URL地址
+	// example:
+	//
+	// SQ202301291615023
 	UrlId *string `json:"url_id,omitempty" xml:"url_id,omitempty"`
 	// 免登场景下，给到开放银行和对公认证中心的链接ID,如果对方没有，没办法以免登的形式进入银行页面。
+	// example:
+	//
+	// APPL20200826000000250721
 	H5id *string `json:"h5id,omitempty" xml:"h5id,omitempty"`
 	// 免登场景下，给到对公认证中心的数据，后续KYB需要拿到这个数据进行校验，否则会无法跳转指定地址。
+	// example:
+	//
+	// 1
 	State *string `json:"state,omitempty" xml:"state,omitempty"`
 }
 
@@ -7692,42 +10013,99 @@ func (s *EcLinkUrl) SetState(v string) *EcLinkUrl {
 // ai外呼回调详情
 type AICallbackMessage struct {
 	// 批次号
+	// example:
+	//
+	// 5de2ccbf87914544afb57a77e39ec023
 	BatchId *string `json:"batch_id,omitempty" xml:"batch_id,omitempty"`
 	// 用户标签
+	// example:
+	//
+	// 阿松大
 	Tag *string `json:"tag,omitempty" xml:"tag,omitempty" require:"true"`
 	// 外呼id
+	// example:
+	//
+	// CALLID
 	CallId *string `json:"call_id,omitempty" xml:"call_id,omitempty" require:"true"`
 	// 外呼的话术模板Id
+	// example:
+	//
+	// 7
 	TemplateId *int64 `json:"template_id,omitempty" xml:"template_id,omitempty"`
 	// 外呼状态编码
+	// example:
+	//
+	// 1
 	StatusCode *int64 `json:"status_code,omitempty" xml:"status_code,omitempty" require:"true"`
 	// 外呼状态描述
+	// example:
+	//
+	// 已接听
 	StatusDescription *string `json:"status_description,omitempty" xml:"status_description,omitempty" require:"true"`
 	// 导入时间
+	// example:
+	//
+	// 2019-11-23 14:47:06
 	ImportTime *string `json:"import_time,omitempty" xml:"import_time,omitempty" require:"true"`
 	// 开始通话时间
+	// example:
+	//
+	// 2019-11-23 14:47:06
 	CallBeginTime *string `json:"call_begin_time,omitempty" xml:"call_begin_time,omitempty" require:"true"`
 	// 振铃时长, 单位毫秒
+	// example:
+	//
+	// 2000
 	RingTime *int64 `json:"ring_time,omitempty" xml:"ring_time,omitempty" require:"true"`
 	// 接通时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	AnswerTime *string `json:"answer_time,omitempty" xml:"answer_time,omitempty" require:"true"`
 	// AI通话时长,单位s
+	// example:
+	//
+	// 20
 	SpeakingDuration *int64 `json:"speaking_duration,omitempty" xml:"speaking_duration,omitempty" require:"true"`
 	// 挂断时间
+	// example:
+	//
+	// 2019-01-09 14:14:19
 	HangupTime *string `json:"hangup_time,omitempty" xml:"hangup_time,omitempty" require:"true"`
 	// 对话轮次
+	// example:
+	//
+	// 5
 	SpeakingTurns *int64 `json:"speaking_turns,omitempty" xml:"speaking_turns,omitempty" require:"true"`
 	// 意向标签
+	// example:
+	//
+	// C
 	IntentTag *string `json:"intent_tag,omitempty" xml:"intent_tag,omitempty" require:"true"`
 	// 意向说明
+	// example:
+	//
+	// 确认本人,未承诺还款
 	IntentDescription *string `json:"intent_description,omitempty" xml:"intent_description,omitempty" require:"true"`
 	// 个性标签
+	// example:
+	//
+	// a
 	IndividualTag *string `json:"individual_tag,omitempty" xml:"individual_tag,omitempty" require:"true"`
 	// 回复关键词
+	// example:
+	//
+	// 利息
 	Keywords *string `json:"keywords,omitempty" xml:"keywords,omitempty" require:"true"`
 	// 对话录音
+	// example:
+	//
+	// 录音url
 	ChatRecord *string `json:"chat_record,omitempty" xml:"chat_record,omitempty"`
 	// 参数值
+	// example:
+	//
+	// {"电话号码":"13100000000"}
 	Properties *string `json:"properties,omitempty" xml:"properties,omitempty" require:"true"`
 }
 
@@ -7837,16 +10215,34 @@ func (s *AICallbackMessage) SetProperties(v string) *AICallbackMessage {
 // 天枢-电商-还款试算结果
 type EcRepayTrial struct {
 	// 合同编号
+	// example:
+	//
+	// 123
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty"`
 	// 数字格式,精确到分。借据已结清,会返回还款总金额为0
+	// example:
+	//
+	// 23
 	TotalAmount *string `json:"total_amount,omitempty" xml:"total_amount,omitempty"`
 	// 利息数字格式,精确到分
+	// example:
+	//
+	// 1.23
 	InterestAmount *string `json:"interest_amount,omitempty" xml:"interest_amount,omitempty"`
 	// 本金 数字格式,精确到分
+	// example:
+	//
+	// 2.35
 	PrincipalAmount *string `json:"principal_amount,omitempty" xml:"principal_amount,omitempty"`
 	// 罚息 数字格式,精确到分
+	// example:
+	//
+	// 1.23
 	PenaltyInterestAmount *string `json:"penalty_interest_amount,omitempty" xml:"penalty_interest_amount,omitempty"`
 	// 复利 数字格式,精确到分
+	// example:
+	//
+	// 1.23
 	CompoundInterestAmount *string `json:"compound_interest_amount,omitempty" xml:"compound_interest_amount,omitempty"`
 }
 
@@ -7891,10 +10287,19 @@ func (s *EcRepayTrial) SetCompoundInterestAmount(v string) *EcRepayTrial {
 // 决策场景信息
 type AirDfSceneInfos struct {
 	// 决策场景结果
+	// example:
+	//
+	// review
 	SceneDecision *string `json:"scene_decision,omitempty" xml:"scene_decision,omitempty"`
 	// 决策场景
+	// example:
+	//
+	// air_scene
 	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty"`
 	// 决策域信息
+	// example:
+	//
+	// [{"decision_flows":[{"decision":"review","name":"租赁测试策略"}],"domain_decision":"review","domain_code":"lease_domain"}]
 	DomainInfos []*AirDomainInfos `json:"domain_infos,omitempty" xml:"domain_infos,omitempty" type:"Repeated"`
 }
 
@@ -7924,14 +10329,29 @@ func (s *AirDfSceneInfos) SetDomainInfos(v []*AirDomainInfos) *AirDfSceneInfos {
 // 预警企业
 type RtopCompanyAlarm struct {
 	// 企业ID
+	// example:
+	//
+	// 1
 	CompanyId *string `json:"company_id,omitempty" xml:"company_id,omitempty" require:"true"`
 	// 预警类型
+	// example:
+	//
+	// 1
 	AlarmType *string `json:"alarm_type,omitempty" xml:"alarm_type,omitempty" require:"true"`
 	// 预警序号
+	// example:
+	//
+	// 1
 	AlarmIdx *string `json:"alarm_idx,omitempty" xml:"alarm_idx,omitempty" require:"true"`
 	// 预警日期
+	// example:
+	//
+	// 1
 	AlarmDate *string `json:"alarm_date,omitempty" xml:"alarm_date,omitempty" require:"true"`
 	// 预警标识，是否需要预警
+	// example:
+	//
+	// 1
 	AlarmFlag *string `json:"alarm_flag,omitempty" xml:"alarm_flag,omitempty" require:"true"`
 }
 
@@ -7971,58 +10391,139 @@ func (s *RtopCompanyAlarm) SetAlarmFlag(v string) *RtopCompanyAlarm {
 // 天枢-电商-还款明细查询
 type EcRepayQuery struct {
 	// 合同编号
+	// example:
+	//
+	// 91234500123400000R
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty" require:"true"`
 	// 借据号
+	// example:
+	//
+	// 91234500123400000R
 	LoanNo *string `json:"loan_no,omitempty" xml:"loan_no,omitempty" require:"true"`
 	// 贷款金额
+	// example:
+	//
+	// 25.34
 	Loanamt *string `json:"loanamt,omitempty" xml:"loanamt,omitempty" require:"true"`
 	// 实时借据状态
+	// example:
+	//
+	// 1
 	LoanStatus *string `json:"loan_status,omitempty" xml:"loan_status,omitempty" require:"true"`
 	// 总期次
+	// example:
+	//
+	// 25
 	TotalNum *string `json:"total_num,omitempty" xml:"total_num,omitempty" require:"true"`
 	// 还款方式
+	// example:
+	//
+	// 1
 	RepayType *string `json:"repay_type,omitempty" xml:"repay_type,omitempty"`
 	// 应还总金额
+	// example:
+	//
+	// 25.34
 	RepayAmount *string `json:"repay_amount,omitempty" xml:"repay_amount,omitempty"`
 	// 实还总金额
+	// example:
+	//
+	// 2.34
 	ActualSum *string `json:"actual_sum,omitempty" xml:"actual_sum,omitempty"`
 	// 这笔借据所在期次的还款日。格式:yyyy/MM/dd
+	// example:
+	//
+	// 2023/05/01
 	Duedate *string `json:"duedate,omitempty" xml:"duedate,omitempty"`
 	// 实还日期 格式:yyyy/MM/dd
+	// example:
+	//
+	// 2023/05/01
 	ActualpayDate *string `json:"actualpay_date,omitempty" xml:"actualpay_date,omitempty"`
 	// 应还本金 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	Corpus *string `json:"corpus,omitempty" xml:"corpus,omitempty"`
 	// 实还本金 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ActualPayprincipalAmt *string `json:"actual_payprincipal_amt,omitempty" xml:"actual_payprincipal_amt,omitempty"`
 	// 应还利息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	Interest *string `json:"interest,omitempty" xml:"interest,omitempty"`
 	// 实还利息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ActualPayinterestAmt *string `json:"actual_payinterest_amt,omitempty" xml:"actual_payinterest_amt,omitempty"`
 	// 应还罚息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	PayPrincipalPenaltyAmt *string `json:"pay_principal_penalty_amt,omitempty" xml:"pay_principal_penalty_amt,omitempty"`
 	// 实还罚息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ActualPayprincipalPenaltyAmt *string `json:"actual_payprincipal_penalty_amt,omitempty" xml:"actual_payprincipal_penalty_amt,omitempty"`
 	// 应还复利 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	PayInterestPenaltyAmt *string `json:"pay_interest_penalty_amt,omitempty" xml:"pay_interest_penalty_amt,omitempty"`
 	// 实还复利 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ActualPayinterestPenaltyAmt *string `json:"actual_payinterest_penalty_amt,omitempty" xml:"actual_payinterest_penalty_amt,omitempty"`
 	// 应还贴息利息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	PaySplitinterestAmt *string `json:"pay_splitinterest_amt,omitempty" xml:"pay_splitinterest_amt,omitempty"`
 	// 实还贴息利息 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ActualPaysplitinterestAmt *string `json:"actual_paysplitinterest_amt,omitempty" xml:"actual_paysplitinterest_amt,omitempty"`
 	// 币种
+	// example:
+	//
+	// RMB
 	Currency *string `json:"currency,omitempty" xml:"currency,omitempty"`
 	// 还款期次 这笔还款对应期次。单位:整数
+	// example:
+	//
+	// 25
 	RepaymentNum *string `json:"repayment_num,omitempty" xml:"repayment_num,omitempty"`
 	// 优惠金额 单位:元,格式:数字,小数点后两位
+	// example:
+	//
+	// 1.23
 	ReduceAmt *string `json:"reduce_amt,omitempty" xml:"reduce_amt,omitempty"`
 	// 还款类型
+	// example:
+	//
+	// 1
 	BillType *string `json:"bill_type,omitempty" xml:"bill_type,omitempty"`
 	// 流水号
+	// example:
+	//
+	// PANO124414515555
 	TransactionNo *string `json:"transaction_no,omitempty" xml:"transaction_no,omitempty" require:"true"`
 	// 还款交易流水号 若为还款，则与还款通知流水保持一致
+	// example:
+	//
+	// PANO124414515555
 	TransactionSerialno *string `json:"transaction_serialno,omitempty" xml:"transaction_serialno,omitempty" require:"true"`
 	// 是否附言还款
+	// example:
+	//
+	// 1
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
@@ -8172,33 +10673,72 @@ func (s *EcRepayQuery) SetRemark(v string) *EcRepayQuery {
 // 流量方还款计划通知Object
 type RepayPlanNotifyItem struct {
 	// 当前期数
+	// example:
+	//
+	// 1
 	LoanTerm *int64 `json:"loan_term,omitempty" xml:"loan_term,omitempty" require:"true"`
 	// 应还日，yyyy-MM-dd
+	// example:
+	//
+	// yyyy-MM-dd
 	ExpectRepayDate *string `json:"expect_repay_date,omitempty" xml:"expect_repay_date,omitempty" require:"true"`
 	// 应还总额(元)
+	// example:
+	//
+	// 1999.98
 	ExpectRepayAmount *int64 `json:"expect_repay_amount,omitempty" xml:"expect_repay_amount,omitempty" require:"true"`
 	// 应还本金(元)
+	// example:
+	//
+	// 1999.98
 	ExpectRepayPrincipal *int64 `json:"expect_repay_principal,omitempty" xml:"expect_repay_principal,omitempty" require:"true"`
 	// 应还利息(元)
+	// example:
+	//
+	// 1999.98
 	ExpectRepayInterest *int64 `json:"expect_repay_interest,omitempty" xml:"expect_repay_interest,omitempty" require:"true"`
 	// 应还担保费(元)
+	// example:
+	//
+	// 1999.98
 	ExpectRepayGuarantee *int64 `json:"expect_repay_guarantee,omitempty" xml:"expect_repay_guarantee,omitempty"`
 	// 起息日，格式 YYYY-MM-DD
+	// example:
+	//
+	// yyyy-MM-dd
 	InterestStartDate *string `json:"interest_start_date,omitempty" xml:"interest_start_date,omitempty"`
 	// 实还总额(元)，如未还则传0
+	// example:
+	//
+	// 1999.98
 	RepayAmount *int64 `json:"repay_amount,omitempty" xml:"repay_amount,omitempty"`
 	// 已还本金(元)，如未还则传0
+	// example:
+	//
+	// 1999.98
 	RepaidPrincipal *int64 `json:"repaid_principal,omitempty" xml:"repaid_principal,omitempty"`
 	// 已还利息(元)，如未还则传0
+	// example:
+	//
+	// 1999.98
 	RepaidInterest *int64 `json:"repaid_interest,omitempty" xml:"repaid_interest,omitempty"`
 	// 应还罚息(元)，
+	// example:
+	//
+	// 1999.98
 	ExpectRepayMuclt *int64 `json:"expect_repay_muclt,omitempty" xml:"expect_repay_muclt,omitempty"`
 	// 已还罚息(元)，如未还则传0
+	// example:
+	//
+	// 1999.98
 	RepaidPenalty *int64 `json:"repaid_penalty,omitempty" xml:"repaid_penalty,omitempty"`
 	// 状态标志
 	// 0-正常未到期
 	// 1-正常已还清
 	// 2-逾期
+	// example:
+	//
+	// 0
 	ScheduleStatus *string `json:"schedule_status,omitempty" xml:"schedule_status,omitempty"`
 }
 
@@ -8278,14 +10818,29 @@ func (s *RepayPlanNotifyItem) SetScheduleStatus(v string) *RepayPlanNotifyItem {
 // 天枢系统-二级商户交易退款查询结果-分期付
 type TradeRefundResult struct {
 	// 退款请求编号
+	// example:
+	//
+	// 20880002000001
 	RequestNo *string `json:"request_no,omitempty" xml:"request_no,omitempty" require:"true"`
 	// 退款金额
+	// example:
+	//
+	// 30
 	RefundAmount *int64 `json:"refund_amount,omitempty" xml:"refund_amount,omitempty" require:"true"`
 	// 退款原因
+	// example:
+	//
+	// 不想要了
 	RefundReason *string `json:"refund_reason,omitempty" xml:"refund_reason,omitempty" require:"true"`
 	// 退款状态
+	// example:
+	//
+	// REFUND_SUCCESS
 	RefundStatus *string `json:"refund_status,omitempty" xml:"refund_status,omitempty" require:"true"`
 	// 退款失败原因
+	// example:
+	//
+	// 参数异常
 	RefundFailReason *string `json:"refund_fail_reason,omitempty" xml:"refund_fail_reason,omitempty" require:"true"`
 }
 
@@ -8325,8 +10880,14 @@ func (s *TradeRefundResult) SetRefundFailReason(v string) *TradeRefundResult {
 // 企业影响人数性别分布统计
 type RtopGenderDistribution struct {
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 性别
+	// example:
+	//
+	// MALE
 	Gender *string `json:"gender,omitempty" xml:"gender,omitempty" require:"true"`
 }
 
@@ -8351,20 +10912,44 @@ func (s *RtopGenderDistribution) SetGender(v string) *RtopGenderDistribution {
 // 天枢-电商-额度返回
 type DubheEcQuota struct {
 	// 交易流水号,与上面的交易流水号一致
+	// example:
+	//
+	// JJBH136433239635646977
 	TransactionNo *string `json:"transaction_no,omitempty" xml:"transaction_no,omitempty" require:"true"`
 	// 业务状态同步接口中，客户签约成功后的合同编号，在后续查询类接口都需要使用。
+	// example:
+	//
+	// CONT20230213000000146577
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty" require:"true"`
 	// 客户对应合同的总额度，单位：元，格式：数字，小数点后两位。
+	// example:
+	//
+	// 1
 	Amt *int64 `json:"amt,omitempty" xml:"amt,omitempty" require:"true"`
 	// 客户对应合同的可用额度，单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 1
 	AvailCreditAmt *int64 `json:"avail_credit_amt,omitempty" xml:"avail_credit_amt,omitempty" require:"true"`
 	// 客户对应合同的已用额度，单位：元，格式：数字，小数点后两位
+	// example:
+	//
+	// 1.01
 	EngrossAmt *int64 `json:"engross_amt,omitempty" xml:"engross_amt,omitempty" require:"true"`
 	// 合同目前的额度状态
+	// example:
+	//
+	// 1
 	CreditStatus *string `json:"credit_status,omitempty" xml:"credit_status,omitempty" require:"true"`
 	// 授信开始时间  格式: yyyy/MM/dd。额度有效时返回
+	// example:
+	//
+	// 2023/02/01
 	ContractEffectDate *string `json:"contract_effect_date,omitempty" xml:"contract_effect_date,omitempty"`
 	// 授信结束时间 格式:yyyy/MM/dd。额度有效时返回
+	// example:
+	//
+	// 2023/05/01
 	MaturityDate *string `json:"maturity_date,omitempty" xml:"maturity_date,omitempty"`
 }
 
@@ -8419,8 +11004,14 @@ func (s *DubheEcQuota) SetMaturityDate(v string) *DubheEcQuota {
 // 卡短解析服务返回参数
 type ShortUrlInfo struct {
 	// 支持卡片短信的手机号
+	// example:
+	//
+	// 15012345678
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
 	// 解析生成的短链
+	// example:
+	//
+	// https://www.alipay.com/F49v0ifM
 	ShortUrl *string `json:"short_url,omitempty" xml:"short_url,omitempty" require:"true"`
 }
 
@@ -8445,6 +11036,9 @@ func (s *ShortUrlInfo) SetShortUrl(v string) *ShortUrlInfo {
 // 是否联登结构体
 type CustomRelationStatus struct {
 	// 是否联登
+	// example:
+	//
+	// true, false
 	RegFlag *bool `json:"reg_flag,omitempty" xml:"reg_flag,omitempty"`
 }
 
@@ -8464,50 +11058,119 @@ func (s *CustomRelationStatus) SetRegFlag(v bool) *CustomRelationStatus {
 // 订单车辆信息
 type VehicleInfo struct {
 	// 流量方购物订单号
+	// example:
+	//
+	// xxxx
 	BizOrderNo *string `json:"biz_order_no,omitempty" xml:"biz_order_no,omitempty" require:"true"`
 	// 订单[分期]金额，单位：元
+	// example:
+	//
+	// 199.88
 	TradeAmount *string `json:"trade_amount,omitempty" xml:"trade_amount,omitempty" require:"true"`
 	// 订单分期金额，单位：元
+	// example:
+	//
+	// 188.88
 	InstallmentAmount *string `json:"installment_amount,omitempty" xml:"installment_amount,omitempty"`
 	// 首付金额，单位：元
+	// example:
+	//
+	// 199.00
 	DownPayment *string `json:"down_payment,omitempty" xml:"down_payment,omitempty"`
 	// pad设备提供
+	// example:
+	//
+	// xxx
 	WifiMac *string `json:"wifi_mac,omitempty" xml:"wifi_mac,omitempty"`
 	// pad-经度
+	// example:
+	//
+	// xxxx
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
 	// pad-纬度
+	// example:
+	//
+	// xxx
 	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
 	// 车辆类型（摩托车）：1-新车、0-二手车
+	// example:
+	//
+	// 0
 	VehicleType *string `json:"vehicle_type,omitempty" xml:"vehicle_type,omitempty"`
 	// SN码/中控号(授信后放款前)
+	// example:
+	//
+	// xxx
 	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
 	// 车驾号(授信后放款前)
+	// example:
+	//
+	// xxx
 	FrameNo *string `json:"frame_no,omitempty" xml:"frame_no,omitempty"`
 	// SKU ID
+	// example:
+	//
+	// xxxx
 	Sku *string `json:"sku,omitempty" xml:"sku,omitempty" require:"true"`
 	// 颜色
+	// example:
+	//
+	// xxxx
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
 	// 车型关键词
+	// example:
+	//
+	// xxx
 	ModelKeyword *string `json:"model_keyword,omitempty" xml:"model_keyword,omitempty"`
 	// 续航里程
+	// example:
+	//
+	// 1024
 	Range *string `json:"range,omitempty" xml:"range,omitempty"`
 	// 新车指导价，单位：元
+	// example:
+	//
+	// 199.88
 	GuidePrice *string `json:"guide_price,omitempty" xml:"guide_price,omitempty" require:"true"`
 	// 售价，单位：元
+	// example:
+	//
+	// 1999.98
 	SellingPrice *string `json:"selling_price,omitempty" xml:"selling_price,omitempty" require:"true"`
 	// 品牌
+	// example:
+	//
+	// xxxx
 	Brand *string `json:"brand,omitempty" xml:"brand,omitempty"`
 	// 车型
+	// example:
+	//
+	// xxxx
 	Model *string `json:"model,omitempty" xml:"model,omitempty"`
 	// 年款，yyyy
+	// example:
+	//
+	// yyyy
 	ModelYear *string `json:"model_year,omitempty" xml:"model_year,omitempty"`
 	// 公里数，Odometer
+	// example:
+	//
+	// xxxx
 	Odo *string `json:"odo,omitempty" xml:"odo,omitempty"`
 	// 首次上牌时间
+	// example:
+	//
+	// xxxx
 	FirstRegDate *string `json:"first_reg_date,omitempty" xml:"first_reg_date,omitempty"`
 	// 过户次数，Ownership Transfer Records
+	// example:
+	//
+	// xxxx
 	Otr *string `json:"otr,omitempty" xml:"otr,omitempty"`
 	// 配件信息
+	// example:
+	//
+	// xxxx
 	Parts *string `json:"parts,omitempty" xml:"parts,omitempty"`
 }
 
@@ -8637,17 +11300,38 @@ func (s *VehicleInfo) SetParts(v string) *VehicleInfo {
 // 企管盾票税决策服务
 type RdaasTaxDecsionService struct {
 	// 决策服务id
+	// example:
+	//
+	// 1
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 产品编码
+	// example:
+	//
+	// 13
 	ServiceName *string `json:"service_name,omitempty" xml:"service_name,omitempty" require:"true"`
 	// 区域编码
+	// example:
+	//
+	// SJ_ALL
 	ServiceZone *string `json:"service_zone,omitempty" xml:"service_zone,omitempty"`
 	// 渠道
+	// example:
+	//
+	// HZSZKJ
 	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	// 决策租户
+	// example:
+	//
+	// DEFAULT
 	DecisionTenant *string `json:"decision_tenant,omitempty" xml:"decision_tenant,omitempty"`
 	// 是否启用
+	// example:
+	//
+	// enabled
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 创建时间，格式:yyyy-MM-dd HH:mm:ss
+	// example:
+	//
 	// 创建时间，格式:yyyy-MM-dd HH:mm:ss
 	CreateTime *string `json:"create_time,omitempty" xml:"create_time,omitempty"`
 }
@@ -8698,14 +11382,29 @@ func (s *RdaasTaxDecsionService) SetCreateTime(v string) *RdaasTaxDecsionService
 // 服务上下文包括环境信息和用户信息
 type ServiceContext struct {
 	// 客户端IP
+	// example:
+	//
+	// 10.214.138.14
 	ClientIp *string `json:"client_ip,omitempty" xml:"client_ip,omitempty"`
 	// 客户端UMID
+	// example:
+	//
+	// WV1bz5927da956db072d3001792dcc67e
 	ClientPcidguid *string `json:"client_pcidguid,omitempty" xml:"client_pcidguid,omitempty"`
 	// 服务器名
+	// example:
+	//
+	// server
 	ServerName *string `json:"server_name,omitempty" xml:"server_name,omitempty"`
 	// 会话ID
+	// example:
+	//
+	// RZ1 2cz9oSg1GTGtGp9CwYtBbZMcD8DmobilecashierRZ12
 	SessionId *string `json:"session_id,omitempty" xml:"session_id,omitempty"`
 	// 用户ID
+	// example:
+	//
+	// 2088522384403582
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty"`
 }
 
@@ -8745,28 +11444,64 @@ func (s *ServiceContext) SetUserId(v string) *ServiceContext {
 // 天枢-电商-授信查询
 type EcCreditQuery struct {
 	// 外部申请编号
+	// example:
+	//
+	// SQ202301291615023
 	ThirdApplyNo *string `json:"third_apply_no,omitempty" xml:"third_apply_no,omitempty"`
 	// 银行审批流水号
+	// example:
+	//
+	// APPL20200826000000250721
 	ApplyNo *string `json:"apply_no,omitempty" xml:"apply_no,omitempty"`
 	// 业务审批状态
+	// example:
+	//
+	// APPROVING
 	ApplyStatus *string `json:"apply_status,omitempty" xml:"apply_status,omitempty" require:"true"`
 	// 合同编号
+	// example:
+	//
+	// CONT20230314000000143225
 	ContractNo *string `json:"contract_no,omitempty" xml:"contract_no,omitempty"`
 	// 授信开始时间 格式yyyyMMdd
+	// example:
+	//
+	// 20221010
 	AmountStartDate *string `json:"amount_start_date,omitempty" xml:"amount_start_date,omitempty"`
 	// 授信结束时间 yyyyMMdd
+	// example:
+	//
+	// 20231010
 	AmountEndDate *string `json:"amount_end_date,omitempty" xml:"amount_end_date,omitempty"`
 	// 审批金额
+	// example:
+	//
+	// 5000000.00
 	ApproveAmount *string `json:"approve_amount,omitempty" xml:"approve_amount,omitempty"`
 	// 否决原因
+	// example:
+	//
+	// 审批否决
 	DenyReason *string `json:"deny_reason,omitempty" xml:"deny_reason,omitempty"`
 	// 提还款账号
+	// example:
+	//
+	// 6230580199590683459
 	BankCardNo *string `json:"bank_card_no,omitempty" xml:"bank_card_no,omitempty"`
 	// 提还款账号联行号
+	// example:
+	//
+	// 307331002509
 	BankCardBranchCode *string `json:"bank_card_branch_code,omitempty" xml:"bank_card_branch_code,omitempty"`
 	// 账号开户行行名称
+	// example:
+	//
+	// 平安银行杭州分行
 	PublicAccountBankname *string `json:"public_account_bankname,omitempty" xml:"public_account_bankname,omitempty"`
 	// 审批通过时间 审批通过必填(格式: yyyy-MM-dd HH:mm:ss)
+	// example:
+	//
+	// 2023-05-01 01:01:01
 	ApproveTime *string `json:"approve_time,omitempty" xml:"approve_time,omitempty"`
 }
 
@@ -8843,6 +11578,9 @@ type CustomerUmktInfoModel struct {
 	// 基本圈客结果信息
 	BaseInfo *BaseCustomerUmktInfoModel `json:"base_info,omitempty" xml:"base_info,omitempty" require:"true"`
 	// 额外的营销分结果
+	// example:
+	//
+	// {"f_01":"95.0"}
 	UmktOutPutInfo *string `json:"umkt_out_put_info,omitempty" xml:"umkt_out_put_info,omitempty"`
 }
 
@@ -8867,8 +11605,14 @@ func (s *CustomerUmktInfoModel) SetUmktOutPutInfo(v string) *CustomerUmktInfoMod
 // 企业舆情数量
 type RtopCompanyOpinionCount struct {
 	// 企业名称
+	// example:
+	//
+	// 福州北辰智创投资中心
 	CompanyName *string `json:"company_name,omitempty" xml:"company_name,omitempty" require:"true"`
 	// 企业对应的舆情数量
+	// example:
+	//
+	// 10
 	Count *int `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 }
 
@@ -8893,12 +11637,21 @@ func (s *RtopCompanyOpinionCount) SetCount(v int) *RtopCompanyOpinionCount {
 // 商户资金链锁定结果
 type FundChainLockResult struct {
 	// 店铺名称
+	// example:
+	//
+	// 某店铺
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 店铺id
+	// example:
+	//
+	// 2022091300001
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 	// 0:成功
 	// 1:失败
 	// 2:处理中
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 }
 
@@ -8928,8 +11681,14 @@ func (s *FundChainLockResult) SetStatus(v string) *FundChainLockResult {
 // 企业地区分布统计
 type RtopRegionalDistribution struct {
 	// 统计值
+	// example:
+	//
+	// 10
 	Count *int64 `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 地区
+	// example:
+	//
+	// ​西湖区
 	Place *string `json:"place,omitempty" xml:"place,omitempty" require:"true"`
 	// 当前地区的涉众风险类型分布，即非法集资有多少企业，传销有多少企业
 	TypeDistribution []*RtopTypeDistribution `json:"type_distribution,omitempty" xml:"type_distribution,omitempty" type:"Repeated"`
@@ -8961,14 +11720,29 @@ func (s *RtopRegionalDistribution) SetTypeDistribution(v []*RtopTypeDistribution
 // 结清证明响应实体
 type CertificateInfo struct {
 	// 结清证明开具结果，0：有结清证明、1：无结清证明、2：开具中、3：暂不支持开具
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 用信申请订单号
+	// example:
+	//
+	// 123123
 	RelationNo *string `json:"relation_no,omitempty" xml:"relation_no,omitempty"`
 	// 结清证明url
+	// example:
+	//
+	// https://www.example.com/ffff.pdf?expire=111111
 	CertificateUrl *string `json:"certificate_url,omitempty" xml:"certificate_url,omitempty"`
 	// 结清证明文件Base64
+	// example:
+	//
+	// BEAKENMCT...
 	CertificateBase64 *string `json:"certificate_base64,omitempty" xml:"certificate_base64,omitempty"`
 	// 说明
+	// example:
+	//
+	// 已开具
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
 }
 
@@ -9008,16 +11782,34 @@ func (s *CertificateInfo) SetMessage(v string) *CertificateInfo {
 // 机构侧最高可用额度
 type FundInfo struct {
 	// 资金方编号
+	// example:
+	//
+	// D20250701000000001
 	FundCode *string `json:"fund_code,omitempty" xml:"fund_code,omitempty" require:"true"`
 	// 资金方简称
+	// example:
+	//
+	// 科融
 	AbbreFundName *string `json:"abbre_fund_name,omitempty" xml:"abbre_fund_name,omitempty" require:"true"`
 	// 额度状态
+	// example:
+	//
+	// 0
 	CreditStatus *string `json:"credit_status,omitempty" xml:"credit_status,omitempty" require:"true"`
 	// 授信总额度
+	// example:
+	//
+	// 200000
 	CreditAmount *string `json:"credit_amount,omitempty" xml:"credit_amount,omitempty"`
 	// 剩余可用余额
+	// example:
+	//
+	// 200000
 	RestAmount *string `json:"rest_amount,omitempty" xml:"rest_amount,omitempty"`
 	// 年利率
+	// example:
+	//
+	// 0.1250
 	YearInterestRate *string `json:"year_interest_rate,omitempty" xml:"year_interest_rate,omitempty"`
 }
 
@@ -9064,8 +11856,14 @@ type RtopCrowdRiskFeatureResp struct {
 	// 特征标签列表
 	ClueTags []*RtopCrowdRiskFeatureTag `json:"clue_tags,omitempty" xml:"clue_tags,omitempty" type:"Repeated"`
 	// 特征名称
+	// example:
+	//
+	// 工商风险维度
 	FeatureName *string `json:"feature_name,omitempty" xml:"feature_name,omitempty" require:"true"`
 	// 特征​分数
+	// example:
+	//
+	// 10
 	Score *int `json:"score,omitempty" xml:"score,omitempty" require:"true"`
 }
 
@@ -9095,8 +11893,14 @@ func (s *RtopCrowdRiskFeatureResp) SetScore(v int) *RtopCrowdRiskFeatureResp {
 // 离线圈客计划详细
 type OfflineDecisionPlanDetail struct {
 	// 圈客计划ID
+	// example:
+	//
+	// 1032
 	DecisionPlanId *string `json:"decision_plan_id,omitempty" xml:"decision_plan_id,omitempty" require:"true"`
 	// 离线圈客执行任务状态
+	// example:
+	//
+	// ECN
 	DecisionResultStatus *string `json:"decision_result_status,omitempty" xml:"decision_result_status,omitempty" require:"true"`
 }
 
@@ -9121,12 +11925,24 @@ func (s *OfflineDecisionPlanDetail) SetDecisionResultStatus(v string) *OfflineDe
 // 用户分层信息
 type UserClassifyInfo struct {
 	// 版本号
+	// example:
+	//
+	// V1
 	Version *string `json:"version,omitempty" xml:"version,omitempty" require:"true"`
 	// 流量分层
+	// example:
+	//
+	// A: <6% B: 6%~12% C:12%~18% D:18%~24% E:24%~36% F:>36% R:不分发（黑名单类）
 	RateClassify *string `json:"rate_classify,omitempty" xml:"rate_classify,omitempty" require:"true"`
 	// 流量扩展分层1
+	// example:
+	//
+	// 123123
 	ClassifyExt1 *string `json:"classify_ext1,omitempty" xml:"classify_ext1,omitempty"`
 	// 流量扩展分层2
+	// example:
+	//
+	// 123
 	ClassifyExt2 *string `json:"classify_ext2,omitempty" xml:"classify_ext2,omitempty"`
 }
 
@@ -9162,6 +11978,9 @@ func (s *UserClassifyInfo) SetClassifyExt2(v string) *UserClassifyInfo {
 type RepayInfo struct {
 	// true：逾期
 	// false：未逾期
+	// example:
+	//
+	// true, false
 	OverdueFlag *bool `json:"overdue_flag,omitempty" xml:"overdue_flag,omitempty" require:"true"`
 	// 逾期天数
 	OverDays *int64 `json:"over_days,omitempty" xml:"over_days,omitempty" require:"true"`
@@ -9244,8 +12063,14 @@ func (s *RepayInfo) SetTotalAmount(v int64) *RepayInfo {
 // 可信联系方式查询
 type CreditShieldFixContactResult struct {
 	// 1-查得，0-未查得
+	// example:
+	//
+	// 1
 	Result *string `json:"result,omitempty" xml:"result,omitempty" require:"true"`
 	// 查得手机号md5
+	// example:
+	//
+	// [手机号md5]
 	Phones []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
 }
 
@@ -9270,26 +12095,47 @@ func (s *CreditShieldFixContactResult) SetPhones(v []*string) *CreditShieldFixCo
 // 天枢系统专用CreditAmount结构体
 type CreditAmount struct {
 	// 授信额度
+	// example:
+	//
+	// 1
 	CreditAmount *int64 `json:"credit_amount,omitempty" xml:"credit_amount,omitempty" require:"true"`
 	// 授信余额
+	// example:
+	//
+	// 1
 	RestAmount *int64 `json:"rest_amount,omitempty" xml:"rest_amount,omitempty" require:"true"`
 	// 发放日期
 	PayDate *string `json:"pay_date,omitempty" xml:"pay_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 到期日期
 	ExpireDate *string `json:"expire_date,omitempty" xml:"expire_date,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 利率单位(1:年，2：月，3：日)
+	// example:
+	//
+	// 1
 	RateUnit *string `json:"rate_unit,omitempty" xml:"rate_unit,omitempty" require:"true"`
 	// 执行利率,利率值，单位%
 	// 年化5%，rateValue=5
 	//
 	RateValue *int64 `json:"rate_value,omitempty" xml:"rate_value,omitempty" require:"true"`
 	// 还款方式1等额本息2等额本金3先息后本4一次性利随本清5只还本金6等本等息
+	// example:
+	//
+	// 1
 	RepayWay *string `json:"repay_way,omitempty" xml:"repay_way,omitempty" require:"true"`
 	// 状态0-正常 1-冻结 2-终止
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 	// 发放日期（兼容字段）
+	// example:
+	//
+	// yyyy-MM-dd
 	PayDateSup *string `json:"pay_date_sup,omitempty" xml:"pay_date_sup,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 到期日期（兼容字段）
+	// example:
+	//
+	// yyyy-MM-dd
 	ExpireDateSup *string `json:"expire_date_sup,omitempty" xml:"expire_date_sup,omitempty" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 }
 
@@ -9354,6 +12200,9 @@ func (s *CreditAmount) SetExpireDateSup(v string) *CreditAmount {
 // 天枢-电商-支用查询
 type EcLoanQuery struct {
 	// 总条数
+	// example:
+	//
+	// 25
 	TotalCount *string `json:"total_count,omitempty" xml:"total_count,omitempty" require:"true"`
 	// 订单数组
 	LoanAppls []*EcLoanAppls `json:"loan_appls,omitempty" xml:"loan_appls,omitempty" require:"true" type:"Repeated"`
@@ -9380,8 +12229,14 @@ func (s *EcLoanQuery) SetLoanAppls(v []*EcLoanAppls) *EcLoanQuery {
 // 风控事件咨询查询入参
 type EventInfo struct {
 	// 事件编码
+	// example:
+	//
+	// face_attack_strategy
 	EventCode *string `json:"event_code,omitempty" xml:"event_code,omitempty" require:"true"`
 	// 事件产生时间
+	// example:
+	//
+	// 1686215967914
 	GmtOccur *string `json:"gmt_occur,omitempty" xml:"gmt_occur,omitempty" require:"true"`
 }
 
@@ -9406,6 +12261,9 @@ func (s *EventInfo) SetGmtOccur(v string) *EventInfo {
 // 天枢专用RepayTrail结构体
 type RepayTrail struct {
 	// 期数
+	// example:
+	//
+	// 1
 	Period *string `json:"period,omitempty" xml:"period,omitempty" require:"true"`
 	// 每期应还金额
 	NeedAmt *int64 `json:"need_amt,omitempty" xml:"need_amt,omitempty" require:"true"`
@@ -9420,12 +12278,24 @@ type RepayTrail struct {
 	// 剩余本金
 	RemainPrincipal *int64 `json:"remain_principal,omitempty" xml:"remain_principal,omitempty" require:"true"`
 	// 还款时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	RepayTime *string `json:"repay_time,omitempty" xml:"repay_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 计息开始时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	StartTime *string `json:"start_time,omitempty" xml:"start_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 计息结束时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	EndTime *string `json:"end_time,omitempty" xml:"end_time,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 试算编号
+	// example:
+	//
+	// ss
 	TrialNo *string `json:"trial_no,omitempty" xml:"trial_no,omitempty" require:"true"`
 	// 优惠后应还金额
 	DiscountAfterNeedAmt *int64 `json:"discount_after_need_amt,omitempty" xml:"discount_after_need_amt,omitempty"`
@@ -9516,10 +12386,19 @@ func (s *RepayTrail) SetDiscountInterest(v int64) *RepayTrail {
 // 授信状态
 type CustomStatus struct {
 	// 是否进行过授信申请
+	// example:
+	//
+	// true, false
 	ApplyFlag *bool `json:"apply_flag,omitempty" xml:"apply_flag,omitempty"`
 	// 0:通过； 1:拒绝； 2:处理中；
+	// example:
+	//
+	// 0
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 拒绝原因
+	// example:
+	//
+	// xxxxxxxx
 	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
 }
 
@@ -9549,22 +12428,43 @@ func (s *CustomStatus) SetMsg(v string) *CustomStatus {
 // 营销盾租户触达策略计划信息
 type TenantActionPlanInfo struct {
 	// 场景策略id
+	// example:
+	//
+	// 1
 	SceneStrategyId *int64 `json:"scene_strategy_id,omitempty" xml:"scene_strategy_id,omitempty" require:"true"`
 	// 营销名称
+	// example:
+	//
+	// 蚂蚁营销
 	SceneStrategyName *string `json:"scene_strategy_name,omitempty" xml:"scene_strategy_name,omitempty" require:"true"`
 	// 营销状态
+	// example:
+	//
+	// PASS
 	SceneStrategyStatus *string `json:"scene_strategy_status,omitempty" xml:"scene_strategy_status,omitempty" require:"true"`
 	// 渠道id
+	// example:
+	//
+	// 3
 	ActionDriverCode *int64 `json:"action_driver_code,omitempty" xml:"action_driver_code,omitempty" require:"true"`
 	// 渠道类型
+	// example:
+	//
+	// ROBOT_CALL
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty" require:"true"`
 	// 创建时间
+	// example:
+	//
+	// 2018-10-10T10:10:00Z
 	GmtCreate *string `json:"gmt_create,omitempty" xml:"gmt_create,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 修改时间
 	GmtModified *string `json:"gmt_modified,omitempty" xml:"gmt_modified,omitempty" require:"true" pattern:"\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})"`
 	// 场景策略入参名
 	ActionParamInfo []*string `json:"action_param_info,omitempty" xml:"action_param_info,omitempty" type:"Repeated"`
 	// 参数查询是否完成
+	// example:
+	//
+	// true, false
 	IsParamQueryDone *bool `json:"is_param_query_done,omitempty" xml:"is_param_query_done,omitempty"`
 }
 
@@ -9624,8 +12524,14 @@ func (s *TenantActionPlanInfo) SetIsParamQueryDone(v bool) *TenantActionPlanInfo
 // 键值对
 type XNameValuePair struct {
 	// 键名
+	// example:
+	//
+	// key
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 键值
+	// example:
+	//
+	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -23472,6 +26378,12 @@ type QueryDubbridgePetitemRequest struct {
 	BizOrderNo *string `json:"biz_order_no,omitempty" xml:"biz_order_no,omitempty" require:"true"`
 	// 渠道号
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty" require:"true"`
+	// 商城可用余额
+	MallAvailableBalance *string `json:"mall_available_balance,omitempty" xml:"mall_available_balance,omitempty" require:"true"`
+	// 商城消费在途未结算订单
+	MallConsumeUnsettleOrders []*GoodsOrderInfo `json:"mall_consume_unsettle_orders,omitempty" xml:"mall_consume_unsettle_orders,omitempty" require:"true" type:"Repeated"`
+	// 请求流水号(通过此流水号幂等判断是否是同一个请求)
+	RequestNo *string `json:"request_no,omitempty" xml:"request_no,omitempty" require:"true"`
 }
 
 func (s QueryDubbridgePetitemRequest) String() string {
@@ -23517,6 +26429,21 @@ func (s *QueryDubbridgePetitemRequest) SetChannelCode(v string) *QueryDubbridgeP
 	return s
 }
 
+func (s *QueryDubbridgePetitemRequest) SetMallAvailableBalance(v string) *QueryDubbridgePetitemRequest {
+	s.MallAvailableBalance = &v
+	return s
+}
+
+func (s *QueryDubbridgePetitemRequest) SetMallConsumeUnsettleOrders(v []*GoodsOrderInfo) *QueryDubbridgePetitemRequest {
+	s.MallConsumeUnsettleOrders = v
+	return s
+}
+
+func (s *QueryDubbridgePetitemRequest) SetRequestNo(v string) *QueryDubbridgePetitemRequest {
+	s.RequestNo = &v
+	return s
+}
+
 type QueryDubbridgePetitemResponse struct {
 	// 请求唯一ID，用于链路跟踪和问题排查
 	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
@@ -23532,20 +26459,22 @@ type QueryDubbridgePetitemResponse struct {
 	StoreId *string `json:"store_id,omitempty" xml:"store_id,omitempty"`
 	// 分期订单号
 	BizOrderNo *string `json:"biz_order_no,omitempty" xml:"biz_order_no,omitempty"`
-	// 活体已打款金额
-	PetAmount *string `json:"pet_amount,omitempty" xml:"pet_amount,omitempty"`
-	// 分期服务费(贴息金额)
-	ServiceAmount *string `json:"service_amount,omitempty" xml:"service_amount,omitempty"`
-	// 用户已还本金
-	RepaidAmount *string `json:"repaid_amount,omitempty" xml:"repaid_amount,omitempty"`
-	// 应还本金
-	DueAmount *string `json:"due_amount,omitempty" xml:"due_amount,omitempty"`
-	// 应还罚息
-	DuePenaltyAmount *string `json:"due_penalty_amount,omitempty" xml:"due_penalty_amount,omitempty"`
-	// 可退还资方金额
-	RefundFundAmount *string `json:"refund_fund_amount,omitempty" xml:"refund_fund_amount,omitempty"`
-	// 渠道号
+	// 渠道code
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty"`
+	// 用户已支出金额
+	ConsumedAmount *string `json:"consumed_amount,omitempty" xml:"consumed_amount,omitempty"`
+	// 商城消费结算金额
+	MallConsumeSettleAmount *string `json:"mall_consume_settle_amount,omitempty" xml:"mall_consume_settle_amount,omitempty"`
+	// 商城消费在途未结算金额
+	MallConsumeUnsettleAmount *string `json:"mall_consume_unsettle_amount,omitempty" xml:"mall_consume_unsettle_amount,omitempty"`
+	// 已还金额
+	RepaidAmount *string `json:"repaid_amount,omitempty" xml:"repaid_amount,omitempty"`
+	// 解约后剩余应还金额
+	RemainingAmount *string `json:"remaining_amount,omitempty" xml:"remaining_amount,omitempty"`
+	// 解约后退还给用户的金额
+	RefundUserAmount *string `json:"refund_user_amount,omitempty" xml:"refund_user_amount,omitempty"`
+	// 是否逾期(默认false)
+	Overdue *bool `json:"overdue,omitempty" xml:"overdue,omitempty"`
 }
 
 func (s QueryDubbridgePetitemResponse) String() string {
@@ -23591,13 +26520,23 @@ func (s *QueryDubbridgePetitemResponse) SetBizOrderNo(v string) *QueryDubbridgeP
 	return s
 }
 
-func (s *QueryDubbridgePetitemResponse) SetPetAmount(v string) *QueryDubbridgePetitemResponse {
-	s.PetAmount = &v
+func (s *QueryDubbridgePetitemResponse) SetChannelCode(v string) *QueryDubbridgePetitemResponse {
+	s.ChannelCode = &v
 	return s
 }
 
-func (s *QueryDubbridgePetitemResponse) SetServiceAmount(v string) *QueryDubbridgePetitemResponse {
-	s.ServiceAmount = &v
+func (s *QueryDubbridgePetitemResponse) SetConsumedAmount(v string) *QueryDubbridgePetitemResponse {
+	s.ConsumedAmount = &v
+	return s
+}
+
+func (s *QueryDubbridgePetitemResponse) SetMallConsumeSettleAmount(v string) *QueryDubbridgePetitemResponse {
+	s.MallConsumeSettleAmount = &v
+	return s
+}
+
+func (s *QueryDubbridgePetitemResponse) SetMallConsumeUnsettleAmount(v string) *QueryDubbridgePetitemResponse {
+	s.MallConsumeUnsettleAmount = &v
 	return s
 }
 
@@ -23606,23 +26545,18 @@ func (s *QueryDubbridgePetitemResponse) SetRepaidAmount(v string) *QueryDubbridg
 	return s
 }
 
-func (s *QueryDubbridgePetitemResponse) SetDueAmount(v string) *QueryDubbridgePetitemResponse {
-	s.DueAmount = &v
+func (s *QueryDubbridgePetitemResponse) SetRemainingAmount(v string) *QueryDubbridgePetitemResponse {
+	s.RemainingAmount = &v
 	return s
 }
 
-func (s *QueryDubbridgePetitemResponse) SetDuePenaltyAmount(v string) *QueryDubbridgePetitemResponse {
-	s.DuePenaltyAmount = &v
+func (s *QueryDubbridgePetitemResponse) SetRefundUserAmount(v string) *QueryDubbridgePetitemResponse {
+	s.RefundUserAmount = &v
 	return s
 }
 
-func (s *QueryDubbridgePetitemResponse) SetRefundFundAmount(v string) *QueryDubbridgePetitemResponse {
-	s.RefundFundAmount = &v
-	return s
-}
-
-func (s *QueryDubbridgePetitemResponse) SetChannelCode(v string) *QueryDubbridgePetitemResponse {
-	s.ChannelCode = &v
+func (s *QueryDubbridgePetitemResponse) SetOverdue(v bool) *QueryDubbridgePetitemResponse {
+	s.Overdue = &v
 	return s
 }
 
@@ -23642,6 +26576,8 @@ type ExecDubbridgePetitemRequest struct {
 	GoodsBalance *string `json:"goods_balance,omitempty" xml:"goods_balance,omitempty" require:"true"`
 	// 渠道号
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty" require:"true"`
+	// 请求流水号(通过此流水号幂等判断是否是同一个请求)
+	RequestNo *string `json:"request_no,omitempty" xml:"request_no,omitempty" require:"true"`
 }
 
 func (s ExecDubbridgePetitemRequest) String() string {
@@ -23689,6 +26625,11 @@ func (s *ExecDubbridgePetitemRequest) SetGoodsBalance(v string) *ExecDubbridgePe
 
 func (s *ExecDubbridgePetitemRequest) SetChannelCode(v string) *ExecDubbridgePetitemRequest {
 	s.ChannelCode = &v
+	return s
+}
+
+func (s *ExecDubbridgePetitemRequest) SetRequestNo(v string) *ExecDubbridgePetitemRequest {
+	s.RequestNo = &v
 	return s
 }
 
@@ -23751,6 +26692,8 @@ type PushDubbridgePetitemRequest struct {
 	StoreAccountInfo *StoreAccountInfo `json:"store_account_info,omitempty" xml:"store_account_info,omitempty" require:"true"`
 	// 渠道号
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty" require:"true"`
+	// 请求流水号(通过此流水号幂等判断是否是同一个请求)
+	RequestNo *string `json:"request_no,omitempty" xml:"request_no,omitempty" require:"true"`
 }
 
 func (s PushDubbridgePetitemRequest) String() string {
@@ -23811,6 +26754,11 @@ func (s *PushDubbridgePetitemRequest) SetChannelCode(v string) *PushDubbridgePet
 	return s
 }
 
+func (s *PushDubbridgePetitemRequest) SetRequestNo(v string) *PushDubbridgePetitemRequest {
+	s.RequestNo = &v
+	return s
+}
+
 type PushDubbridgePetitemResponse struct {
 	// 请求唯一ID，用于链路跟踪和问题排查
 	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
@@ -23866,6 +26814,8 @@ type RefuseDubbridgePetitemRequest struct {
 	RefundAmount *string `json:"refund_amount,omitempty" xml:"refund_amount,omitempty" require:"true"`
 	// 渠道号
 	ChannelCode *string `json:"channel_code,omitempty" xml:"channel_code,omitempty" require:"true"`
+	// 请求流水号(通过此流水号幂等判断是否是同一个请求)
+	RequestNo *string `json:"request_no,omitempty" xml:"request_no,omitempty" require:"true"`
 }
 
 func (s RefuseDubbridgePetitemRequest) String() string {
@@ -23916,6 +26866,11 @@ func (s *RefuseDubbridgePetitemRequest) SetChannelCode(v string) *RefuseDubbridg
 	return s
 }
 
+func (s *RefuseDubbridgePetitemRequest) SetRequestNo(v string) *RefuseDubbridgePetitemRequest {
+	s.RequestNo = &v
+	return s
+}
+
 type RefuseDubbridgePetitemResponse struct {
 	// 请求唯一ID，用于链路跟踪和问题排查
 	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
@@ -23959,8 +26914,8 @@ type PushDubbridgeContractsignRequest struct {
 	// OAuth模式下的授权token
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
-	// 合同签署事件id
-	SignEventId *string `json:"sign_event_id,omitempty" xml:"sign_event_id,omitempty" require:"true"`
+	// 合同签署事件id，《蚂蚁侧主导签署》时必填
+	SignEventId *string `json:"sign_event_id,omitempty" xml:"sign_event_id,omitempty"`
 	// 合同签署状态：
 	// DRAFT-草稿（合同已创建但未发起签署，待签署状态）；
 	// SIGNING-签署中（签署流程已发起，等待各方完成签署）；
@@ -23974,7 +26929,9 @@ type PushDubbridgeContractsignRequest struct {
 	// 合同下载地址（公网）
 	ContractDownUrl *string `json:"contract_down_url,omitempty" xml:"contract_down_url,omitempty"`
 	// 签署合同的业务订单号
-	BizOrderNo *string `json:"biz_order_no,omitempty" xml:"biz_order_no,omitempty"`
+	BizOrderNo *string `json:"biz_order_no,omitempty" xml:"biz_order_no,omitempty" require:"true"`
+	// 支付宝小程序用户唯一ID，《isv侧主导签署》时必填
+	OpenId *string `json:"open_id,omitempty" xml:"open_id,omitempty"`
 }
 
 func (s PushDubbridgeContractsignRequest) String() string {
@@ -24012,6 +26969,11 @@ func (s *PushDubbridgeContractsignRequest) SetContractDownUrl(v string) *PushDub
 
 func (s *PushDubbridgeContractsignRequest) SetBizOrderNo(v string) *PushDubbridgeContractsignRequest {
 	s.BizOrderNo = &v
+	return s
+}
+
+func (s *PushDubbridgeContractsignRequest) SetOpenId(v string) *PushDubbridgeContractsignRequest {
+	s.OpenId = &v
 	return s
 }
 
@@ -31346,6 +34308,253 @@ func (s *CallbackCreditshieldPartnerResponse) SetResultMsg(v string) *CallbackCr
 
 func (s *CallbackCreditshieldPartnerResponse) SetSuccess(v bool) *CallbackCreditshieldPartnerResponse {
 	s.Success = &v
+	return s
+}
+
+type PushCreditshieldAllocatecaseRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 委案信息推送
+	QueryCode *string `json:"query_code,omitempty" xml:"query_code,omitempty" require:"true"`
+	// 请求信息json
+	QueryInfos []*string `json:"query_infos,omitempty" xml:"query_infos,omitempty" require:"true" type:"Repeated"`
+}
+
+func (s PushCreditshieldAllocatecaseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushCreditshieldAllocatecaseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushCreditshieldAllocatecaseRequest) SetAuthToken(v string) *PushCreditshieldAllocatecaseRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseRequest) SetProductInstanceId(v string) *PushCreditshieldAllocatecaseRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseRequest) SetQueryCode(v string) *PushCreditshieldAllocatecaseRequest {
+	s.QueryCode = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseRequest) SetQueryInfos(v []*string) *PushCreditshieldAllocatecaseRequest {
+	s.QueryInfos = v
+	return s
+}
+
+type PushCreditshieldAllocatecaseResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 请求是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PushCreditshieldAllocatecaseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushCreditshieldAllocatecaseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushCreditshieldAllocatecaseResponse) SetReqMsgId(v string) *PushCreditshieldAllocatecaseResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseResponse) SetResultCode(v string) *PushCreditshieldAllocatecaseResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseResponse) SetResultMsg(v string) *PushCreditshieldAllocatecaseResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *PushCreditshieldAllocatecaseResponse) SetSuccess(v bool) *PushCreditshieldAllocatecaseResponse {
+	s.Success = &v
+	return s
+}
+
+type PushCreditshieldReturncaseRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 退案
+	QueryCode *string `json:"query_code,omitempty" xml:"query_code,omitempty" require:"true"`
+	// 请求信息json
+	QueryInfos []*string `json:"query_infos,omitempty" xml:"query_infos,omitempty" require:"true" type:"Repeated"`
+}
+
+func (s PushCreditshieldReturncaseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushCreditshieldReturncaseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PushCreditshieldReturncaseRequest) SetAuthToken(v string) *PushCreditshieldReturncaseRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseRequest) SetProductInstanceId(v string) *PushCreditshieldReturncaseRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseRequest) SetQueryCode(v string) *PushCreditshieldReturncaseRequest {
+	s.QueryCode = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseRequest) SetQueryInfos(v []*string) *PushCreditshieldReturncaseRequest {
+	s.QueryInfos = v
+	return s
+}
+
+type PushCreditshieldReturncaseResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 请求是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 请求响应
+	QueryResult *string `json:"query_result,omitempty" xml:"query_result,omitempty"`
+}
+
+func (s PushCreditshieldReturncaseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PushCreditshieldReturncaseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PushCreditshieldReturncaseResponse) SetReqMsgId(v string) *PushCreditshieldReturncaseResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseResponse) SetResultCode(v string) *PushCreditshieldReturncaseResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseResponse) SetResultMsg(v string) *PushCreditshieldReturncaseResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseResponse) SetSuccess(v bool) *PushCreditshieldReturncaseResponse {
+	s.Success = &v
+	return s
+}
+
+func (s *PushCreditshieldReturncaseResponse) SetQueryResult(v string) *PushCreditshieldReturncaseResponse {
+	s.QueryResult = &v
+	return s
+}
+
+type QueryCreditshieldFundcallbackRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// ALLOCATE_CASE_FILE -案件信息查询
+	// REDUCE_RESULT_NOTIFICATION - 减免结果通知
+	// REPAYMENT_RESULT_NOTIFICATION -入账通知
+	QueryCode *string `json:"query_code,omitempty" xml:"query_code,omitempty" require:"true"`
+	// 请求信息json
+	QueryInfos []*string `json:"query_infos,omitempty" xml:"query_infos,omitempty" require:"true" type:"Repeated"`
+}
+
+func (s QueryCreditshieldFundcallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreditshieldFundcallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreditshieldFundcallbackRequest) SetAuthToken(v string) *QueryCreditshieldFundcallbackRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackRequest) SetProductInstanceId(v string) *QueryCreditshieldFundcallbackRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackRequest) SetQueryCode(v string) *QueryCreditshieldFundcallbackRequest {
+	s.QueryCode = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackRequest) SetQueryInfos(v []*string) *QueryCreditshieldFundcallbackRequest {
+	s.QueryInfos = v
+	return s
+}
+
+type QueryCreditshieldFundcallbackResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 请求是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// 请求响应
+	QueryResult *string `json:"query_result,omitempty" xml:"query_result,omitempty"`
+}
+
+func (s QueryCreditshieldFundcallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreditshieldFundcallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreditshieldFundcallbackResponse) SetReqMsgId(v string) *QueryCreditshieldFundcallbackResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackResponse) SetResultCode(v string) *QueryCreditshieldFundcallbackResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackResponse) SetResultMsg(v string) *QueryCreditshieldFundcallbackResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackResponse) SetSuccess(v bool) *QueryCreditshieldFundcallbackResponse {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryCreditshieldFundcallbackResponse) SetQueryResult(v string) *QueryCreditshieldFundcallbackResponse {
+	s.QueryResult = &v
 	return s
 }
 
@@ -41420,10 +44629,11 @@ type Client struct {
 	MaxRequestsPerHost      *int
 }
 
-/**
- * Init client with Config
- * @param config config contains the necessary information to create a client
- */
+// Description:
+//
+// # Init client with Config
+//
+// @param config - config contains the necessary information to create a client
 func NewClient(config *Config) (*Client, error) {
 	client := new(Client)
 	err := client.Init(config)
@@ -41431,7 +44641,7 @@ func NewClient(config *Config) (*Client, error) {
 }
 
 func (client *Client) Init(config *Config) (_err error) {
-	if tea.BoolValue(util.IsUnset(tea.ToMap(config))) {
+	if tea.BoolValue(util.IsUnset(config)) {
 		_err = tea.NewSDKError(map[string]interface{}{
 			"code":    "ParameterMissing",
 			"message": "'config' can not be unset",
@@ -41460,16 +44670,23 @@ func (client *Client) Init(config *Config) (_err error) {
 	return nil
 }
 
-/**
- * Encapsulate the request and invoke the network
- * @param action api name
- * @param protocol http or https
- * @param method e.g. GET
- * @param pathname pathname of every api
- * @param request which contains request params
- * @param runtime which controls some details of call api, such as retry times
- * @return the response
- */
+// Description:
+//
+// # Encapsulate the request and invoke the network
+//
+// @param action - api name
+//
+// @param protocol - http or https
+//
+// @param method - e.g. GET
+//
+// @param pathname - pathname of every api
+//
+// @param request - which contains request params
+//
+// @param runtime - which controls some details of call api, such as retry times
+//
+// @return the response
 func (client *Client) DoRequest(version *string, action *string, protocol *string, method *string, pathname *string, request map[string]interface{}, headers map[string]*string, runtime *util.RuntimeOptions) (_result map[string]interface{}, _err error) {
 	_err = tea.Validate(runtime)
 	if _err != nil {
@@ -41520,7 +44737,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.31.18"),
+				"sdk_version":      tea.String("1.31.25"),
 				"_prod_code":       tea.String("RISKPLUS"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -41578,10 +44795,11 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 	return _resp, _err
 }
 
-/**
- * Description: 支付成功、退款成功、续费扣款、超时关单、签约、解约，渠道方回调结果使用
- * Summary: 权益流量业务支付签约相关通知
- */
+// Description:
+//
+// Description: 支付成功、退款成功、续费扣款、超时关单、签约、解约，渠道方回调结果使用
+//
+// Summary: 权益流量业务支付签约相关通知
 func (client *Client) ReceiveBenefithubRiskPay(request *ReceiveBenefithubRiskPayRequest) (_result *ReceiveBenefithubRiskPayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41594,10 +44812,11 @@ func (client *Client) ReceiveBenefithubRiskPay(request *ReceiveBenefithubRiskPay
 	return _result, _err
 }
 
-/**
- * Description: 支付成功、退款成功、续费扣款、超时关单、签约、解约，渠道方回调结果使用
- * Summary: 权益流量业务支付签约相关通知
- */
+// Description:
+//
+// Description: 支付成功、退款成功、续费扣款、超时关单、签约、解约，渠道方回调结果使用
+//
+// Summary: 权益流量业务支付签约相关通知
 func (client *Client) ReceiveBenefithubRiskPayEx(request *ReceiveBenefithubRiskPayRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveBenefithubRiskPayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41612,10 +44831,11 @@ func (client *Client) ReceiveBenefithubRiskPayEx(request *ReceiveBenefithubRiskP
 	return _result, _err
 }
 
-/**
- * Description: 渠道、平台方，联合登陆推送登陆通知信息
- * Summary: 渠道/平台方推送的用户登陆信息
- */
+// Description:
+//
+// Description: 渠道、平台方，联合登陆推送登陆通知信息
+//
+// Summary: 渠道/平台方推送的用户登陆信息
 func (client *Client) NotifyBenefithubRiskLogin(request *NotifyBenefithubRiskLoginRequest) (_result *NotifyBenefithubRiskLoginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41628,10 +44848,11 @@ func (client *Client) NotifyBenefithubRiskLogin(request *NotifyBenefithubRiskLog
 	return _result, _err
 }
 
-/**
- * Description: 渠道、平台方，联合登陆推送登陆通知信息
- * Summary: 渠道/平台方推送的用户登陆信息
- */
+// Description:
+//
+// Description: 渠道、平台方，联合登陆推送登陆通知信息
+//
+// Summary: 渠道/平台方推送的用户登陆信息
 func (client *Client) NotifyBenefithubRiskLoginEx(request *NotifyBenefithubRiskLoginRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyBenefithubRiskLoginResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41646,10 +44867,11 @@ func (client *Client) NotifyBenefithubRiskLoginEx(request *NotifyBenefithubRiskL
 	return _result, _err
 }
 
-/**
- * Description: 奇富组件支付结果通知, 提供给驭鉴使用，用于接收从奇富支付成功的通知，发起订单创建
- * Summary: 奇富组件支付结果通知
- */
+// Description:
+//
+// Description: 奇富组件支付结果通知, 提供给驭鉴使用，用于接收从奇富支付成功的通知，发起订单创建
+//
+// Summary: 奇富组件支付结果通知
 func (client *Client) NotifyBenefithubRiskPayunilateral(request *NotifyBenefithubRiskPayunilateralRequest) (_result *NotifyBenefithubRiskPayunilateralResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41662,10 +44884,11 @@ func (client *Client) NotifyBenefithubRiskPayunilateral(request *NotifyBenefithu
 	return _result, _err
 }
 
-/**
- * Description: 奇富组件支付结果通知, 提供给驭鉴使用，用于接收从奇富支付成功的通知，发起订单创建
- * Summary: 奇富组件支付结果通知
- */
+// Description:
+//
+// Description: 奇富组件支付结果通知, 提供给驭鉴使用，用于接收从奇富支付成功的通知，发起订单创建
+//
+// Summary: 奇富组件支付结果通知
 func (client *Client) NotifyBenefithubRiskPayunilateralEx(request *NotifyBenefithubRiskPayunilateralRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyBenefithubRiskPayunilateralResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41680,10 +44903,11 @@ func (client *Client) NotifyBenefithubRiskPayunilateralEx(request *NotifyBenefit
 	return _result, _err
 }
 
-/**
- * Description: 渠道主动查询报告详情接口
- * Summary: 渠道查询报告详情
- */
+// Description:
+//
+// Description: 渠道主动查询报告详情接口
+//
+// Summary: 渠道查询报告详情
 func (client *Client) QueryBenefithubReportInformation(request *QueryBenefithubReportInformationRequest) (_result *QueryBenefithubReportInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41696,10 +44920,11 @@ func (client *Client) QueryBenefithubReportInformation(request *QueryBenefithubR
 	return _result, _err
 }
 
-/**
- * Description: 渠道主动查询报告详情接口
- * Summary: 渠道查询报告详情
- */
+// Description:
+//
+// Description: 渠道主动查询报告详情接口
+//
+// Summary: 渠道查询报告详情
 func (client *Client) QueryBenefithubReportInformationEx(request *QueryBenefithubReportInformationRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBenefithubReportInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41714,10 +44939,11 @@ func (client *Client) QueryBenefithubReportInformationEx(request *QueryBenefithu
 	return _result, _err
 }
 
-/**
- * Description: 渠道查询报告有效期
- * Summary: 渠道查询报告有效期
- */
+// Description:
+//
+// Description: 渠道查询报告有效期
+//
+// Summary: 渠道查询报告有效期
 func (client *Client) QueryBenefithubReportEffective(request *QueryBenefithubReportEffectiveRequest) (_result *QueryBenefithubReportEffectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41730,10 +44956,11 @@ func (client *Client) QueryBenefithubReportEffective(request *QueryBenefithubRep
 	return _result, _err
 }
 
-/**
- * Description: 渠道查询报告有效期
- * Summary: 渠道查询报告有效期
- */
+// Description:
+//
+// Description: 渠道查询报告有效期
+//
+// Summary: 渠道查询报告有效期
 func (client *Client) QueryBenefithubReportEffectiveEx(request *QueryBenefithubReportEffectiveRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBenefithubReportEffectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41748,10 +44975,11 @@ func (client *Client) QueryBenefithubReportEffectiveEx(request *QueryBenefithubR
 	return _result, _err
 }
 
-/**
- * Description: 信护盾产品批量查询
- * Summary: 信护盾产品批量查询
- */
+// Description:
+//
+// Description: 信护盾产品批量查询
+//
+// Summary: 信护盾产品批量查询
 func (client *Client) BatchqueryCreditshieldProductInfo(request *BatchqueryCreditshieldProductInfoRequest) (_result *BatchqueryCreditshieldProductInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41764,10 +44992,11 @@ func (client *Client) BatchqueryCreditshieldProductInfo(request *BatchqueryCredi
 	return _result, _err
 }
 
-/**
- * Description: 信护盾产品批量查询
- * Summary: 信护盾产品批量查询
- */
+// Description:
+//
+// Description: 信护盾产品批量查询
+//
+// Summary: 信护盾产品批量查询
 func (client *Client) BatchqueryCreditshieldProductInfoEx(request *BatchqueryCreditshieldProductInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryCreditshieldProductInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41782,10 +45011,11 @@ func (client *Client) BatchqueryCreditshieldProductInfoEx(request *BatchqueryCre
 	return _result, _err
 }
 
-/**
- * Description: 信护盾amc机构回调通用接口
- * Summary: 信护盾amc机构回调通用接口
- */
+// Description:
+//
+// Description: 信护盾amc机构回调通用接口
+//
+// Summary: 信护盾amc机构回调通用接口
 func (client *Client) QueryCreditshieldProductCallback(request *QueryCreditshieldProductCallbackRequest) (_result *QueryCreditshieldProductCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41798,10 +45028,11 @@ func (client *Client) QueryCreditshieldProductCallback(request *QueryCreditshiel
 	return _result, _err
 }
 
-/**
- * Description: 信护盾amc机构回调通用接口
- * Summary: 信护盾amc机构回调通用接口
- */
+// Description:
+//
+// Description: 信护盾amc机构回调通用接口
+//
+// Summary: 信护盾amc机构回调通用接口
 func (client *Client) QueryCreditshieldProductCallbackEx(request *QueryCreditshieldProductCallbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldProductCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41816,10 +45047,11 @@ func (client *Client) QueryCreditshieldProductCallbackEx(request *QueryCreditshi
 	return _result, _err
 }
 
-/**
- * Description: ivr函数计算调用
- * Summary: ivr函数计算调用
- */
+// Description:
+//
+// Description: ivr函数计算调用
+//
+// Summary: ivr函数计算调用
 func (client *Client) QueryCreditshieldProductIvrfc(request *QueryCreditshieldProductIvrfcRequest) (_result *QueryCreditshieldProductIvrfcResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41832,10 +45064,11 @@ func (client *Client) QueryCreditshieldProductIvrfc(request *QueryCreditshieldPr
 	return _result, _err
 }
 
-/**
- * Description: ivr函数计算调用
- * Summary: ivr函数计算调用
- */
+// Description:
+//
+// Description: ivr函数计算调用
+//
+// Summary: ivr函数计算调用
 func (client *Client) QueryCreditshieldProductIvrfcEx(request *QueryCreditshieldProductIvrfcRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldProductIvrfcResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41850,10 +45083,11 @@ func (client *Client) QueryCreditshieldProductIvrfcEx(request *QueryCreditshield
 	return _result, _err
 }
 
-/**
- * Description: 风控云风险咨询接口
- * Summary: 风控云风险咨询接口
- */
+// Description:
+//
+// Description: 风控云风险咨询接口
+//
+// Summary: 风控云风险咨询接口
 func (client *Client) QuerySecurityPolicy(request *QuerySecurityPolicyRequest) (_result *QuerySecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41866,10 +45100,11 @@ func (client *Client) QuerySecurityPolicy(request *QuerySecurityPolicyRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 风控云风险咨询接口
- * Summary: 风控云风险咨询接口
- */
+// Description:
+//
+// Description: 风控云风险咨询接口
+//
+// Summary: 风控云风险咨询接口
 func (client *Client) QuerySecurityPolicyEx(request *QuerySecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41884,10 +45119,11 @@ func (client *Client) QuerySecurityPolicyEx(request *QuerySecurityPolicyRequest,
 	return _result, _err
 }
 
-/**
- * Description: 向风控发送异步安全数据
- * Summary: 异步发送安全数据
- */
+// Description:
+//
+// Description: 向风控发送异步安全数据
+//
+// Summary: 异步发送安全数据
 func (client *Client) SendSecurityData(request *SendSecurityDataRequest) (_result *SendSecurityDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41900,10 +45136,11 @@ func (client *Client) SendSecurityData(request *SendSecurityDataRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 向风控发送异步安全数据
- * Summary: 异步发送安全数据
- */
+// Description:
+//
+// Description: 向风控发送异步安全数据
+//
+// Summary: 异步发送安全数据
 func (client *Client) SendSecurityDataEx(request *SendSecurityDataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendSecurityDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41918,10 +45155,11 @@ func (client *Client) SendSecurityDataEx(request *SendSecurityDataRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入蚂蚁风控，进行风险识别和风险决策输出核身后，进行二次确认
- * Summary: 安全策略确认服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入蚂蚁风控，进行风险识别和风险决策输出核身后，进行二次确认
+//
+// Summary: 安全策略确认服务输出
 func (client *Client) ConfirmSecurityPolicy(request *ConfirmSecurityPolicyRequest) (_result *ConfirmSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41934,10 +45172,11 @@ func (client *Client) ConfirmSecurityPolicy(request *ConfirmSecurityPolicyReques
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入蚂蚁风控，进行风险识别和风险决策输出核身后，进行二次确认
- * Summary: 安全策略确认服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入蚂蚁风控，进行风险识别和风险决策输出核身后，进行二次确认
+//
+// Summary: 安全策略确认服务输出
 func (client *Client) ConfirmSecurityPolicyEx(request *ConfirmSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ConfirmSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41952,10 +45191,11 @@ func (client *Client) ConfirmSecurityPolicyEx(request *ConfirmSecurityPolicyRequ
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入风控+，进行人机识别判断。
- * Summary: 策略咨询服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入风控+，进行人机识别判断。
+//
+// Summary: 策略咨询服务输出
 func (client *Client) CheckSecurityRds(request *CheckSecurityRdsRequest) (_result *CheckSecurityRdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -41968,10 +45208,11 @@ func (client *Client) CheckSecurityRds(request *CheckSecurityRdsRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入风控+，进行人机识别判断。
- * Summary: 策略咨询服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入风控+，进行人机识别判断。
+//
+// Summary: 策略咨询服务输出
 func (client *Client) CheckSecurityRdsEx(request *CheckSecurityRdsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckSecurityRdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -41986,10 +45227,11 @@ func (client *Client) CheckSecurityRdsEx(request *CheckSecurityRdsRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入风控+，请求安全数据如ip画像等。
- * Summary: 安全数据服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入风控+，请求安全数据如ip画像等。
+//
+// Summary: 安全数据服务输出
 func (client *Client) QuerySecurityData(request *QuerySecurityDataRequest) (_result *QuerySecurityDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42002,10 +45244,11 @@ func (client *Client) QuerySecurityData(request *QuerySecurityDataRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 外部客户业务接入风控+，请求安全数据如ip画像等。
- * Summary: 安全数据服务输出
- */
+// Description:
+//
+// Description: 外部客户业务接入风控+，请求安全数据如ip画像等。
+//
+// Summary: 安全数据服务输出
 func (client *Client) QuerySecurityDataEx(request *QuerySecurityDataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42020,10 +45263,11 @@ func (client *Client) QuerySecurityDataEx(request *QuerySecurityDataRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 外部客户数据校验接口，比如端防护
- * Summary: 安全数据服务校验
- */
+// Description:
+//
+// Description: 外部客户数据校验接口，比如端防护
+//
+// Summary: 安全数据服务校验
 func (client *Client) CheckSecurityData(request *CheckSecurityDataRequest) (_result *CheckSecurityDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42036,10 +45280,11 @@ func (client *Client) CheckSecurityData(request *CheckSecurityDataRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 外部客户数据校验接口，比如端防护
- * Summary: 安全数据服务校验
- */
+// Description:
+//
+// Description: 外部客户数据校验接口，比如端防护
+//
+// Summary: 安全数据服务校验
 func (client *Client) CheckSecurityDataEx(request *CheckSecurityDataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckSecurityDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42054,10 +45299,11 @@ func (client *Client) CheckSecurityDataEx(request *CheckSecurityDataRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 反欺诈风险数据服务请求执行
- * Summary: 反欺诈风险数据服务请求执行
- */
+// Description:
+//
+// Description: 反欺诈风险数据服务请求执行
+//
+// Summary: 反欺诈风险数据服务请求执行
 func (client *Client) ExecSecurityRiskdataservice(request *ExecSecurityRiskdataserviceRequest) (_result *ExecSecurityRiskdataserviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42070,10 +45316,11 @@ func (client *Client) ExecSecurityRiskdataservice(request *ExecSecurityRiskdatas
 	return _result, _err
 }
 
-/**
- * Description: 反欺诈风险数据服务请求执行
- * Summary: 反欺诈风险数据服务请求执行
- */
+// Description:
+//
+// Description: 反欺诈风险数据服务请求执行
+//
+// Summary: 反欺诈风险数据服务请求执行
 func (client *Client) ExecSecurityRiskdataserviceEx(request *ExecSecurityRiskdataserviceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecSecurityRiskdataserviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42088,10 +45335,11 @@ func (client *Client) ExecSecurityRiskdataserviceEx(request *ExecSecurityRiskdat
 	return _result, _err
 }
 
-/**
- * Description: 风控云SaaS租户调用接口
- * Summary: 风控云SaaS租户调用接口
- */
+// Description:
+//
+// Description: 风控云SaaS租户调用接口
+//
+// Summary: 风控云SaaS租户调用接口
 func (client *Client) QuerySaasSecurityPolicy(request *QuerySaasSecurityPolicyRequest) (_result *QuerySaasSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42104,10 +45352,11 @@ func (client *Client) QuerySaasSecurityPolicy(request *QuerySaasSecurityPolicyRe
 	return _result, _err
 }
 
-/**
- * Description: 风控云SaaS租户调用接口
- * Summary: 风控云SaaS租户调用接口
- */
+// Description:
+//
+// Description: 风控云SaaS租户调用接口
+//
+// Summary: 风控云SaaS租户调用接口
 func (client *Client) QuerySaasSecurityPolicyEx(request *QuerySaasSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySaasSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42122,10 +45371,11 @@ func (client *Client) QuerySaasSecurityPolicyEx(request *QuerySaasSecurityPolicy
 	return _result, _err
 }
 
-/**
- * Description: 批量决策
- * Summary: 批量决策查询
- */
+// Description:
+//
+// Description: 批量决策
+//
+// Summary: 批量决策查询
 func (client *Client) QueryBatchSecurityPolicy(request *QueryBatchSecurityPolicyRequest) (_result *QueryBatchSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42138,10 +45388,11 @@ func (client *Client) QueryBatchSecurityPolicy(request *QueryBatchSecurityPolicy
 	return _result, _err
 }
 
-/**
- * Description: 批量决策
- * Summary: 批量决策查询
- */
+// Description:
+//
+// Description: 批量决策
+//
+// Summary: 批量决策查询
 func (client *Client) QueryBatchSecurityPolicyEx(request *QueryBatchSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBatchSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42156,10 +45407,11 @@ func (client *Client) QueryBatchSecurityPolicyEx(request *QueryBatchSecurityPoli
 	return _result, _err
 }
 
-/**
- * Description: 信护盾产品批量查询
- * Summary: 信护盾产品批量查询
- */
+// Description:
+//
+// Description: 信护盾产品批量查询
+//
+// Summary: 信护盾产品批量查询
 func (client *Client) QueryCreditshieldProductBatch(request *QueryCreditshieldProductBatchRequest) (_result *QueryCreditshieldProductBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42172,10 +45424,11 @@ func (client *Client) QueryCreditshieldProductBatch(request *QueryCreditshieldPr
 	return _result, _err
 }
 
-/**
- * Description: 信护盾产品批量查询
- * Summary: 信护盾产品批量查询
- */
+// Description:
+//
+// Description: 信护盾产品批量查询
+//
+// Summary: 信护盾产品批量查询
 func (client *Client) QueryCreditshieldProductBatchEx(request *QueryCreditshieldProductBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldProductBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42190,10 +45443,11 @@ func (client *Client) QueryCreditshieldProductBatchEx(request *QueryCreditshield
 	return _result, _err
 }
 
-/**
- * Description: 业务风险查询接口，基于新air决策引擎提供决策能力
- * Summary: 业务风险查询接口，基于新air决策引擎提供决策能力
- */
+// Description:
+//
+// Description: 业务风险查询接口，基于新air决策引擎提供决策能力
+//
+// Summary: 业务风险查询接口，基于新air决策引擎提供决策能力
 func (client *Client) QuerySecurityAiriskcloudPolicy(request *QuerySecurityAiriskcloudPolicyRequest) (_result *QuerySecurityAiriskcloudPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42206,10 +45460,11 @@ func (client *Client) QuerySecurityAiriskcloudPolicy(request *QuerySecurityAiris
 	return _result, _err
 }
 
-/**
- * Description: 业务风险查询接口，基于新air决策引擎提供决策能力
- * Summary: 业务风险查询接口，基于新air决策引擎提供决策能力
- */
+// Description:
+//
+// Description: 业务风险查询接口，基于新air决策引擎提供决策能力
+//
+// Summary: 业务风险查询接口，基于新air决策引擎提供决策能力
 func (client *Client) QuerySecurityAiriskcloudPolicyEx(request *QuerySecurityAiriskcloudPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySecurityAiriskcloudPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42224,10 +45479,11 @@ func (client *Client) QuerySecurityAiriskcloudPolicyEx(request *QuerySecurityAir
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统线下测试环境测试接口
- * Summary: 天枢信贷业务系统线下测试接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统线下测试环境测试接口
+//
+// Summary: 天枢信贷业务系统线下测试接口
 func (client *Client) QueryDubheTest(request *QueryDubheTestRequest) (_result *QueryDubheTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42240,10 +45496,11 @@ func (client *Client) QueryDubheTest(request *QueryDubheTestRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统线下测试环境测试接口
- * Summary: 天枢信贷业务系统线下测试接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统线下测试环境测试接口
+//
+// Summary: 天枢信贷业务系统线下测试接口
 func (client *Client) QueryDubheTestEx(request *QueryDubheTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42258,10 +45515,11 @@ func (client *Client) QueryDubheTestEx(request *QueryDubheTestRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 通过客户三要素信息查询资金方代码(资金路由)
- * Summary: 天枢系统资金方代码(资金路由)查询
- */
+// Description:
+//
+// Description: 通过客户三要素信息查询资金方代码(资金路由)
+//
+// Summary: 天枢系统资金方代码(资金路由)查询
 func (client *Client) QueryDubheRouterFundrouter(request *QueryDubheRouterFundrouterRequest) (_result *QueryDubheRouterFundrouterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42274,10 +45532,11 @@ func (client *Client) QueryDubheRouterFundrouter(request *QueryDubheRouterFundro
 	return _result, _err
 }
 
-/**
- * Description: 通过客户三要素信息查询资金方代码(资金路由)
- * Summary: 天枢系统资金方代码(资金路由)查询
- */
+// Description:
+//
+// Description: 通过客户三要素信息查询资金方代码(资金路由)
+//
+// Summary: 天枢系统资金方代码(资金路由)查询
 func (client *Client) QueryDubheRouterFundrouterEx(request *QueryDubheRouterFundrouterRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheRouterFundrouterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42292,10 +45551,11 @@ func (client *Client) QueryDubheRouterFundrouterEx(request *QueryDubheRouterFund
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信申请接口
- * Summary: 天枢系统授信申请接口
- */
+// Description:
+//
+// Description: 天枢系统授信申请接口
+//
+// Summary: 天枢系统授信申请接口
 func (client *Client) ApplyDubheCredit(request *ApplyDubheCreditRequest) (_result *ApplyDubheCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42308,10 +45568,11 @@ func (client *Client) ApplyDubheCredit(request *ApplyDubheCreditRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信申请接口
- * Summary: 天枢系统授信申请接口
- */
+// Description:
+//
+// Description: 天枢系统授信申请接口
+//
+// Summary: 天枢系统授信申请接口
 func (client *Client) ApplyDubheCreditEx(request *ApplyDubheCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubheCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42326,10 +45587,11 @@ func (client *Client) ApplyDubheCreditEx(request *ApplyDubheCreditRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口
- * Summary: 天枢系统授信额度查询接口
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口
+//
+// Summary: 天枢系统授信额度查询接口
 func (client *Client) QueryDubheCreditStatus(request *QueryDubheCreditStatusRequest) (_result *QueryDubheCreditStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42342,10 +45604,11 @@ func (client *Client) QueryDubheCreditStatus(request *QueryDubheCreditStatusRequ
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口
- * Summary: 天枢系统授信额度查询接口
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口
+//
+// Summary: 天枢系统授信额度查询接口
 func (client *Client) QueryDubheCreditStatusEx(request *QueryDubheCreditStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheCreditStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42360,10 +45623,11 @@ func (client *Client) QueryDubheCreditStatusEx(request *QueryDubheCreditStatusRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
- * Summary: 天枢系统还款计划试算
- */
+// Description:
+//
+// Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
+//
+// Summary: 天枢系统还款计划试算
 func (client *Client) CountDubheRepayReftrial(request *CountDubheRepayReftrialRequest) (_result *CountDubheRepayReftrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42376,10 +45640,11 @@ func (client *Client) CountDubheRepayReftrial(request *CountDubheRepayReftrialRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
- * Summary: 天枢系统还款计划试算
- */
+// Description:
+//
+// Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
+//
+// Summary: 天枢系统还款计划试算
 func (client *Client) CountDubheRepayReftrialEx(request *CountDubheRepayReftrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CountDubheRepayReftrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42394,10 +45659,11 @@ func (client *Client) CountDubheRepayReftrialEx(request *CountDubheRepayReftrial
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划查询，根据申请订单查询还款计划
- * Summary: 天枢系统还款计划查询
- */
+// Description:
+//
+// Description: 天枢系统还款计划查询，根据申请订单查询还款计划
+//
+// Summary: 天枢系统还款计划查询
 func (client *Client) QueryDubheRepayList(request *QueryDubheRepayListRequest) (_result *QueryDubheRepayListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42410,10 +45676,11 @@ func (client *Client) QueryDubheRepayList(request *QueryDubheRepayListRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划查询，根据申请订单查询还款计划
- * Summary: 天枢系统还款计划查询
- */
+// Description:
+//
+// Description: 天枢系统还款计划查询，根据申请订单查询还款计划
+//
+// Summary: 天枢系统还款计划查询
 func (client *Client) QueryDubheRepayListEx(request *QueryDubheRepayListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheRepayListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42428,10 +45695,11 @@ func (client *Client) QueryDubheRepayListEx(request *QueryDubheRepayListRequest,
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请接口
- * Summary: 天枢系统用信申请接口
- */
+// Description:
+//
+// Description: 天枢系统用信申请接口
+//
+// Summary: 天枢系统用信申请接口
 func (client *Client) ApplyDubheUsecredit(request *ApplyDubheUsecreditRequest) (_result *ApplyDubheUsecreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42444,10 +45712,11 @@ func (client *Client) ApplyDubheUsecredit(request *ApplyDubheUsecreditRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请接口
- * Summary: 天枢系统用信申请接口
- */
+// Description:
+//
+// Description: 天枢系统用信申请接口
+//
+// Summary: 天枢系统用信申请接口
 func (client *Client) ApplyDubheUsecreditEx(request *ApplyDubheUsecreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubheUsecreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42462,10 +45731,11 @@ func (client *Client) ApplyDubheUsecreditEx(request *ApplyDubheUsecreditRequest,
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
- * Summary: 天枢系统用信申请状态查询
- */
+// Description:
+//
+// Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
+//
+// Summary: 天枢系统用信申请状态查询
 func (client *Client) QueryDubheUsecreditStatus(request *QueryDubheUsecreditStatusRequest) (_result *QueryDubheUsecreditStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42478,10 +45748,11 @@ func (client *Client) QueryDubheUsecreditStatus(request *QueryDubheUsecreditStat
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
- * Summary: 天枢系统用信申请状态查询
- */
+// Description:
+//
+// Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
+//
+// Summary: 天枢系统用信申请状态查询
 func (client *Client) QueryDubheUsecreditStatusEx(request *QueryDubheUsecreditStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheUsecreditStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42496,10 +45767,11 @@ func (client *Client) QueryDubheUsecreditStatusEx(request *QueryDubheUsecreditSt
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款试算，根据借据号计算还款金额
- * Summary: 天枢系统还款试算
- */
+// Description:
+//
+// Description: 天枢系统还款试算，根据借据号计算还款金额
+//
+// Summary: 天枢系统还款试算
 func (client *Client) CountDubheRepayTrial(request *CountDubheRepayTrialRequest) (_result *CountDubheRepayTrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42512,10 +45784,11 @@ func (client *Client) CountDubheRepayTrial(request *CountDubheRepayTrialRequest)
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款试算，根据借据号计算还款金额
- * Summary: 天枢系统还款试算
- */
+// Description:
+//
+// Description: 天枢系统还款试算，根据借据号计算还款金额
+//
+// Summary: 天枢系统还款试算
 func (client *Client) CountDubheRepayTrialEx(request *CountDubheRepayTrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CountDubheRepayTrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42530,10 +45803,11 @@ func (client *Client) CountDubheRepayTrialEx(request *CountDubheRepayTrialReques
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统主动还款（收银台）接口
- * Summary: 天枢系统主动还款（收银台）接口
- */
+// Description:
+//
+// Description: 天枢系统主动还款（收银台）接口
+//
+// Summary: 天枢系统主动还款（收银台）接口
 func (client *Client) RepayDubheRepayCheckstand(request *RepayDubheRepayCheckstandRequest) (_result *RepayDubheRepayCheckstandResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42546,10 +45820,11 @@ func (client *Client) RepayDubheRepayCheckstand(request *RepayDubheRepayChecksta
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统主动还款（收银台）接口
- * Summary: 天枢系统主动还款（收银台）接口
- */
+// Description:
+//
+// Description: 天枢系统主动还款（收银台）接口
+//
+// Summary: 天枢系统主动还款（收银台）接口
 func (client *Client) RepayDubheRepayCheckstandEx(request *RepayDubheRepayCheckstandRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RepayDubheRepayCheckstandResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42564,10 +45839,11 @@ func (client *Client) RepayDubheRepayCheckstandEx(request *RepayDubheRepayChecks
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款信息查询
- * Summary: 天枢系统还款信息查询
- */
+// Description:
+//
+// Description: 天枢系统还款信息查询
+//
+// Summary: 天枢系统还款信息查询
 func (client *Client) QueryDubheRepayInfo(request *QueryDubheRepayInfoRequest) (_result *QueryDubheRepayInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42580,10 +45856,11 @@ func (client *Client) QueryDubheRepayInfo(request *QueryDubheRepayInfoRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款信息查询
- * Summary: 天枢系统还款信息查询
- */
+// Description:
+//
+// Description: 天枢系统还款信息查询
+//
+// Summary: 天枢系统还款信息查询
 func (client *Client) QueryDubheRepayInfoEx(request *QueryDubheRepayInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheRepayInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42598,10 +45875,11 @@ func (client *Client) QueryDubheRepayInfoEx(request *QueryDubheRepayInfoRequest,
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统客户信息变更接口（变更客户三要素信息）
- * Summary: 天枢系统客户信息变更接口
- */
+// Description:
+//
+// Description: 天枢系统客户信息变更接口（变更客户三要素信息）
+//
+// Summary: 天枢系统客户信息变更接口
 func (client *Client) UpdateDubheCustomerInfo(request *UpdateDubheCustomerInfoRequest) (_result *UpdateDubheCustomerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42614,10 +45892,11 @@ func (client *Client) UpdateDubheCustomerInfo(request *UpdateDubheCustomerInfoRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统客户信息变更接口（变更客户三要素信息）
- * Summary: 天枢系统客户信息变更接口
- */
+// Description:
+//
+// Description: 天枢系统客户信息变更接口（变更客户三要素信息）
+//
+// Summary: 天枢系统客户信息变更接口
 func (client *Client) UpdateDubheCustomerInfoEx(request *UpdateDubheCustomerInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateDubheCustomerInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42632,10 +45911,11 @@ func (client *Client) UpdateDubheCustomerInfoEx(request *UpdateDubheCustomerInfo
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约申请(支付宝
- * Summary: 天枢系统协议签约申请(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约申请(支付宝
+//
+// Summary: 天枢系统协议签约申请(支付宝)
 func (client *Client) ApplyDubheCustomerAgreementsign(request *ApplyDubheCustomerAgreementsignRequest) (_result *ApplyDubheCustomerAgreementsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42648,10 +45928,11 @@ func (client *Client) ApplyDubheCustomerAgreementsign(request *ApplyDubheCustome
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约申请(支付宝
- * Summary: 天枢系统协议签约申请(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约申请(支付宝
+//
+// Summary: 天枢系统协议签约申请(支付宝)
 func (client *Client) ApplyDubheCustomerAgreementsignEx(request *ApplyDubheCustomerAgreementsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubheCustomerAgreementsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42666,10 +45947,11 @@ func (client *Client) ApplyDubheCustomerAgreementsignEx(request *ApplyDubheCusto
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(支付宝)
- * Summary: 天枢系统协议签约查询(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(支付宝)
+//
+// Summary: 天枢系统协议签约查询(支付宝)
 func (client *Client) QueryDubheCustomerAgreementsign(request *QueryDubheCustomerAgreementsignRequest) (_result *QueryDubheCustomerAgreementsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42682,10 +45964,11 @@ func (client *Client) QueryDubheCustomerAgreementsign(request *QueryDubheCustome
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(支付宝)
- * Summary: 天枢系统协议签约查询(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(支付宝)
+//
+// Summary: 天枢系统协议签约查询(支付宝)
 func (client *Client) QueryDubheCustomerAgreementsignEx(request *QueryDubheCustomerAgreementsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheCustomerAgreementsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42700,10 +45983,11 @@ func (client *Client) QueryDubheCustomerAgreementsignEx(request *QueryDubheCusto
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统主动还款（直接代扣）接口
- * Summary: 天枢信贷业务系统主动还款（直接代扣）接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统主动还款（直接代扣）接口
+//
+// Summary: 天枢信贷业务系统主动还款（直接代扣）接口
 func (client *Client) RepayDubheRepayWithhold(request *RepayDubheRepayWithholdRequest) (_result *RepayDubheRepayWithholdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42716,10 +46000,11 @@ func (client *Client) RepayDubheRepayWithhold(request *RepayDubheRepayWithholdRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统主动还款（直接代扣）接口
- * Summary: 天枢信贷业务系统主动还款（直接代扣）接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统主动还款（直接代扣）接口
+//
+// Summary: 天枢信贷业务系统主动还款（直接代扣）接口
 func (client *Client) RepayDubheRepayWithholdEx(request *RepayDubheRepayWithholdRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RepayDubheRepayWithholdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42734,10 +46019,11 @@ func (client *Client) RepayDubheRepayWithholdEx(request *RepayDubheRepayWithhold
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统合同获取
- * Summary: 天枢系统合同获取
- */
+// Description:
+//
+// Description: 天枢系统合同获取
+//
+// Summary: 天枢系统合同获取
 func (client *Client) QueryDubheSearchContract(request *QueryDubheSearchContractRequest) (_result *QueryDubheSearchContractResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42750,10 +46036,11 @@ func (client *Client) QueryDubheSearchContract(request *QueryDubheSearchContract
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统合同获取
- * Summary: 天枢系统合同获取
- */
+// Description:
+//
+// Description: 天枢系统合同获取
+//
+// Summary: 天枢系统合同获取
 func (client *Client) QueryDubheSearchContractEx(request *QueryDubheSearchContractRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheSearchContractResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42768,10 +46055,11 @@ func (client *Client) QueryDubheSearchContractEx(request *QueryDubheSearchContra
 	return _result, _err
 }
 
-/**
- * Description: 天枢逾期信息查询接口
- * Summary: 逾期信息查询
- */
+// Description:
+//
+// Description: 天枢逾期信息查询接口
+//
+// Summary: 逾期信息查询
 func (client *Client) QueryDubheReceiptOverdue(request *QueryDubheReceiptOverdueRequest) (_result *QueryDubheReceiptOverdueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42784,10 +46072,11 @@ func (client *Client) QueryDubheReceiptOverdue(request *QueryDubheReceiptOverdue
 	return _result, _err
 }
 
-/**
- * Description: 天枢逾期信息查询接口
- * Summary: 逾期信息查询
- */
+// Description:
+//
+// Description: 天枢逾期信息查询接口
+//
+// Summary: 逾期信息查询
 func (client *Client) QueryDubheReceiptOverdueEx(request *QueryDubheReceiptOverdueRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubheReceiptOverdueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42802,10 +46091,11 @@ func (client *Client) QueryDubheReceiptOverdueEx(request *QueryDubheReceiptOverd
 	return _result, _err
 }
 
-/**
- * Description: 天枢发送短信接口，适用于一个模板相同参数
- * Summary: 天枢发送短信接口
- */
+// Description:
+//
+// Description: 天枢发送短信接口，适用于一个模板相同参数
+//
+// Summary: 天枢发送短信接口
 func (client *Client) SendDubbridgeSms(request *SendDubbridgeSmsRequest) (_result *SendDubbridgeSmsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42818,10 +46108,11 @@ func (client *Client) SendDubbridgeSms(request *SendDubbridgeSmsRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 天枢发送短信接口，适用于一个模板相同参数
- * Summary: 天枢发送短信接口
- */
+// Description:
+//
+// Description: 天枢发送短信接口，适用于一个模板相同参数
+//
+// Summary: 天枢发送短信接口
 func (client *Client) SendDubbridgeSmsEx(request *SendDubbridgeSmsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendDubbridgeSmsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42836,10 +46127,11 @@ func (client *Client) SendDubbridgeSmsEx(request *SendDubbridgeSmsRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 天枢批量发送短信接口，适合一个短信模板多个不同参数场景
- * Summary: 天枢批量发送短信接口
- */
+// Description:
+//
+// Description: 天枢批量发送短信接口，适合一个短信模板多个不同参数场景
+//
+// Summary: 天枢批量发送短信接口
 func (client *Client) SendDubbridgeSmsBatch(request *SendDubbridgeSmsBatchRequest) (_result *SendDubbridgeSmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42852,10 +46144,11 @@ func (client *Client) SendDubbridgeSmsBatch(request *SendDubbridgeSmsBatchReques
 	return _result, _err
 }
 
-/**
- * Description: 天枢批量发送短信接口，适合一个短信模板多个不同参数场景
- * Summary: 天枢批量发送短信接口
- */
+// Description:
+//
+// Description: 天枢批量发送短信接口，适合一个短信模板多个不同参数场景
+//
+// Summary: 天枢批量发送短信接口
 func (client *Client) SendDubbridgeSmsBatchEx(request *SendDubbridgeSmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendDubbridgeSmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42870,10 +46163,11 @@ func (client *Client) SendDubbridgeSmsBatchEx(request *SendDubbridgeSmsBatchRequ
 	return _result, _err
 }
 
-/**
- * Description: 资金路由接口，获取资金方编号
- * Summary: 天枢系统资金方代码(资金路由)查询
- */
+// Description:
+//
+// Description: 资金路由接口，获取资金方编号
+//
+// Summary: 天枢系统资金方代码(资金路由)查询
 func (client *Client) QueryDubbridgeRouterFundrouter(request *QueryDubbridgeRouterFundrouterRequest) (_result *QueryDubbridgeRouterFundrouterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42886,10 +46180,11 @@ func (client *Client) QueryDubbridgeRouterFundrouter(request *QueryDubbridgeRout
 	return _result, _err
 }
 
-/**
- * Description: 资金路由接口，获取资金方编号
- * Summary: 天枢系统资金方代码(资金路由)查询
- */
+// Description:
+//
+// Description: 资金路由接口，获取资金方编号
+//
+// Summary: 天枢系统资金方代码(资金路由)查询
 func (client *Client) QueryDubbridgeRouterFundrouterEx(request *QueryDubbridgeRouterFundrouterRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRouterFundrouterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42904,10 +46199,11 @@ func (client *Client) QueryDubbridgeRouterFundrouterEx(request *QueryDubbridgeRo
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信申请接口
- * Summary: 天枢系统授信申请接口
- */
+// Description:
+//
+// Description: 天枢系统授信申请接口
+//
+// Summary: 天枢系统授信申请接口
 func (client *Client) ApplyDubbridgeCredit(request *ApplyDubbridgeCreditRequest) (_result *ApplyDubbridgeCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42920,10 +46216,11 @@ func (client *Client) ApplyDubbridgeCredit(request *ApplyDubbridgeCreditRequest)
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信申请接口
- * Summary: 天枢系统授信申请接口
- */
+// Description:
+//
+// Description: 天枢系统授信申请接口
+//
+// Summary: 天枢系统授信申请接口
 func (client *Client) ApplyDubbridgeCreditEx(request *ApplyDubbridgeCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -42938,10 +46235,11 @@ func (client *Client) ApplyDubbridgeCreditEx(request *ApplyDubbridgeCreditReques
 	return _result, _err
 }
 
-/**
- * Description: 为流量方提供文件上传接口，用于申请件影像资料上传
- * Summary: 天枢文件上传
- */
+// Description:
+//
+// Description: 为流量方提供文件上传接口，用于申请件影像资料上传
+//
+// Summary: 天枢文件上传
 func (client *Client) UploadDubbridgeFile(request *UploadDubbridgeFileRequest) (_result *UploadDubbridgeFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -42954,10 +46252,11 @@ func (client *Client) UploadDubbridgeFile(request *UploadDubbridgeFileRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 为流量方提供文件上传接口，用于申请件影像资料上传
- * Summary: 天枢文件上传
- */
+// Description:
+//
+// Description: 为流量方提供文件上传接口，用于申请件影像资料上传
+//
+// Summary: 天枢文件上传
 func (client *Client) UploadDubbridgeFileEx(request *UploadDubbridgeFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadDubbridgeFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -43002,10 +46301,11 @@ func (client *Client) UploadDubbridgeFileEx(request *UploadDubbridgeFileRequest,
 	return _result, _err
 }
 
-/**
- * Description: 代扣签约绑卡接口
- * Summary: 代扣协议签约申请(银行卡绑卡)
- */
+// Description:
+//
+// Description: 代扣签约绑卡接口
+//
+// Summary: 代扣协议签约申请(银行卡绑卡)
 func (client *Client) BindDubbridgeCustomerBankcard(request *BindDubbridgeCustomerBankcardRequest) (_result *BindDubbridgeCustomerBankcardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43018,10 +46318,11 @@ func (client *Client) BindDubbridgeCustomerBankcard(request *BindDubbridgeCustom
 	return _result, _err
 }
 
-/**
- * Description: 代扣签约绑卡接口
- * Summary: 代扣协议签约申请(银行卡绑卡)
- */
+// Description:
+//
+// Description: 代扣签约绑卡接口
+//
+// Summary: 代扣协议签约申请(银行卡绑卡)
 func (client *Client) BindDubbridgeCustomerBankcardEx(request *BindDubbridgeCustomerBankcardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindDubbridgeCustomerBankcardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43036,10 +46337,11 @@ func (client *Client) BindDubbridgeCustomerBankcardEx(request *BindDubbridgeCust
 	return _result, _err
 }
 
-/**
- * Description: 代扣协议签约提交(银行卡绑卡)
- * Summary: 代扣协议签约校验(银行卡绑卡)
- */
+// Description:
+//
+// Description: 代扣协议签约提交(银行卡绑卡)
+//
+// Summary: 代扣协议签约校验(银行卡绑卡)
 func (client *Client) VerifyDubbridgeCustomerBankcard(request *VerifyDubbridgeCustomerBankcardRequest) (_result *VerifyDubbridgeCustomerBankcardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43052,10 +46354,11 @@ func (client *Client) VerifyDubbridgeCustomerBankcard(request *VerifyDubbridgeCu
 	return _result, _err
 }
 
-/**
- * Description: 代扣协议签约提交(银行卡绑卡)
- * Summary: 代扣协议签约校验(银行卡绑卡)
- */
+// Description:
+//
+// Description: 代扣协议签约提交(银行卡绑卡)
+//
+// Summary: 代扣协议签约校验(银行卡绑卡)
 func (client *Client) VerifyDubbridgeCustomerBankcardEx(request *VerifyDubbridgeCustomerBankcardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerifyDubbridgeCustomerBankcardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43070,10 +46373,11 @@ func (client *Client) VerifyDubbridgeCustomerBankcardEx(request *VerifyDubbridge
 	return _result, _err
 }
 
-/**
- * Description: 用于机构通道通用回调
- * Summary: 机构通道回调通用接口
- */
+// Description:
+//
+// Description: 用于机构通道通用回调
+//
+// Summary: 机构通道回调通用接口
 func (client *Client) NotifyDubbridgeDefininnerchannel(request *NotifyDubbridgeDefininnerchannelRequest) (_result *NotifyDubbridgeDefininnerchannelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43086,10 +46390,11 @@ func (client *Client) NotifyDubbridgeDefininnerchannel(request *NotifyDubbridgeD
 	return _result, _err
 }
 
-/**
- * Description: 用于机构通道通用回调
- * Summary: 机构通道回调通用接口
- */
+// Description:
+//
+// Description: 用于机构通道通用回调
+//
+// Summary: 机构通道回调通用接口
 func (client *Client) NotifyDubbridgeDefininnerchannelEx(request *NotifyDubbridgeDefininnerchannelRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyDubbridgeDefininnerchannelResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43104,10 +46409,11 @@ func (client *Client) NotifyDubbridgeDefininnerchannelEx(request *NotifyDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口
- * Summary: 天枢系统授信额度查询接口
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口
+//
+// Summary: 天枢系统授信额度查询接口
 func (client *Client) QueryDubbridgeCreditStatus(request *QueryDubbridgeCreditStatusRequest) (_result *QueryDubbridgeCreditStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43120,10 +46426,11 @@ func (client *Client) QueryDubbridgeCreditStatus(request *QueryDubbridgeCreditSt
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口
- * Summary: 天枢系统授信额度查询接口
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口
+//
+// Summary: 天枢系统授信额度查询接口
 func (client *Client) QueryDubbridgeCreditStatusEx(request *QueryDubbridgeCreditStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCreditStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43138,10 +46445,11 @@ func (client *Client) QueryDubbridgeCreditStatusEx(request *QueryDubbridgeCredit
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统企业小微分查询
- * Summary: 天枢系统企业小微分查询
- */
+// Description:
+//
+// Description: 天枢系统企业小微分查询
+//
+// Summary: 天枢系统企业小微分查询
 func (client *Client) QueryDubbridgeRiskinfoEnterprisescore(request *QueryDubbridgeRiskinfoEnterprisescoreRequest) (_result *QueryDubbridgeRiskinfoEnterprisescoreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43154,10 +46462,11 @@ func (client *Client) QueryDubbridgeRiskinfoEnterprisescore(request *QueryDubbri
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统企业小微分查询
- * Summary: 天枢系统企业小微分查询
- */
+// Description:
+//
+// Description: 天枢系统企业小微分查询
+//
+// Summary: 天枢系统企业小微分查询
 func (client *Client) QueryDubbridgeRiskinfoEnterprisescoreEx(request *QueryDubbridgeRiskinfoEnterprisescoreRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRiskinfoEnterprisescoreResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43172,10 +46481,11 @@ func (client *Client) QueryDubbridgeRiskinfoEnterprisescoreEx(request *QueryDubb
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统风控信息通用查询
- * Summary: 天枢系统风控信息通用查询
- */
+// Description:
+//
+// Description: 天枢系统风控信息通用查询
+//
+// Summary: 天枢系统风控信息通用查询
 func (client *Client) QueryDubbridgeRiskinfoCommon(request *QueryDubbridgeRiskinfoCommonRequest) (_result *QueryDubbridgeRiskinfoCommonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43188,10 +46498,11 @@ func (client *Client) QueryDubbridgeRiskinfoCommon(request *QueryDubbridgeRiskin
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统风控信息通用查询
- * Summary: 天枢系统风控信息通用查询
- */
+// Description:
+//
+// Description: 天枢系统风控信息通用查询
+//
+// Summary: 天枢系统风控信息通用查询
 func (client *Client) QueryDubbridgeRiskinfoCommonEx(request *QueryDubbridgeRiskinfoCommonRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRiskinfoCommonResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43206,10 +46517,11 @@ func (client *Client) QueryDubbridgeRiskinfoCommonEx(request *QueryDubbridgeRisk
 	return _result, _err
 }
 
-/**
- * Description: 额度、利率、状态调整
- * Summary: 调额申请
- */
+// Description:
+//
+// Description: 额度、利率、状态调整
+//
+// Summary: 调额申请
 func (client *Client) UpdateDubbridgeInstitutionCredit(request *UpdateDubbridgeInstitutionCreditRequest) (_result *UpdateDubbridgeInstitutionCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43222,10 +46534,11 @@ func (client *Client) UpdateDubbridgeInstitutionCredit(request *UpdateDubbridgeI
 	return _result, _err
 }
 
-/**
- * Description: 额度、利率、状态调整
- * Summary: 调额申请
- */
+// Description:
+//
+// Description: 额度、利率、状态调整
+//
+// Summary: 调额申请
 func (client *Client) UpdateDubbridgeInstitutionCreditEx(request *UpdateDubbridgeInstitutionCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateDubbridgeInstitutionCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43240,10 +46553,11 @@ func (client *Client) UpdateDubbridgeInstitutionCreditEx(request *UpdateDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢企业经营数据查询
- * Summary: 天枢企业经营数据查询
- */
+// Description:
+//
+// Description: 天枢企业经营数据查询
+//
+// Summary: 天枢企业经营数据查询
 func (client *Client) QueryDubbridgeRiskinfoBusinessinfo(request *QueryDubbridgeRiskinfoBusinessinfoRequest) (_result *QueryDubbridgeRiskinfoBusinessinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43256,10 +46570,11 @@ func (client *Client) QueryDubbridgeRiskinfoBusinessinfo(request *QueryDubbridge
 	return _result, _err
 }
 
-/**
- * Description: 天枢企业经营数据查询
- * Summary: 天枢企业经营数据查询
- */
+// Description:
+//
+// Description: 天枢企业经营数据查询
+//
+// Summary: 天枢企业经营数据查询
 func (client *Client) QueryDubbridgeRiskinfoBusinessinfoEx(request *QueryDubbridgeRiskinfoBusinessinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRiskinfoBusinessinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43274,10 +46589,11 @@ func (client *Client) QueryDubbridgeRiskinfoBusinessinfoEx(request *QueryDubbrid
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约申请(支付宝）
- * Summary: 天枢系统协议签约申请(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约申请(支付宝）
+//
+// Summary: 天枢系统协议签约申请(支付宝)
 func (client *Client) ApplyDubbridgeCustomerAgreementsign(request *ApplyDubbridgeCustomerAgreementsignRequest) (_result *ApplyDubbridgeCustomerAgreementsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43290,10 +46606,11 @@ func (client *Client) ApplyDubbridgeCustomerAgreementsign(request *ApplyDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约申请(支付宝）
- * Summary: 天枢系统协议签约申请(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约申请(支付宝）
+//
+// Summary: 天枢系统协议签约申请(支付宝)
 func (client *Client) ApplyDubbridgeCustomerAgreementsignEx(request *ApplyDubbridgeCustomerAgreementsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeCustomerAgreementsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43308,10 +46625,11 @@ func (client *Client) ApplyDubbridgeCustomerAgreementsignEx(request *ApplyDubbri
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统是否授信查询
- * Summary: 天枢系统是否授信查询
- */
+// Description:
+//
+// Description: 天枢系统是否授信查询
+//
+// Summary: 天枢系统是否授信查询
 func (client *Client) QueryDubbridgeAccountStatus(request *QueryDubbridgeAccountStatusRequest) (_result *QueryDubbridgeAccountStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43324,10 +46642,11 @@ func (client *Client) QueryDubbridgeAccountStatus(request *QueryDubbridgeAccount
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统是否授信查询
- * Summary: 天枢系统是否授信查询
- */
+// Description:
+//
+// Description: 天枢系统是否授信查询
+//
+// Summary: 天枢系统是否授信查询
 func (client *Client) QueryDubbridgeAccountStatusEx(request *QueryDubbridgeAccountStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAccountStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43342,10 +46661,11 @@ func (client *Client) QueryDubbridgeAccountStatusEx(request *QueryDubbridgeAccou
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统校验是否联登
- * Summary: 天枢系统校验是否联登
- */
+// Description:
+//
+// Description: 天枢系统校验是否联登
+//
+// Summary: 天枢系统校验是否联登
 func (client *Client) QueryDubbridgeAccountCustom(request *QueryDubbridgeAccountCustomRequest) (_result *QueryDubbridgeAccountCustomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43358,10 +46678,11 @@ func (client *Client) QueryDubbridgeAccountCustom(request *QueryDubbridgeAccount
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统校验是否联登
- * Summary: 天枢系统校验是否联登
- */
+// Description:
+//
+// Description: 天枢系统校验是否联登
+//
+// Summary: 天枢系统校验是否联登
 func (client *Client) QueryDubbridgeAccountCustomEx(request *QueryDubbridgeAccountCustomRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAccountCustomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43376,10 +46697,11 @@ func (client *Client) QueryDubbridgeAccountCustomEx(request *QueryDubbridgeAccou
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统更新渠道
- * Summary: 天枢系统更新渠道
- */
+// Description:
+//
+// Description: 天枢系统更新渠道
+//
+// Summary: 天枢系统更新渠道
 func (client *Client) UpdateDubbridgeAccountCustom(request *UpdateDubbridgeAccountCustomRequest) (_result *UpdateDubbridgeAccountCustomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43392,10 +46714,11 @@ func (client *Client) UpdateDubbridgeAccountCustom(request *UpdateDubbridgeAccou
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统更新渠道
- * Summary: 天枢系统更新渠道
- */
+// Description:
+//
+// Description: 天枢系统更新渠道
+//
+// Summary: 天枢系统更新渠道
 func (client *Client) UpdateDubbridgeAccountCustomEx(request *UpdateDubbridgeAccountCustomRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateDubbridgeAccountCustomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43410,10 +46733,11 @@ func (client *Client) UpdateDubbridgeAccountCustomEx(request *UpdateDubbridgeAcc
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(支付宝)
- * Summary: 天枢系统协议签约查询(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(支付宝)
+//
+// Summary: 天枢系统协议签约查询(支付宝)
 func (client *Client) QueryDubbridgeCustomerAgreementsign(request *QueryDubbridgeCustomerAgreementsignRequest) (_result *QueryDubbridgeCustomerAgreementsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43426,10 +46750,11 @@ func (client *Client) QueryDubbridgeCustomerAgreementsign(request *QueryDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(支付宝)
- * Summary: 天枢系统协议签约查询(支付宝)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(支付宝)
+//
+// Summary: 天枢系统协议签约查询(支付宝)
 func (client *Client) QueryDubbridgeCustomerAgreementsignEx(request *QueryDubbridgeCustomerAgreementsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCustomerAgreementsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43444,10 +46769,11 @@ func (client *Client) QueryDubbridgeCustomerAgreementsignEx(request *QueryDubbri
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统客户信息变更接口（变更客户三要素信息）
- * Summary: 天枢系统客户信息变更接口
- */
+// Description:
+//
+// Description: 天枢系统客户信息变更接口（变更客户三要素信息）
+//
+// Summary: 天枢系统客户信息变更接口
 func (client *Client) UpdateDubbridgeCustomerInfo(request *UpdateDubbridgeCustomerInfoRequest) (_result *UpdateDubbridgeCustomerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43460,10 +46786,11 @@ func (client *Client) UpdateDubbridgeCustomerInfo(request *UpdateDubbridgeCustom
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统客户信息变更接口（变更客户三要素信息）
- * Summary: 天枢系统客户信息变更接口
- */
+// Description:
+//
+// Description: 天枢系统客户信息变更接口（变更客户三要素信息）
+//
+// Summary: 天枢系统客户信息变更接口
 func (client *Client) UpdateDubbridgeCustomerInfoEx(request *UpdateDubbridgeCustomerInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateDubbridgeCustomerInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43478,10 +46805,11 @@ func (client *Client) UpdateDubbridgeCustomerInfoEx(request *UpdateDubbridgeCust
 	return _result, _err
 }
 
-/**
- * Description: 天枢逾期信息查询接口
- * Summary: 逾期信息查询
- */
+// Description:
+//
+// Description: 天枢逾期信息查询接口
+//
+// Summary: 逾期信息查询
 func (client *Client) QueryDubbridgeReceiptOverdue(request *QueryDubbridgeReceiptOverdueRequest) (_result *QueryDubbridgeReceiptOverdueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43494,10 +46822,11 @@ func (client *Client) QueryDubbridgeReceiptOverdue(request *QueryDubbridgeReceip
 	return _result, _err
 }
 
-/**
- * Description: 天枢逾期信息查询接口
- * Summary: 逾期信息查询
- */
+// Description:
+//
+// Description: 天枢逾期信息查询接口
+//
+// Summary: 逾期信息查询
 func (client *Client) QueryDubbridgeReceiptOverdueEx(request *QueryDubbridgeReceiptOverdueRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeReceiptOverdueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43512,10 +46841,11 @@ func (client *Client) QueryDubbridgeReceiptOverdueEx(request *QueryDubbridgeRece
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统主动还款（收银台）接口
- * Summary: 天枢系统主动还款（收银台）接口
- */
+// Description:
+//
+// Description: 天枢系统主动还款（收银台）接口
+//
+// Summary: 天枢系统主动还款（收银台）接口
 func (client *Client) RepayDubbridgeRepayCheckstand(request *RepayDubbridgeRepayCheckstandRequest) (_result *RepayDubbridgeRepayCheckstandResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43528,10 +46858,11 @@ func (client *Client) RepayDubbridgeRepayCheckstand(request *RepayDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统主动还款（收银台）接口
- * Summary: 天枢系统主动还款（收银台）接口
- */
+// Description:
+//
+// Description: 天枢系统主动还款（收银台）接口
+//
+// Summary: 天枢系统主动还款（收银台）接口
 func (client *Client) RepayDubbridgeRepayCheckstandEx(request *RepayDubbridgeRepayCheckstandRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RepayDubbridgeRepayCheckstandResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43546,10 +46877,11 @@ func (client *Client) RepayDubbridgeRepayCheckstandEx(request *RepayDubbridgeRep
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款信息查询
- * Summary: 天枢系统还款信息查询
- */
+// Description:
+//
+// Description: 天枢系统还款信息查询
+//
+// Summary: 天枢系统还款信息查询
 func (client *Client) QueryDubbridgeRepayInfo(request *QueryDubbridgeRepayInfoRequest) (_result *QueryDubbridgeRepayInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43562,10 +46894,11 @@ func (client *Client) QueryDubbridgeRepayInfo(request *QueryDubbridgeRepayInfoRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款信息查询
- * Summary: 天枢系统还款信息查询
- */
+// Description:
+//
+// Description: 天枢系统还款信息查询
+//
+// Summary: 天枢系统还款信息查询
 func (client *Client) QueryDubbridgeRepayInfoEx(request *QueryDubbridgeRepayInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepayInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43580,10 +46913,11 @@ func (client *Client) QueryDubbridgeRepayInfoEx(request *QueryDubbridgeRepayInfo
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划查询，根据申请订单查询还款计划
- * Summary: 天枢系统还款计划查询
- */
+// Description:
+//
+// Description: 天枢系统还款计划查询，根据申请订单查询还款计划
+//
+// Summary: 天枢系统还款计划查询
 func (client *Client) QueryDubbridgeRepayList(request *QueryDubbridgeRepayListRequest) (_result *QueryDubbridgeRepayListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43596,10 +46930,11 @@ func (client *Client) QueryDubbridgeRepayList(request *QueryDubbridgeRepayListRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划查询，根据申请订单查询还款计划
- * Summary: 天枢系统还款计划查询
- */
+// Description:
+//
+// Description: 天枢系统还款计划查询，根据申请订单查询还款计划
+//
+// Summary: 天枢系统还款计划查询
 func (client *Client) QueryDubbridgeRepayListEx(request *QueryDubbridgeRepayListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepayListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43614,10 +46949,11 @@ func (client *Client) QueryDubbridgeRepayListEx(request *QueryDubbridgeRepayList
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
- * Summary: 天枢系统还款计划试算
- */
+// Description:
+//
+// Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
+//
+// Summary: 天枢系统还款计划试算
 func (client *Client) CountDubbridgeRepayReftrial(request *CountDubbridgeRepayReftrialRequest) (_result *CountDubbridgeRepayReftrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43630,10 +46966,11 @@ func (client *Client) CountDubbridgeRepayReftrial(request *CountDubbridgeRepayRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
- * Summary: 天枢系统还款计划试算
- */
+// Description:
+//
+// Description: 天枢系统还款计划试算，根据借款金额和期数计算还款计划
+//
+// Summary: 天枢系统还款计划试算
 func (client *Client) CountDubbridgeRepayReftrialEx(request *CountDubbridgeRepayReftrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CountDubbridgeRepayReftrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43648,10 +46985,11 @@ func (client *Client) CountDubbridgeRepayReftrialEx(request *CountDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款试算，根据借据号计算还款金额
- * Summary: 天枢系统还款试算
- */
+// Description:
+//
+// Description: 天枢系统还款试算，根据借据号计算还款金额
+//
+// Summary: 天枢系统还款试算
 func (client *Client) CountDubbridgeRepayTrial(request *CountDubbridgeRepayTrialRequest) (_result *CountDubbridgeRepayTrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43664,10 +47002,11 @@ func (client *Client) CountDubbridgeRepayTrial(request *CountDubbridgeRepayTrial
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款试算，根据借据号计算还款金额
- * Summary: 天枢系统还款试算
- */
+// Description:
+//
+// Description: 天枢系统还款试算，根据借据号计算还款金额
+//
+// Summary: 天枢系统还款试算
 func (client *Client) CountDubbridgeRepayTrialEx(request *CountDubbridgeRepayTrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CountDubbridgeRepayTrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43682,10 +47021,11 @@ func (client *Client) CountDubbridgeRepayTrialEx(request *CountDubbridgeRepayTri
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统主动还款（直接代扣）接口
- * Summary: 天枢信贷业务系统主动还款（直接代扣）接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统主动还款（直接代扣）接口
+//
+// Summary: 天枢信贷业务系统主动还款（直接代扣）接口
 func (client *Client) RepayDubbridgeRepayWithhold(request *RepayDubbridgeRepayWithholdRequest) (_result *RepayDubbridgeRepayWithholdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43698,10 +47038,11 @@ func (client *Client) RepayDubbridgeRepayWithhold(request *RepayDubbridgeRepayWi
 	return _result, _err
 }
 
-/**
- * Description: 天枢信贷业务系统主动还款（直接代扣）接口
- * Summary: 天枢信贷业务系统主动还款（直接代扣）接口
- */
+// Description:
+//
+// Description: 天枢信贷业务系统主动还款（直接代扣）接口
+//
+// Summary: 天枢信贷业务系统主动还款（直接代扣）接口
 func (client *Client) RepayDubbridgeRepayWithholdEx(request *RepayDubbridgeRepayWithholdRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RepayDubbridgeRepayWithholdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43716,10 +47057,11 @@ func (client *Client) RepayDubbridgeRepayWithholdEx(request *RepayDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统合同获取
- * Summary: 天枢系统合同获取
- */
+// Description:
+//
+// Description: 天枢系统合同获取
+//
+// Summary: 天枢系统合同获取
 func (client *Client) QueryDubbridgeSearchContract(request *QueryDubbridgeSearchContractRequest) (_result *QueryDubbridgeSearchContractResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43732,10 +47074,11 @@ func (client *Client) QueryDubbridgeSearchContract(request *QueryDubbridgeSearch
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统合同获取
- * Summary: 天枢系统合同获取
- */
+// Description:
+//
+// Description: 天枢系统合同获取
+//
+// Summary: 天枢系统合同获取
 func (client *Client) QueryDubbridgeSearchContractEx(request *QueryDubbridgeSearchContractRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeSearchContractResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43750,10 +47093,11 @@ func (client *Client) QueryDubbridgeSearchContractEx(request *QueryDubbridgeSear
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请接口
- * Summary: 天枢系统用信申请接口
- */
+// Description:
+//
+// Description: 天枢系统用信申请接口
+//
+// Summary: 天枢系统用信申请接口
 func (client *Client) ApplyDubbridgeUsecredit(request *ApplyDubbridgeUsecreditRequest) (_result *ApplyDubbridgeUsecreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43766,10 +47110,11 @@ func (client *Client) ApplyDubbridgeUsecredit(request *ApplyDubbridgeUsecreditRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请接口
- * Summary: 天枢系统用信申请接口
- */
+// Description:
+//
+// Description: 天枢系统用信申请接口
+//
+// Summary: 天枢系统用信申请接口
 func (client *Client) ApplyDubbridgeUsecreditEx(request *ApplyDubbridgeUsecreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeUsecreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43784,10 +47129,11 @@ func (client *Client) ApplyDubbridgeUsecreditEx(request *ApplyDubbridgeUsecredit
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
- * Summary: 天枢系统用信申请状态查询，返回用信详情及还款计划
- */
+// Description:
+//
+// Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
+//
+// Summary: 天枢系统用信申请状态查询，返回用信详情及还款计划
 func (client *Client) QueryDubbridgeUsecreditStatus(request *QueryDubbridgeUsecreditStatusRequest) (_result *QueryDubbridgeUsecreditStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43800,10 +47146,11 @@ func (client *Client) QueryDubbridgeUsecreditStatus(request *QueryDubbridgeUsecr
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
- * Summary: 天枢系统用信申请状态查询，返回用信详情及还款计划
- */
+// Description:
+//
+// Description: 天枢系统用信申请状态查询，返回用信详情及还款计划
+//
+// Summary: 天枢系统用信申请状态查询，返回用信详情及还款计划
 func (client *Client) QueryDubbridgeUsecreditStatusEx(request *QueryDubbridgeUsecreditStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeUsecreditStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43818,10 +47165,11 @@ func (client *Client) QueryDubbridgeUsecreditStatusEx(request *QueryDubbridgeUse
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统是否结清
- * Summary: 天枢系统借款是否结清
- */
+// Description:
+//
+// Description: 天枢系统是否结清
+//
+// Summary: 天枢系统借款是否结清
 func (client *Client) QueryDubbridgeReceiptStatus(request *QueryDubbridgeReceiptStatusRequest) (_result *QueryDubbridgeReceiptStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43834,10 +47182,11 @@ func (client *Client) QueryDubbridgeReceiptStatus(request *QueryDubbridgeReceipt
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统是否结清
- * Summary: 天枢系统借款是否结清
- */
+// Description:
+//
+// Description: 天枢系统是否结清
+//
+// Summary: 天枢系统借款是否结清
 func (client *Client) QueryDubbridgeReceiptStatusEx(request *QueryDubbridgeReceiptStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeReceiptStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43852,10 +47201,11 @@ func (client *Client) QueryDubbridgeReceiptStatusEx(request *QueryDubbridgeRecei
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(通用)
- * Summary: 天枢系统协议签约查询(通用)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(通用)
+//
+// Summary: 天枢系统协议签约查询(通用)
 func (client *Client) QueryDubbridgeCustomerCommonagreementsign(request *QueryDubbridgeCustomerCommonagreementsignRequest) (_result *QueryDubbridgeCustomerCommonagreementsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43868,10 +47218,11 @@ func (client *Client) QueryDubbridgeCustomerCommonagreementsign(request *QueryDu
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统协议签约查询(通用)
- * Summary: 天枢系统协议签约查询(通用)
- */
+// Description:
+//
+// Description: 天枢系统协议签约查询(通用)
+//
+// Summary: 天枢系统协议签约查询(通用)
 func (client *Client) QueryDubbridgeCustomerCommonagreementsignEx(request *QueryDubbridgeCustomerCommonagreementsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCustomerCommonagreementsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43886,10 +47237,11 @@ func (client *Client) QueryDubbridgeCustomerCommonagreementsignEx(request *Query
 	return _result, _err
 }
 
-/**
- * Description: 客户影像信息更新
- * Summary: 客户影像信息更新
- */
+// Description:
+//
+// Description: 客户影像信息更新
+//
+// Summary: 客户影像信息更新
 func (client *Client) UpdateDubbridgeFile(request *UpdateDubbridgeFileRequest) (_result *UpdateDubbridgeFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43902,10 +47254,11 @@ func (client *Client) UpdateDubbridgeFile(request *UpdateDubbridgeFileRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 客户影像信息更新
- * Summary: 客户影像信息更新
- */
+// Description:
+//
+// Description: 客户影像信息更新
+//
+// Summary: 客户影像信息更新
 func (client *Client) UpdateDubbridgeFileEx(request *UpdateDubbridgeFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpdateDubbridgeFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43920,10 +47273,11 @@ func (client *Client) UpdateDubbridgeFileEx(request *UpdateDubbridgeFileRequest,
 	return _result, _err
 }
 
-/**
- * Description: 天枢回调通用接口
- * Summary: 天枢回调通用接口
- */
+// Description:
+//
+// Description: 天枢回调通用接口
+//
+// Summary: 天枢回调通用接口
 func (client *Client) NotifyDubbridgeCallback(request *NotifyDubbridgeCallbackRequest) (_result *NotifyDubbridgeCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43936,10 +47290,11 @@ func (client *Client) NotifyDubbridgeCallback(request *NotifyDubbridgeCallbackRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢回调通用接口
- * Summary: 天枢回调通用接口
- */
+// Description:
+//
+// Description: 天枢回调通用接口
+//
+// Summary: 天枢回调通用接口
 func (client *Client) NotifyDubbridgeCallbackEx(request *NotifyDubbridgeCallbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyDubbridgeCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43954,10 +47309,11 @@ func (client *Client) NotifyDubbridgeCallbackEx(request *NotifyDubbridgeCallback
 	return _result, _err
 }
 
-/**
- * Description: 2.12	天枢系统还款信息查询V2.0
- * Summary: 2.12 天枢系统还款信息查询V2.0
- */
+// Description:
+//
+// Description: 2.12	天枢系统还款信息查询V2.0
+//
+// Summary: 2.12 天枢系统还款信息查询V2.0
 func (client *Client) QueryDubbridgeRepayResult(request *QueryDubbridgeRepayResultRequest) (_result *QueryDubbridgeRepayResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -43970,10 +47326,11 @@ func (client *Client) QueryDubbridgeRepayResult(request *QueryDubbridgeRepayResu
 	return _result, _err
 }
 
-/**
- * Description: 2.12	天枢系统还款信息查询V2.0
- * Summary: 2.12 天枢系统还款信息查询V2.0
- */
+// Description:
+//
+// Description: 2.12	天枢系统还款信息查询V2.0
+//
+// Summary: 2.12 天枢系统还款信息查询V2.0
 func (client *Client) QueryDubbridgeRepayResultEx(request *QueryDubbridgeRepayResultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepayResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -43988,10 +47345,11 @@ func (client *Client) QueryDubbridgeRepayResultEx(request *QueryDubbridgeRepayRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢准入接口
- * Summary: 天枢准入接口
- */
+// Description:
+//
+// Description: 天枢准入接口
+//
+// Summary: 天枢准入接口
 func (client *Client) QueryDubbridgeCreditPermit(request *QueryDubbridgeCreditPermitRequest) (_result *QueryDubbridgeCreditPermitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44004,10 +47362,11 @@ func (client *Client) QueryDubbridgeCreditPermit(request *QueryDubbridgeCreditPe
 	return _result, _err
 }
 
-/**
- * Description: 天枢准入接口
- * Summary: 天枢准入接口
- */
+// Description:
+//
+// Description: 天枢准入接口
+//
+// Summary: 天枢准入接口
 func (client *Client) QueryDubbridgeCreditPermitEx(request *QueryDubbridgeCreditPermitRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCreditPermitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44022,10 +47381,11 @@ func (client *Client) QueryDubbridgeCreditPermitEx(request *QueryDubbridgeCredit
 	return _result, _err
 }
 
-/**
- * Description: 用户状态判断
- * Summary: 用户状态判断
- */
+// Description:
+//
+// Description: 用户状态判断
+//
+// Summary: 用户状态判断
 func (client *Client) QueryDubbridgeUserUpgradestatus(request *QueryDubbridgeUserUpgradestatusRequest) (_result *QueryDubbridgeUserUpgradestatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44038,10 +47398,11 @@ func (client *Client) QueryDubbridgeUserUpgradestatus(request *QueryDubbridgeUse
 	return _result, _err
 }
 
-/**
- * Description: 用户状态判断
- * Summary: 用户状态判断
- */
+// Description:
+//
+// Description: 用户状态判断
+//
+// Summary: 用户状态判断
 func (client *Client) QueryDubbridgeUserUpgradestatusEx(request *QueryDubbridgeUserUpgradestatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeUserUpgradestatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44056,10 +47417,11 @@ func (client *Client) QueryDubbridgeUserUpgradestatusEx(request *QueryDubbridgeU
 	return _result, _err
 }
 
-/**
- * Description: 借据状态判断
- * Summary: 借据状态判断
- */
+// Description:
+//
+// Description: 借据状态判断
+//
+// Summary: 借据状态判断
 func (client *Client) QueryDubbridgeLoanUpgradestatus(request *QueryDubbridgeLoanUpgradestatusRequest) (_result *QueryDubbridgeLoanUpgradestatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44072,10 +47434,11 @@ func (client *Client) QueryDubbridgeLoanUpgradestatus(request *QueryDubbridgeLoa
 	return _result, _err
 }
 
-/**
- * Description: 借据状态判断
- * Summary: 借据状态判断
- */
+// Description:
+//
+// Description: 借据状态判断
+//
+// Summary: 借据状态判断
 func (client *Client) QueryDubbridgeLoanUpgradestatusEx(request *QueryDubbridgeLoanUpgradestatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeLoanUpgradestatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44090,10 +47453,11 @@ func (client *Client) QueryDubbridgeLoanUpgradestatusEx(request *QueryDubbridgeL
 	return _result, _err
 }
 
-/**
- * Description: 支付签约查询(用户绑定银行卡列表)
- * Summary: 支付签约查询(用户绑定银行卡列表)
- */
+// Description:
+//
+// Description: 支付签约查询(用户绑定银行卡列表)
+//
+// Summary: 支付签约查询(用户绑定银行卡列表)
 func (client *Client) QueryDubbridgeCustomerBankcardlist(request *QueryDubbridgeCustomerBankcardlistRequest) (_result *QueryDubbridgeCustomerBankcardlistResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44106,10 +47470,11 @@ func (client *Client) QueryDubbridgeCustomerBankcardlist(request *QueryDubbridge
 	return _result, _err
 }
 
-/**
- * Description: 支付签约查询(用户绑定银行卡列表)
- * Summary: 支付签约查询(用户绑定银行卡列表)
- */
+// Description:
+//
+// Description: 支付签约查询(用户绑定银行卡列表)
+//
+// Summary: 支付签约查询(用户绑定银行卡列表)
 func (client *Client) QueryDubbridgeCustomerBankcardlistEx(request *QueryDubbridgeCustomerBankcardlistRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCustomerBankcardlistResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44124,10 +47489,11 @@ func (client *Client) QueryDubbridgeCustomerBankcardlistEx(request *QueryDubbrid
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用户前筛查询
- * Summary: 天枢系统用户前筛查询
- */
+// Description:
+//
+// Description: 天枢系统用户前筛查询
+//
+// Summary: 天枢系统用户前筛查询
 func (client *Client) QueryDubbridgeRouterUserselect(request *QueryDubbridgeRouterUserselectRequest) (_result *QueryDubbridgeRouterUserselectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44140,10 +47506,11 @@ func (client *Client) QueryDubbridgeRouterUserselect(request *QueryDubbridgeRout
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统用户前筛查询
- * Summary: 天枢系统用户前筛查询
- */
+// Description:
+//
+// Description: 天枢系统用户前筛查询
+//
+// Summary: 天枢系统用户前筛查询
 func (client *Client) QueryDubbridgeRouterUserselectEx(request *QueryDubbridgeRouterUserselectRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRouterUserselectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44158,10 +47525,11 @@ func (client *Client) QueryDubbridgeRouterUserselectEx(request *QueryDubbridgeRo
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统开具结清证明
- * Summary: 天枢系统开具结清证明
- */
+// Description:
+//
+// Description: 天枢系统开具结清证明
+//
+// Summary: 天枢系统开具结清证明
 func (client *Client) QueryDubbridgeSettlementCertificate(request *QueryDubbridgeSettlementCertificateRequest) (_result *QueryDubbridgeSettlementCertificateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44174,10 +47542,11 @@ func (client *Client) QueryDubbridgeSettlementCertificate(request *QueryDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统开具结清证明
- * Summary: 天枢系统开具结清证明
- */
+// Description:
+//
+// Description: 天枢系统开具结清证明
+//
+// Summary: 天枢系统开具结清证明
 func (client *Client) QueryDubbridgeSettlementCertificateEx(request *QueryDubbridgeSettlementCertificateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeSettlementCertificateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44192,10 +47561,11 @@ func (client *Client) QueryDubbridgeSettlementCertificateEx(request *QueryDubbri
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统预览协议查询接口
- * Summary: 天枢系统预览协议查询接口
- */
+// Description:
+//
+// Description: 天枢系统预览协议查询接口
+//
+// Summary: 天枢系统预览协议查询接口
 func (client *Client) QueryDubbridgeAgreementPreview(request *QueryDubbridgeAgreementPreviewRequest) (_result *QueryDubbridgeAgreementPreviewResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44208,10 +47578,11 @@ func (client *Client) QueryDubbridgeAgreementPreview(request *QueryDubbridgeAgre
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统预览协议查询接口
- * Summary: 天枢系统预览协议查询接口
- */
+// Description:
+//
+// Description: 天枢系统预览协议查询接口
+//
+// Summary: 天枢系统预览协议查询接口
 func (client *Client) QueryDubbridgeAgreementPreviewEx(request *QueryDubbridgeAgreementPreviewRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAgreementPreviewResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44226,10 +47597,11 @@ func (client *Client) QueryDubbridgeAgreementPreviewEx(request *QueryDubbridgeAg
 	return _result, _err
 }
 
-/**
- * Description: 用户借款是否结清
- * Summary: 用户借款是否结清
- */
+// Description:
+//
+// Description: 用户借款是否结清
+//
+// Summary: 用户借款是否结清
 func (client *Client) QueryDubbridgeAccountUsecredit(request *QueryDubbridgeAccountUsecreditRequest) (_result *QueryDubbridgeAccountUsecreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44242,10 +47614,11 @@ func (client *Client) QueryDubbridgeAccountUsecredit(request *QueryDubbridgeAcco
 	return _result, _err
 }
 
-/**
- * Description: 用户借款是否结清
- * Summary: 用户借款是否结清
- */
+// Description:
+//
+// Description: 用户借款是否结清
+//
+// Summary: 用户借款是否结清
 func (client *Client) QueryDubbridgeAccountUsecreditEx(request *QueryDubbridgeAccountUsecreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAccountUsecreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44260,10 +47633,11 @@ func (client *Client) QueryDubbridgeAccountUsecreditEx(request *QueryDubbridgeAc
 	return _result, _err
 }
 
-/**
- * Description: 天枢用户聚合状态查询接口
- * Summary: 天枢用户聚合状态查询接口
- */
+// Description:
+//
+// Description: 天枢用户聚合状态查询接口
+//
+// Summary: 天枢用户聚合状态查询接口
 func (client *Client) QueryDubbridgeUserAggregationinfo(request *QueryDubbridgeUserAggregationinfoRequest) (_result *QueryDubbridgeUserAggregationinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44276,10 +47650,11 @@ func (client *Client) QueryDubbridgeUserAggregationinfo(request *QueryDubbridgeU
 	return _result, _err
 }
 
-/**
- * Description: 天枢用户聚合状态查询接口
- * Summary: 天枢用户聚合状态查询接口
- */
+// Description:
+//
+// Description: 天枢用户聚合状态查询接口
+//
+// Summary: 天枢用户聚合状态查询接口
 func (client *Client) QueryDubbridgeUserAggregationinfoEx(request *QueryDubbridgeUserAggregationinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeUserAggregationinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44294,10 +47669,11 @@ func (client *Client) QueryDubbridgeUserAggregationinfoEx(request *QueryDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统优惠券列表查询接口
- * Summary: 天枢系统优惠券列表查询接口
- */
+// Description:
+//
+// Description: 天枢系统优惠券列表查询接口
+//
+// Summary: 天枢系统优惠券列表查询接口
 func (client *Client) QueryDubbridgeMarketingCouponlist(request *QueryDubbridgeMarketingCouponlistRequest) (_result *QueryDubbridgeMarketingCouponlistResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44310,10 +47686,11 @@ func (client *Client) QueryDubbridgeMarketingCouponlist(request *QueryDubbridgeM
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统优惠券列表查询接口
- * Summary: 天枢系统优惠券列表查询接口
- */
+// Description:
+//
+// Description: 天枢系统优惠券列表查询接口
+//
+// Summary: 天枢系统优惠券列表查询接口
 func (client *Client) QueryDubbridgeMarketingCouponlistEx(request *QueryDubbridgeMarketingCouponlistRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeMarketingCouponlistResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44328,10 +47705,11 @@ func (client *Client) QueryDubbridgeMarketingCouponlistEx(request *QueryDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款方式查询
- * Summary: 天枢系统还款方式查询
- */
+// Description:
+//
+// Description: 天枢系统还款方式查询
+//
+// Summary: 天枢系统还款方式查询
 func (client *Client) QueryDubbridgeRepaytypeInfo(request *QueryDubbridgeRepaytypeInfoRequest) (_result *QueryDubbridgeRepaytypeInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44344,10 +47722,11 @@ func (client *Client) QueryDubbridgeRepaytypeInfo(request *QueryDubbridgeRepayty
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统还款方式查询
- * Summary: 天枢系统还款方式查询
- */
+// Description:
+//
+// Description: 天枢系统还款方式查询
+//
+// Summary: 天枢系统还款方式查询
 func (client *Client) QueryDubbridgeRepaytypeInfoEx(request *QueryDubbridgeRepaytypeInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepaytypeInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44362,10 +47741,11 @@ func (client *Client) QueryDubbridgeRepaytypeInfoEx(request *QueryDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口-分期付
- * Summary: 天枢系统授信额度查询接口-分期付
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口-分期付
+//
+// Summary: 天枢系统授信额度查询接口-分期付
 func (client *Client) QueryDubbridgeInstallmentCreditamt(request *QueryDubbridgeInstallmentCreditamtRequest) (_result *QueryDubbridgeInstallmentCreditamtResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44378,10 +47758,11 @@ func (client *Client) QueryDubbridgeInstallmentCreditamt(request *QueryDubbridge
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统授信额度查询接口-分期付
- * Summary: 天枢系统授信额度查询接口-分期付
- */
+// Description:
+//
+// Description: 天枢系统授信额度查询接口-分期付
+//
+// Summary: 天枢系统授信额度查询接口-分期付
 func (client *Client) QueryDubbridgeInstallmentCreditamtEx(request *QueryDubbridgeInstallmentCreditamtRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeInstallmentCreditamtResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44396,10 +47777,11 @@ func (client *Client) QueryDubbridgeInstallmentCreditamtEx(request *QueryDubbrid
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统取消分期付订单-分期付
- * Summary: 天枢系统取消分期付订单-分期付
- */
+// Description:
+//
+// Description: 天枢系统取消分期付订单-分期付
+//
+// Summary: 天枢系统取消分期付订单-分期付
 func (client *Client) CancelDubbridgeInstallmentOrder(request *CancelDubbridgeInstallmentOrderRequest) (_result *CancelDubbridgeInstallmentOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44412,10 +47794,11 @@ func (client *Client) CancelDubbridgeInstallmentOrder(request *CancelDubbridgeIn
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统取消分期付订单-分期付
- * Summary: 天枢系统取消分期付订单-分期付
- */
+// Description:
+//
+// Description: 天枢系统取消分期付订单-分期付
+//
+// Summary: 天枢系统取消分期付订单-分期付
 func (client *Client) CancelDubbridgeInstallmentOrderEx(request *CancelDubbridgeInstallmentOrderRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CancelDubbridgeInstallmentOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44430,10 +47813,11 @@ func (client *Client) CancelDubbridgeInstallmentOrderEx(request *CancelDubbridge
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统支用后补充材料推送-分期付
- * Summary: 天枢系统支用后补充材料推送-分期付
- */
+// Description:
+//
+// Description: 天枢系统支用后补充材料推送-分期付
+//
+// Summary: 天枢系统支用后补充材料推送-分期付
 func (client *Client) PushDubbridgeInstallmentSupplement(request *PushDubbridgeInstallmentSupplementRequest) (_result *PushDubbridgeInstallmentSupplementResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44446,10 +47830,11 @@ func (client *Client) PushDubbridgeInstallmentSupplement(request *PushDubbridgeI
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统支用后补充材料推送-分期付
- * Summary: 天枢系统支用后补充材料推送-分期付
- */
+// Description:
+//
+// Description: 天枢系统支用后补充材料推送-分期付
+//
+// Summary: 天枢系统支用后补充材料推送-分期付
 func (client *Client) PushDubbridgeInstallmentSupplementEx(request *PushDubbridgeInstallmentSupplementRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushDubbridgeInstallmentSupplementResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44464,10 +47849,11 @@ func (client *Client) PushDubbridgeInstallmentSupplementEx(request *PushDubbridg
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统分期试算
- * Summary: 天枢系统分期试算
- */
+// Description:
+//
+// Description: 天枢系统分期试算
+//
+// Summary: 天枢系统分期试算
 func (client *Client) QueryDubbridgeInstallmentTrial(request *QueryDubbridgeInstallmentTrialRequest) (_result *QueryDubbridgeInstallmentTrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44480,10 +47866,11 @@ func (client *Client) QueryDubbridgeInstallmentTrial(request *QueryDubbridgeInst
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统分期试算
- * Summary: 天枢系统分期试算
- */
+// Description:
+//
+// Description: 天枢系统分期试算
+//
+// Summary: 天枢系统分期试算
 func (client *Client) QueryDubbridgeInstallmentTrialEx(request *QueryDubbridgeInstallmentTrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeInstallmentTrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44498,10 +47885,11 @@ func (client *Client) QueryDubbridgeInstallmentTrialEx(request *QueryDubbridgeIn
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻图片上传-分期付
- * Summary: 天枢系统二级商户入驻图片上传-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻图片上传-分期付
+//
+// Summary: 天枢系统二级商户入驻图片上传-分期付
 func (client *Client) UploadDubbridgeAlipayImage(request *UploadDubbridgeAlipayImageRequest) (_result *UploadDubbridgeAlipayImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44514,10 +47902,11 @@ func (client *Client) UploadDubbridgeAlipayImage(request *UploadDubbridgeAlipayI
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻图片上传-分期付
- * Summary: 天枢系统二级商户入驻图片上传-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻图片上传-分期付
+//
+// Summary: 天枢系统二级商户入驻图片上传-分期付
 func (client *Client) UploadDubbridgeAlipayImageEx(request *UploadDubbridgeAlipayImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadDubbridgeAlipayImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44532,10 +47921,11 @@ func (client *Client) UploadDubbridgeAlipayImageEx(request *UploadDubbridgeAlipa
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻-分期付
- * Summary: 天枢系统二级商户入驻-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻-分期付
+//
+// Summary: 天枢系统二级商户入驻-分期付
 func (client *Client) CreateDubbridgeAlipayMerchant(request *CreateDubbridgeAlipayMerchantRequest) (_result *CreateDubbridgeAlipayMerchantResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44548,10 +47938,11 @@ func (client *Client) CreateDubbridgeAlipayMerchant(request *CreateDubbridgeAlip
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻-分期付
- * Summary: 天枢系统二级商户入驻-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻-分期付
+//
+// Summary: 天枢系统二级商户入驻-分期付
 func (client *Client) CreateDubbridgeAlipayMerchantEx(request *CreateDubbridgeAlipayMerchantRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateDubbridgeAlipayMerchantResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44566,10 +47957,11 @@ func (client *Client) CreateDubbridgeAlipayMerchantEx(request *CreateDubbridgeAl
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻结果查询-分期付
- * Summary: 天枢系统二级商户入驻结果查询-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻结果查询-分期付
+//
+// Summary: 天枢系统二级商户入驻结果查询-分期付
 func (client *Client) QueryDubbridgeAlipayMerchant(request *QueryDubbridgeAlipayMerchantRequest) (_result *QueryDubbridgeAlipayMerchantResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44582,10 +47974,11 @@ func (client *Client) QueryDubbridgeAlipayMerchant(request *QueryDubbridgeAlipay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户入驻结果查询-分期付
- * Summary: 天枢系统二级商户入驻结果查询-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户入驻结果查询-分期付
+//
+// Summary: 天枢系统二级商户入驻结果查询-分期付
 func (client *Client) QueryDubbridgeAlipayMerchantEx(request *QueryDubbridgeAlipayMerchantRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAlipayMerchantResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44600,10 +47993,11 @@ func (client *Client) QueryDubbridgeAlipayMerchantEx(request *QueryDubbridgeAlip
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户支付宝订单码创建-分期付
- * Summary: 天枢系统二级商户支付宝订单码创建-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户支付宝订单码创建-分期付
+//
+// Summary: 天枢系统二级商户支付宝订单码创建-分期付
 func (client *Client) CreateDubbridgeAlipayTrade(request *CreateDubbridgeAlipayTradeRequest) (_result *CreateDubbridgeAlipayTradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44616,10 +48010,11 @@ func (client *Client) CreateDubbridgeAlipayTrade(request *CreateDubbridgeAlipayT
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统二级商户支付宝订单码创建-分期付
- * Summary: 天枢系统二级商户支付宝订单码创建-分期付
- */
+// Description:
+//
+// Description: 天枢系统二级商户支付宝订单码创建-分期付
+//
+// Summary: 天枢系统二级商户支付宝订单码创建-分期付
 func (client *Client) CreateDubbridgeAlipayTradeEx(request *CreateDubbridgeAlipayTradeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateDubbridgeAlipayTradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44634,10 +48029,11 @@ func (client *Client) CreateDubbridgeAlipayTradeEx(request *CreateDubbridgeAlipa
 	return _result, _err
 }
 
-/**
- * Description: 二级商户交易取消
- * Summary: 天枢系统-二级商户交易取消-分期付
- */
+// Description:
+//
+// Description: 二级商户交易取消
+//
+// Summary: 天枢系统-二级商户交易取消-分期付
 func (client *Client) CancelDubbridgeAlipayTrade(request *CancelDubbridgeAlipayTradeRequest) (_result *CancelDubbridgeAlipayTradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44650,10 +48046,11 @@ func (client *Client) CancelDubbridgeAlipayTrade(request *CancelDubbridgeAlipayT
 	return _result, _err
 }
 
-/**
- * Description: 二级商户交易取消
- * Summary: 天枢系统-二级商户交易取消-分期付
- */
+// Description:
+//
+// Description: 二级商户交易取消
+//
+// Summary: 天枢系统-二级商户交易取消-分期付
 func (client *Client) CancelDubbridgeAlipayTradeEx(request *CancelDubbridgeAlipayTradeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CancelDubbridgeAlipayTradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44668,10 +48065,11 @@ func (client *Client) CancelDubbridgeAlipayTradeEx(request *CancelDubbridgeAlipa
 	return _result, _err
 }
 
-/**
- * Description: 二级商户交易查询
- * Summary: 天枢系统-二级商户交易查询-分期付
- */
+// Description:
+//
+// Description: 二级商户交易查询
+//
+// Summary: 天枢系统-二级商户交易查询-分期付
 func (client *Client) QueryDubbridgeAlipayTrade(request *QueryDubbridgeAlipayTradeRequest) (_result *QueryDubbridgeAlipayTradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44684,10 +48082,11 @@ func (client *Client) QueryDubbridgeAlipayTrade(request *QueryDubbridgeAlipayTra
 	return _result, _err
 }
 
-/**
- * Description: 二级商户交易查询
- * Summary: 天枢系统-二级商户交易查询-分期付
- */
+// Description:
+//
+// Description: 二级商户交易查询
+//
+// Summary: 天枢系统-二级商户交易查询-分期付
 func (client *Client) QueryDubbridgeAlipayTradeEx(request *QueryDubbridgeAlipayTradeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAlipayTradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44702,10 +48101,11 @@ func (client *Client) QueryDubbridgeAlipayTradeEx(request *QueryDubbridgeAlipayT
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易退款-分期付
- * Summary: 天枢系统-二级商户交易退款-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易退款-分期付
+//
+// Summary: 天枢系统-二级商户交易退款-分期付
 func (client *Client) RefundDubbridgeAlipayTrade(request *RefundDubbridgeAlipayTradeRequest) (_result *RefundDubbridgeAlipayTradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44718,10 +48118,11 @@ func (client *Client) RefundDubbridgeAlipayTrade(request *RefundDubbridgeAlipayT
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易退款-分期付
- * Summary: 天枢系统-二级商户交易退款-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易退款-分期付
+//
+// Summary: 天枢系统-二级商户交易退款-分期付
 func (client *Client) RefundDubbridgeAlipayTradeEx(request *RefundDubbridgeAlipayTradeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RefundDubbridgeAlipayTradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44736,10 +48137,11 @@ func (client *Client) RefundDubbridgeAlipayTradeEx(request *RefundDubbridgeAlipa
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易关闭-分期付
- * Summary: 天枢系统-二级商户交易关闭-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易关闭-分期付
+//
+// Summary: 天枢系统-二级商户交易关闭-分期付
 func (client *Client) CloseDubbridgeAlipayTrade(request *CloseDubbridgeAlipayTradeRequest) (_result *CloseDubbridgeAlipayTradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44752,10 +48154,11 @@ func (client *Client) CloseDubbridgeAlipayTrade(request *CloseDubbridgeAlipayTra
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易关闭-分期付
- * Summary: 天枢系统-二级商户交易关闭-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易关闭-分期付
+//
+// Summary: 天枢系统-二级商户交易关闭-分期付
 func (client *Client) CloseDubbridgeAlipayTradeEx(request *CloseDubbridgeAlipayTradeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CloseDubbridgeAlipayTradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44770,10 +48173,11 @@ func (client *Client) CloseDubbridgeAlipayTradeEx(request *CloseDubbridgeAlipayT
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易退款查询-分期付
- * Summary: 天枢系统-二级商户交易退款查询-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易退款查询-分期付
+//
+// Summary: 天枢系统-二级商户交易退款查询-分期付
 func (client *Client) QueryDubbridgeAlipayRefund(request *QueryDubbridgeAlipayRefundRequest) (_result *QueryDubbridgeAlipayRefundResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44786,10 +48190,11 @@ func (client *Client) QueryDubbridgeAlipayRefund(request *QueryDubbridgeAlipayRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-二级商户交易退款查询-分期付
- * Summary: 天枢系统-二级商户交易退款查询-分期付
- */
+// Description:
+//
+// Description: 天枢系统-二级商户交易退款查询-分期付
+//
+// Summary: 天枢系统-二级商户交易退款查询-分期付
 func (client *Client) QueryDubbridgeAlipayRefundEx(request *QueryDubbridgeAlipayRefundRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeAlipayRefundResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44804,10 +48209,11 @@ func (client *Client) QueryDubbridgeAlipayRefundEx(request *QueryDubbridgeAlipay
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-权益购买结果通知，用户购买权益后通知到天枢系统进行业务处理，自动提交用信申请
- * Summary: 天枢系统-权益购买结果通知
- */
+// Description:
+//
+// Description: 天枢系统-权益购买结果通知，用户购买权益后通知到天枢系统进行业务处理，自动提交用信申请
+//
+// Summary: 天枢系统-权益购买结果通知
 func (client *Client) NotifyDubbridgeInterestResult(request *NotifyDubbridgeInterestResultRequest) (_result *NotifyDubbridgeInterestResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44820,10 +48226,11 @@ func (client *Client) NotifyDubbridgeInterestResult(request *NotifyDubbridgeInte
 	return _result, _err
 }
 
-/**
- * Description: 天枢系统-权益购买结果通知，用户购买权益后通知到天枢系统进行业务处理，自动提交用信申请
- * Summary: 天枢系统-权益购买结果通知
- */
+// Description:
+//
+// Description: 天枢系统-权益购买结果通知，用户购买权益后通知到天枢系统进行业务处理，自动提交用信申请
+//
+// Summary: 天枢系统-权益购买结果通知
 func (client *Client) NotifyDubbridgeInterestResultEx(request *NotifyDubbridgeInterestResultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyDubbridgeInterestResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44838,10 +48245,11 @@ func (client *Client) NotifyDubbridgeInterestResultEx(request *NotifyDubbridgeIn
 	return _result, _err
 }
 
-/**
- * Description: 天枢-商户结算信息修改
- * Summary: 天枢-商户结算信息修改
- */
+// Description:
+//
+// Description: 天枢-商户结算信息修改
+//
+// Summary: 天枢-商户结算信息修改
 func (client *Client) SettlementmodifyDubbridgeAlipayMerchant(request *SettlementmodifyDubbridgeAlipayMerchantRequest) (_result *SettlementmodifyDubbridgeAlipayMerchantResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44854,10 +48262,11 @@ func (client *Client) SettlementmodifyDubbridgeAlipayMerchant(request *Settlemen
 	return _result, _err
 }
 
-/**
- * Description: 天枢-商户结算信息修改
- * Summary: 天枢-商户结算信息修改
- */
+// Description:
+//
+// Description: 天枢-商户结算信息修改
+//
+// Summary: 天枢-商户结算信息修改
 func (client *Client) SettlementmodifyDubbridgeAlipayMerchantEx(request *SettlementmodifyDubbridgeAlipayMerchantRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SettlementmodifyDubbridgeAlipayMerchantResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44872,10 +48281,11 @@ func (client *Client) SettlementmodifyDubbridgeAlipayMerchantEx(request *Settlem
 	return _result, _err
 }
 
-/**
- * Description: 撞库查询机构侧最高可用额度
- * Summary: 机构侧最高可用额度查询接口
- */
+// Description:
+//
+// Description: 撞库查询机构侧最高可用额度
+//
+// Summary: 机构侧最高可用额度查询接口
 func (client *Client) QueryDubbridgeFundCreditamt(request *QueryDubbridgeFundCreditamtRequest) (_result *QueryDubbridgeFundCreditamtResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44888,10 +48298,11 @@ func (client *Client) QueryDubbridgeFundCreditamt(request *QueryDubbridgeFundCre
 	return _result, _err
 }
 
-/**
- * Description: 撞库查询机构侧最高可用额度
- * Summary: 机构侧最高可用额度查询接口
- */
+// Description:
+//
+// Description: 撞库查询机构侧最高可用额度
+//
+// Summary: 机构侧最高可用额度查询接口
 func (client *Client) QueryDubbridgeFundCreditamtEx(request *QueryDubbridgeFundCreditamtRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeFundCreditamtResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44906,10 +48317,11 @@ func (client *Client) QueryDubbridgeFundCreditamtEx(request *QueryDubbridgeFundC
 	return _result, _err
 }
 
-/**
- * Description: 授信申请-定制接口
- * Summary: 授信申请-定制接口
- */
+// Description:
+//
+// Description: 授信申请-定制接口
+//
+// Summary: 授信申请-定制接口
 func (client *Client) ApplyDubbridgeCreditLx(request *ApplyDubbridgeCreditLxRequest) (_result *ApplyDubbridgeCreditLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44922,10 +48334,11 @@ func (client *Client) ApplyDubbridgeCreditLx(request *ApplyDubbridgeCreditLxRequ
 	return _result, _err
 }
 
-/**
- * Description: 授信申请-定制接口
- * Summary: 授信申请-定制接口
- */
+// Description:
+//
+// Description: 授信申请-定制接口
+//
+// Summary: 授信申请-定制接口
 func (client *Client) ApplyDubbridgeCreditLxEx(request *ApplyDubbridgeCreditLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeCreditLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44940,10 +48353,11 @@ func (client *Client) ApplyDubbridgeCreditLxEx(request *ApplyDubbridgeCreditLxRe
 	return _result, _err
 }
 
-/**
- * Description: 授信结果查询，授信通过下会返回授信单最新额度信息
- * Summary: 授信结果查询
- */
+// Description:
+//
+// Description: 授信结果查询，授信通过下会返回授信单最新额度信息
+//
+// Summary: 授信结果查询
 func (client *Client) QueryDubbridgeCreditstatusLx(request *QueryDubbridgeCreditstatusLxRequest) (_result *QueryDubbridgeCreditstatusLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44956,10 +48370,11 @@ func (client *Client) QueryDubbridgeCreditstatusLx(request *QueryDubbridgeCredit
 	return _result, _err
 }
 
-/**
- * Description: 授信结果查询，授信通过下会返回授信单最新额度信息
- * Summary: 授信结果查询
- */
+// Description:
+//
+// Description: 授信结果查询，授信通过下会返回授信单最新额度信息
+//
+// Summary: 授信结果查询
 func (client *Client) QueryDubbridgeCreditstatusLxEx(request *QueryDubbridgeCreditstatusLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCreditstatusLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -44974,10 +48389,11 @@ func (client *Client) QueryDubbridgeCreditstatusLxEx(request *QueryDubbridgeCred
 	return _result, _err
 }
 
-/**
- * Description: 用信申请提交
- * Summary: 用信申请
- */
+// Description:
+//
+// Description: 用信申请提交
+//
+// Summary: 用信申请
 func (client *Client) ApplyDubbridgeUsecreditLx(request *ApplyDubbridgeUsecreditLxRequest) (_result *ApplyDubbridgeUsecreditLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -44990,10 +48406,11 @@ func (client *Client) ApplyDubbridgeUsecreditLx(request *ApplyDubbridgeUsecredit
 	return _result, _err
 }
 
-/**
- * Description: 用信申请提交
- * Summary: 用信申请
- */
+// Description:
+//
+// Description: 用信申请提交
+//
+// Summary: 用信申请
 func (client *Client) ApplyDubbridgeUsecreditLxEx(request *ApplyDubbridgeUsecreditLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeUsecreditLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45008,10 +48425,11 @@ func (client *Client) ApplyDubbridgeUsecreditLxEx(request *ApplyDubbridgeUsecred
 	return _result, _err
 }
 
-/**
- * Description: 用信结果查询
- * Summary: 用信结果查询
- */
+// Description:
+//
+// Description: 用信结果查询
+//
+// Summary: 用信结果查询
 func (client *Client) QueryDubbridgeUsecreditstatusLx(request *QueryDubbridgeUsecreditstatusLxRequest) (_result *QueryDubbridgeUsecreditstatusLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45024,10 +48442,11 @@ func (client *Client) QueryDubbridgeUsecreditstatusLx(request *QueryDubbridgeUse
 	return _result, _err
 }
 
-/**
- * Description: 用信结果查询
- * Summary: 用信结果查询
- */
+// Description:
+//
+// Description: 用信结果查询
+//
+// Summary: 用信结果查询
 func (client *Client) QueryDubbridgeUsecreditstatusLxEx(request *QueryDubbridgeUsecreditstatusLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeUsecreditstatusLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45042,10 +48461,11 @@ func (client *Client) QueryDubbridgeUsecreditstatusLxEx(request *QueryDubbridgeU
 	return _result, _err
 }
 
-/**
- * Description: 支用放款申请
- * Summary: 支用放款申请
- */
+// Description:
+//
+// Description: 支用放款申请
+//
+// Summary: 支用放款申请
 func (client *Client) ApplyDubbridgeLoanLx(request *ApplyDubbridgeLoanLxRequest) (_result *ApplyDubbridgeLoanLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45058,10 +48478,11 @@ func (client *Client) ApplyDubbridgeLoanLx(request *ApplyDubbridgeLoanLxRequest)
 	return _result, _err
 }
 
-/**
- * Description: 支用放款申请
- * Summary: 支用放款申请
- */
+// Description:
+//
+// Description: 支用放款申请
+//
+// Summary: 支用放款申请
 func (client *Client) ApplyDubbridgeLoanLxEx(request *ApplyDubbridgeLoanLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeLoanLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45076,10 +48497,11 @@ func (client *Client) ApplyDubbridgeLoanLxEx(request *ApplyDubbridgeLoanLxReques
 	return _result, _err
 }
 
-/**
- * Description: 支用结果查询
- * Summary: 支用结果查询
- */
+// Description:
+//
+// Description: 支用结果查询
+//
+// Summary: 支用结果查询
 func (client *Client) QueryDubbridgeLoanstatusLx(request *QueryDubbridgeLoanstatusLxRequest) (_result *QueryDubbridgeLoanstatusLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45092,10 +48514,11 @@ func (client *Client) QueryDubbridgeLoanstatusLx(request *QueryDubbridgeLoanstat
 	return _result, _err
 }
 
-/**
- * Description: 支用结果查询
- * Summary: 支用结果查询
- */
+// Description:
+//
+// Description: 支用结果查询
+//
+// Summary: 支用结果查询
 func (client *Client) QueryDubbridgeLoanstatusLxEx(request *QueryDubbridgeLoanstatusLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeLoanstatusLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45110,10 +48533,11 @@ func (client *Client) QueryDubbridgeLoanstatusLxEx(request *QueryDubbridgeLoanst
 	return _result, _err
 }
 
-/**
- * Description: 流量方生成的还款计划，通知同步至天枢及下游资金方
- * Summary: 还款计划通知
- */
+// Description:
+//
+// Description: 流量方生成的还款计划，通知同步至天枢及下游资金方
+//
+// Summary: 还款计划通知
 func (client *Client) NotifyDubbridgeRepaymentplanLx(request *NotifyDubbridgeRepaymentplanLxRequest) (_result *NotifyDubbridgeRepaymentplanLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45126,10 +48550,11 @@ func (client *Client) NotifyDubbridgeRepaymentplanLx(request *NotifyDubbridgeRep
 	return _result, _err
 }
 
-/**
- * Description: 流量方生成的还款计划，通知同步至天枢及下游资金方
- * Summary: 还款计划通知
- */
+// Description:
+//
+// Description: 流量方生成的还款计划，通知同步至天枢及下游资金方
+//
+// Summary: 还款计划通知
 func (client *Client) NotifyDubbridgeRepaymentplanLxEx(request *NotifyDubbridgeRepaymentplanLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyDubbridgeRepaymentplanLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45144,10 +48569,11 @@ func (client *Client) NotifyDubbridgeRepaymentplanLxEx(request *NotifyDubbridgeR
 	return _result, _err
 }
 
-/**
- * Description: 还款代扣申请
- * Summary: 还款代扣申请
- */
+// Description:
+//
+// Description: 还款代扣申请
+//
+// Summary: 还款代扣申请
 func (client *Client) ApplyDubbridgeRepaywithholdLx(request *ApplyDubbridgeRepaywithholdLxRequest) (_result *ApplyDubbridgeRepaywithholdLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45160,10 +48586,11 @@ func (client *Client) ApplyDubbridgeRepaywithholdLx(request *ApplyDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 还款代扣申请
- * Summary: 还款代扣申请
- */
+// Description:
+//
+// Description: 还款代扣申请
+//
+// Summary: 还款代扣申请
 func (client *Client) ApplyDubbridgeRepaywithholdLxEx(request *ApplyDubbridgeRepaywithholdLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeRepaywithholdLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45178,10 +48605,11 @@ func (client *Client) ApplyDubbridgeRepaywithholdLxEx(request *ApplyDubbridgeRep
 	return _result, _err
 }
 
-/**
- * Description: 还款代扣结果查询
- * Summary: 还款代扣结果查询
- */
+// Description:
+//
+// Description: 还款代扣结果查询
+//
+// Summary: 还款代扣结果查询
 func (client *Client) QueryDubbridgeRepaywithholdLx(request *QueryDubbridgeRepaywithholdLxRequest) (_result *QueryDubbridgeRepaywithholdLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45194,10 +48622,11 @@ func (client *Client) QueryDubbridgeRepaywithholdLx(request *QueryDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 还款代扣结果查询
- * Summary: 还款代扣结果查询
- */
+// Description:
+//
+// Description: 还款代扣结果查询
+//
+// Summary: 还款代扣结果查询
 func (client *Client) QueryDubbridgeRepaywithholdLxEx(request *QueryDubbridgeRepaywithholdLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepaywithholdLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45212,10 +48641,11 @@ func (client *Client) QueryDubbridgeRepaywithholdLxEx(request *QueryDubbridgeRep
 	return _result, _err
 }
 
-/**
- * Description: 实还通知
- * Summary: 实还通知
- */
+// Description:
+//
+// Description: 实还通知
+//
+// Summary: 实还通知
 func (client *Client) NotifyDubbridgeRepaymentLx(request *NotifyDubbridgeRepaymentLxRequest) (_result *NotifyDubbridgeRepaymentLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45228,10 +48658,11 @@ func (client *Client) NotifyDubbridgeRepaymentLx(request *NotifyDubbridgeRepayme
 	return _result, _err
 }
 
-/**
- * Description: 实还通知
- * Summary: 实还通知
- */
+// Description:
+//
+// Description: 实还通知
+//
+// Summary: 实还通知
 func (client *Client) NotifyDubbridgeRepaymentLxEx(request *NotifyDubbridgeRepaymentLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyDubbridgeRepaymentLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45246,10 +48677,11 @@ func (client *Client) NotifyDubbridgeRepaymentLxEx(request *NotifyDubbridgeRepay
 	return _result, _err
 }
 
-/**
- * Description: 实还通知结果查询
- * Summary: 实还通知结果查询
- */
+// Description:
+//
+// Description: 实还通知结果查询
+//
+// Summary: 实还通知结果查询
 func (client *Client) QueryDubbridgeRepaymentLx(request *QueryDubbridgeRepaymentLxRequest) (_result *QueryDubbridgeRepaymentLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45262,10 +48694,11 @@ func (client *Client) QueryDubbridgeRepaymentLx(request *QueryDubbridgeRepayment
 	return _result, _err
 }
 
-/**
- * Description: 实还通知结果查询
- * Summary: 实还通知结果查询
- */
+// Description:
+//
+// Description: 实还通知结果查询
+//
+// Summary: 实还通知结果查询
 func (client *Client) QueryDubbridgeRepaymentLxEx(request *QueryDubbridgeRepaymentLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeRepaymentLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45280,10 +48713,11 @@ func (client *Client) QueryDubbridgeRepaymentLxEx(request *QueryDubbridgeRepayme
 	return _result, _err
 }
 
-/**
- * Description: 已经授信通过的用户,无需重新进行授信申请,直接查询可用额度是否充足,以及是否在有效期内
- * Summary: 额度查询接口
- */
+// Description:
+//
+// Description: 已经授信通过的用户,无需重新进行授信申请,直接查询可用额度是否充足,以及是否在有效期内
+//
+// Summary: 额度查询接口
 func (client *Client) QueryDubbridgeCreditamtLx(request *QueryDubbridgeCreditamtLxRequest) (_result *QueryDubbridgeCreditamtLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45296,10 +48730,11 @@ func (client *Client) QueryDubbridgeCreditamtLx(request *QueryDubbridgeCreditamt
 	return _result, _err
 }
 
-/**
- * Description: 已经授信通过的用户,无需重新进行授信申请,直接查询可用额度是否充足,以及是否在有效期内
- * Summary: 额度查询接口
- */
+// Description:
+//
+// Description: 已经授信通过的用户,无需重新进行授信申请,直接查询可用额度是否充足,以及是否在有效期内
+//
+// Summary: 额度查询接口
 func (client *Client) QueryDubbridgeCreditamtLxEx(request *QueryDubbridgeCreditamtLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCreditamtLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45314,10 +48749,11 @@ func (client *Client) QueryDubbridgeCreditamtLxEx(request *QueryDubbridgeCredita
 	return _result, _err
 }
 
-/**
- * Description: 结清证明、代偿凭证、放款凭证获取
- * Summary: 证明类文件获取
- */
+// Description:
+//
+// Description: 结清证明、代偿凭证、放款凭证获取
+//
+// Summary: 证明类文件获取
 func (client *Client) QueryDubbridgeCertificateLx(request *QueryDubbridgeCertificateLxRequest) (_result *QueryDubbridgeCertificateLxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45330,10 +48766,11 @@ func (client *Client) QueryDubbridgeCertificateLx(request *QueryDubbridgeCertifi
 	return _result, _err
 }
 
-/**
- * Description: 结清证明、代偿凭证、放款凭证获取
- * Summary: 证明类文件获取
- */
+// Description:
+//
+// Description: 结清证明、代偿凭证、放款凭证获取
+//
+// Summary: 证明类文件获取
 func (client *Client) QueryDubbridgeCertificateLxEx(request *QueryDubbridgeCertificateLxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeCertificateLxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45348,10 +48785,11 @@ func (client *Client) QueryDubbridgeCertificateLxEx(request *QueryDubbridgeCerti
 	return _result, _err
 }
 
-/**
- * Description: 天枢电商场景下授信申请接口
- * Summary: 天枢电商场景下授信申请接口
- */
+// Description:
+//
+// Description: 天枢电商场景下授信申请接口
+//
+// Summary: 天枢电商场景下授信申请接口
 func (client *Client) ApplyDubbridgeEccredit(request *ApplyDubbridgeEccreditRequest) (_result *ApplyDubbridgeEccreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45364,10 +48802,11 @@ func (client *Client) ApplyDubbridgeEccredit(request *ApplyDubbridgeEccreditRequ
 	return _result, _err
 }
 
-/**
- * Description: 天枢电商场景下授信申请接口
- * Summary: 天枢电商场景下授信申请接口
- */
+// Description:
+//
+// Description: 天枢电商场景下授信申请接口
+//
+// Summary: 天枢电商场景下授信申请接口
 func (client *Client) ApplyDubbridgeEccreditEx(request *ApplyDubbridgeEccreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeEccreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45382,10 +48821,11 @@ func (client *Client) ApplyDubbridgeEccreditEx(request *ApplyDubbridgeEccreditRe
 	return _result, _err
 }
 
-/**
- * Description: 天枢电商场景支用申请
- * Summary: 天枢电商场景支用申请
- */
+// Description:
+//
+// Description: 天枢电商场景支用申请
+//
+// Summary: 天枢电商场景支用申请
 func (client *Client) ApplyDubbridgeEcloan(request *ApplyDubbridgeEcloanRequest) (_result *ApplyDubbridgeEcloanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45398,10 +48838,11 @@ func (client *Client) ApplyDubbridgeEcloan(request *ApplyDubbridgeEcloanRequest)
 	return _result, _err
 }
 
-/**
- * Description: 天枢电商场景支用申请
- * Summary: 天枢电商场景支用申请
- */
+// Description:
+//
+// Description: 天枢电商场景支用申请
+//
+// Summary: 天枢电商场景支用申请
 func (client *Client) ApplyDubbridgeEcloanEx(request *ApplyDubbridgeEcloanRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyDubbridgeEcloanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45416,10 +48857,11 @@ func (client *Client) ApplyDubbridgeEcloanEx(request *ApplyDubbridgeEcloanReques
 	return _result, _err
 }
 
-/**
- * Description: 支用前查询授信额度
- * Summary: 支用前查询授信额度
- */
+// Description:
+//
+// Description: 支用前查询授信额度
+//
+// Summary: 支用前查询授信额度
 func (client *Client) QueryDubbridgeEccreditQuota(request *QueryDubbridgeEccreditQuotaRequest) (_result *QueryDubbridgeEccreditQuotaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45432,10 +48874,11 @@ func (client *Client) QueryDubbridgeEccreditQuota(request *QueryDubbridgeEccredi
 	return _result, _err
 }
 
-/**
- * Description: 支用前查询授信额度
- * Summary: 支用前查询授信额度
- */
+// Description:
+//
+// Description: 支用前查询授信额度
+//
+// Summary: 支用前查询授信额度
 func (client *Client) QueryDubbridgeEccreditQuotaEx(request *QueryDubbridgeEccreditQuotaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeEccreditQuotaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45450,10 +48893,11 @@ func (client *Client) QueryDubbridgeEccreditQuotaEx(request *QueryDubbridgeEccre
 	return _result, _err
 }
 
-/**
- * Description: 支用结果查询接口
- * Summary: 支用结果查询接口
- */
+// Description:
+//
+// Description: 支用结果查询接口
+//
+// Summary: 支用结果查询接口
 func (client *Client) QueryDubbridgeEcloan(request *QueryDubbridgeEcloanRequest) (_result *QueryDubbridgeEcloanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45466,10 +48910,11 @@ func (client *Client) QueryDubbridgeEcloan(request *QueryDubbridgeEcloanRequest)
 	return _result, _err
 }
 
-/**
- * Description: 支用结果查询接口
- * Summary: 支用结果查询接口
- */
+// Description:
+//
+// Description: 支用结果查询接口
+//
+// Summary: 支用结果查询接口
 func (client *Client) QueryDubbridgeEcloanEx(request *QueryDubbridgeEcloanRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeEcloanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45484,10 +48929,11 @@ func (client *Client) QueryDubbridgeEcloanEx(request *QueryDubbridgeEcloanReques
 	return _result, _err
 }
 
-/**
- * Description: 支用后，还款前试算
- * Summary: 支用后，还款前试算
- */
+// Description:
+//
+// Description: 支用后，还款前试算
+//
+// Summary: 支用后，还款前试算
 func (client *Client) CountDubbridgeEcrepayTrial(request *CountDubbridgeEcrepayTrialRequest) (_result *CountDubbridgeEcrepayTrialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45500,10 +48946,11 @@ func (client *Client) CountDubbridgeEcrepayTrial(request *CountDubbridgeEcrepayT
 	return _result, _err
 }
 
-/**
- * Description: 支用后，还款前试算
- * Summary: 支用后，还款前试算
- */
+// Description:
+//
+// Description: 支用后，还款前试算
+//
+// Summary: 支用后，还款前试算
 func (client *Client) CountDubbridgeEcrepayTrialEx(request *CountDubbridgeEcrepayTrialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CountDubbridgeEcrepayTrialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45518,10 +48965,11 @@ func (client *Client) CountDubbridgeEcrepayTrialEx(request *CountDubbridgeEcrepa
 	return _result, _err
 }
 
-/**
- * Description: 支用后 查询还款明细
- * Summary: 支用后 查询还款明细
- */
+// Description:
+//
+// Description: 支用后 查询还款明细
+//
+// Summary: 支用后 查询还款明细
 func (client *Client) QueryDubbridgeEcrepay(request *QueryDubbridgeEcrepayRequest) (_result *QueryDubbridgeEcrepayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45534,10 +48982,11 @@ func (client *Client) QueryDubbridgeEcrepay(request *QueryDubbridgeEcrepayReques
 	return _result, _err
 }
 
-/**
- * Description: 支用后 查询还款明细
- * Summary: 支用后 查询还款明细
- */
+// Description:
+//
+// Description: 支用后 查询还款明细
+//
+// Summary: 支用后 查询还款明细
 func (client *Client) QueryDubbridgeEcrepayEx(request *QueryDubbridgeEcrepayRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeEcrepayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45552,10 +49001,11 @@ func (client *Client) QueryDubbridgeEcrepayEx(request *QueryDubbridgeEcrepayRequ
 	return _result, _err
 }
 
-/**
- * Description: 支用后 查询借据
- * Summary: 支用后 查询借据
- */
+// Description:
+//
+// Description: 支用后 查询借据
+//
+// Summary: 支用后 查询借据
 func (client *Client) DetailDubbridgeEcloan(request *DetailDubbridgeEcloanRequest) (_result *DetailDubbridgeEcloanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45568,10 +49018,11 @@ func (client *Client) DetailDubbridgeEcloan(request *DetailDubbridgeEcloanReques
 	return _result, _err
 }
 
-/**
- * Description: 支用后 查询借据
- * Summary: 支用后 查询借据
- */
+// Description:
+//
+// Description: 支用后 查询借据
+//
+// Summary: 支用后 查询借据
 func (client *Client) DetailDubbridgeEcloanEx(request *DetailDubbridgeEcloanRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DetailDubbridgeEcloanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45586,10 +49037,11 @@ func (client *Client) DetailDubbridgeEcloanEx(request *DetailDubbridgeEcloanRequ
 	return _result, _err
 }
 
-/**
- * Description: 授信结果查询
- * Summary: 授信结果查询
- */
+// Description:
+//
+// Description: 授信结果查询
+//
+// Summary: 授信结果查询
 func (client *Client) QueryDubbridgeEccredit(request *QueryDubbridgeEccreditRequest) (_result *QueryDubbridgeEccreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45602,10 +49054,11 @@ func (client *Client) QueryDubbridgeEccredit(request *QueryDubbridgeEccreditRequ
 	return _result, _err
 }
 
-/**
- * Description: 授信结果查询
- * Summary: 授信结果查询
- */
+// Description:
+//
+// Description: 授信结果查询
+//
+// Summary: 授信结果查询
 func (client *Client) QueryDubbridgeEccreditEx(request *QueryDubbridgeEccreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeEccreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45620,10 +49073,11 @@ func (client *Client) QueryDubbridgeEccreditEx(request *QueryDubbridgeEccreditRe
 	return _result, _err
 }
 
-/**
- * Description: 补充授信申请风险数据
- * Summary: 补充授信申请风险数据
- */
+// Description:
+//
+// Description: 补充授信申请风险数据
+//
+// Summary: 补充授信申请风险数据
 func (client *Client) FillDubbridgeEccredit(request *FillDubbridgeEccreditRequest) (_result *FillDubbridgeEccreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45636,10 +49090,11 @@ func (client *Client) FillDubbridgeEccredit(request *FillDubbridgeEccreditReques
 	return _result, _err
 }
 
-/**
- * Description: 补充授信申请风险数据
- * Summary: 补充授信申请风险数据
- */
+// Description:
+//
+// Description: 补充授信申请风险数据
+//
+// Summary: 补充授信申请风险数据
 func (client *Client) FillDubbridgeEccreditEx(request *FillDubbridgeEccreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *FillDubbridgeEccreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45654,10 +49109,11 @@ func (client *Client) FillDubbridgeEccreditEx(request *FillDubbridgeEccreditRequ
 	return _result, _err
 }
 
-/**
- * Description: 获取链接接口
- * Summary: 获取链接接口
- */
+// Description:
+//
+// Description: 获取链接接口
+//
+// Summary: 获取链接接口
 func (client *Client) QueryDubbridgeEccreditSkipurl(request *QueryDubbridgeEccreditSkipurlRequest) (_result *QueryDubbridgeEccreditSkipurlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45670,10 +49126,11 @@ func (client *Client) QueryDubbridgeEccreditSkipurl(request *QueryDubbridgeEccre
 	return _result, _err
 }
 
-/**
- * Description: 获取链接接口
- * Summary: 获取链接接口
- */
+// Description:
+//
+// Description: 获取链接接口
+//
+// Summary: 获取链接接口
 func (client *Client) QueryDubbridgeEccreditSkipurlEx(request *QueryDubbridgeEccreditSkipurlRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeEccreditSkipurlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45688,10 +49145,11 @@ func (client *Client) QueryDubbridgeEccreditSkipurlEx(request *QueryDubbridgeEcc
 	return _result, _err
 }
 
-/**
- * Description: 天枢-乐书-贷后异常监控
- * Summary: 天枢-乐书-贷后异常监控
- */
+// Description:
+//
+// Description: 天枢-乐书-贷后异常监控
+//
+// Summary: 天枢-乐书-贷后异常监控
 func (client *Client) SyncDubbridgeEcmonitor(request *SyncDubbridgeEcmonitorRequest) (_result *SyncDubbridgeEcmonitorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45704,10 +49162,11 @@ func (client *Client) SyncDubbridgeEcmonitor(request *SyncDubbridgeEcmonitorRequ
 	return _result, _err
 }
 
-/**
- * Description: 天枢-乐书-贷后异常监控
- * Summary: 天枢-乐书-贷后异常监控
- */
+// Description:
+//
+// Description: 天枢-乐书-贷后异常监控
+//
+// Summary: 天枢-乐书-贷后异常监控
 func (client *Client) SyncDubbridgeEcmonitorEx(request *SyncDubbridgeEcmonitorRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncDubbridgeEcmonitorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45722,10 +49181,11 @@ func (client *Client) SyncDubbridgeEcmonitorEx(request *SyncDubbridgeEcmonitorRe
 	return _result, _err
 }
 
-/**
- * Description: 用户解约额度信息查询
- * Summary: 用户解约额度信息查询
- */
+// Description:
+//
+// Description: 用户解约额度信息查询
+//
+// Summary: 用户解约额度信息查询
 func (client *Client) QueryDubbridgePetitem(request *QueryDubbridgePetitemRequest) (_result *QueryDubbridgePetitemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45738,10 +49198,11 @@ func (client *Client) QueryDubbridgePetitem(request *QueryDubbridgePetitemReques
 	return _result, _err
 }
 
-/**
- * Description: 用户解约额度信息查询
- * Summary: 用户解约额度信息查询
- */
+// Description:
+//
+// Description: 用户解约额度信息查询
+//
+// Summary: 用户解约额度信息查询
 func (client *Client) QueryDubbridgePetitemEx(request *QueryDubbridgePetitemRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgePetitemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45756,10 +49217,11 @@ func (client *Client) QueryDubbridgePetitemEx(request *QueryDubbridgePetitemRequ
 	return _result, _err
 }
 
-/**
- * Description: 用户解约
- * Summary: 用户解约
- */
+// Description:
+//
+// Description: 用户解约
+//
+// Summary: 用户解约
 func (client *Client) ExecDubbridgePetitem(request *ExecDubbridgePetitemRequest) (_result *ExecDubbridgePetitemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45772,10 +49234,11 @@ func (client *Client) ExecDubbridgePetitem(request *ExecDubbridgePetitemRequest)
 	return _result, _err
 }
 
-/**
- * Description: 用户解约
- * Summary: 用户解约
- */
+// Description:
+//
+// Description: 用户解约
+//
+// Summary: 用户解约
 func (client *Client) ExecDubbridgePetitemEx(request *ExecDubbridgePetitemRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecDubbridgePetitemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45790,10 +49253,11 @@ func (client *Client) ExecDubbridgePetitemEx(request *ExecDubbridgePetitemReques
 	return _result, _err
 }
 
-/**
- * Description: 用户资金分账
- * Summary: 用户资金分账
- */
+// Description:
+//
+// Description: 用户资金分账
+//
+// Summary: 用户资金分账
 func (client *Client) PushDubbridgePetitem(request *PushDubbridgePetitemRequest) (_result *PushDubbridgePetitemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45806,10 +49270,11 @@ func (client *Client) PushDubbridgePetitem(request *PushDubbridgePetitemRequest)
 	return _result, _err
 }
 
-/**
- * Description: 用户资金分账
- * Summary: 用户资金分账
- */
+// Description:
+//
+// Description: 用户资金分账
+//
+// Summary: 用户资金分账
 func (client *Client) PushDubbridgePetitemEx(request *PushDubbridgePetitemRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushDubbridgePetitemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45824,10 +49289,11 @@ func (client *Client) PushDubbridgePetitemEx(request *PushDubbridgePetitemReques
 	return _result, _err
 }
 
-/**
- * Description: 用户逾期退款
- * Summary: 用户逾期退款
- */
+// Description:
+//
+// Description: 用户逾期退款
+//
+// Summary: 用户逾期退款
 func (client *Client) RefuseDubbridgePetitem(request *RefuseDubbridgePetitemRequest) (_result *RefuseDubbridgePetitemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45840,10 +49306,11 @@ func (client *Client) RefuseDubbridgePetitem(request *RefuseDubbridgePetitemRequ
 	return _result, _err
 }
 
-/**
- * Description: 用户逾期退款
- * Summary: 用户逾期退款
- */
+// Description:
+//
+// Description: 用户逾期退款
+//
+// Summary: 用户逾期退款
 func (client *Client) RefuseDubbridgePetitemEx(request *RefuseDubbridgePetitemRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RefuseDubbridgePetitemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45858,10 +49325,11 @@ func (client *Client) RefuseDubbridgePetitemEx(request *RefuseDubbridgePetitemRe
 	return _result, _err
 }
 
-/**
- * Description: 电子合同签署结果同步推送
- * Summary: 电子合同签署结果同步推送
- */
+// Description:
+//
+// Description: 电子合同签署结果同步推送
+//
+// Summary: 电子合同签署结果同步推送
 func (client *Client) PushDubbridgeContractsign(request *PushDubbridgeContractsignRequest) (_result *PushDubbridgeContractsignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45874,10 +49342,11 @@ func (client *Client) PushDubbridgeContractsign(request *PushDubbridgeContractsi
 	return _result, _err
 }
 
-/**
- * Description: 电子合同签署结果同步推送
- * Summary: 电子合同签署结果同步推送
- */
+// Description:
+//
+// Description: 电子合同签署结果同步推送
+//
+// Summary: 电子合同签署结果同步推送
 func (client *Client) PushDubbridgeContractsignEx(request *PushDubbridgeContractsignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushDubbridgeContractsignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45892,10 +49361,11 @@ func (client *Client) PushDubbridgeContractsignEx(request *PushDubbridgeContract
 	return _result, _err
 }
 
-/**
- * Description: 四要素认证首先调用此接口
- * Summary: 芝麻四要素接口
- */
+// Description:
+//
+// Description: 四要素认证首先调用此接口
+//
+// Summary: 芝麻四要素接口
 func (client *Client) VerifyFinserviceZhimaIdentify(request *VerifyFinserviceZhimaIdentifyRequest) (_result *VerifyFinserviceZhimaIdentifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45908,10 +49378,11 @@ func (client *Client) VerifyFinserviceZhimaIdentify(request *VerifyFinserviceZhi
 	return _result, _err
 }
 
-/**
- * Description: 四要素认证首先调用此接口
- * Summary: 芝麻四要素接口
- */
+// Description:
+//
+// Description: 四要素认证首先调用此接口
+//
+// Summary: 芝麻四要素接口
 func (client *Client) VerifyFinserviceZhimaIdentifyEx(request *VerifyFinserviceZhimaIdentifyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerifyFinserviceZhimaIdentifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45926,10 +49397,11 @@ func (client *Client) VerifyFinserviceZhimaIdentifyEx(request *VerifyFinserviceZ
 	return _result, _err
 }
 
-/**
- * Description:
- * Summary: 芝麻四要素认证结果查询
- */
+// Description:
+//
+// Description:
+//
+// Summary: 芝麻四要素认证结果查询
 func (client *Client) QueryFinserviceZhimaIdentify(request *QueryFinserviceZhimaIdentifyRequest) (_result *QueryFinserviceZhimaIdentifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45942,10 +49414,11 @@ func (client *Client) QueryFinserviceZhimaIdentify(request *QueryFinserviceZhima
 	return _result, _err
 }
 
-/**
- * Description:
- * Summary: 芝麻四要素认证结果查询
- */
+// Description:
+//
+// Description:
+//
+// Summary: 芝麻四要素认证结果查询
 func (client *Client) QueryFinserviceZhimaIdentifyEx(request *QueryFinserviceZhimaIdentifyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryFinserviceZhimaIdentifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45960,10 +49433,11 @@ func (client *Client) QueryFinserviceZhimaIdentifyEx(request *QueryFinserviceZhi
 	return _result, _err
 }
 
-/**
- * Description: 多源融合平台的数据服务查询接口
- * Summary: 多源融合平台的数据服务查询接口
- */
+// Description:
+//
+// Description: 多源融合平台的数据服务查询接口
+//
+// Summary: 多源融合平台的数据服务查询接口
 func (client *Client) QueryMdipDataservice(request *QueryMdipDataserviceRequest) (_result *QueryMdipDataserviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -45976,10 +49450,11 @@ func (client *Client) QueryMdipDataservice(request *QueryMdipDataserviceRequest)
 	return _result, _err
 }
 
-/**
- * Description: 多源融合平台的数据服务查询接口
- * Summary: 多源融合平台的数据服务查询接口
- */
+// Description:
+//
+// Description: 多源融合平台的数据服务查询接口
+//
+// Summary: 多源融合平台的数据服务查询接口
 func (client *Client) QueryMdipDataserviceEx(request *QueryMdipDataserviceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMdipDataserviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -45994,10 +49469,11 @@ func (client *Client) QueryMdipDataserviceEx(request *QueryMdipDataserviceReques
 	return _result, _err
 }
 
-/**
- * Description: 接受op的文件id,支持外网多源文件上传
- * Summary: 接受op的文件id,支持外网多源文件上传
- */
+// Description:
+//
+// Description: 接受op的文件id,支持外网多源文件上传
+//
+// Summary: 接受op的文件id,支持外网多源文件上传
 func (client *Client) ReceiveMdipParamsFile(request *ReceiveMdipParamsFileRequest) (_result *ReceiveMdipParamsFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46010,10 +49486,11 @@ func (client *Client) ReceiveMdipParamsFile(request *ReceiveMdipParamsFileReques
 	return _result, _err
 }
 
-/**
- * Description: 接受op的文件id,支持外网多源文件上传
- * Summary: 接受op的文件id,支持外网多源文件上传
- */
+// Description:
+//
+// Description: 接受op的文件id,支持外网多源文件上传
+//
+// Summary: 接受op的文件id,支持外网多源文件上传
 func (client *Client) ReceiveMdipParamsFileEx(request *ReceiveMdipParamsFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveMdipParamsFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -46058,10 +49535,11 @@ func (client *Client) ReceiveMdipParamsFileEx(request *ReceiveMdipParamsFileRequ
 	return _result, _err
 }
 
-/**
- * Description: 接受op的文件id,支持风险大脑文件上传
- * Summary: 接受op的文件id,支持风险大脑文件上传
- */
+// Description:
+//
+// Description: 接受op的文件id,支持风险大脑文件上传
+//
+// Summary: 接受op的文件id,支持风险大脑文件上传
 func (client *Client) ReceiveMdipParamsRbbfile(request *ReceiveMdipParamsRbbfileRequest) (_result *ReceiveMdipParamsRbbfileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46074,10 +49552,11 @@ func (client *Client) ReceiveMdipParamsRbbfile(request *ReceiveMdipParamsRbbfile
 	return _result, _err
 }
 
-/**
- * Description: 接受op的文件id,支持风险大脑文件上传
- * Summary: 接受op的文件id,支持风险大脑文件上传
- */
+// Description:
+//
+// Description: 接受op的文件id,支持风险大脑文件上传
+//
+// Summary: 接受op的文件id,支持风险大脑文件上传
 func (client *Client) ReceiveMdipParamsRbbfileEx(request *ReceiveMdipParamsRbbfileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveMdipParamsRbbfileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -46122,10 +49601,11 @@ func (client *Client) ReceiveMdipParamsRbbfileEx(request *ReceiveMdipParamsRbbfi
 	return _result, _err
 }
 
-/**
- * Description: 多源平台审批回调接口
- * Summary: 多源平台审批回调接口
- */
+// Description:
+//
+// Description: 多源平台审批回调接口
+//
+// Summary: 多源平台审批回调接口
 func (client *Client) CallbackMdipAudit(request *CallbackMdipAuditRequest) (_result *CallbackMdipAuditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46138,10 +49618,11 @@ func (client *Client) CallbackMdipAudit(request *CallbackMdipAuditRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 多源平台审批回调接口
- * Summary: 多源平台审批回调接口
- */
+// Description:
+//
+// Description: 多源平台审批回调接口
+//
+// Summary: 多源平台审批回调接口
 func (client *Client) CallbackMdipAuditEx(request *CallbackMdipAuditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackMdipAuditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46156,10 +49637,11 @@ func (client *Client) CallbackMdipAuditEx(request *CallbackMdipAuditRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 该接口仅限于POC场景下使用， 关键时期会执行限流操作，并且不会通知到上游依赖服务。
- * Summary: 多源融合平台的POC数据服务查询接口
- */
+// Description:
+//
+// Description: 该接口仅限于POC场景下使用， 关键时期会执行限流操作，并且不会通知到上游依赖服务。
+//
+// Summary: 多源融合平台的POC数据服务查询接口
 func (client *Client) QueryMdipDataservicePoc(request *QueryMdipDataservicePocRequest) (_result *QueryMdipDataservicePocResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46172,10 +49654,11 @@ func (client *Client) QueryMdipDataservicePoc(request *QueryMdipDataservicePocRe
 	return _result, _err
 }
 
-/**
- * Description: 该接口仅限于POC场景下使用， 关键时期会执行限流操作，并且不会通知到上游依赖服务。
- * Summary: 多源融合平台的POC数据服务查询接口
- */
+// Description:
+//
+// Description: 该接口仅限于POC场景下使用， 关键时期会执行限流操作，并且不会通知到上游依赖服务。
+//
+// Summary: 多源融合平台的POC数据服务查询接口
 func (client *Client) QueryMdipDataservicePocEx(request *QueryMdipDataservicePocRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMdipDataservicePocResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46190,10 +49673,11 @@ func (client *Client) QueryMdipDataservicePocEx(request *QueryMdipDataservicePoc
 	return _result, _err
 }
 
-/**
- * Description: 查询默认租户的供应商列表
- * Summary: 查询默认租户的供应商列表
- */
+// Description:
+//
+// Description: 查询默认租户的供应商列表
+//
+// Summary: 查询默认租户的供应商列表
 func (client *Client) ListMdipDefaultSupplier(request *ListMdipDefaultSupplierRequest) (_result *ListMdipDefaultSupplierResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46206,10 +49690,11 @@ func (client *Client) ListMdipDefaultSupplier(request *ListMdipDefaultSupplierRe
 	return _result, _err
 }
 
-/**
- * Description: 查询默认租户的供应商列表
- * Summary: 查询默认租户的供应商列表
- */
+// Description:
+//
+// Description: 查询默认租户的供应商列表
+//
+// Summary: 查询默认租户的供应商列表
 func (client *Client) ListMdipDefaultSupplierEx(request *ListMdipDefaultSupplierRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ListMdipDefaultSupplierResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46224,10 +49709,11 @@ func (client *Client) ListMdipDefaultSupplierEx(request *ListMdipDefaultSupplier
 	return _result, _err
 }
 
-/**
- * Description: 数据回调
- * Summary: 云凤蝶回调参数
- */
+// Description:
+//
+// Description: 数据回调
+//
+// Summary: 云凤蝶回调参数
 func (client *Client) CallbackMdipYunfengdieParams(request *CallbackMdipYunfengdieParamsRequest) (_result *CallbackMdipYunfengdieParamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46240,10 +49726,11 @@ func (client *Client) CallbackMdipYunfengdieParams(request *CallbackMdipYunfengd
 	return _result, _err
 }
 
-/**
- * Description: 数据回调
- * Summary: 云凤蝶回调参数
- */
+// Description:
+//
+// Description: 数据回调
+//
+// Summary: 云凤蝶回调参数
 func (client *Client) CallbackMdipYunfengdieParamsEx(request *CallbackMdipYunfengdieParamsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackMdipYunfengdieParamsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46258,10 +49745,11 @@ func (client *Client) CallbackMdipYunfengdieParamsEx(request *CallbackMdipYunfen
 	return _result, _err
 }
 
-/**
- * Description: 批量实时触达接口
- * Summary: 发起触达任务
- */
+// Description:
+//
+// Description: 批量实时触达接口
+//
+// Summary: 发起触达任务
 func (client *Client) ApplyQmpRtBatchmarketing(request *ApplyQmpRtBatchmarketingRequest) (_result *ApplyQmpRtBatchmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46274,10 +49762,11 @@ func (client *Client) ApplyQmpRtBatchmarketing(request *ApplyQmpRtBatchmarketing
 	return _result, _err
 }
 
-/**
- * Description: 批量实时触达接口
- * Summary: 发起触达任务
- */
+// Description:
+//
+// Description: 批量实时触达接口
+//
+// Summary: 发起触达任务
 func (client *Client) ApplyQmpRtBatchmarketingEx(request *ApplyQmpRtBatchmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyQmpRtBatchmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46292,10 +49781,11 @@ func (client *Client) ApplyQmpRtBatchmarketingEx(request *ApplyQmpRtBatchmarketi
 	return _result, _err
 }
 
-/**
- * Description: 文本短信批量发送接口
- * Summary: 文本短信批量发送接口
- */
+// Description:
+//
+// Description: 文本短信批量发送接口
+//
+// Summary: 文本短信批量发送接口
 func (client *Client) SendQmpTextsmsBatch(request *SendQmpTextsmsBatchRequest) (_result *SendQmpTextsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46308,10 +49798,11 @@ func (client *Client) SendQmpTextsmsBatch(request *SendQmpTextsmsBatchRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 文本短信批量发送接口
- * Summary: 文本短信批量发送接口
- */
+// Description:
+//
+// Description: 文本短信批量发送接口
+//
+// Summary: 文本短信批量发送接口
 func (client *Client) SendQmpTextsmsBatchEx(request *SendQmpTextsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendQmpTextsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46326,10 +49817,11 @@ func (client *Client) SendQmpTextsmsBatchEx(request *SendQmpTextsmsBatchRequest,
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyQmpRobotcall(request *ApplyQmpRobotcallRequest) (_result *ApplyQmpRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46342,10 +49834,11 @@ func (client *Client) ApplyQmpRobotcall(request *ApplyQmpRobotcallRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyQmpRobotcallEx(request *ApplyQmpRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyQmpRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46360,10 +49853,11 @@ func (client *Client) ApplyQmpRobotcallEx(request *ApplyQmpRobotcallRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信批量发送接口
- * Summary: 卡片短信批量发送接口
- */
+// Description:
+//
+// Description: 卡片短信批量发送接口
+//
+// Summary: 卡片短信批量发送接口
 func (client *Client) SendQmpCardsmsBatch(request *SendQmpCardsmsBatchRequest) (_result *SendQmpCardsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46376,10 +49870,11 @@ func (client *Client) SendQmpCardsmsBatch(request *SendQmpCardsmsBatchRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信批量发送接口
- * Summary: 卡片短信批量发送接口
- */
+// Description:
+//
+// Description: 卡片短信批量发送接口
+//
+// Summary: 卡片短信批量发送接口
 func (client *Client) SendQmpCardsmsBatchEx(request *SendQmpCardsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendQmpCardsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46394,10 +49889,11 @@ func (client *Client) SendQmpCardsmsBatchEx(request *SendQmpCardsmsBatchRequest,
 	return _result, _err
 }
 
-/**
- * Description: 上行短信回调
- * Summary: 上行短信回调
- */
+// Description:
+//
+// Description: 上行短信回调
+//
+// Summary: 上行短信回调
 func (client *Client) CallbackQmpSmsUp(request *CallbackQmpSmsUpRequest) (_result *CallbackQmpSmsUpResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46410,10 +49906,11 @@ func (client *Client) CallbackQmpSmsUp(request *CallbackQmpSmsUpRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 上行短信回调
- * Summary: 上行短信回调
- */
+// Description:
+//
+// Description: 上行短信回调
+//
+// Summary: 上行短信回调
 func (client *Client) CallbackQmpSmsUpEx(request *CallbackQmpSmsUpRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackQmpSmsUpResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46428,10 +49925,11 @@ func (client *Client) CallbackQmpSmsUpEx(request *CallbackQmpSmsUpRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 短信状态回调接口
- * Summary: 短信状态回调接口
- */
+// Description:
+//
+// Description: 短信状态回调接口
+//
+// Summary: 短信状态回调接口
 func (client *Client) CallbackQmpSmsReport(request *CallbackQmpSmsReportRequest) (_result *CallbackQmpSmsReportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46444,10 +49942,11 @@ func (client *Client) CallbackQmpSmsReport(request *CallbackQmpSmsReportRequest)
 	return _result, _err
 }
 
-/**
- * Description: 短信状态回调接口
- * Summary: 短信状态回调接口
- */
+// Description:
+//
+// Description: 短信状态回调接口
+//
+// Summary: 短信状态回调接口
 func (client *Client) CallbackQmpSmsReportEx(request *CallbackQmpSmsReportRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackQmpSmsReportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46462,10 +49961,11 @@ func (client *Client) CallbackQmpSmsReportEx(request *CallbackQmpSmsReportReques
 	return _result, _err
 }
 
-/**
- * Description: 数字短信批量发送接口（单模板）
- * Summary: 数字短信批量发送接口（单模板）
- */
+// Description:
+//
+// Description: 数字短信批量发送接口（单模板）
+//
+// Summary: 数字短信批量发送接口（单模板）
 func (client *Client) SendQmpDigitalsmsBatch(request *SendQmpDigitalsmsBatchRequest) (_result *SendQmpDigitalsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46478,10 +49978,11 @@ func (client *Client) SendQmpDigitalsmsBatch(request *SendQmpDigitalsmsBatchRequ
 	return _result, _err
 }
 
-/**
- * Description: 数字短信批量发送接口（单模板）
- * Summary: 数字短信批量发送接口（单模板）
- */
+// Description:
+//
+// Description: 数字短信批量发送接口（单模板）
+//
+// Summary: 数字短信批量发送接口（单模板）
 func (client *Client) SendQmpDigitalsmsBatchEx(request *SendQmpDigitalsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendQmpDigitalsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46496,10 +49997,11 @@ func (client *Client) SendQmpDigitalsmsBatchEx(request *SendQmpDigitalsmsBatchRe
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary:  ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary:  ai外呼回调接口
 func (client *Client) CallbackQmpRobotcall(request *CallbackQmpRobotcallRequest) (_result *CallbackQmpRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46512,10 +50014,11 @@ func (client *Client) CallbackQmpRobotcall(request *CallbackQmpRobotcallRequest)
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary:  ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary:  ai外呼回调接口
 func (client *Client) CallbackQmpRobotcallEx(request *CallbackQmpRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackQmpRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46530,10 +50033,11 @@ func (client *Client) CallbackQmpRobotcallEx(request *CallbackQmpRobotcallReques
 	return _result, _err
 }
 
-/**
- * Description: 查询ai外呼任务详情
- * Summary:  查询ai外呼任务详情
- */
+// Description:
+//
+// Description: 查询ai外呼任务详情
+//
+// Summary:  查询ai外呼任务详情
 func (client *Client) QueryQmpRobotcallDetail(request *QueryQmpRobotcallDetailRequest) (_result *QueryQmpRobotcallDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46546,10 +50050,11 @@ func (client *Client) QueryQmpRobotcallDetail(request *QueryQmpRobotcallDetailRe
 	return _result, _err
 }
 
-/**
- * Description: 查询ai外呼任务详情
- * Summary:  查询ai外呼任务详情
- */
+// Description:
+//
+// Description: 查询ai外呼任务详情
+//
+// Summary:  查询ai外呼任务详情
 func (client *Client) QueryQmpRobotcallDetailEx(request *QueryQmpRobotcallDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpRobotcallDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46564,10 +50069,11 @@ func (client *Client) QueryQmpRobotcallDetailEx(request *QueryQmpRobotcallDetail
 	return _result, _err
 }
 
-/**
- * Description: 流量风控回执统计查询
- * Summary: 流量风控回执统计查询
- */
+// Description:
+//
+// Description: 流量风控回执统计查询
+//
+// Summary: 流量风控回执统计查询
 func (client *Client) QueryQmpDataaccessStatistic(request *QueryQmpDataaccessStatisticRequest) (_result *QueryQmpDataaccessStatisticResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46580,10 +50086,11 @@ func (client *Client) QueryQmpDataaccessStatistic(request *QueryQmpDataaccessSta
 	return _result, _err
 }
 
-/**
- * Description: 流量风控回执统计查询
- * Summary: 流量风控回执统计查询
- */
+// Description:
+//
+// Description: 流量风控回执统计查询
+//
+// Summary: 流量风控回执统计查询
 func (client *Client) QueryQmpDataaccessStatisticEx(request *QueryQmpDataaccessStatisticRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpDataaccessStatisticResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46598,10 +50105,11 @@ func (client *Client) QueryQmpDataaccessStatisticEx(request *QueryQmpDataaccessS
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary:  外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary:  外呼任务统计查询接口
 func (client *Client) QueryQmpRobotcallStatisticinfo(request *QueryQmpRobotcallStatisticinfoRequest) (_result *QueryQmpRobotcallStatisticinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46614,10 +50122,11 @@ func (client *Client) QueryQmpRobotcallStatisticinfo(request *QueryQmpRobotcallS
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary:  外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary:  外呼任务统计查询接口
 func (client *Client) QueryQmpRobotcallStatisticinfoEx(request *QueryQmpRobotcallStatisticinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpRobotcallStatisticinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46632,10 +50141,11 @@ func (client *Client) QueryQmpRobotcallStatisticinfoEx(request *QueryQmpRobotcal
 	return _result, _err
 }
 
-/**
- * Description: 触达执行任务详情查询
- * Summary: 触达执行任务详情查询
- */
+// Description:
+//
+// Description: 触达执行任务详情查询
+//
+// Summary: 触达执行任务详情查询
 func (client *Client) BatchqueryQmpTaskDetail(request *BatchqueryQmpTaskDetailRequest) (_result *BatchqueryQmpTaskDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46648,10 +50158,11 @@ func (client *Client) BatchqueryQmpTaskDetail(request *BatchqueryQmpTaskDetailRe
 	return _result, _err
 }
 
-/**
- * Description: 触达执行任务详情查询
- * Summary: 触达执行任务详情查询
- */
+// Description:
+//
+// Description: 触达执行任务详情查询
+//
+// Summary: 触达执行任务详情查询
 func (client *Client) BatchqueryQmpTaskDetailEx(request *BatchqueryQmpTaskDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryQmpTaskDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46666,10 +50177,11 @@ func (client *Client) BatchqueryQmpTaskDetailEx(request *BatchqueryQmpTaskDetail
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信支持能力查询
- * Summary: 卡片短信支持能力查询
- */
+// Description:
+//
+// Description: 卡片短信支持能力查询
+//
+// Summary: 卡片短信支持能力查询
 func (client *Client) QueryQmpCardsmsSupport(request *QueryQmpCardsmsSupportRequest) (_result *QueryQmpCardsmsSupportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46682,10 +50194,11 @@ func (client *Client) QueryQmpCardsmsSupport(request *QueryQmpCardsmsSupportRequ
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信支持能力查询
- * Summary: 卡片短信支持能力查询
- */
+// Description:
+//
+// Description: 卡片短信支持能力查询
+//
+// Summary: 卡片短信支持能力查询
 func (client *Client) QueryQmpCardsmsSupportEx(request *QueryQmpCardsmsSupportRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpCardsmsSupportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46700,10 +50213,11 @@ func (client *Client) QueryQmpCardsmsSupportEx(request *QueryQmpCardsmsSupportRe
 	return _result, _err
 }
 
-/**
- * Description: 流量风控查询外呼策略详情
- * Summary: 流量风控查询外呼策略详情
- */
+// Description:
+//
+// Description: 流量风控查询外呼策略详情
+//
+// Summary: 流量风控查询外呼策略详情
 func (client *Client) BatchqueryQmpActionplanDetail(request *BatchqueryQmpActionplanDetailRequest) (_result *BatchqueryQmpActionplanDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46716,10 +50230,11 @@ func (client *Client) BatchqueryQmpActionplanDetail(request *BatchqueryQmpAction
 	return _result, _err
 }
 
-/**
- * Description: 流量风控查询外呼策略详情
- * Summary: 流量风控查询外呼策略详情
- */
+// Description:
+//
+// Description: 流量风控查询外呼策略详情
+//
+// Summary: 流量风控查询外呼策略详情
 func (client *Client) BatchqueryQmpActionplanDetailEx(request *BatchqueryQmpActionplanDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryQmpActionplanDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46734,10 +50249,11 @@ func (client *Client) BatchqueryQmpActionplanDetailEx(request *BatchqueryQmpActi
 	return _result, _err
 }
 
-/**
- * Description: 调用流量风控(原营销盾)空号检测
- * Summary: 调用流量风控(原营销盾)空号检测
- */
+// Description:
+//
+// Description: 调用流量风控(原营销盾)空号检测
+//
+// Summary: 调用流量风控(原营销盾)空号检测
 func (client *Client) ApplyQmpPhonenumberstatusforsms(request *ApplyQmpPhonenumberstatusforsmsRequest) (_result *ApplyQmpPhonenumberstatusforsmsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46750,10 +50266,11 @@ func (client *Client) ApplyQmpPhonenumberstatusforsms(request *ApplyQmpPhonenumb
 	return _result, _err
 }
 
-/**
- * Description: 调用流量风控(原营销盾)空号检测
- * Summary: 调用流量风控(原营销盾)空号检测
- */
+// Description:
+//
+// Description: 调用流量风控(原营销盾)空号检测
+//
+// Summary: 调用流量风控(原营销盾)空号检测
 func (client *Client) ApplyQmpPhonenumberstatusforsmsEx(request *ApplyQmpPhonenumberstatusforsmsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyQmpPhonenumberstatusforsmsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46768,10 +50285,11 @@ func (client *Client) ApplyQmpPhonenumberstatusforsmsEx(request *ApplyQmpPhonenu
 	return _result, _err
 }
 
-/**
- * Description: 分页查询租户外呼策略
- * Summary: 流量风控租户场景批量信息查询
- */
+// Description:
+//
+// Description: 分页查询租户外呼策略
+//
+// Summary: 流量风控租户场景批量信息查询
 func (client *Client) BatchqueryQmpTenantActionplaninfo(request *BatchqueryQmpTenantActionplaninfoRequest) (_result *BatchqueryQmpTenantActionplaninfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46784,10 +50302,11 @@ func (client *Client) BatchqueryQmpTenantActionplaninfo(request *BatchqueryQmpTe
 	return _result, _err
 }
 
-/**
- * Description: 分页查询租户外呼策略
- * Summary: 流量风控租户场景批量信息查询
- */
+// Description:
+//
+// Description: 分页查询租户外呼策略
+//
+// Summary: 流量风控租户场景批量信息查询
 func (client *Client) BatchqueryQmpTenantActionplaninfoEx(request *BatchqueryQmpTenantActionplaninfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryQmpTenantActionplaninfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46802,10 +50321,11 @@ func (client *Client) BatchqueryQmpTenantActionplaninfoEx(request *BatchqueryQmp
 	return _result, _err
 }
 
-/**
- * Description: 流量风控租户场景信息查询
- * Summary: 流量风控租户场景信息查询
- */
+// Description:
+//
+// Description: 流量风控租户场景信息查询
+//
+// Summary: 流量风控租户场景信息查询
 func (client *Client) QueryQmpTenantActionplaninfo(request *QueryQmpTenantActionplaninfoRequest) (_result *QueryQmpTenantActionplaninfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46818,10 +50338,11 @@ func (client *Client) QueryQmpTenantActionplaninfo(request *QueryQmpTenantAction
 	return _result, _err
 }
 
-/**
- * Description: 流量风控租户场景信息查询
- * Summary: 流量风控租户场景信息查询
- */
+// Description:
+//
+// Description: 流量风控租户场景信息查询
+//
+// Summary: 流量风控租户场景信息查询
 func (client *Client) QueryQmpTenantActionplaninfoEx(request *QueryQmpTenantActionplaninfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpTenantActionplaninfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46836,10 +50357,11 @@ func (client *Client) QueryQmpTenantActionplaninfoEx(request *QueryQmpTenantActi
 	return _result, _err
 }
 
-/**
- * Description: 分页查询cpaas短信模板
- * Summary: cpaas短信模板分页查询
- */
+// Description:
+//
+// Description: 分页查询cpaas短信模板
+//
+// Summary: cpaas短信模板分页查询
 func (client *Client) QueryQmpCpaassmsTemplate(request *QueryQmpCpaassmsTemplateRequest) (_result *QueryQmpCpaassmsTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46852,10 +50374,11 @@ func (client *Client) QueryQmpCpaassmsTemplate(request *QueryQmpCpaassmsTemplate
 	return _result, _err
 }
 
-/**
- * Description: 分页查询cpaas短信模板
- * Summary: cpaas短信模板分页查询
- */
+// Description:
+//
+// Description: 分页查询cpaas短信模板
+//
+// Summary: cpaas短信模板分页查询
 func (client *Client) QueryQmpCpaassmsTemplateEx(request *QueryQmpCpaassmsTemplateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpCpaassmsTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46870,10 +50393,11 @@ func (client *Client) QueryQmpCpaassmsTemplateEx(request *QueryQmpCpaassmsTempla
 	return _result, _err
 }
 
-/**
- * Description: 根据sceneStrategyId分页查询文本短信模板
- * Summary: 文本短信模板查询
- */
+// Description:
+//
+// Description: 根据sceneStrategyId分页查询文本短信模板
+//
+// Summary: 文本短信模板查询
 func (client *Client) QueryQmpTextsmsTemplate(request *QueryQmpTextsmsTemplateRequest) (_result *QueryQmpTextsmsTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46886,10 +50410,11 @@ func (client *Client) QueryQmpTextsmsTemplate(request *QueryQmpTextsmsTemplateRe
 	return _result, _err
 }
 
-/**
- * Description: 根据sceneStrategyId分页查询文本短信模板
- * Summary: 文本短信模板查询
- */
+// Description:
+//
+// Description: 根据sceneStrategyId分页查询文本短信模板
+//
+// Summary: 文本短信模板查询
 func (client *Client) QueryQmpTextsmsTemplateEx(request *QueryQmpTextsmsTemplateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpTextsmsTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46904,10 +50429,11 @@ func (client *Client) QueryQmpTextsmsTemplateEx(request *QueryQmpTextsmsTemplate
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾业务回流事件推送
- * Summary: 蚁盾业务回流事件推送
- */
+// Description:
+//
+// Description: 蚁盾业务回流事件推送
+//
+// Summary: 蚁盾业务回流事件推送
 func (client *Client) PushQmpBackflowEvent(request *PushQmpBackflowEventRequest) (_result *PushQmpBackflowEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46920,10 +50446,11 @@ func (client *Client) PushQmpBackflowEvent(request *PushQmpBackflowEventRequest)
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾业务回流事件推送
- * Summary: 蚁盾业务回流事件推送
- */
+// Description:
+//
+// Description: 蚁盾业务回流事件推送
+//
+// Summary: 蚁盾业务回流事件推送
 func (client *Client) PushQmpBackflowEventEx(request *PushQmpBackflowEventRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushQmpBackflowEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46938,10 +50465,11 @@ func (client *Client) PushQmpBackflowEventEx(request *PushQmpBackflowEventReques
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾数据回流推送，用于客户定制json数据
- * Summary: 蚁盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 蚁盾数据回流推送，用于客户定制json数据
+//
+// Summary: 蚁盾数据回流json格式推送
 func (client *Client) PushQmpBackflowJsondata(request *PushQmpBackflowJsondataRequest) (_result *PushQmpBackflowJsondataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46954,10 +50482,11 @@ func (client *Client) PushQmpBackflowJsondata(request *PushQmpBackflowJsondataRe
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾数据回流推送，用于客户定制json数据
- * Summary: 蚁盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 蚁盾数据回流推送，用于客户定制json数据
+//
+// Summary: 蚁盾数据回流json格式推送
 func (client *Client) PushQmpBackflowJsondataEx(request *PushQmpBackflowJsondataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushQmpBackflowJsondataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -46972,10 +50501,11 @@ func (client *Client) PushQmpBackflowJsondataEx(request *PushQmpBackflowJsondata
 	return _result, _err
 }
 
-/**
- * Description: 智选平台混合策略批量分层服务
- * Summary: 智选平台-混合策略批量分层服务
- */
+// Description:
+//
+// Description: 智选平台混合策略批量分层服务
+//
+// Summary: 智选平台-混合策略批量分层服务
 func (client *Client) BatchqueryQmpRtMixedmarketing(request *BatchqueryQmpRtMixedmarketingRequest) (_result *BatchqueryQmpRtMixedmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -46988,10 +50518,11 @@ func (client *Client) BatchqueryQmpRtMixedmarketing(request *BatchqueryQmpRtMixe
 	return _result, _err
 }
 
-/**
- * Description: 智选平台混合策略批量分层服务
- * Summary: 智选平台-混合策略批量分层服务
- */
+// Description:
+//
+// Description: 智选平台混合策略批量分层服务
+//
+// Summary: 智选平台-混合策略批量分层服务
 func (client *Client) BatchqueryQmpRtMixedmarketingEx(request *BatchqueryQmpRtMixedmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryQmpRtMixedmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47006,10 +50537,11 @@ func (client *Client) BatchqueryQmpRtMixedmarketingEx(request *BatchqueryQmpRtMi
 	return _result, _err
 }
 
-/**
- * Description: 11
- * Summary: qmp离线托管文件导入
- */
+// Description:
+//
+// Description: 11
+//
+// Summary: qmp离线托管文件导入
 func (client *Client) UploadQmpOfflinehostplan(request *UploadQmpOfflinehostplanRequest) (_result *UploadQmpOfflinehostplanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47022,10 +50554,11 @@ func (client *Client) UploadQmpOfflinehostplan(request *UploadQmpOfflinehostplan
 	return _result, _err
 }
 
-/**
- * Description: 11
- * Summary: qmp离线托管文件导入
- */
+// Description:
+//
+// Description: 11
+//
+// Summary: qmp离线托管文件导入
 func (client *Client) UploadQmpOfflinehostplanEx(request *UploadQmpOfflinehostplanRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadQmpOfflinehostplanResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -47070,10 +50603,11 @@ func (client *Client) UploadQmpOfflinehostplanEx(request *UploadQmpOfflinehostpl
 	return _result, _err
 }
 
-/**
- * Description: 安全托管分层结果查询接口
- * Summary: 安全托管分层结果查询接口
- */
+// Description:
+//
+// Description: 安全托管分层结果查询接口
+//
+// Summary: 安全托管分层结果查询接口
 func (client *Client) QueryQmpOfflinehostplanDecisionresult(request *QueryQmpOfflinehostplanDecisionresultRequest) (_result *QueryQmpOfflinehostplanDecisionresultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47086,10 +50620,11 @@ func (client *Client) QueryQmpOfflinehostplanDecisionresult(request *QueryQmpOff
 	return _result, _err
 }
 
-/**
- * Description: 安全托管分层结果查询接口
- * Summary: 安全托管分层结果查询接口
- */
+// Description:
+//
+// Description: 安全托管分层结果查询接口
+//
+// Summary: 安全托管分层结果查询接口
 func (client *Client) QueryQmpOfflinehostplanDecisionresultEx(request *QueryQmpOfflinehostplanDecisionresultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpOfflinehostplanDecisionresultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47104,10 +50639,11 @@ func (client *Client) QueryQmpOfflinehostplanDecisionresultEx(request *QueryQmpO
 	return _result, _err
 }
 
-/**
- * Description: qmp分层结果查询v2
- * Summary: qmp分层结果查询v2
- */
+// Description:
+//
+// Description: qmp分层结果查询v2
+//
+// Summary: qmp分层结果查询v2
 func (client *Client) QueryQmpOfflinehostplanDecisionresults(request *QueryQmpOfflinehostplanDecisionresultsRequest) (_result *QueryQmpOfflinehostplanDecisionresultsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47120,10 +50656,11 @@ func (client *Client) QueryQmpOfflinehostplanDecisionresults(request *QueryQmpOf
 	return _result, _err
 }
 
-/**
- * Description: qmp分层结果查询v2
- * Summary: qmp分层结果查询v2
- */
+// Description:
+//
+// Description: qmp分层结果查询v2
+//
+// Summary: qmp分层结果查询v2
 func (client *Client) QueryQmpOfflinehostplanDecisionresultsEx(request *QueryQmpOfflinehostplanDecisionresultsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryQmpOfflinehostplanDecisionresultsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47138,10 +50675,11 @@ func (client *Client) QueryQmpOfflinehostplanDecisionresultsEx(request *QueryQmp
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接授权信息表的同步
- * Summary: 企管盾票税交接授权信息表的同步
- */
+// Description:
+//
+// Description: 企管盾票税交接授权信息表的同步
+//
+// Summary: 企管盾票税交接授权信息表的同步
 func (client *Client) SyncRdaasTaxAuthinfo(request *SyncRdaasTaxAuthinfoRequest) (_result *SyncRdaasTaxAuthinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47154,10 +50692,11 @@ func (client *Client) SyncRdaasTaxAuthinfo(request *SyncRdaasTaxAuthinfoRequest)
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接授权信息表的同步
- * Summary: 企管盾票税交接授权信息表的同步
- */
+// Description:
+//
+// Description: 企管盾票税交接授权信息表的同步
+//
+// Summary: 企管盾票税交接授权信息表的同步
 func (client *Client) SyncRdaasTaxAuthinfoEx(request *SyncRdaasTaxAuthinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncRdaasTaxAuthinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47172,10 +50711,11 @@ func (client *Client) SyncRdaasTaxAuthinfoEx(request *SyncRdaasTaxAuthinfoReques
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接授权记录表的同步
- * Summary: 企管盾票税交接授权记录表的同步
- */
+// Description:
+//
+// Description: 企管盾票税交接授权记录表的同步
+//
+// Summary: 企管盾票税交接授权记录表的同步
 func (client *Client) SyncRdaasTaxAuthorder(request *SyncRdaasTaxAuthorderRequest) (_result *SyncRdaasTaxAuthorderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47188,10 +50728,11 @@ func (client *Client) SyncRdaasTaxAuthorder(request *SyncRdaasTaxAuthorderReques
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接授权记录表的同步
- * Summary: 企管盾票税交接授权记录表的同步
- */
+// Description:
+//
+// Description: 企管盾票税交接授权记录表的同步
+//
+// Summary: 企管盾票税交接授权记录表的同步
 func (client *Client) SyncRdaasTaxAuthorderEx(request *SyncRdaasTaxAuthorderRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncRdaasTaxAuthorderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47206,10 +50747,11 @@ func (client *Client) SyncRdaasTaxAuthorderEx(request *SyncRdaasTaxAuthorderRequ
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接回调通知
- * Summary: 企管盾票税交接回调通知
- */
+// Description:
+//
+// Description: 企管盾票税交接回调通知
+//
+// Summary: 企管盾票税交接回调通知
 func (client *Client) NotifyRdaasTaxCallback(request *NotifyRdaasTaxCallbackRequest) (_result *NotifyRdaasTaxCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47222,10 +50764,11 @@ func (client *Client) NotifyRdaasTaxCallback(request *NotifyRdaasTaxCallbackRequ
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接回调通知
- * Summary: 企管盾票税交接回调通知
- */
+// Description:
+//
+// Description: 企管盾票税交接回调通知
+//
+// Summary: 企管盾票税交接回调通知
 func (client *Client) NotifyRdaasTaxCallbackEx(request *NotifyRdaasTaxCallbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyRdaasTaxCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47240,10 +50783,11 @@ func (client *Client) NotifyRdaasTaxCallbackEx(request *NotifyRdaasTaxCallbackRe
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接RPA决策服务查询
- * Summary: 企管盾票税交接RPA决策服务查询
- */
+// Description:
+//
+// Description: 企管盾票税交接RPA决策服务查询
+//
+// Summary: 企管盾票税交接RPA决策服务查询
 func (client *Client) QueryRdaasTaxRpadecisionservice(request *QueryRdaasTaxRpadecisionserviceRequest) (_result *QueryRdaasTaxRpadecisionserviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47256,10 +50800,11 @@ func (client *Client) QueryRdaasTaxRpadecisionservice(request *QueryRdaasTaxRpad
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接RPA决策服务查询
- * Summary: 企管盾票税交接RPA决策服务查询
- */
+// Description:
+//
+// Description: 企管盾票税交接RPA决策服务查询
+//
+// Summary: 企管盾票税交接RPA决策服务查询
 func (client *Client) QueryRdaasTaxRpadecisionserviceEx(request *QueryRdaasTaxRpadecisionserviceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRdaasTaxRpadecisionserviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47274,10 +50819,11 @@ func (client *Client) QueryRdaasTaxRpadecisionserviceEx(request *QueryRdaasTaxRp
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接RPA决策服务指标查询
- * Summary: 企管盾票税交接RPA决策服务指标查询
- */
+// Description:
+//
+// Description: 企管盾票税交接RPA决策服务指标查询
+//
+// Summary: 企管盾票税交接RPA决策服务指标查询
 func (client *Client) QueryRdaasTaxRpadecisionindicator(request *QueryRdaasTaxRpadecisionindicatorRequest) (_result *QueryRdaasTaxRpadecisionindicatorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47290,10 +50836,11 @@ func (client *Client) QueryRdaasTaxRpadecisionindicator(request *QueryRdaasTaxRp
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接RPA决策服务指标查询
- * Summary: 企管盾票税交接RPA决策服务指标查询
- */
+// Description:
+//
+// Description: 企管盾票税交接RPA决策服务指标查询
+//
+// Summary: 企管盾票税交接RPA决策服务指标查询
 func (client *Client) QueryRdaasTaxRpadecisionindicatorEx(request *QueryRdaasTaxRpadecisionindicatorRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRdaasTaxRpadecisionindicatorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47308,10 +50855,11 @@ func (client *Client) QueryRdaasTaxRpadecisionindicatorEx(request *QueryRdaasTax
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接要素授权决策查询
- * Summary: 企管盾票税交接要素授权决策查询
- */
+// Description:
+//
+// Description: 企管盾票税交接要素授权决策查询
+//
+// Summary: 企管盾票税交接要素授权决策查询
 func (client *Client) QueryRdaasTaxSimpleauthdecision(request *QueryRdaasTaxSimpleauthdecisionRequest) (_result *QueryRdaasTaxSimpleauthdecisionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47324,10 +50872,11 @@ func (client *Client) QueryRdaasTaxSimpleauthdecision(request *QueryRdaasTaxSimp
 	return _result, _err
 }
 
-/**
- * Description: 企管盾票税交接要素授权决策查询
- * Summary: 企管盾票税交接要素授权决策查询
- */
+// Description:
+//
+// Description: 企管盾票税交接要素授权决策查询
+//
+// Summary: 企管盾票税交接要素授权决策查询
 func (client *Client) QueryRdaasTaxSimpleauthdecisionEx(request *QueryRdaasTaxSimpleauthdecisionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRdaasTaxSimpleauthdecisionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47342,10 +50891,11 @@ func (client *Client) QueryRdaasTaxSimpleauthdecisionEx(request *QueryRdaasTaxSi
 	return _result, _err
 }
 
-/**
- * Description: rfc外部文件上传
- * Summary: rfc外部文件上传
- */
+// Description:
+//
+// Description: rfc外部文件上传
+//
+// Summary: rfc外部文件上传
 func (client *Client) ReceiveRfcParamsFile(request *ReceiveRfcParamsFileRequest) (_result *ReceiveRfcParamsFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47358,10 +50908,11 @@ func (client *Client) ReceiveRfcParamsFile(request *ReceiveRfcParamsFileRequest)
 	return _result, _err
 }
 
-/**
- * Description: rfc外部文件上传
- * Summary: rfc外部文件上传
- */
+// Description:
+//
+// Description: rfc外部文件上传
+//
+// Summary: rfc外部文件上传
 func (client *Client) ReceiveRfcParamsFileEx(request *ReceiveRfcParamsFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveRfcParamsFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -47406,10 +50957,11 @@ func (client *Client) ReceiveRfcParamsFileEx(request *ReceiveRfcParamsFileReques
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼名单文件上传接口
- * Summary: rfc外呼名单上传接口
- */
+// Description:
+//
+// Description: rfc外呼名单文件上传接口
+//
+// Summary: rfc外呼名单上传接口
 func (client *Client) UploadRfcAiboundFile(request *UploadRfcAiboundFileRequest) (_result *UploadRfcAiboundFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47422,10 +50974,11 @@ func (client *Client) UploadRfcAiboundFile(request *UploadRfcAiboundFileRequest)
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼名单文件上传接口
- * Summary: rfc外呼名单上传接口
- */
+// Description:
+//
+// Description: rfc外呼名单文件上传接口
+//
+// Summary: rfc外呼名单上传接口
 func (client *Client) UploadRfcAiboundFileEx(request *UploadRfcAiboundFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadRfcAiboundFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -47470,10 +51023,11 @@ func (client *Client) UploadRfcAiboundFileEx(request *UploadRfcAiboundFileReques
 	return _result, _err
 }
 
-/**
- * Description: 提供给外部的数据服务接口内容获取
- * Summary: 提供给外部的数据服务接口内容获取
- */
+// Description:
+//
+// Description: 提供给外部的数据服务接口内容获取
+//
+// Summary: 提供给外部的数据服务接口内容获取
 func (client *Client) QueryRfcOdpsLindorm(request *QueryRfcOdpsLindormRequest) (_result *QueryRfcOdpsLindormResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47486,10 +51040,11 @@ func (client *Client) QueryRfcOdpsLindorm(request *QueryRfcOdpsLindormRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 提供给外部的数据服务接口内容获取
- * Summary: 提供给外部的数据服务接口内容获取
- */
+// Description:
+//
+// Description: 提供给外部的数据服务接口内容获取
+//
+// Summary: 提供给外部的数据服务接口内容获取
 func (client *Client) QueryRfcOdpsLindormEx(request *QueryRfcOdpsLindormRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRfcOdpsLindormResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47504,10 +51059,11 @@ func (client *Client) QueryRfcOdpsLindormEx(request *QueryRfcOdpsLindormRequest,
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼转化数据上传接口
- * Summary: rfc外呼转化数据上传接口
- */
+// Description:
+//
+// Description: rfc外呼转化数据上传接口
+//
+// Summary: rfc外呼转化数据上传接口
 func (client *Client) UploadRfcAiboundConvert(request *UploadRfcAiboundConvertRequest) (_result *UploadRfcAiboundConvertResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47520,10 +51076,11 @@ func (client *Client) UploadRfcAiboundConvert(request *UploadRfcAiboundConvertRe
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼转化数据上传接口
- * Summary: rfc外呼转化数据上传接口
- */
+// Description:
+//
+// Description: rfc外呼转化数据上传接口
+//
+// Summary: rfc外呼转化数据上传接口
 func (client *Client) UploadRfcAiboundConvertEx(request *UploadRfcAiboundConvertRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadRfcAiboundConvertResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -47568,10 +51125,11 @@ func (client *Client) UploadRfcAiboundConvertEx(request *UploadRfcAiboundConvert
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼圈客名单获取
- * Summary: rfc外呼圈客名单获取
- */
+// Description:
+//
+// Description: rfc外呼圈客名单获取
+//
+// Summary: rfc外呼圈客名单获取
 func (client *Client) QueryRfcAiboundFile(request *QueryRfcAiboundFileRequest) (_result *QueryRfcAiboundFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47584,10 +51142,11 @@ func (client *Client) QueryRfcAiboundFile(request *QueryRfcAiboundFileRequest) (
 	return _result, _err
 }
 
-/**
- * Description: rfc外呼圈客名单获取
- * Summary: rfc外呼圈客名单获取
- */
+// Description:
+//
+// Description: rfc外呼圈客名单获取
+//
+// Summary: rfc外呼圈客名单获取
 func (client *Client) QueryRfcAiboundFileEx(request *QueryRfcAiboundFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRfcAiboundFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47602,10 +51161,11 @@ func (client *Client) QueryRfcAiboundFileEx(request *QueryRfcAiboundFileRequest,
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版通用查询接口
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 风险大脑企业版通用查询接口
+//
+// Summary: 【已废弃】
 func (client *Client) QueryRbbGenericInvoke(request *QueryRbbGenericInvokeRequest) (_result *QueryRbbGenericInvokeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47618,10 +51178,11 @@ func (client *Client) QueryRbbGenericInvoke(request *QueryRbbGenericInvokeReques
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版通用查询接口
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 风险大脑企业版通用查询接口
+//
+// Summary: 【已废弃】
 func (client *Client) QueryRbbGenericInvokeEx(request *QueryRbbGenericInvokeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbGenericInvokeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47636,10 +51197,11 @@ func (client *Client) QueryRbbGenericInvokeEx(request *QueryRbbGenericInvokeRequ
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版token生成
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 风险大脑企业版token生成
+//
+// Summary: 【已废弃】
 func (client *Client) CreateRbbToken(request *CreateRbbTokenRequest) (_result *CreateRbbTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47652,10 +51214,11 @@ func (client *Client) CreateRbbToken(request *CreateRbbTokenRequest) (_result *C
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版token生成
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 风险大脑企业版token生成
+//
+// Summary: 【已废弃】
 func (client *Client) CreateRbbTokenEx(request *CreateRbbTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateRbbTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47670,10 +51233,11 @@ func (client *Client) CreateRbbTokenEx(request *CreateRbbTokenRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 获取风险大脑企业版登录token
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 获取风险大脑企业版登录token
+//
+// Summary: 【已废弃】
 func (client *Client) CreateRbbApiGwtoken(request *CreateRbbApiGwtokenRequest) (_result *CreateRbbApiGwtokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47686,10 +51250,11 @@ func (client *Client) CreateRbbApiGwtoken(request *CreateRbbApiGwtokenRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 获取风险大脑企业版登录token
- * Summary: 【已废弃】
- */
+// Description:
+//
+// Description: 获取风险大脑企业版登录token
+//
+// Summary: 【已废弃】
 func (client *Client) CreateRbbApiGwtokenEx(request *CreateRbbApiGwtokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateRbbApiGwtokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47704,10 +51269,11 @@ func (client *Client) CreateRbbApiGwtokenEx(request *CreateRbbApiGwtokenRequest,
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版通用查询OpenAPI
- * Summary: 风险大脑企业版通用查询OpenAPI
- */
+// Description:
+//
+// Description: 风险大脑企业版通用查询OpenAPI
+//
+// Summary: 风险大脑企业版通用查询OpenAPI
 func (client *Client) QueryRbbGeneral(request *QueryRbbGeneralRequest) (_result *QueryRbbGeneralResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47720,10 +51286,11 @@ func (client *Client) QueryRbbGeneral(request *QueryRbbGeneralRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版通用查询OpenAPI
- * Summary: 风险大脑企业版通用查询OpenAPI
- */
+// Description:
+//
+// Description: 风险大脑企业版通用查询OpenAPI
+//
+// Summary: 风险大脑企业版通用查询OpenAPI
 func (client *Client) QueryRbbGeneralEx(request *QueryRbbGeneralRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbGeneralResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47738,10 +51305,11 @@ func (client *Client) QueryRbbGeneralEx(request *QueryRbbGeneralRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 获取登录Token
- * Summary: 获取登录Token
- */
+// Description:
+//
+// Description: 获取登录Token
+//
+// Summary: 获取登录Token
 func (client *Client) GetRbbLoginToken(request *GetRbbLoginTokenRequest) (_result *GetRbbLoginTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47754,10 +51322,11 @@ func (client *Client) GetRbbLoginToken(request *GetRbbLoginTokenRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 获取登录Token
- * Summary: 获取登录Token
- */
+// Description:
+//
+// Description: 获取登录Token
+//
+// Summary: 获取登录Token
 func (client *Client) GetRbbLoginTokenEx(request *GetRbbLoginTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetRbbLoginTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47772,10 +51341,11 @@ func (client *Client) GetRbbLoginTokenEx(request *GetRbbLoginTokenRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版创建租户
- * Summary: 风险大脑企业版创建租户
- */
+// Description:
+//
+// Description: 风险大脑企业版创建租户
+//
+// Summary: 风险大脑企业版创建租户
 func (client *Client) CreateRbbTenant(request *CreateRbbTenantRequest) (_result *CreateRbbTenantResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47788,10 +51358,11 @@ func (client *Client) CreateRbbTenant(request *CreateRbbTenantRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版创建租户
- * Summary: 风险大脑企业版创建租户
- */
+// Description:
+//
+// Description: 风险大脑企业版创建租户
+//
+// Summary: 风险大脑企业版创建租户
 func (client *Client) CreateRbbTenantEx(request *CreateRbbTenantRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateRbbTenantResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47806,10 +51377,11 @@ func (client *Client) CreateRbbTenantEx(request *CreateRbbTenantRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版创建用户
- * Summary: 风险大脑企业版创建用户
- */
+// Description:
+//
+// Description: 风险大脑企业版创建用户
+//
+// Summary: 风险大脑企业版创建用户
 func (client *Client) CreateRbbUser(request *CreateRbbUserRequest) (_result *CreateRbbUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47822,10 +51394,11 @@ func (client *Client) CreateRbbUser(request *CreateRbbUserRequest) (_result *Cre
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑企业版创建用户
- * Summary: 风险大脑企业版创建用户
- */
+// Description:
+//
+// Description: 风险大脑企业版创建用户
+//
+// Summary: 风险大脑企业版创建用户
 func (client *Client) CreateRbbUserEx(request *CreateRbbUserRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateRbbUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47840,10 +51413,11 @@ func (client *Client) CreateRbbUserEx(request *CreateRbbUserRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 企业准入接口
- * Summary: 企业准入
- */
+// Description:
+//
+// Description: 企业准入接口
+//
+// Summary: 企业准入
 func (client *Client) ExecRbbCompanyGuard(request *ExecRbbCompanyGuardRequest) (_result *ExecRbbCompanyGuardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47856,10 +51430,11 @@ func (client *Client) ExecRbbCompanyGuard(request *ExecRbbCompanyGuardRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 企业准入接口
- * Summary: 企业准入
- */
+// Description:
+//
+// Description: 企业准入接口
+//
+// Summary: 企业准入
 func (client *Client) ExecRbbCompanyGuardEx(request *ExecRbbCompanyGuardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecRbbCompanyGuardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47874,10 +51449,11 @@ func (client *Client) ExecRbbCompanyGuardEx(request *ExecRbbCompanyGuardRequest,
 	return _result, _err
 }
 
-/**
- * Description: 提交授信申请
- * Summary: 企业授信申请
- */
+// Description:
+//
+// Description: 提交授信申请
+//
+// Summary: 企业授信申请
 func (client *Client) ApplyRbbCompanyCredit(request *ApplyRbbCompanyCreditRequest) (_result *ApplyRbbCompanyCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47890,10 +51466,11 @@ func (client *Client) ApplyRbbCompanyCredit(request *ApplyRbbCompanyCreditReques
 	return _result, _err
 }
 
-/**
- * Description: 提交授信申请
- * Summary: 企业授信申请
- */
+// Description:
+//
+// Description: 提交授信申请
+//
+// Summary: 企业授信申请
 func (client *Client) ApplyRbbCompanyCreditEx(request *ApplyRbbCompanyCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyRbbCompanyCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47908,10 +51485,11 @@ func (client *Client) ApplyRbbCompanyCreditEx(request *ApplyRbbCompanyCreditRequ
 	return _result, _err
 }
 
-/**
- * Description: 查询企业授信结果
- * Summary: 企业授信结果查询
- */
+// Description:
+//
+// Description: 查询企业授信结果
+//
+// Summary: 企业授信结果查询
 func (client *Client) QueryRbbCompanyCredit(request *QueryRbbCompanyCreditRequest) (_result *QueryRbbCompanyCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47924,10 +51502,11 @@ func (client *Client) QueryRbbCompanyCredit(request *QueryRbbCompanyCreditReques
 	return _result, _err
 }
 
-/**
- * Description: 查询企业授信结果
- * Summary: 企业授信结果查询
- */
+// Description:
+//
+// Description: 查询企业授信结果
+//
+// Summary: 企业授信结果查询
 func (client *Client) QueryRbbCompanyCreditEx(request *QueryRbbCompanyCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbCompanyCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47942,10 +51521,11 @@ func (client *Client) QueryRbbCompanyCreditEx(request *QueryRbbCompanyCreditRequ
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据准备状态，上交所本地部署鹰眼项目需要获取离线数据是否准备好的信息
- * Summary: 风险大脑-上交所数据离线同步数据准备状态
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据准备状态，上交所本地部署鹰眼项目需要获取离线数据是否准备好的信息
+//
+// Summary: 风险大脑-上交所数据离线同步数据准备状态
 func (client *Client) QueryRbbRegdatasyncPrepared(request *QueryRbbRegdatasyncPreparedRequest) (_result *QueryRbbRegdatasyncPreparedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47958,10 +51538,11 @@ func (client *Client) QueryRbbRegdatasyncPrepared(request *QueryRbbRegdatasyncPr
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据准备状态，上交所本地部署鹰眼项目需要获取离线数据是否准备好的信息
- * Summary: 风险大脑-上交所数据离线同步数据准备状态
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据准备状态，上交所本地部署鹰眼项目需要获取离线数据是否准备好的信息
+//
+// Summary: 风险大脑-上交所数据离线同步数据准备状态
 func (client *Client) QueryRbbRegdatasyncPreparedEx(request *QueryRbbRegdatasyncPreparedRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbRegdatasyncPreparedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -47976,10 +51557,11 @@ func (client *Client) QueryRbbRegdatasyncPreparedEx(request *QueryRbbRegdatasync
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据开始通知标识
- * Summary: 风险大脑-上交所数据离线同步数据开始通知
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据开始通知标识
+//
+// Summary: 风险大脑-上交所数据离线同步数据开始通知
 func (client *Client) StartRbbRegdatasyncSchedule(request *StartRbbRegdatasyncScheduleRequest) (_result *StartRbbRegdatasyncScheduleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -47992,10 +51574,11 @@ func (client *Client) StartRbbRegdatasyncSchedule(request *StartRbbRegdatasyncSc
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据开始通知标识
- * Summary: 风险大脑-上交所数据离线同步数据开始通知
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据开始通知标识
+//
+// Summary: 风险大脑-上交所数据离线同步数据开始通知
 func (client *Client) StartRbbRegdatasyncScheduleEx(request *StartRbbRegdatasyncScheduleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *StartRbbRegdatasyncScheduleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48010,10 +51593,11 @@ func (client *Client) StartRbbRegdatasyncScheduleEx(request *StartRbbRegdatasync
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据完成记录 记录完成的状态
- * Summary: 风险大脑-上交所数据离线同步数据完成记录
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据完成记录 记录完成的状态
+//
+// Summary: 风险大脑-上交所数据离线同步数据完成记录
 func (client *Client) FinishRbbRegdatasyncSchedule(request *FinishRbbRegdatasyncScheduleRequest) (_result *FinishRbbRegdatasyncScheduleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48026,10 +51610,11 @@ func (client *Client) FinishRbbRegdatasyncSchedule(request *FinishRbbRegdatasync
 	return _result, _err
 }
 
-/**
- * Description: 风险大脑-上交所数据离线同步数据完成记录 记录完成的状态
- * Summary: 风险大脑-上交所数据离线同步数据完成记录
- */
+// Description:
+//
+// Description: 风险大脑-上交所数据离线同步数据完成记录 记录完成的状态
+//
+// Summary: 风险大脑-上交所数据离线同步数据完成记录
 func (client *Client) FinishRbbRegdatasyncScheduleEx(request *FinishRbbRegdatasyncScheduleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *FinishRbbRegdatasyncScheduleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48044,10 +51629,11 @@ func (client *Client) FinishRbbRegdatasyncScheduleEx(request *FinishRbbRegdatasy
 	return _result, _err
 }
 
-/**
- * Description: 提交准入规则的执行请求
- * Summary: 企业准入申请
- */
+// Description:
+//
+// Description: 提交准入规则的执行请求
+//
+// Summary: 企业准入申请
 func (client *Client) ApplyRbbCompanyGuard(request *ApplyRbbCompanyGuardRequest) (_result *ApplyRbbCompanyGuardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48060,10 +51646,11 @@ func (client *Client) ApplyRbbCompanyGuard(request *ApplyRbbCompanyGuardRequest)
 	return _result, _err
 }
 
-/**
- * Description: 提交准入规则的执行请求
- * Summary: 企业准入申请
- */
+// Description:
+//
+// Description: 提交准入规则的执行请求
+//
+// Summary: 企业准入申请
 func (client *Client) ApplyRbbCompanyGuardEx(request *ApplyRbbCompanyGuardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyRbbCompanyGuardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48078,10 +51665,11 @@ func (client *Client) ApplyRbbCompanyGuardEx(request *ApplyRbbCompanyGuardReques
 	return _result, _err
 }
 
-/**
- * Description: 企业准入结果查询
- * Summary: 企业准入结果查询
- */
+// Description:
+//
+// Description: 企业准入结果查询
+//
+// Summary: 企业准入结果查询
 func (client *Client) QueryRbbCompanyGuard(request *QueryRbbCompanyGuardRequest) (_result *QueryRbbCompanyGuardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48094,10 +51682,11 @@ func (client *Client) QueryRbbCompanyGuard(request *QueryRbbCompanyGuardRequest)
 	return _result, _err
 }
 
-/**
- * Description: 企业准入结果查询
- * Summary: 企业准入结果查询
- */
+// Description:
+//
+// Description: 企业准入结果查询
+//
+// Summary: 企业准入结果查询
 func (client *Client) QueryRbbCompanyGuardEx(request *QueryRbbCompanyGuardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbCompanyGuardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48112,10 +51701,11 @@ func (client *Client) QueryRbbCompanyGuardEx(request *QueryRbbCompanyGuardReques
 	return _result, _err
 }
 
-/**
- * Description: 企业风控给上交所鹰眼使用的zsearch查询
- * Summary: 企业风控给鹰眼使用的zsearch查询
- */
+// Description:
+//
+// Description: 企业风控给上交所鹰眼使用的zsearch查询
+//
+// Summary: 企业风控给鹰眼使用的zsearch查询
 func (client *Client) QueryRbbObtsZsearch(request *QueryRbbObtsZsearchRequest) (_result *QueryRbbObtsZsearchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48128,10 +51718,11 @@ func (client *Client) QueryRbbObtsZsearch(request *QueryRbbObtsZsearchRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 企业风控给上交所鹰眼使用的zsearch查询
- * Summary: 企业风控给鹰眼使用的zsearch查询
- */
+// Description:
+//
+// Description: 企业风控给上交所鹰眼使用的zsearch查询
+//
+// Summary: 企业风控给鹰眼使用的zsearch查询
 func (client *Client) QueryRbbObtsZsearchEx(request *QueryRbbObtsZsearchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRbbObtsZsearchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48146,10 +51737,11 @@ func (client *Client) QueryRbbObtsZsearchEx(request *QueryRbbObtsZsearchRequest,
 	return _result, _err
 }
 
-/**
- * Description: 企业风控客户推送的企业信息
- * Summary: 企业风控客户推送的企业信息
- */
+// Description:
+//
+// Description: 企业风控客户推送的企业信息
+//
+// Summary: 企业风控客户推送的企业信息
 func (client *Client) PushRbbCustomerCompanyinfo(request *PushRbbCustomerCompanyinfoRequest) (_result *PushRbbCustomerCompanyinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48162,10 +51754,11 @@ func (client *Client) PushRbbCustomerCompanyinfo(request *PushRbbCustomerCompany
 	return _result, _err
 }
 
-/**
- * Description: 企业风控客户推送的企业信息
- * Summary: 企业风控客户推送的企业信息
- */
+// Description:
+//
+// Description: 企业风控客户推送的企业信息
+//
+// Summary: 企业风控客户推送的企业信息
 func (client *Client) PushRbbCustomerCompanyinfoEx(request *PushRbbCustomerCompanyinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRbbCustomerCompanyinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48180,10 +51773,11 @@ func (client *Client) PushRbbCustomerCompanyinfoEx(request *PushRbbCustomerCompa
 	return _result, _err
 }
 
-/**
- * Description: 企管盾给高德的文件上传，用于小微店铺分
- * Summary: 企管盾给高德的文件上传，用于小微店铺分
- */
+// Description:
+//
+// Description: 企管盾给高德的文件上传，用于小微店铺分
+//
+// Summary: 企管盾给高德的文件上传，用于小微店铺分
 func (client *Client) UploadRbbFileAmap(request *UploadRbbFileAmapRequest) (_result *UploadRbbFileAmapResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48196,10 +51790,11 @@ func (client *Client) UploadRbbFileAmap(request *UploadRbbFileAmapRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 企管盾给高德的文件上传，用于小微店铺分
- * Summary: 企管盾给高德的文件上传，用于小微店铺分
- */
+// Description:
+//
+// Description: 企管盾给高德的文件上传，用于小微店铺分
+//
+// Summary: 企管盾给高德的文件上传，用于小微店铺分
 func (client *Client) UploadRbbFileAmapEx(request *UploadRbbFileAmapRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadRbbFileAmapResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -48244,10 +51839,11 @@ func (client *Client) UploadRbbFileAmapEx(request *UploadRbbFileAmapRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 信贷操作接口
- * Summary: 信贷操作接口
- */
+// Description:
+//
+// Description: 信贷操作接口
+//
+// Summary: 信贷操作接口
 func (client *Client) OperateRbbCredit(request *OperateRbbCreditRequest) (_result *OperateRbbCreditResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48260,10 +51856,11 @@ func (client *Client) OperateRbbCredit(request *OperateRbbCreditRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 信贷操作接口
- * Summary: 信贷操作接口
- */
+// Description:
+//
+// Description: 信贷操作接口
+//
+// Summary: 信贷操作接口
 func (client *Client) OperateRbbCreditEx(request *OperateRbbCreditRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *OperateRbbCreditResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48278,10 +51875,11 @@ func (client *Client) OperateRbbCreditEx(request *OperateRbbCreditRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 获取客户信息
- * Summary: 获取客户信息
- */
+// Description:
+//
+// Description: 获取客户信息
+//
+// Summary: 获取客户信息
 func (client *Client) PushRbbCustomerInformation(request *PushRbbCustomerInformationRequest) (_result *PushRbbCustomerInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48294,10 +51892,11 @@ func (client *Client) PushRbbCustomerInformation(request *PushRbbCustomerInforma
 	return _result, _err
 }
 
-/**
- * Description: 获取客户信息
- * Summary: 获取客户信息
- */
+// Description:
+//
+// Description: 获取客户信息
+//
+// Summary: 获取客户信息
 func (client *Client) PushRbbCustomerInformationEx(request *PushRbbCustomerInformationRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRbbCustomerInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48312,10 +51911,11 @@ func (client *Client) PushRbbCustomerInformationEx(request *PushRbbCustomerInfor
 	return _result, _err
 }
 
-/**
- * Description: 获取税票授权数据
- * Summary: 获取税票授权数据
- */
+// Description:
+//
+// Description: 获取税票授权数据
+//
+// Summary: 获取税票授权数据
 func (client *Client) GetRbbTaxinvoiceData(request *GetRbbTaxinvoiceDataRequest) (_result *GetRbbTaxinvoiceDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48328,10 +51928,11 @@ func (client *Client) GetRbbTaxinvoiceData(request *GetRbbTaxinvoiceDataRequest)
 	return _result, _err
 }
 
-/**
- * Description: 获取税票授权数据
- * Summary: 获取税票授权数据
- */
+// Description:
+//
+// Description: 获取税票授权数据
+//
+// Summary: 获取税票授权数据
 func (client *Client) GetRbbTaxinvoiceDataEx(request *GetRbbTaxinvoiceDataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetRbbTaxinvoiceDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48346,10 +51947,11 @@ func (client *Client) GetRbbTaxinvoiceDataEx(request *GetRbbTaxinvoiceDataReques
 	return _result, _err
 }
 
-/**
- * Description: 客户实时状态通知
- * Summary: 客户实时状态通知
- */
+// Description:
+//
+// Description: 客户实时状态通知
+//
+// Summary: 客户实时状态通知
 func (client *Client) PushRbbCustomerStatus(request *PushRbbCustomerStatusRequest) (_result *PushRbbCustomerStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48362,10 +51964,11 @@ func (client *Client) PushRbbCustomerStatus(request *PushRbbCustomerStatusReques
 	return _result, _err
 }
 
-/**
- * Description: 客户实时状态通知
- * Summary: 客户实时状态通知
- */
+// Description:
+//
+// Description: 客户实时状态通知
+//
+// Summary: 客户实时状态通知
 func (client *Client) PushRbbCustomerStatusEx(request *PushRbbCustomerStatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRbbCustomerStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48380,10 +51983,11 @@ func (client *Client) PushRbbCustomerStatusEx(request *PushRbbCustomerStatusRequ
 	return _result, _err
 }
 
-/**
- * Description: 票税计费处理推送，由票税侧请求
- * Summary: 票税计费处理推送
- */
+// Description:
+//
+// Description: 票税计费处理推送，由票税侧请求
+//
+// Summary: 票税计费处理推送
 func (client *Client) PushRbbInvoiceCharge(request *PushRbbInvoiceChargeRequest) (_result *PushRbbInvoiceChargeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48396,10 +52000,11 @@ func (client *Client) PushRbbInvoiceCharge(request *PushRbbInvoiceChargeRequest)
 	return _result, _err
 }
 
-/**
- * Description: 票税计费处理推送，由票税侧请求
- * Summary: 票税计费处理推送
- */
+// Description:
+//
+// Description: 票税计费处理推送，由票税侧请求
+//
+// Summary: 票税计费处理推送
 func (client *Client) PushRbbInvoiceChargeEx(request *PushRbbInvoiceChargeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRbbInvoiceChargeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48414,10 +52019,11 @@ func (client *Client) PushRbbInvoiceChargeEx(request *PushRbbInvoiceChargeReques
 	return _result, _err
 }
 
-/**
- * Description: 通过接口进行报告上传
- * Summary: 征信报告上传接口
- */
+// Description:
+//
+// Description: 通过接口进行报告上传
+//
+// Summary: 征信报告上传接口
 func (client *Client) ReceiveRbbParamsFile(request *ReceiveRbbParamsFileRequest) (_result *ReceiveRbbParamsFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48430,10 +52036,11 @@ func (client *Client) ReceiveRbbParamsFile(request *ReceiveRbbParamsFileRequest)
 	return _result, _err
 }
 
-/**
- * Description: 通过接口进行报告上传
- * Summary: 征信报告上传接口
- */
+// Description:
+//
+// Description: 通过接口进行报告上传
+//
+// Summary: 征信报告上传接口
 func (client *Client) ReceiveRbbParamsFileEx(request *ReceiveRbbParamsFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveRbbParamsFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -48478,10 +52085,11 @@ func (client *Client) ReceiveRbbParamsFileEx(request *ReceiveRbbParamsFileReques
 	return _result, _err
 }
 
-/**
- * Description: 境外企业画像数据接收
- * Summary: 境外企业画像数据接收
- */
+// Description:
+//
+// Description: 境外企业画像数据接收
+//
+// Summary: 境外企业画像数据接收
 func (client *Client) ReceiveRbbOverseacompanyProfile(request *ReceiveRbbOverseacompanyProfileRequest) (_result *ReceiveRbbOverseacompanyProfileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48494,10 +52102,11 @@ func (client *Client) ReceiveRbbOverseacompanyProfile(request *ReceiveRbbOversea
 	return _result, _err
 }
 
-/**
- * Description: 境外企业画像数据接收
- * Summary: 境外企业画像数据接收
- */
+// Description:
+//
+// Description: 境外企业画像数据接收
+//
+// Summary: 境外企业画像数据接收
 func (client *Client) ReceiveRbbOverseacompanyProfileEx(request *ReceiveRbbOverseacompanyProfileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ReceiveRbbOverseacompanyProfileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -48542,10 +52151,11 @@ func (client *Client) ReceiveRbbOverseacompanyProfileEx(request *ReceiveRbbOvers
 	return _result, _err
 }
 
-/**
- * Description: 受限版-还款概率评估接口
- * Summary: 受限版-还款概率评估接口
- */
+// Description:
+//
+// Description: 受限版-还款概率评估接口
+//
+// Summary: 受限版-还款概率评估接口
 func (client *Client) QueryCreditshieldRestricted(request *QueryCreditshieldRestrictedRequest) (_result *QueryCreditshieldRestrictedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48558,10 +52168,11 @@ func (client *Client) QueryCreditshieldRestricted(request *QueryCreditshieldRest
 	return _result, _err
 }
 
-/**
- * Description: 受限版-还款概率评估接口
- * Summary: 受限版-还款概率评估接口
- */
+// Description:
+//
+// Description: 受限版-还款概率评估接口
+//
+// Summary: 受限版-还款概率评估接口
 func (client *Client) QueryCreditshieldRestrictedEx(request *QueryCreditshieldRestrictedRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldRestrictedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48576,10 +52187,11 @@ func (client *Client) QueryCreditshieldRestrictedEx(request *QueryCreditshieldRe
 	return _result, _err
 }
 
-/**
- * Description: 可信联系方式查询独立服务接口
- * Summary: 可信联系方式查询独立服务接口
- */
+// Description:
+//
+// Description: 可信联系方式查询独立服务接口
+//
+// Summary: 可信联系方式查询独立服务接口
 func (client *Client) QueryCreditshieldFixcontact(request *QueryCreditshieldFixcontactRequest) (_result *QueryCreditshieldFixcontactResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48592,10 +52204,11 @@ func (client *Client) QueryCreditshieldFixcontact(request *QueryCreditshieldFixc
 	return _result, _err
 }
 
-/**
- * Description: 可信联系方式查询独立服务接口
- * Summary: 可信联系方式查询独立服务接口
- */
+// Description:
+//
+// Description: 可信联系方式查询独立服务接口
+//
+// Summary: 可信联系方式查询独立服务接口
 func (client *Client) QueryCreditshieldFixcontactEx(request *QueryCreditshieldFixcontactRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldFixcontactResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48610,10 +52223,11 @@ func (client *Client) QueryCreditshieldFixcontactEx(request *QueryCreditshieldFi
 	return _result, _err
 }
 
-/**
- * Description: 可信联系方式-已修复手机号批量查询
- * Summary: 可信联系方式-已修复手机号批量查询
- */
+// Description:
+//
+// Description: 可信联系方式-已修复手机号批量查询
+//
+// Summary: 可信联系方式-已修复手机号批量查询
 func (client *Client) QueryCreditshieldFixedcontact(request *QueryCreditshieldFixedcontactRequest) (_result *QueryCreditshieldFixedcontactResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48626,10 +52240,11 @@ func (client *Client) QueryCreditshieldFixedcontact(request *QueryCreditshieldFi
 	return _result, _err
 }
 
-/**
- * Description: 可信联系方式-已修复手机号批量查询
- * Summary: 可信联系方式-已修复手机号批量查询
- */
+// Description:
+//
+// Description: 可信联系方式-已修复手机号批量查询
+//
+// Summary: 可信联系方式-已修复手机号批量查询
 func (client *Client) QueryCreditshieldFixedcontactEx(request *QueryCreditshieldFixedcontactRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldFixedcontactResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48644,10 +52259,11 @@ func (client *Client) QueryCreditshieldFixedcontactEx(request *QueryCreditshield
 	return _result, _err
 }
 
-/**
- * Description: 贷后提供的，纾困助手支付宝流水查询接口
- * Summary: 贷后提供的，纾困助手支付宝流水查询接口
- */
+// Description:
+//
+// Description: 贷后提供的，纾困助手支付宝流水查询接口
+//
+// Summary: 贷后提供的，纾困助手支付宝流水查询接口
 func (client *Client) QueryCreditshieldAlipay(request *QueryCreditshieldAlipayRequest) (_result *QueryCreditshieldAlipayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48660,10 +52276,11 @@ func (client *Client) QueryCreditshieldAlipay(request *QueryCreditshieldAlipayRe
 	return _result, _err
 }
 
-/**
- * Description: 贷后提供的，纾困助手支付宝流水查询接口
- * Summary: 贷后提供的，纾困助手支付宝流水查询接口
- */
+// Description:
+//
+// Description: 贷后提供的，纾困助手支付宝流水查询接口
+//
+// Summary: 贷后提供的，纾困助手支付宝流水查询接口
 func (client *Client) QueryCreditshieldAlipayEx(request *QueryCreditshieldAlipayRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldAlipayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48678,10 +52295,11 @@ func (client *Client) QueryCreditshieldAlipayEx(request *QueryCreditshieldAlipay
 	return _result, _err
 }
 
-/**
- * Description: 合作方回调服务
- * Summary: 合作方回调服务
- */
+// Description:
+//
+// Description: 合作方回调服务
+//
+// Summary: 合作方回调服务
 func (client *Client) CallbackCreditshieldPartner(request *CallbackCreditshieldPartnerRequest) (_result *CallbackCreditshieldPartnerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48694,10 +52312,11 @@ func (client *Client) CallbackCreditshieldPartner(request *CallbackCreditshieldP
 	return _result, _err
 }
 
-/**
- * Description: 合作方回调服务
- * Summary: 合作方回调服务
- */
+// Description:
+//
+// Description: 合作方回调服务
+//
+// Summary: 合作方回调服务
 func (client *Client) CallbackCreditshieldPartnerEx(request *CallbackCreditshieldPartnerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackCreditshieldPartnerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48712,10 +52331,119 @@ func (client *Client) CallbackCreditshieldPartnerEx(request *CallbackCreditshiel
 	return _result, _err
 }
 
-/**
- * Description: 报告结果推送，算法调用
- * Summary: 报告结果推送
- */
+// Description:
+//
+// Description: 接受案件信息
+//
+// Summary: 接受案件信息
+func (client *Client) PushCreditshieldAllocatecase(request *PushCreditshieldAllocatecaseRequest) (_result *PushCreditshieldAllocatecaseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &PushCreditshieldAllocatecaseResponse{}
+	_body, _err := client.PushCreditshieldAllocatecaseEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 接受案件信息
+//
+// Summary: 接受案件信息
+func (client *Client) PushCreditshieldAllocatecaseEx(request *PushCreditshieldAllocatecaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushCreditshieldAllocatecaseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &PushCreditshieldAllocatecaseResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.creditshield.allocatecase.push"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 退案接口
+//
+// Summary: 退案接口
+func (client *Client) PushCreditshieldReturncase(request *PushCreditshieldReturncaseRequest) (_result *PushCreditshieldReturncaseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &PushCreditshieldReturncaseResponse{}
+	_body, _err := client.PushCreditshieldReturncaseEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 退案接口
+//
+// Summary: 退案接口
+func (client *Client) PushCreditshieldReturncaseEx(request *PushCreditshieldReturncaseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushCreditshieldReturncaseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &PushCreditshieldReturncaseResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.creditshield.returncase.push"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 资方回调
+//
+// Summary: 资方回调
+func (client *Client) QueryCreditshieldFundcallback(request *QueryCreditshieldFundcallbackRequest) (_result *QueryCreditshieldFundcallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryCreditshieldFundcallbackResponse{}
+	_body, _err := client.QueryCreditshieldFundcallbackEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 资方回调
+//
+// Summary: 资方回调
+func (client *Client) QueryCreditshieldFundcallbackEx(request *QueryCreditshieldFundcallbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCreditshieldFundcallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryCreditshieldFundcallbackResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.creditshield.fundcallback.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 报告结果推送，算法调用
+//
+// Summary: 报告结果推送
 func (client *Client) PushRpaasReportAnswer(request *PushRpaasReportAnswerRequest) (_result *PushRpaasReportAnswerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48728,10 +52456,11 @@ func (client *Client) PushRpaasReportAnswer(request *PushRpaasReportAnswerReques
 	return _result, _err
 }
 
-/**
- * Description: 报告结果推送，算法调用
- * Summary: 报告结果推送
- */
+// Description:
+//
+// Description: 报告结果推送，算法调用
+//
+// Summary: 报告结果推送
 func (client *Client) PushRpaasReportAnswerEx(request *PushRpaasReportAnswerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRpaasReportAnswerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48746,10 +52475,11 @@ func (client *Client) PushRpaasReportAnswerEx(request *PushRpaasReportAnswerRequ
 	return _result, _err
 }
 
-/**
- * Description: 企管盾云开放平台服务调用
- * Summary: 企管盾云开放平台服务调用
- */
+// Description:
+//
+// Description: 企管盾云开放平台服务调用
+//
+// Summary: 企管盾云开放平台服务调用
 func (client *Client) QueryRpaasOpenService(request *QueryRpaasOpenServiceRequest) (_result *QueryRpaasOpenServiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48762,10 +52492,11 @@ func (client *Client) QueryRpaasOpenService(request *QueryRpaasOpenServiceReques
 	return _result, _err
 }
 
-/**
- * Description: 企管盾云开放平台服务调用
- * Summary: 企管盾云开放平台服务调用
- */
+// Description:
+//
+// Description: 企管盾云开放平台服务调用
+//
+// Summary: 企管盾云开放平台服务调用
 func (client *Client) QueryRpaasOpenServiceEx(request *QueryRpaasOpenServiceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRpaasOpenServiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48780,10 +52511,11 @@ func (client *Client) QueryRpaasOpenServiceEx(request *QueryRpaasOpenServiceRequ
 	return _result, _err
 }
 
-/**
- * Description: 获取签约接口
- * Summary: 获取签约接口
- */
+// Description:
+//
+// Description: 获取签约接口
+//
+// Summary: 获取签约接口
 func (client *Client) QueryRpgwSignUrl(request *QueryRpgwSignUrlRequest) (_result *QueryRpgwSignUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48796,10 +52528,11 @@ func (client *Client) QueryRpgwSignUrl(request *QueryRpgwSignUrlRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 获取签约接口
- * Summary: 获取签约接口
- */
+// Description:
+//
+// Description: 获取签约接口
+//
+// Summary: 获取签约接口
 func (client *Client) QueryRpgwSignUrlEx(request *QueryRpgwSignUrlRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRpgwSignUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48814,10 +52547,11 @@ func (client *Client) QueryRpgwSignUrlEx(request *QueryRpgwSignUrlRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 创建报税用户接口
- * Summary: 创建报税用户接口
- */
+// Description:
+//
+// Description: 创建报税用户接口
+//
+// Summary: 创建报税用户接口
 func (client *Client) RegisterRpgwUserEinvoice(request *RegisterRpgwUserEinvoiceRequest) (_result *RegisterRpgwUserEinvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48830,10 +52564,11 @@ func (client *Client) RegisterRpgwUserEinvoice(request *RegisterRpgwUserEinvoice
 	return _result, _err
 }
 
-/**
- * Description: 创建报税用户接口
- * Summary: 创建报税用户接口
- */
+// Description:
+//
+// Description: 创建报税用户接口
+//
+// Summary: 创建报税用户接口
 func (client *Client) RegisterRpgwUserEinvoiceEx(request *RegisterRpgwUserEinvoiceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterRpgwUserEinvoiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48848,10 +52583,11 @@ func (client *Client) RegisterRpgwUserEinvoiceEx(request *RegisterRpgwUserEinvoi
 	return _result, _err
 }
 
-/**
- * Description: 查询签约接口
- * Summary: 获取签约接口
- */
+// Description:
+//
+// Description: 查询签约接口
+//
+// Summary: 获取签约接口
 func (client *Client) QueryRpgwUserSignurl(request *QueryRpgwUserSignurlRequest) (_result *QueryRpgwUserSignurlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48864,10 +52600,11 @@ func (client *Client) QueryRpgwUserSignurl(request *QueryRpgwUserSignurlRequest)
 	return _result, _err
 }
 
-/**
- * Description: 查询签约接口
- * Summary: 获取签约接口
- */
+// Description:
+//
+// Description: 查询签约接口
+//
+// Summary: 获取签约接口
 func (client *Client) QueryRpgwUserSignurlEx(request *QueryRpgwUserSignurlRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRpgwUserSignurlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48882,10 +52619,11 @@ func (client *Client) QueryRpgwUserSignurlEx(request *QueryRpgwUserSignurlReques
 	return _result, _err
 }
 
-/**
- * Description: 提现
- * Summary: 提现
- */
+// Description:
+//
+// Description: 提现
+//
+// Summary: 提现
 func (client *Client) WithdrawRpgwUserCommission(request *WithdrawRpgwUserCommissionRequest) (_result *WithdrawRpgwUserCommissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48898,10 +52636,11 @@ func (client *Client) WithdrawRpgwUserCommission(request *WithdrawRpgwUserCommis
 	return _result, _err
 }
 
-/**
- * Description: 提现
- * Summary: 提现
- */
+// Description:
+//
+// Description: 提现
+//
+// Summary: 提现
 func (client *Client) WithdrawRpgwUserCommissionEx(request *WithdrawRpgwUserCommissionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *WithdrawRpgwUserCommissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48916,10 +52655,11 @@ func (client *Client) WithdrawRpgwUserCommissionEx(request *WithdrawRpgwUserComm
 	return _result, _err
 }
 
-/**
- * Description: 信息同步
- * Summary: 下单等信息同步
- */
+// Description:
+//
+// Description: 信息同步
+//
+// Summary: 下单等信息同步
 func (client *Client) SyncRpgwUserOrderinfo(request *SyncRpgwUserOrderinfoRequest) (_result *SyncRpgwUserOrderinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48932,10 +52672,11 @@ func (client *Client) SyncRpgwUserOrderinfo(request *SyncRpgwUserOrderinfoReques
 	return _result, _err
 }
 
-/**
- * Description: 信息同步
- * Summary: 下单等信息同步
- */
+// Description:
+//
+// Description: 信息同步
+//
+// Summary: 下单等信息同步
 func (client *Client) SyncRpgwUserOrderinfoEx(request *SyncRpgwUserOrderinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncRpgwUserOrderinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48950,10 +52691,11 @@ func (client *Client) SyncRpgwUserOrderinfoEx(request *SyncRpgwUserOrderinfoRequ
 	return _result, _err
 }
 
-/**
- * Description: 签约结果通知
- * Summary: 签约结果通知
- */
+// Description:
+//
+// Description: 签约结果通知
+//
+// Summary: 签约结果通知
 func (client *Client) NotifyRpgwUserSignresult(request *NotifyRpgwUserSignresultRequest) (_result *NotifyRpgwUserSignresultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -48966,10 +52708,11 @@ func (client *Client) NotifyRpgwUserSignresult(request *NotifyRpgwUserSignresult
 	return _result, _err
 }
 
-/**
- * Description: 签约结果通知
- * Summary: 签约结果通知
- */
+// Description:
+//
+// Description: 签约结果通知
+//
+// Summary: 签约结果通知
 func (client *Client) NotifyRpgwUserSignresultEx(request *NotifyRpgwUserSignresultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *NotifyRpgwUserSignresultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -48984,10 +52727,11 @@ func (client *Client) NotifyRpgwUserSignresultEx(request *NotifyRpgwUserSignresu
 	return _result, _err
 }
 
-/**
- * Description: 查询所在地的负面舆情企业列表
- * Summary: 查询所在地的负面舆情企业列表
- */
+// Description:
+//
+// Description: 查询所在地的负面舆情企业列表
+//
+// Summary: 查询所在地的负面舆情企业列表
 func (client *Client) QueryRtopCompanyOpinion(request *QueryRtopCompanyOpinionRequest) (_result *QueryRtopCompanyOpinionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49000,10 +52744,11 @@ func (client *Client) QueryRtopCompanyOpinion(request *QueryRtopCompanyOpinionRe
 	return _result, _err
 }
 
-/**
- * Description: 查询所在地的负面舆情企业列表
- * Summary: 查询所在地的负面舆情企业列表
- */
+// Description:
+//
+// Description: 查询所在地的负面舆情企业列表
+//
+// Summary: 查询所在地的负面舆情企业列表
 func (client *Client) QueryRtopCompanyOpinionEx(request *QueryRtopCompanyOpinionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyOpinionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49018,10 +52763,11 @@ func (client *Client) QueryRtopCompanyOpinionEx(request *QueryRtopCompanyOpinion
 	return _result, _err
 }
 
-/**
- * Description: 查询企业的舆情详情信息
- * Summary: 查询企业的舆情详情信息
- */
+// Description:
+//
+// Description: 查询企业的舆情详情信息
+//
+// Summary: 查询企业的舆情详情信息
 func (client *Client) ListRtopCompanyOpinions(request *ListRtopCompanyOpinionsRequest) (_result *ListRtopCompanyOpinionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49034,10 +52780,11 @@ func (client *Client) ListRtopCompanyOpinions(request *ListRtopCompanyOpinionsRe
 	return _result, _err
 }
 
-/**
- * Description: 查询企业的舆情详情信息
- * Summary: 查询企业的舆情详情信息
- */
+// Description:
+//
+// Description: 查询企业的舆情详情信息
+//
+// Summary: 查询企业的舆情详情信息
 func (client *Client) ListRtopCompanyOpinionsEx(request *ListRtopCompanyOpinionsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ListRtopCompanyOpinionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49052,10 +52799,11 @@ func (client *Client) ListRtopCompanyOpinionsEx(request *ListRtopCompanyOpinions
 	return _result, _err
 }
 
-/**
- * Description: 查询监测企业的详情
- * Summary: 查询监测企业的详情
- */
+// Description:
+//
+// Description: 查询监测企业的详情
+//
+// Summary: 查询监测企业的详情
 func (client *Client) GetRtopCompanyMonitor(request *GetRtopCompanyMonitorRequest) (_result *GetRtopCompanyMonitorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49068,10 +52816,11 @@ func (client *Client) GetRtopCompanyMonitor(request *GetRtopCompanyMonitorReques
 	return _result, _err
 }
 
-/**
- * Description: 查询监测企业的详情
- * Summary: 查询监测企业的详情
- */
+// Description:
+//
+// Description: 查询监测企业的详情
+//
+// Summary: 查询监测企业的详情
 func (client *Client) GetRtopCompanyMonitorEx(request *GetRtopCompanyMonitorRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetRtopCompanyMonitorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49086,10 +52835,11 @@ func (client *Client) GetRtopCompanyMonitorEx(request *GetRtopCompanyMonitorRequ
 	return _result, _err
 }
 
-/**
- * Description: 查询所在地的涉众风险企业统计信息
- * Summary: 查询所在地的涉众风险企业统计信息
- */
+// Description:
+//
+// Description: 查询所在地的涉众风险企业统计信息
+//
+// Summary: 查询所在地的涉众风险企业统计信息
 func (client *Client) QueryRtopCrowdriskStatistic(request *QueryRtopCrowdriskStatisticRequest) (_result *QueryRtopCrowdriskStatisticResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49102,10 +52852,11 @@ func (client *Client) QueryRtopCrowdriskStatistic(request *QueryRtopCrowdriskSta
 	return _result, _err
 }
 
-/**
- * Description: 查询所在地的涉众风险企业统计信息
- * Summary: 查询所在地的涉众风险企业统计信息
- */
+// Description:
+//
+// Description: 查询所在地的涉众风险企业统计信息
+//
+// Summary: 查询所在地的涉众风险企业统计信息
 func (client *Client) QueryRtopCrowdriskStatisticEx(request *QueryRtopCrowdriskStatisticRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCrowdriskStatisticResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49120,10 +52871,11 @@ func (client *Client) QueryRtopCrowdriskStatisticEx(request *QueryRtopCrowdriskS
 	return _result, _err
 }
 
-/**
- * Description: 查询涉众风险企业的列表
- * Summary: 查询涉众风险企业的列表
- */
+// Description:
+//
+// Description: 查询涉众风险企业的列表
+//
+// Summary: 查询涉众风险企业的列表
 func (client *Client) ListRtopCrowdrisk(request *ListRtopCrowdriskRequest) (_result *ListRtopCrowdriskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49136,10 +52888,11 @@ func (client *Client) ListRtopCrowdrisk(request *ListRtopCrowdriskRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 查询涉众风险企业的列表
- * Summary: 查询涉众风险企业的列表
- */
+// Description:
+//
+// Description: 查询涉众风险企业的列表
+//
+// Summary: 查询涉众风险企业的列表
 func (client *Client) ListRtopCrowdriskEx(request *ListRtopCrowdriskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ListRtopCrowdriskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49154,10 +52907,11 @@ func (client *Client) ListRtopCrowdriskEx(request *ListRtopCrowdriskRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 查询涉众风险企业的详细信息
- * Summary: 查询涉众风险企业的详细信息
- */
+// Description:
+//
+// Description: 查询涉众风险企业的详细信息
+//
+// Summary: 查询涉众风险企业的详细信息
 func (client *Client) QueryRtopCrowdriskDetail(request *QueryRtopCrowdriskDetailRequest) (_result *QueryRtopCrowdriskDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49170,10 +52924,11 @@ func (client *Client) QueryRtopCrowdriskDetail(request *QueryRtopCrowdriskDetail
 	return _result, _err
 }
 
-/**
- * Description: 查询涉众风险企业的详细信息
- * Summary: 查询涉众风险企业的详细信息
- */
+// Description:
+//
+// Description: 查询涉众风险企业的详细信息
+//
+// Summary: 查询涉众风险企业的详细信息
 func (client *Client) QueryRtopCrowdriskDetailEx(request *QueryRtopCrowdriskDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCrowdriskDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49188,10 +52943,11 @@ func (client *Client) QueryRtopCrowdriskDetailEx(request *QueryRtopCrowdriskDeta
 	return _result, _err
 }
 
-/**
- * Description: 查询风报的详细信息
- * Summary: 查询风报的详细信息
- */
+// Description:
+//
+// Description: 查询风报的详细信息
+//
+// Summary: 查询风报的详细信息
 func (client *Client) QueryRtopRiskstorm(request *QueryRtopRiskstormRequest) (_result *QueryRtopRiskstormResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49204,10 +52960,11 @@ func (client *Client) QueryRtopRiskstorm(request *QueryRtopRiskstormRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 查询风报的详细信息
- * Summary: 查询风报的详细信息
- */
+// Description:
+//
+// Description: 查询风报的详细信息
+//
+// Summary: 查询风报的详细信息
 func (client *Client) QueryRtopRiskstormEx(request *QueryRtopRiskstormRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopRiskstormResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49222,10 +52979,11 @@ func (client *Client) QueryRtopRiskstormEx(request *QueryRtopRiskstormRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 监管涉众风险指定的一批企业的影响人数之和、影响金额之和
- * Summary: 监管涉众风险一批企业的影响人数影响金额
- */
+// Description:
+//
+// Description: 监管涉众风险指定的一批企业的影响人数之和、影响金额之和
+//
+// Summary: 监管涉众风险一批企业的影响人数影响金额
 func (client *Client) QueryRtopCrowdriskSum(request *QueryRtopCrowdriskSumRequest) (_result *QueryRtopCrowdriskSumResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49238,10 +52996,11 @@ func (client *Client) QueryRtopCrowdriskSum(request *QueryRtopCrowdriskSumReques
 	return _result, _err
 }
 
-/**
- * Description: 监管涉众风险指定的一批企业的影响人数之和、影响金额之和
- * Summary: 监管涉众风险一批企业的影响人数影响金额
- */
+// Description:
+//
+// Description: 监管涉众风险指定的一批企业的影响人数之和、影响金额之和
+//
+// Summary: 监管涉众风险一批企业的影响人数影响金额
 func (client *Client) QueryRtopCrowdriskSumEx(request *QueryRtopCrowdriskSumRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCrowdriskSumResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49256,10 +53015,11 @@ func (client *Client) QueryRtopCrowdriskSumEx(request *QueryRtopCrowdriskSumRequ
 	return _result, _err
 }
 
-/**
- * Description: 监管企业详情获取，包括风险分数、风险标签。
- * Summary: 监管企业详情获取
- */
+// Description:
+//
+// Description: 监管企业详情获取，包括风险分数、风险标签。
+//
+// Summary: 监管企业详情获取
 func (client *Client) GetRtopCompanyDetail(request *GetRtopCompanyDetailRequest) (_result *GetRtopCompanyDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49272,10 +53032,11 @@ func (client *Client) GetRtopCompanyDetail(request *GetRtopCompanyDetailRequest)
 	return _result, _err
 }
 
-/**
- * Description: 监管企业详情获取，包括风险分数、风险标签。
- * Summary: 监管企业详情获取
- */
+// Description:
+//
+// Description: 监管企业详情获取，包括风险分数、风险标签。
+//
+// Summary: 监管企业详情获取
 func (client *Client) GetRtopCompanyDetailEx(request *GetRtopCompanyDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetRtopCompanyDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49290,10 +53051,11 @@ func (client *Client) GetRtopCompanyDetailEx(request *GetRtopCompanyDetailReques
 	return _result, _err
 }
 
-/**
- * Description: 企业风险查询接口
- * Summary: 企业风险查询接口
- */
+// Description:
+//
+// Description: 企业风险查询接口
+//
+// Summary: 企业风险查询接口
 func (client *Client) QueryRtopCompanyRiskinfo(request *QueryRtopCompanyRiskinfoRequest) (_result *QueryRtopCompanyRiskinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49306,10 +53068,11 @@ func (client *Client) QueryRtopCompanyRiskinfo(request *QueryRtopCompanyRiskinfo
 	return _result, _err
 }
 
-/**
- * Description: 企业风险查询接口
- * Summary: 企业风险查询接口
- */
+// Description:
+//
+// Description: 企业风险查询接口
+//
+// Summary: 企业风险查询接口
 func (client *Client) QueryRtopCompanyRiskinfoEx(request *QueryRtopCompanyRiskinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyRiskinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49324,10 +53087,11 @@ func (client *Client) QueryRtopCompanyRiskinfoEx(request *QueryRtopCompanyRiskin
 	return _result, _err
 }
 
-/**
- * Description: 公有云通用风险信息接口
- * Summary: 公有云通用风险信息接口
- */
+// Description:
+//
+// Description: 公有云通用风险信息接口
+//
+// Summary: 公有云通用风险信息接口
 func (client *Client) ExecRtopGenericInvoke(request *ExecRtopGenericInvokeRequest) (_result *ExecRtopGenericInvokeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49340,10 +53104,11 @@ func (client *Client) ExecRtopGenericInvoke(request *ExecRtopGenericInvokeReques
 	return _result, _err
 }
 
-/**
- * Description: 公有云通用风险信息接口
- * Summary: 公有云通用风险信息接口
- */
+// Description:
+//
+// Description: 公有云通用风险信息接口
+//
+// Summary: 公有云通用风险信息接口
 func (client *Client) ExecRtopGenericInvokeEx(request *ExecRtopGenericInvokeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecRtopGenericInvokeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49358,10 +53123,11 @@ func (client *Client) ExecRtopGenericInvokeEx(request *ExecRtopGenericInvokeRequ
 	return _result, _err
 }
 
-/**
- * Description: 公有云生成token
- * Summary: 公有云生成token
- */
+// Description:
+//
+// Description: 公有云生成token
+//
+// Summary: 公有云生成token
 func (client *Client) CreateRtopToken(request *CreateRtopTokenRequest) (_result *CreateRtopTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49374,10 +53140,11 @@ func (client *Client) CreateRtopToken(request *CreateRtopTokenRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 公有云生成token
- * Summary: 公有云生成token
- */
+// Description:
+//
+// Description: 公有云生成token
+//
+// Summary: 公有云生成token
 func (client *Client) CreateRtopTokenEx(request *CreateRtopTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateRtopTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49392,10 +53159,11 @@ func (client *Client) CreateRtopTokenEx(request *CreateRtopTokenRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 标签全量信息获取
- * Summary: 标签全量信息获取
- */
+// Description:
+//
+// Description: 标签全量信息获取
+//
+// Summary: 标签全量信息获取
 func (client *Client) QueryRtopRisklabel(request *QueryRtopRisklabelRequest) (_result *QueryRtopRisklabelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49408,10 +53176,11 @@ func (client *Client) QueryRtopRisklabel(request *QueryRtopRisklabelRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 标签全量信息获取
- * Summary: 标签全量信息获取
- */
+// Description:
+//
+// Description: 标签全量信息获取
+//
+// Summary: 标签全量信息获取
 func (client *Client) QueryRtopRisklabelEx(request *QueryRtopRisklabelRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopRisklabelResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49426,10 +53195,11 @@ func (client *Client) QueryRtopRisklabelEx(request *QueryRtopRisklabelRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 企业全量信息获取
- * Summary: 企业全量信息获取
- */
+// Description:
+//
+// Description: 企业全量信息获取
+//
+// Summary: 企业全量信息获取
 func (client *Client) QueryRtopCompany(request *QueryRtopCompanyRequest) (_result *QueryRtopCompanyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49442,10 +53212,11 @@ func (client *Client) QueryRtopCompany(request *QueryRtopCompanyRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 企业全量信息获取
- * Summary: 企业全量信息获取
- */
+// Description:
+//
+// Description: 企业全量信息获取
+//
+// Summary: 企业全量信息获取
 func (client *Client) QueryRtopCompanyEx(request *QueryRtopCompanyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49460,11 +53231,13 @@ func (client *Client) QueryRtopCompanyEx(request *QueryRtopCompanyRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 标签配置全量信息获取
-rtop_company_tag_filter_config
- * Summary: 标签配置全量信息获取
-*/
+// Description:
+//
+// Description: 标签配置全量信息获取
+//
+// rtop_company_tag_filter_config
+//
+// Summary: 标签配置全量信息获取
 func (client *Client) QueryRtopRisklabelFilter(request *QueryRtopRisklabelFilterRequest) (_result *QueryRtopRisklabelFilterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49477,11 +53250,13 @@ func (client *Client) QueryRtopRisklabelFilter(request *QueryRtopRisklabelFilter
 	return _result, _err
 }
 
-/**
- * Description: 标签配置全量信息获取
-rtop_company_tag_filter_config
- * Summary: 标签配置全量信息获取
-*/
+// Description:
+//
+// Description: 标签配置全量信息获取
+//
+// rtop_company_tag_filter_config
+//
+// Summary: 标签配置全量信息获取
 func (client *Client) QueryRtopRisklabelFilterEx(request *QueryRtopRisklabelFilterRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopRisklabelFilterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49496,10 +53271,11 @@ func (client *Client) QueryRtopRisklabelFilterEx(request *QueryRtopRisklabelFilt
 	return _result, _err
 }
 
-/**
- * Description: 用于鹰眼项目舆情同步
- * Summary: 鹰眼项目舆情同步
- */
+// Description:
+//
+// Description: 用于鹰眼项目舆情同步
+//
+// Summary: 鹰眼项目舆情同步
 func (client *Client) PullRegtechNews(request *PullRegtechNewsRequest) (_result *PullRegtechNewsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49512,10 +53288,11 @@ func (client *Client) PullRegtechNews(request *PullRegtechNewsRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 用于鹰眼项目舆情同步
- * Summary: 鹰眼项目舆情同步
- */
+// Description:
+//
+// Description: 用于鹰眼项目舆情同步
+//
+// Summary: 鹰眼项目舆情同步
 func (client *Client) PullRegtechNewsEx(request *PullRegtechNewsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PullRegtechNewsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49530,10 +53307,11 @@ func (client *Client) PullRegtechNewsEx(request *PullRegtechNewsRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 查看企业反馈
- * Summary: 查看企业反馈
- */
+// Description:
+//
+// Description: 查看企业反馈
+//
+// Summary: 查看企业反馈
 func (client *Client) QueryRtopCompanyFeedback(request *QueryRtopCompanyFeedbackRequest) (_result *QueryRtopCompanyFeedbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49546,10 +53324,11 @@ func (client *Client) QueryRtopCompanyFeedback(request *QueryRtopCompanyFeedback
 	return _result, _err
 }
 
-/**
- * Description: 查看企业反馈
- * Summary: 查看企业反馈
- */
+// Description:
+//
+// Description: 查看企业反馈
+//
+// Summary: 查看企业反馈
 func (client *Client) QueryRtopCompanyFeedbackEx(request *QueryRtopCompanyFeedbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyFeedbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49564,10 +53343,11 @@ func (client *Client) QueryRtopCompanyFeedbackEx(request *QueryRtopCompanyFeedba
 	return _result, _err
 }
 
-/**
- * Description: 全局动态中的预警企业详细列表查询
- * Summary: 全局动态中的预警企业详细列表查询
- */
+// Description:
+//
+// Description: 全局动态中的预警企业详细列表查询
+//
+// Summary: 全局动态中的预警企业详细列表查询
 func (client *Client) QueryRtopCompanyAlarm(request *QueryRtopCompanyAlarmRequest) (_result *QueryRtopCompanyAlarmResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49580,10 +53360,11 @@ func (client *Client) QueryRtopCompanyAlarm(request *QueryRtopCompanyAlarmReques
 	return _result, _err
 }
 
-/**
- * Description: 全局动态中的预警企业详细列表查询
- * Summary: 全局动态中的预警企业详细列表查询
- */
+// Description:
+//
+// Description: 全局动态中的预警企业详细列表查询
+//
+// Summary: 全局动态中的预警企业详细列表查询
 func (client *Client) QueryRtopCompanyAlarmEx(request *QueryRtopCompanyAlarmRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyAlarmResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49598,10 +53379,11 @@ func (client *Client) QueryRtopCompanyAlarmEx(request *QueryRtopCompanyAlarmRequ
 	return _result, _err
 }
 
-/**
- * Description: 查询全局动态中的企业列表里的全部列表
- * Summary: 查询全局动态中的企业列表里的全部列表
- */
+// Description:
+//
+// Description: 查询全局动态中的企业列表里的全部列表
+//
+// Summary: 查询全局动态中的企业列表里的全部列表
 func (client *Client) QueryRtopCompanyRisky(request *QueryRtopCompanyRiskyRequest) (_result *QueryRtopCompanyRiskyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49614,10 +53396,11 @@ func (client *Client) QueryRtopCompanyRisky(request *QueryRtopCompanyRiskyReques
 	return _result, _err
 }
 
-/**
- * Description: 查询全局动态中的企业列表里的全部列表
- * Summary: 查询全局动态中的企业列表里的全部列表
- */
+// Description:
+//
+// Description: 查询全局动态中的企业列表里的全部列表
+//
+// Summary: 查询全局动态中的企业列表里的全部列表
 func (client *Client) QueryRtopCompanyRiskyEx(request *QueryRtopCompanyRiskyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyRiskyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49632,10 +53415,11 @@ func (client *Client) QueryRtopCompanyRiskyEx(request *QueryRtopCompanyRiskyRequ
 	return _result, _err
 }
 
-/**
- * Description: 查询企业列表
- * Summary: 查询企业列表
- */
+// Description:
+//
+// Description: 查询企业列表
+//
+// Summary: 查询企业列表
 func (client *Client) QueryRtopCompanyList(request *QueryRtopCompanyListRequest) (_result *QueryRtopCompanyListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49648,10 +53432,11 @@ func (client *Client) QueryRtopCompanyList(request *QueryRtopCompanyListRequest)
 	return _result, _err
 }
 
-/**
- * Description: 查询企业列表
- * Summary: 查询企业列表
- */
+// Description:
+//
+// Description: 查询企业列表
+//
+// Summary: 查询企业列表
 func (client *Client) QueryRtopCompanyListEx(request *QueryRtopCompanyListRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49666,10 +53451,11 @@ func (client *Client) QueryRtopCompanyListEx(request *QueryRtopCompanyListReques
 	return _result, _err
 }
 
-/**
- * Description: 标签配置全量信息获取
- * Summary: 标签配置全量信息获取
- */
+// Description:
+//
+// Description: 标签配置全量信息获取
+//
+// Summary: 标签配置全量信息获取
 func (client *Client) QueryRtopRisklabelConfig(request *QueryRtopRisklabelConfigRequest) (_result *QueryRtopRisklabelConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49682,10 +53468,11 @@ func (client *Client) QueryRtopRisklabelConfig(request *QueryRtopRisklabelConfig
 	return _result, _err
 }
 
-/**
- * Description: 标签配置全量信息获取
- * Summary: 标签配置全量信息获取
- */
+// Description:
+//
+// Description: 标签配置全量信息获取
+//
+// Summary: 标签配置全量信息获取
 func (client *Client) QueryRtopRisklabelConfigEx(request *QueryRtopRisklabelConfigRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopRisklabelConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49700,10 +53487,11 @@ func (client *Client) QueryRtopRisklabelConfigEx(request *QueryRtopRisklabelConf
 	return _result, _err
 }
 
-/**
- * Description: 企业风险标签信息查询
- * Summary: 企业风险标签信息查询
- */
+// Description:
+//
+// Description: 企业风险标签信息查询
+//
+// Summary: 企业风险标签信息查询
 func (client *Client) QueryRtopCompanyRisk(request *QueryRtopCompanyRiskRequest) (_result *QueryRtopCompanyRiskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49716,10 +53504,11 @@ func (client *Client) QueryRtopCompanyRisk(request *QueryRtopCompanyRiskRequest)
 	return _result, _err
 }
 
-/**
- * Description: 企业风险标签信息查询
- * Summary: 企业风险标签信息查询
- */
+// Description:
+//
+// Description: 企业风险标签信息查询
+//
+// Summary: 企业风险标签信息查询
 func (client *Client) QueryRtopCompanyRiskEx(request *QueryRtopCompanyRiskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopCompanyRiskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49734,10 +53523,11 @@ func (client *Client) QueryRtopCompanyRiskEx(request *QueryRtopCompanyRiskReques
 	return _result, _err
 }
 
-/**
- * Description: 查看重点关联企业
- * Summary: 重点关联企业
- */
+// Description:
+//
+// Description: 查看重点关联企业
+//
+// Summary: 重点关联企业
 func (client *Client) ListRtopCompanyRelated(request *ListRtopCompanyRelatedRequest) (_result *ListRtopCompanyRelatedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49750,10 +53540,11 @@ func (client *Client) ListRtopCompanyRelated(request *ListRtopCompanyRelatedRequ
 	return _result, _err
 }
 
-/**
- * Description: 查看重点关联企业
- * Summary: 重点关联企业
- */
+// Description:
+//
+// Description: 查看重点关联企业
+//
+// Summary: 重点关联企业
 func (client *Client) ListRtopCompanyRelatedEx(request *ListRtopCompanyRelatedRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ListRtopCompanyRelatedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49768,10 +53559,11 @@ func (client *Client) ListRtopCompanyRelatedEx(request *ListRtopCompanyRelatedRe
 	return _result, _err
 }
 
-/**
- * Description: 风险标签图片查询
- * Summary: 风险标签图片查询
- */
+// Description:
+//
+// Description: 风险标签图片查询
+//
+// Summary: 风险标签图片查询
 func (client *Client) QueryRtopTagImage(request *QueryRtopTagImageRequest) (_result *QueryRtopTagImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49784,10 +53576,11 @@ func (client *Client) QueryRtopTagImage(request *QueryRtopTagImageRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 风险标签图片查询
- * Summary: 风险标签图片查询
- */
+// Description:
+//
+// Description: 风险标签图片查询
+//
+// Summary: 风险标签图片查询
 func (client *Client) QueryRtopTagImageEx(request *QueryRtopTagImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRtopTagImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49802,10 +53595,11 @@ func (client *Client) QueryRtopTagImageEx(request *QueryRtopTagImageRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 查询用户收藏企业列表
- * Summary: 查询用户收藏企业列表
- */
+// Description:
+//
+// Description: 查询用户收藏企业列表
+//
+// Summary: 查询用户收藏企业列表
 func (client *Client) ListRtopStarCompany(request *ListRtopStarCompanyRequest) (_result *ListRtopStarCompanyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49818,10 +53612,11 @@ func (client *Client) ListRtopStarCompany(request *ListRtopStarCompanyRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 查询用户收藏企业列表
- * Summary: 查询用户收藏企业列表
- */
+// Description:
+//
+// Description: 查询用户收藏企业列表
+//
+// Summary: 查询用户收藏企业列表
 func (client *Client) ListRtopStarCompanyEx(request *ListRtopStarCompanyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ListRtopStarCompanyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49836,10 +53631,11 @@ func (client *Client) ListRtopStarCompanyEx(request *ListRtopStarCompanyRequest,
 	return _result, _err
 }
 
-/**
- * Description: 策略咨询服务输出(saas)
- * Summary: 策略咨询服务输出(saas)
- */
+// Description:
+//
+// Description: 策略咨询服务输出(saas)
+//
+// Summary: 策略咨询服务输出(saas)
 func (client *Client) QueryRpSecurityPolicy(request *QueryRpSecurityPolicyRequest) (_result *QueryRpSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49852,10 +53648,11 @@ func (client *Client) QueryRpSecurityPolicy(request *QueryRpSecurityPolicyReques
 	return _result, _err
 }
 
-/**
- * Description: 策略咨询服务输出(saas)
- * Summary: 策略咨询服务输出(saas)
- */
+// Description:
+//
+// Description: 策略咨询服务输出(saas)
+//
+// Summary: 策略咨询服务输出(saas)
 func (client *Client) QueryRpSecurityPolicyEx(request *QueryRpSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRpSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49870,10 +53667,11 @@ func (client *Client) QueryRpSecurityPolicyEx(request *QueryRpSecurityPolicyRequ
 	return _result, _err
 }
 
-/**
- * Description: 风控快照查询
- * Summary: 风控事件快照查询
- */
+// Description:
+//
+// Description: 风控快照查询
+//
+// Summary: 风控事件快照查询
 func (client *Client) QuerySnapshotEvent(request *QuerySnapshotEventRequest) (_result *QuerySnapshotEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49886,10 +53684,11 @@ func (client *Client) QuerySnapshotEvent(request *QuerySnapshotEventRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 风控快照查询
- * Summary: 风控事件快照查询
- */
+// Description:
+//
+// Description: 风控快照查询
+//
+// Summary: 风控事件快照查询
 func (client *Client) QuerySnapshotEventEx(request *QuerySnapshotEventRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySnapshotEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49904,10 +53703,11 @@ func (client *Client) QuerySnapshotEventEx(request *QuerySnapshotEventRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 批量实时触达接口
- * Summary: 发起触达任务
- */
+// Description:
+//
+// Description: 批量实时触达接口
+//
+// Summary: 发起触达任务
 func (client *Client) ApplyTdiquickmsgRtBatchmarketing(request *ApplyTdiquickmsgRtBatchmarketingRequest) (_result *ApplyTdiquickmsgRtBatchmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49920,10 +53720,11 @@ func (client *Client) ApplyTdiquickmsgRtBatchmarketing(request *ApplyTdiquickmsg
 	return _result, _err
 }
 
-/**
- * Description: 批量实时触达接口
- * Summary: 发起触达任务
- */
+// Description:
+//
+// Description: 批量实时触达接口
+//
+// Summary: 发起触达任务
 func (client *Client) ApplyTdiquickmsgRtBatchmarketingEx(request *ApplyTdiquickmsgRtBatchmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyTdiquickmsgRtBatchmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49938,10 +53739,11 @@ func (client *Client) ApplyTdiquickmsgRtBatchmarketingEx(request *ApplyTdiquickm
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyTdiquickmsgRobotcall(request *ApplyTdiquickmsgRobotcallRequest) (_result *ApplyTdiquickmsgRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49954,10 +53756,11 @@ func (client *Client) ApplyTdiquickmsgRobotcall(request *ApplyTdiquickmsgRobotca
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyTdiquickmsgRobotcallEx(request *ApplyTdiquickmsgRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyTdiquickmsgRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -49972,10 +53775,11 @@ func (client *Client) ApplyTdiquickmsgRobotcallEx(request *ApplyTdiquickmsgRobot
 	return _result, _err
 }
 
-/**
- * Description: 短信状态回调接口
- * Summary: 短信状态回调接口
- */
+// Description:
+//
+// Description: 短信状态回调接口
+//
+// Summary: 短信状态回调接口
 func (client *Client) CallbackTdiquickmsgSms(request *CallbackTdiquickmsgSmsRequest) (_result *CallbackTdiquickmsgSmsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -49988,10 +53792,11 @@ func (client *Client) CallbackTdiquickmsgSms(request *CallbackTdiquickmsgSmsRequ
 	return _result, _err
 }
 
-/**
- * Description: 短信状态回调接口
- * Summary: 短信状态回调接口
- */
+// Description:
+//
+// Description: 短信状态回调接口
+//
+// Summary: 短信状态回调接口
 func (client *Client) CallbackTdiquickmsgSmsEx(request *CallbackTdiquickmsgSmsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackTdiquickmsgSmsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50006,10 +53811,11 @@ func (client *Client) CallbackTdiquickmsgSmsEx(request *CallbackTdiquickmsgSmsRe
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary: ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary: ai外呼回调接口
 func (client *Client) CallbackTdiquickmsgRobotcall(request *CallbackTdiquickmsgRobotcallRequest) (_result *CallbackTdiquickmsgRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50022,10 +53828,11 @@ func (client *Client) CallbackTdiquickmsgRobotcall(request *CallbackTdiquickmsgR
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary: ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary: ai外呼回调接口
 func (client *Client) CallbackTdiquickmsgRobotcallEx(request *CallbackTdiquickmsgRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackTdiquickmsgRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50040,10 +53847,11 @@ func (client *Client) CallbackTdiquickmsgRobotcallEx(request *CallbackTdiquickms
 	return _result, _err
 }
 
-/**
- * Description: 上行短信回调
- * Summary: 上行短信回调
- */
+// Description:
+//
+// Description: 上行短信回调
+//
+// Summary: 上行短信回调
 func (client *Client) CallbackTdiquickmsgSmsUp(request *CallbackTdiquickmsgSmsUpRequest) (_result *CallbackTdiquickmsgSmsUpResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50056,10 +53864,11 @@ func (client *Client) CallbackTdiquickmsgSmsUp(request *CallbackTdiquickmsgSmsUp
 	return _result, _err
 }
 
-/**
- * Description: 上行短信回调
- * Summary: 上行短信回调
- */
+// Description:
+//
+// Description: 上行短信回调
+//
+// Summary: 上行短信回调
 func (client *Client) CallbackTdiquickmsgSmsUpEx(request *CallbackTdiquickmsgSmsUpRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackTdiquickmsgSmsUpResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50074,10 +53883,11 @@ func (client *Client) CallbackTdiquickmsgSmsUpEx(request *CallbackTdiquickmsgSms
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary: 外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary: 外呼任务统计查询接口
 func (client *Client) QueryTdiquickmsgRobotcallStatisticinfo(request *QueryTdiquickmsgRobotcallStatisticinfoRequest) (_result *QueryTdiquickmsgRobotcallStatisticinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50090,10 +53900,11 @@ func (client *Client) QueryTdiquickmsgRobotcallStatisticinfo(request *QueryTdiqu
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary: 外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary: 外呼任务统计查询接口
 func (client *Client) QueryTdiquickmsgRobotcallStatisticinfoEx(request *QueryTdiquickmsgRobotcallStatisticinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTdiquickmsgRobotcallStatisticinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50108,10 +53919,11 @@ func (client *Client) QueryTdiquickmsgRobotcallStatisticinfoEx(request *QueryTdi
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾业务回流事件推送
- * Summary: 蚁盾业务回流事件推送
- */
+// Description:
+//
+// Description: 蚁盾业务回流事件推送
+//
+// Summary: 蚁盾业务回流事件推送
 func (client *Client) PushTdiquickmsgBackflowEvent(request *PushTdiquickmsgBackflowEventRequest) (_result *PushTdiquickmsgBackflowEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50124,10 +53936,11 @@ func (client *Client) PushTdiquickmsgBackflowEvent(request *PushTdiquickmsgBackf
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾业务回流事件推送
- * Summary: 蚁盾业务回流事件推送
- */
+// Description:
+//
+// Description: 蚁盾业务回流事件推送
+//
+// Summary: 蚁盾业务回流事件推送
 func (client *Client) PushTdiquickmsgBackflowEventEx(request *PushTdiquickmsgBackflowEventRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushTdiquickmsgBackflowEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50142,10 +53955,11 @@ func (client *Client) PushTdiquickmsgBackflowEventEx(request *PushTdiquickmsgBac
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾数据回流推送，用于客户定制json数据
- * Summary: 蚁盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 蚁盾数据回流推送，用于客户定制json数据
+//
+// Summary: 蚁盾数据回流json格式推送
 func (client *Client) PushTdiquickmsgBackflowJsondata(request *PushTdiquickmsgBackflowJsondataRequest) (_result *PushTdiquickmsgBackflowJsondataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50158,10 +53972,11 @@ func (client *Client) PushTdiquickmsgBackflowJsondata(request *PushTdiquickmsgBa
 	return _result, _err
 }
 
-/**
- * Description: 蚁盾数据回流推送，用于客户定制json数据
- * Summary: 蚁盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 蚁盾数据回流推送，用于客户定制json数据
+//
+// Summary: 蚁盾数据回流json格式推送
 func (client *Client) PushTdiquickmsgBackflowJsondataEx(request *PushTdiquickmsgBackflowJsondataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushTdiquickmsgBackflowJsondataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50176,10 +53991,11 @@ func (client *Client) PushTdiquickmsgBackflowJsondataEx(request *PushTdiquickmsg
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询，决策流模式
- * Summary: saas风险咨询
- */
+// Description:
+//
+// Description: saas风险咨询，决策流模式
+//
+// Summary: saas风险咨询
 func (client *Client) QueryTdisaasSecurityPolicy(request *QueryTdisaasSecurityPolicyRequest) (_result *QueryTdisaasSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50192,10 +54008,11 @@ func (client *Client) QueryTdisaasSecurityPolicy(request *QueryTdisaasSecurityPo
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询，决策流模式
- * Summary: saas风险咨询
- */
+// Description:
+//
+// Description: saas风险咨询，决策流模式
+//
+// Summary: saas风险咨询
 func (client *Client) QueryTdisaasSecurityPolicyEx(request *QueryTdisaasSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTdisaasSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50210,10 +54027,11 @@ func (client *Client) QueryTdisaasSecurityPolicyEx(request *QueryTdisaasSecurity
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询（air引擎）
- * Summary: saas风险咨询（air引擎）
- */
+// Description:
+//
+// Description: saas风险咨询（air引擎）
+//
+// Summary: saas风险咨询（air引擎）
 func (client *Client) QueryAirsaasSecurityPolicy(request *QueryAirsaasSecurityPolicyRequest) (_result *QueryAirsaasSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50226,10 +54044,11 @@ func (client *Client) QueryAirsaasSecurityPolicy(request *QueryAirsaasSecurityPo
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询（air引擎）
- * Summary: saas风险咨询（air引擎）
- */
+// Description:
+//
+// Description: saas风险咨询（air引擎）
+//
+// Summary: saas风险咨询（air引擎）
 func (client *Client) QueryAirsaasSecurityPolicyEx(request *QueryAirsaasSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAirsaasSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50244,10 +54063,11 @@ func (client *Client) QueryAirsaasSecurityPolicyEx(request *QueryAirsaasSecurity
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询，决策流模式
- * Summary: saas风险咨询-air引擎
- */
+// Description:
+//
+// Description: saas风险咨询，决策流模式
+//
+// Summary: saas风险咨询-air引擎
 func (client *Client) QueryTdisaasairSecurityPolicy(request *QueryTdisaasairSecurityPolicyRequest) (_result *QueryTdisaasairSecurityPolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50260,10 +54080,11 @@ func (client *Client) QueryTdisaasairSecurityPolicy(request *QueryTdisaasairSecu
 	return _result, _err
 }
 
-/**
- * Description: saas风险咨询，决策流模式
- * Summary: saas风险咨询-air引擎
- */
+// Description:
+//
+// Description: saas风险咨询，决策流模式
+//
+// Summary: saas风险咨询-air引擎
 func (client *Client) QueryTdisaasairSecurityPolicyEx(request *QueryTdisaasairSecurityPolicyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTdisaasairSecurityPolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50278,10 +54099,11 @@ func (client *Client) QueryTdisaasairSecurityPolicyEx(request *QueryTdisaasairSe
 	return _result, _err
 }
 
-/**
- * Description: 营销盾批量参数文件上传接口
- * Summary: 营销盾参数文件上传
- */
+// Description:
+//
+// Description: 营销盾批量参数文件上传接口
+//
+// Summary: 营销盾参数文件上传
 func (client *Client) UploadUmktParamsFile(request *UploadUmktParamsFileRequest) (_result *UploadUmktParamsFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50294,10 +54116,11 @@ func (client *Client) UploadUmktParamsFile(request *UploadUmktParamsFileRequest)
 	return _result, _err
 }
 
-/**
- * Description: 营销盾批量参数文件上传接口
- * Summary: 营销盾参数文件上传
- */
+// Description:
+//
+// Description: 营销盾批量参数文件上传接口
+//
+// Summary: 营销盾参数文件上传
 func (client *Client) UploadUmktParamsFileEx(request *UploadUmktParamsFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadUmktParamsFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -50342,10 +54165,11 @@ func (client *Client) UploadUmktParamsFileEx(request *UploadUmktParamsFileReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾实时营销服务，支持批量
- * Summary: 营销盾实时营销服务
- */
+// Description:
+//
+// Description: 营销盾实时营销服务，支持批量
+//
+// Summary: 营销盾实时营销服务
 func (client *Client) BatchqueryUmktRtMarketing(request *BatchqueryUmktRtMarketingRequest) (_result *BatchqueryUmktRtMarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50358,10 +54182,11 @@ func (client *Client) BatchqueryUmktRtMarketing(request *BatchqueryUmktRtMarketi
 	return _result, _err
 }
 
-/**
- * Description: 营销盾实时营销服务，支持批量
- * Summary: 营销盾实时营销服务
- */
+// Description:
+//
+// Description: 营销盾实时营销服务，支持批量
+//
+// Summary: 营销盾实时营销服务
 func (client *Client) BatchqueryUmktRtMarketingEx(request *BatchqueryUmktRtMarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktRtMarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50376,10 +54201,11 @@ func (client *Client) BatchqueryUmktRtMarketingEx(request *BatchqueryUmktRtMarke
 	return _result, _err
 }
 
-/**
- * Description: 梦网富信投放事件通知
- * Summary: 梦网富信投放事件通知
- */
+// Description:
+//
+// Description: 梦网富信投放事件通知
+//
+// Summary: 梦网富信投放事件通知
 func (client *Client) SyncUmktRtEventresult(request *SyncUmktRtEventresultRequest) (_result *SyncUmktRtEventresultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50392,10 +54218,11 @@ func (client *Client) SyncUmktRtEventresult(request *SyncUmktRtEventresultReques
 	return _result, _err
 }
 
-/**
- * Description: 梦网富信投放事件通知
- * Summary: 梦网富信投放事件通知
- */
+// Description:
+//
+// Description: 梦网富信投放事件通知
+//
+// Summary: 梦网富信投放事件通知
 func (client *Client) SyncUmktRtEventresultEx(request *SyncUmktRtEventresultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncUmktRtEventresultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50410,10 +54237,11 @@ func (client *Client) SyncUmktRtEventresultEx(request *SyncUmktRtEventresultRequ
 	return _result, _err
 }
 
-/**
- * Description: 营销盾场景租户信息上传or更新
- * Summary: 营销盾场景租户信息上传or更新
- */
+// Description:
+//
+// Description: 营销盾场景租户信息上传or更新
+//
+// Summary: 营销盾场景租户信息上传or更新
 func (client *Client) ImportUmktSceneUpload(request *ImportUmktSceneUploadRequest) (_result *ImportUmktSceneUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50426,10 +54254,11 @@ func (client *Client) ImportUmktSceneUpload(request *ImportUmktSceneUploadReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾场景租户信息上传or更新
- * Summary: 营销盾场景租户信息上传or更新
- */
+// Description:
+//
+// Description: 营销盾场景租户信息上传or更新
+//
+// Summary: 营销盾场景租户信息上传or更新
 func (client *Client) ImportUmktSceneUploadEx(request *ImportUmktSceneUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportUmktSceneUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50444,10 +54273,11 @@ func (client *Client) ImportUmktSceneUploadEx(request *ImportUmktSceneUploadRequ
 	return _result, _err
 }
 
-/**
- * Description: 富信贴尾实时圈客
- * Summary: 富信贴尾实时圈客
- */
+// Description:
+//
+// Description: 富信贴尾实时圈客
+//
+// Summary: 富信贴尾实时圈客
 func (client *Client) BatchqueryUmktRtTailmarketing(request *BatchqueryUmktRtTailmarketingRequest) (_result *BatchqueryUmktRtTailmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50460,10 +54290,11 @@ func (client *Client) BatchqueryUmktRtTailmarketing(request *BatchqueryUmktRtTai
 	return _result, _err
 }
 
-/**
- * Description: 富信贴尾实时圈客
- * Summary: 富信贴尾实时圈客
- */
+// Description:
+//
+// Description: 富信贴尾实时圈客
+//
+// Summary: 富信贴尾实时圈客
 func (client *Client) BatchqueryUmktRtTailmarketingEx(request *BatchqueryUmktRtTailmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktRtTailmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50478,10 +54309,11 @@ func (client *Client) BatchqueryUmktRtTailmarketingEx(request *BatchqueryUmktRtT
 	return _result, _err
 }
 
-/**
- * Description: 实时圈客场景策略测试
- * Summary: 实时圈客场景策略测试功能
- */
+// Description:
+//
+// Description: 实时圈客场景策略测试
+//
+// Summary: 实时圈客场景策略测试功能
 func (client *Client) QueryUmktScenestrategyTest(request *QueryUmktScenestrategyTestRequest) (_result *QueryUmktScenestrategyTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50494,10 +54326,11 @@ func (client *Client) QueryUmktScenestrategyTest(request *QueryUmktScenestrategy
 	return _result, _err
 }
 
-/**
- * Description: 实时圈客场景策略测试
- * Summary: 实时圈客场景策略测试功能
- */
+// Description:
+//
+// Description: 实时圈客场景策略测试
+//
+// Summary: 实时圈客场景策略测试功能
 func (client *Client) QueryUmktScenestrategyTestEx(request *QueryUmktScenestrategyTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktScenestrategyTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50512,10 +54345,11 @@ func (client *Client) QueryUmktScenestrategyTestEx(request *QueryUmktScenestrate
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyUmktRobotcall(request *ApplyUmktRobotcallRequest) (_result *ApplyUmktRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50528,10 +54362,11 @@ func (client *Client) ApplyUmktRobotcall(request *ApplyUmktRobotcallRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 发起AI外呼
- * Summary: 发起AI外呼
- */
+// Description:
+//
+// Description: 发起AI外呼
+//
+// Summary: 发起AI外呼
 func (client *Client) ApplyUmktRobotcallEx(request *ApplyUmktRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyUmktRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50546,10 +54381,11 @@ func (client *Client) ApplyUmktRobotcallEx(request *ApplyUmktRobotcallRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询回执统计数据接口
- * Summary: 营销盾回执统计查询
- */
+// Description:
+//
+// Description: 营销盾查询回执统计数据接口
+//
+// Summary: 营销盾回执统计查询
 func (client *Client) QueryUmktDataaccessStatistic(request *QueryUmktDataaccessStatisticRequest) (_result *QueryUmktDataaccessStatisticResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50562,10 +54398,11 @@ func (client *Client) QueryUmktDataaccessStatistic(request *QueryUmktDataaccessS
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询回执统计数据接口
- * Summary: 营销盾回执统计查询
- */
+// Description:
+//
+// Description: 营销盾查询回执统计数据接口
+//
+// Summary: 营销盾回执统计查询
 func (client *Client) QueryUmktDataaccessStatisticEx(request *QueryUmktDataaccessStatisticRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktDataaccessStatisticResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50580,10 +54417,11 @@ func (client *Client) QueryUmktDataaccessStatisticEx(request *QueryUmktDataacces
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线批量任务取消接口
- * Summary: 营销盾取消离线批量任务
- */
+// Description:
+//
+// Description: 营销盾离线批量任务取消接口
+//
+// Summary: 营销盾取消离线批量任务
 func (client *Client) CancelUmktDataaccessOfflinetask(request *CancelUmktDataaccessOfflinetaskRequest) (_result *CancelUmktDataaccessOfflinetaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50596,10 +54434,11 @@ func (client *Client) CancelUmktDataaccessOfflinetask(request *CancelUmktDataacc
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线批量任务取消接口
- * Summary: 营销盾取消离线批量任务
- */
+// Description:
+//
+// Description: 营销盾离线批量任务取消接口
+//
+// Summary: 营销盾取消离线批量任务
 func (client *Client) CancelUmktDataaccessOfflinetaskEx(request *CancelUmktDataaccessOfflinetaskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CancelUmktDataaccessOfflinetaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50614,10 +54453,11 @@ func (client *Client) CancelUmktDataaccessOfflinetaskEx(request *CancelUmktDataa
 	return _result, _err
 }
 
-/**
- * Description: 营销盾实时单一凭证营销接口，服务于近rta的场景
- * Summary: 营销盾实时单一凭证营销接口
- */
+// Description:
+//
+// Description: 营销盾实时单一凭证营销接口，服务于近rta的场景
+//
+// Summary: 营销盾实时单一凭证营销接口
 func (client *Client) QueryUmktRtMarketing(request *QueryUmktRtMarketingRequest) (_result *QueryUmktRtMarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50630,10 +54470,11 @@ func (client *Client) QueryUmktRtMarketing(request *QueryUmktRtMarketingRequest)
 	return _result, _err
 }
 
-/**
- * Description: 营销盾实时单一凭证营销接口，服务于近rta的场景
- * Summary: 营销盾实时单一凭证营销接口
- */
+// Description:
+//
+// Description: 营销盾实时单一凭证营销接口，服务于近rta的场景
+//
+// Summary: 营销盾实时单一凭证营销接口
 func (client *Client) QueryUmktRtMarketingEx(request *QueryUmktRtMarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktRtMarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50648,10 +54489,11 @@ func (client *Client) QueryUmktRtMarketingEx(request *QueryUmktRtMarketingReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾业务回流事件推送
- * Summary: 营销盾回流事件推送
- */
+// Description:
+//
+// Description: 营销盾业务回流事件推送
+//
+// Summary: 营销盾回流事件推送
 func (client *Client) PushUmktBackflowEvent(request *PushUmktBackflowEventRequest) (_result *PushUmktBackflowEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50664,10 +54506,11 @@ func (client *Client) PushUmktBackflowEvent(request *PushUmktBackflowEventReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾业务回流事件推送
- * Summary: 营销盾回流事件推送
- */
+// Description:
+//
+// Description: 营销盾业务回流事件推送
+//
+// Summary: 营销盾回流事件推送
 func (client *Client) PushUmktBackflowEventEx(request *PushUmktBackflowEventRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushUmktBackflowEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50682,10 +54525,11 @@ func (client *Client) PushUmktBackflowEventEx(request *PushUmktBackflowEventRequ
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信批量发送接口
- * Summary: 卡片短信批量发送接口
- */
+// Description:
+//
+// Description: 卡片短信批量发送接口
+//
+// Summary: 卡片短信批量发送接口
 func (client *Client) SendUmktCardsmsBatch(request *SendUmktCardsmsBatchRequest) (_result *SendUmktCardsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50698,10 +54542,11 @@ func (client *Client) SendUmktCardsmsBatch(request *SendUmktCardsmsBatchRequest)
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信批量发送接口
- * Summary: 卡片短信批量发送接口
- */
+// Description:
+//
+// Description: 卡片短信批量发送接口
+//
+// Summary: 卡片短信批量发送接口
 func (client *Client) SendUmktCardsmsBatchEx(request *SendUmktCardsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendUmktCardsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50716,10 +54561,11 @@ func (client *Client) SendUmktCardsmsBatchEx(request *SendUmktCardsmsBatchReques
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信支持能力查询
- * Summary: 卡片短信支持能力查询
- */
+// Description:
+//
+// Description: 卡片短信支持能力查询
+//
+// Summary: 卡片短信支持能力查询
 func (client *Client) QueryUmktCardsmsSupport(request *QueryUmktCardsmsSupportRequest) (_result *QueryUmktCardsmsSupportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50732,10 +54578,11 @@ func (client *Client) QueryUmktCardsmsSupport(request *QueryUmktCardsmsSupportRe
 	return _result, _err
 }
 
-/**
- * Description: 卡片短信支持能力查询
- * Summary: 卡片短信支持能力查询
- */
+// Description:
+//
+// Description: 卡片短信支持能力查询
+//
+// Summary: 卡片短信支持能力查询
 func (client *Client) QueryUmktCardsmsSupportEx(request *QueryUmktCardsmsSupportRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktCardsmsSupportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50750,10 +54597,11 @@ func (client *Client) QueryUmktCardsmsSupportEx(request *QueryUmktCardsmsSupport
 	return _result, _err
 }
 
-/**
- * Description: 文本短信批量发送接口
- * Summary: 文本短信批量发送接口
- */
+// Description:
+//
+// Description: 文本短信批量发送接口
+//
+// Summary: 文本短信批量发送接口
 func (client *Client) SendUmktTextsmsBatch(request *SendUmktTextsmsBatchRequest) (_result *SendUmktTextsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50766,10 +54614,11 @@ func (client *Client) SendUmktTextsmsBatch(request *SendUmktTextsmsBatchRequest)
 	return _result, _err
 }
 
-/**
- * Description: 文本短信批量发送接口
- * Summary: 文本短信批量发送接口
- */
+// Description:
+//
+// Description: 文本短信批量发送接口
+//
+// Summary: 文本短信批量发送接口
 func (client *Client) SendUmktTextsmsBatchEx(request *SendUmktTextsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendUmktTextsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50784,10 +54633,11 @@ func (client *Client) SendUmktTextsmsBatchEx(request *SendUmktTextsmsBatchReques
 	return _result, _err
 }
 
-/**
- * Description: 数字短信批量发送接口（单模板）
- * Summary: 数字短信批量发送接口（单模板）
- */
+// Description:
+//
+// Description: 数字短信批量发送接口（单模板）
+//
+// Summary: 数字短信批量发送接口（单模板）
 func (client *Client) SendUmktDigitalsmsBatch(request *SendUmktDigitalsmsBatchRequest) (_result *SendUmktDigitalsmsBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50800,10 +54650,11 @@ func (client *Client) SendUmktDigitalsmsBatch(request *SendUmktDigitalsmsBatchRe
 	return _result, _err
 }
 
-/**
- * Description: 数字短信批量发送接口（单模板）
- * Summary: 数字短信批量发送接口（单模板）
- */
+// Description:
+//
+// Description: 数字短信批量发送接口（单模板）
+//
+// Summary: 数字短信批量发送接口（单模板）
 func (client *Client) SendUmktDigitalsmsBatchEx(request *SendUmktDigitalsmsBatchRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SendUmktDigitalsmsBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50818,10 +54669,11 @@ func (client *Client) SendUmktDigitalsmsBatchEx(request *SendUmktDigitalsmsBatch
 	return _result, _err
 }
 
-/**
- * Description: 分页查询cpaas短信模板
- * Summary: cpaas短信模板分页查询
- */
+// Description:
+//
+// Description: 分页查询cpaas短信模板
+//
+// Summary: cpaas短信模板分页查询
 func (client *Client) QueryUmktCpaassmsTemplate(request *QueryUmktCpaassmsTemplateRequest) (_result *QueryUmktCpaassmsTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50834,10 +54686,11 @@ func (client *Client) QueryUmktCpaassmsTemplate(request *QueryUmktCpaassmsTempla
 	return _result, _err
 }
 
-/**
- * Description: 分页查询cpaas短信模板
- * Summary: cpaas短信模板分页查询
- */
+// Description:
+//
+// Description: 分页查询cpaas短信模板
+//
+// Summary: cpaas短信模板分页查询
 func (client *Client) QueryUmktCpaassmsTemplateEx(request *QueryUmktCpaassmsTemplateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktCpaassmsTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50852,10 +54705,11 @@ func (client *Client) QueryUmktCpaassmsTemplateEx(request *QueryUmktCpaassmsTemp
 	return _result, _err
 }
 
-/**
- * Description: 实时混合批量营销圈客
- * Summary: 实时混合批量营销圈客
- */
+// Description:
+//
+// Description: 实时混合批量营销圈客
+//
+// Summary: 实时混合批量营销圈客
 func (client *Client) BatchqueryUmktRtMixedmarketing(request *BatchqueryUmktRtMixedmarketingRequest) (_result *BatchqueryUmktRtMixedmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50868,10 +54722,11 @@ func (client *Client) BatchqueryUmktRtMixedmarketing(request *BatchqueryUmktRtMi
 	return _result, _err
 }
 
-/**
- * Description: 实时混合批量营销圈客
- * Summary: 实时混合批量营销圈客
- */
+// Description:
+//
+// Description: 实时混合批量营销圈客
+//
+// Summary: 实时混合批量营销圈客
 func (client *Client) BatchqueryUmktRtMixedmarketingEx(request *BatchqueryUmktRtMixedmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktRtMixedmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50886,10 +54741,11 @@ func (client *Client) BatchqueryUmktRtMixedmarketingEx(request *BatchqueryUmktRt
 	return _result, _err
 }
 
-/**
- * Description: 调用营销盾空号检测
- * Summary: 调用营销盾空号检测
- */
+// Description:
+//
+// Description: 调用营销盾空号检测
+//
+// Summary: 调用营销盾空号检测
 func (client *Client) ApplyUmktPhonenumberstatusforsms(request *ApplyUmktPhonenumberstatusforsmsRequest) (_result *ApplyUmktPhonenumberstatusforsmsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50902,10 +54758,11 @@ func (client *Client) ApplyUmktPhonenumberstatusforsms(request *ApplyUmktPhonenu
 	return _result, _err
 }
 
-/**
- * Description: 调用营销盾空号检测
- * Summary: 调用营销盾空号检测
- */
+// Description:
+//
+// Description: 调用营销盾空号检测
+//
+// Summary: 调用营销盾空号检测
 func (client *Client) ApplyUmktPhonenumberstatusforsmsEx(request *ApplyUmktPhonenumberstatusforsmsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyUmktPhonenumberstatusforsmsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50920,10 +54777,11 @@ func (client *Client) ApplyUmktPhonenumberstatusforsmsEx(request *ApplyUmktPhone
 	return _result, _err
 }
 
-/**
- * Description: 营销实时topN圈客
- * Summary: 营销实时topN圈客
- */
+// Description:
+//
+// Description: 营销实时topN圈客
+//
+// Summary: 营销实时topN圈客
 func (client *Client) BatchqueryUmktRtTopn(request *BatchqueryUmktRtTopnRequest) (_result *BatchqueryUmktRtTopnResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50936,10 +54794,11 @@ func (client *Client) BatchqueryUmktRtTopn(request *BatchqueryUmktRtTopnRequest)
 	return _result, _err
 }
 
-/**
- * Description: 营销实时topN圈客
- * Summary: 营销实时topN圈客
- */
+// Description:
+//
+// Description: 营销实时topN圈客
+//
+// Summary: 营销实时topN圈客
 func (client *Client) BatchqueryUmktRtTopnEx(request *BatchqueryUmktRtTopnRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktRtTopnResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50954,10 +54813,11 @@ func (client *Client) BatchqueryUmktRtTopnEx(request *BatchqueryUmktRtTopnReques
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary: 外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary: 外呼任务统计查询接口
 func (client *Client) QueryUmktRobotcallStatisticinfo(request *QueryUmktRobotcallStatisticinfoRequest) (_result *QueryUmktRobotcallStatisticinfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -50970,10 +54830,11 @@ func (client *Client) QueryUmktRobotcallStatisticinfo(request *QueryUmktRobotcal
 	return _result, _err
 }
 
-/**
- * Description: 外呼任务统计查询接口
- * Summary: 外呼任务统计查询接口
- */
+// Description:
+//
+// Description: 外呼任务统计查询接口
+//
+// Summary: 外呼任务统计查询接口
 func (client *Client) QueryUmktRobotcallStatisticinfoEx(request *QueryUmktRobotcallStatisticinfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktRobotcallStatisticinfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -50988,10 +54849,11 @@ func (client *Client) QueryUmktRobotcallStatisticinfoEx(request *QueryUmktRobotc
 	return _result, _err
 }
 
-/**
- * Description: 营销盾租户场景信息查询
- * Summary: 营销盾租户场景信息查询
- */
+// Description:
+//
+// Description: 营销盾租户场景信息查询
+//
+// Summary: 营销盾租户场景信息查询
 func (client *Client) QueryUmktTenantActionplaninfo(request *QueryUmktTenantActionplaninfoRequest) (_result *QueryUmktTenantActionplaninfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51004,10 +54866,11 @@ func (client *Client) QueryUmktTenantActionplaninfo(request *QueryUmktTenantActi
 	return _result, _err
 }
 
-/**
- * Description: 营销盾租户场景信息查询
- * Summary: 营销盾租户场景信息查询
- */
+// Description:
+//
+// Description: 营销盾租户场景信息查询
+//
+// Summary: 营销盾租户场景信息查询
 func (client *Client) QueryUmktTenantActionplaninfoEx(request *QueryUmktTenantActionplaninfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktTenantActionplaninfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51022,10 +54885,11 @@ func (client *Client) QueryUmktTenantActionplaninfoEx(request *QueryUmktTenantAc
 	return _result, _err
 }
 
-/**
- * Description: 查询ai外呼任务详情
- * Summary: 查询ai外呼任务详情
- */
+// Description:
+//
+// Description: 查询ai外呼任务详情
+//
+// Summary: 查询ai外呼任务详情
 func (client *Client) QueryUmktRobotcallDetail(request *QueryUmktRobotcallDetailRequest) (_result *QueryUmktRobotcallDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51038,10 +54902,11 @@ func (client *Client) QueryUmktRobotcallDetail(request *QueryUmktRobotcallDetail
 	return _result, _err
 }
 
-/**
- * Description: 查询ai外呼任务详情
- * Summary: 查询ai外呼任务详情
- */
+// Description:
+//
+// Description: 查询ai外呼任务详情
+//
+// Summary: 查询ai外呼任务详情
 func (client *Client) QueryUmktRobotcallDetailEx(request *QueryUmktRobotcallDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktRobotcallDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51056,10 +54921,11 @@ func (client *Client) QueryUmktRobotcallDetailEx(request *QueryUmktRobotcallDeta
 	return _result, _err
 }
 
-/**
- * Description: 发起触达营销任务 ---目前仅支持文本短信
- * Summary: 发起触达营销任务
- */
+// Description:
+//
+// Description: 发起触达营销任务 ---目前仅支持文本短信
+//
+// Summary: 发起触达营销任务
 func (client *Client) ApplyUmktRealtimemarketing(request *ApplyUmktRealtimemarketingRequest) (_result *ApplyUmktRealtimemarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51072,10 +54938,11 @@ func (client *Client) ApplyUmktRealtimemarketing(request *ApplyUmktRealtimemarke
 	return _result, _err
 }
 
-/**
- * Description: 发起触达营销任务 ---目前仅支持文本短信
- * Summary: 发起触达营销任务
- */
+// Description:
+//
+// Description: 发起触达营销任务 ---目前仅支持文本短信
+//
+// Summary: 发起触达营销任务
 func (client *Client) ApplyUmktRealtimemarketingEx(request *ApplyUmktRealtimemarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyUmktRealtimemarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51090,10 +54957,11 @@ func (client *Client) ApplyUmktRealtimemarketingEx(request *ApplyUmktRealtimemar
 	return _result, _err
 }
 
-/**
- * Description: 批量实时策略触达
- * Summary: 批量实时策略触达
- */
+// Description:
+//
+// Description: 批量实时策略触达
+//
+// Summary: 批量实时策略触达
 func (client *Client) ApplyUmktRtBatchmarketing(request *ApplyUmktRtBatchmarketingRequest) (_result *ApplyUmktRtBatchmarketingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51106,10 +54974,11 @@ func (client *Client) ApplyUmktRtBatchmarketing(request *ApplyUmktRtBatchmarketi
 	return _result, _err
 }
 
-/**
- * Description: 批量实时策略触达
- * Summary: 批量实时策略触达
- */
+// Description:
+//
+// Description: 批量实时策略触达
+//
+// Summary: 批量实时策略触达
 func (client *Client) ApplyUmktRtBatchmarketingEx(request *ApplyUmktRtBatchmarketingRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyUmktRtBatchmarketingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51124,10 +54993,11 @@ func (client *Client) ApplyUmktRtBatchmarketingEx(request *ApplyUmktRtBatchmarke
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary: ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary: ai外呼回调接口
 func (client *Client) CallbackUmktRobotcall(request *CallbackUmktRobotcallRequest) (_result *CallbackUmktRobotcallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51140,10 +55010,11 @@ func (client *Client) CallbackUmktRobotcall(request *CallbackUmktRobotcallReques
 	return _result, _err
 }
 
-/**
- * Description: 新接入ai外呼服务商的回调接口
- * Summary: ai外呼回调接口
- */
+// Description:
+//
+// Description: 新接入ai外呼服务商的回调接口
+//
+// Summary: ai外呼回调接口
 func (client *Client) CallbackUmktRobotcallEx(request *CallbackUmktRobotcallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackUmktRobotcallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51158,10 +55029,11 @@ func (client *Client) CallbackUmktRobotcallEx(request *CallbackUmktRobotcallRequ
 	return _result, _err
 }
 
-/**
- * Description: 营销盾上行短信回调接口
- * Summary: 营销盾上行短信回调
- */
+// Description:
+//
+// Description: 营销盾上行短信回调接口
+//
+// Summary: 营销盾上行短信回调
 func (client *Client) CallbackUmktSmsUp(request *CallbackUmktSmsUpRequest) (_result *CallbackUmktSmsUpResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51174,10 +55046,11 @@ func (client *Client) CallbackUmktSmsUp(request *CallbackUmktSmsUpRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 营销盾上行短信回调接口
- * Summary: 营销盾上行短信回调
- */
+// Description:
+//
+// Description: 营销盾上行短信回调接口
+//
+// Summary: 营销盾上行短信回调
 func (client *Client) CallbackUmktSmsUpEx(request *CallbackUmktSmsUpRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackUmktSmsUpResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51192,10 +55065,11 @@ func (client *Client) CallbackUmktSmsUpEx(request *CallbackUmktSmsUpRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 营销盾短信状态回调接口
- * Summary: 营销盾短信状态回调
- */
+// Description:
+//
+// Description: 营销盾短信状态回调接口
+//
+// Summary: 营销盾短信状态回调
 func (client *Client) CallbackUmktSmsReport(request *CallbackUmktSmsReportRequest) (_result *CallbackUmktSmsReportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51208,10 +55082,11 @@ func (client *Client) CallbackUmktSmsReport(request *CallbackUmktSmsReportReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾短信状态回调接口
- * Summary: 营销盾短信状态回调
- */
+// Description:
+//
+// Description: 营销盾短信状态回调接口
+//
+// Summary: 营销盾短信状态回调
 func (client *Client) CallbackUmktSmsReportEx(request *CallbackUmktSmsReportRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackUmktSmsReportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51226,10 +55101,11 @@ func (client *Client) CallbackUmktSmsReportEx(request *CallbackUmktSmsReportRequ
 	return _result, _err
 }
 
-/**
- * Description: 分页查询租户外呼策略
- * Summary: 营销盾租户场景批量信息查询
- */
+// Description:
+//
+// Description: 分页查询租户外呼策略
+//
+// Summary: 营销盾租户场景批量信息查询
 func (client *Client) BatchqueryUmktTenantActionplaninfo(request *BatchqueryUmktTenantActionplaninfoRequest) (_result *BatchqueryUmktTenantActionplaninfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51242,10 +55118,11 @@ func (client *Client) BatchqueryUmktTenantActionplaninfo(request *BatchqueryUmkt
 	return _result, _err
 }
 
-/**
- * Description: 分页查询租户外呼策略
- * Summary: 营销盾租户场景批量信息查询
- */
+// Description:
+//
+// Description: 分页查询租户外呼策略
+//
+// Summary: 营销盾租户场景批量信息查询
 func (client *Client) BatchqueryUmktTenantActionplaninfoEx(request *BatchqueryUmktTenantActionplaninfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktTenantActionplaninfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51260,11 +55137,13 @@ func (client *Client) BatchqueryUmktTenantActionplaninfoEx(request *BatchqueryUm
 	return _result, _err
 }
 
-/**
- * Description: 营销盾批次外呼内单个/多个手机号查询拨打情况
-(已下线)
- * Summary: 营销盾外呼详情查询接口
-*/
+// Description:
+//
+// Description: 营销盾批次外呼内单个/多个手机号查询拨打情况
+//
+// (已下线)
+//
+// Summary: 营销盾外呼详情查询接口
 func (client *Client) BatchqueryUmktRobotcallDetail(request *BatchqueryUmktRobotcallDetailRequest) (_result *BatchqueryUmktRobotcallDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51277,11 +55156,13 @@ func (client *Client) BatchqueryUmktRobotcallDetail(request *BatchqueryUmktRobot
 	return _result, _err
 }
 
-/**
- * Description: 营销盾批次外呼内单个/多个手机号查询拨打情况
-(已下线)
- * Summary: 营销盾外呼详情查询接口
-*/
+// Description:
+//
+// Description: 营销盾批次外呼内单个/多个手机号查询拨打情况
+//
+// (已下线)
+//
+// Summary: 营销盾外呼详情查询接口
 func (client *Client) BatchqueryUmktRobotcallDetailEx(request *BatchqueryUmktRobotcallDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktRobotcallDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51296,10 +55177,11 @@ func (client *Client) BatchqueryUmktRobotcallDetailEx(request *BatchqueryUmktRob
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询外呼策略详情
- * Summary: 营销盾查询外呼策略详情
- */
+// Description:
+//
+// Description: 营销盾查询外呼策略详情
+//
+// Summary: 营销盾查询外呼策略详情
 func (client *Client) BatchqueryUmktActionplanDetail(request *BatchqueryUmktActionplanDetailRequest) (_result *BatchqueryUmktActionplanDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51312,10 +55194,11 @@ func (client *Client) BatchqueryUmktActionplanDetail(request *BatchqueryUmktActi
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询外呼策略详情
- * Summary: 营销盾查询外呼策略详情
- */
+// Description:
+//
+// Description: 营销盾查询外呼策略详情
+//
+// Summary: 营销盾查询外呼策略详情
 func (client *Client) BatchqueryUmktActionplanDetailEx(request *BatchqueryUmktActionplanDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktActionplanDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51330,10 +55213,11 @@ func (client *Client) BatchqueryUmktActionplanDetailEx(request *BatchqueryUmktAc
 	return _result, _err
 }
 
-/**
- * Description: 营销盾通用回流推送服务
- * Summary: 营销盾通用回流推送服务
- */
+// Description:
+//
+// Description: 营销盾通用回流推送服务
+//
+// Summary: 营销盾通用回流推送服务
 func (client *Client) PushRiskplusUmktCommonbackflow(request *PushRiskplusUmktCommonbackflowRequest) (_result *PushRiskplusUmktCommonbackflowResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51346,10 +55230,11 @@ func (client *Client) PushRiskplusUmktCommonbackflow(request *PushRiskplusUmktCo
 	return _result, _err
 }
 
-/**
- * Description: 营销盾通用回流推送服务
- * Summary: 营销盾通用回流推送服务
- */
+// Description:
+//
+// Description: 营销盾通用回流推送服务
+//
+// Summary: 营销盾通用回流推送服务
 func (client *Client) PushRiskplusUmktCommonbackflowEx(request *PushRiskplusUmktCommonbackflowRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushRiskplusUmktCommonbackflowResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51364,10 +55249,11 @@ func (client *Client) PushRiskplusUmktCommonbackflowEx(request *PushRiskplusUmkt
 	return _result, _err
 }
 
-/**
- * Description: 营销盾通用数据推送服务
- * Summary: 营销盾通用数据推送服务
- */
+// Description:
+//
+// Description: 营销盾通用数据推送服务
+//
+// Summary: 营销盾通用数据推送服务
 func (client *Client) PushUmktCommonData(request *PushUmktCommonDataRequest) (_result *PushUmktCommonDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51380,10 +55266,11 @@ func (client *Client) PushUmktCommonData(request *PushUmktCommonDataRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 营销盾通用数据推送服务
- * Summary: 营销盾通用数据推送服务
- */
+// Description:
+//
+// Description: 营销盾通用数据推送服务
+//
+// Summary: 营销盾通用数据推送服务
 func (client *Client) PushUmktCommonDataEx(request *PushUmktCommonDataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushUmktCommonDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51398,10 +55285,11 @@ func (client *Client) PushUmktCommonDataEx(request *PushUmktCommonDataRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 营销盾客群推送服务
- * Summary: 营销盾客群推送服务
- */
+// Description:
+//
+// Description: 营销盾客群推送服务
+//
+// Summary: 营销盾客群推送服务
 func (client *Client) PushUmktCustomerGroup(request *PushUmktCustomerGroupRequest) (_result *PushUmktCustomerGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51414,10 +55302,11 @@ func (client *Client) PushUmktCustomerGroup(request *PushUmktCustomerGroupReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾客群推送服务
- * Summary: 营销盾客群推送服务
- */
+// Description:
+//
+// Description: 营销盾客群推送服务
+//
+// Summary: 营销盾客群推送服务
 func (client *Client) PushUmktCustomerGroupEx(request *PushUmktCustomerGroupRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushUmktCustomerGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51432,10 +55321,11 @@ func (client *Client) PushUmktCustomerGroupEx(request *PushUmktCustomerGroupRequ
 	return _result, _err
 }
 
-/**
- * Description: 触达执行任务详情查询
- * Summary: 触达执行任务详情查询
- */
+// Description:
+//
+// Description: 触达执行任务详情查询
+//
+// Summary: 触达执行任务详情查询
 func (client *Client) BatchqueryUmktTaskDetail(request *BatchqueryUmktTaskDetailRequest) (_result *BatchqueryUmktTaskDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51448,10 +55338,11 @@ func (client *Client) BatchqueryUmktTaskDetail(request *BatchqueryUmktTaskDetail
 	return _result, _err
 }
 
-/**
- * Description: 触达执行任务详情查询
- * Summary: 触达执行任务详情查询
- */
+// Description:
+//
+// Description: 触达执行任务详情查询
+//
+// Summary: 触达执行任务详情查询
 func (client *Client) BatchqueryUmktTaskDetailEx(request *BatchqueryUmktTaskDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchqueryUmktTaskDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51466,10 +55357,11 @@ func (client *Client) BatchqueryUmktTaskDetailEx(request *BatchqueryUmktTaskDeta
 	return _result, _err
 }
 
-/**
- * Description: 营销盾数据回流推送，用于客户定制json数据
- * Summary: 营销盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 营销盾数据回流推送，用于客户定制json数据
+//
+// Summary: 营销盾数据回流json格式推送
 func (client *Client) PushUmktBackflowJsondata(request *PushUmktBackflowJsondataRequest) (_result *PushUmktBackflowJsondataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51482,10 +55374,11 @@ func (client *Client) PushUmktBackflowJsondata(request *PushUmktBackflowJsondata
 	return _result, _err
 }
 
-/**
- * Description: 营销盾数据回流推送，用于客户定制json数据
- * Summary: 营销盾数据回流json格式推送
- */
+// Description:
+//
+// Description: 营销盾数据回流推送，用于客户定制json数据
+//
+// Summary: 营销盾数据回流json格式推送
 func (client *Client) PushUmktBackflowJsondataEx(request *PushUmktBackflowJsondataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushUmktBackflowJsondataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51500,10 +55393,11 @@ func (client *Client) PushUmktBackflowJsondataEx(request *PushUmktBackflowJsonda
 	return _result, _err
 }
 
-/**
- * Description: 营销盾卡短解析服务能力提供接口
- * Summary: 营销盾卡短解析服务接口
- */
+// Description:
+//
+// Description: 营销盾卡短解析服务能力提供接口
+//
+// Summary: 营销盾卡短解析服务接口
 func (client *Client) QueryUmktCardsmsAnalysis(request *QueryUmktCardsmsAnalysisRequest) (_result *QueryUmktCardsmsAnalysisResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51516,10 +55410,11 @@ func (client *Client) QueryUmktCardsmsAnalysis(request *QueryUmktCardsmsAnalysis
 	return _result, _err
 }
 
-/**
- * Description: 营销盾卡短解析服务能力提供接口
- * Summary: 营销盾卡短解析服务接口
- */
+// Description:
+//
+// Description: 营销盾卡短解析服务能力提供接口
+//
+// Summary: 营销盾卡短解析服务接口
 func (client *Client) QueryUmktCardsmsAnalysisEx(request *QueryUmktCardsmsAnalysisRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktCardsmsAnalysisResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51534,10 +55429,11 @@ func (client *Client) QueryUmktCardsmsAnalysisEx(request *QueryUmktCardsmsAnalys
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈客文件导入
- * Summary: 营销盾离线圈客文件导入
- */
+// Description:
+//
+// Description: 营销盾离线圈客文件导入
+//
+// Summary: 营销盾离线圈客文件导入
 func (client *Client) UploadUmktOfflinedecision(request *UploadUmktOfflinedecisionRequest) (_result *UploadUmktOfflinedecisionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51550,10 +55446,11 @@ func (client *Client) UploadUmktOfflinedecision(request *UploadUmktOfflinedecisi
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈客文件导入
- * Summary: 营销盾离线圈客文件导入
- */
+// Description:
+//
+// Description: 营销盾离线圈客文件导入
+//
+// Summary: 营销盾离线圈客文件导入
 func (client *Client) UploadUmktOfflinedecisionEx(request *UploadUmktOfflinedecisionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadUmktOfflinedecisionResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -51598,10 +55495,11 @@ func (client *Client) UploadUmktOfflinedecisionEx(request *UploadUmktOfflinedeci
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询可拉取圈客结果的计划集合
- * Summary: 营销盾查询可拉取圈客结果的计划集合
- */
+// Description:
+//
+// Description: 营销盾查询可拉取圈客结果的计划集合
+//
+// Summary: 营销盾查询可拉取圈客结果的计划集合
 func (client *Client) QueryUmktOfflinedecisionResult(request *QueryUmktOfflinedecisionResultRequest) (_result *QueryUmktOfflinedecisionResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51614,10 +55512,11 @@ func (client *Client) QueryUmktOfflinedecisionResult(request *QueryUmktOfflinede
 	return _result, _err
 }
 
-/**
- * Description: 营销盾查询可拉取圈客结果的计划集合
- * Summary: 营销盾查询可拉取圈客结果的计划集合
- */
+// Description:
+//
+// Description: 营销盾查询可拉取圈客结果的计划集合
+//
+// Summary: 营销盾查询可拉取圈客结果的计划集合
 func (client *Client) QueryUmktOfflinedecisionResultEx(request *QueryUmktOfflinedecisionResultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktOfflinedecisionResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51632,10 +55531,11 @@ func (client *Client) QueryUmktOfflinedecisionResultEx(request *QueryUmktOffline
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈客结果文件拉取
- * Summary: 营销盾离线圈客结果文件拉取
- */
+// Description:
+//
+// Description: 营销盾离线圈客结果文件拉取
+//
+// Summary: 营销盾离线圈客结果文件拉取
 func (client *Client) DownloadUmktOfflinedecisionResult(request *DownloadUmktOfflinedecisionResultRequest) (_result *DownloadUmktOfflinedecisionResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51648,10 +55548,11 @@ func (client *Client) DownloadUmktOfflinedecisionResult(request *DownloadUmktOff
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈客结果文件拉取
- * Summary: 营销盾离线圈客结果文件拉取
- */
+// Description:
+//
+// Description: 营销盾离线圈客结果文件拉取
+//
+// Summary: 营销盾离线圈客结果文件拉取
 func (client *Client) DownloadUmktOfflinedecisionResultEx(request *DownloadUmktOfflinedecisionResultRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DownloadUmktOfflinedecisionResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51666,10 +55567,11 @@ func (client *Client) DownloadUmktOfflinedecisionResultEx(request *DownloadUmktO
 	return _result, _err
 }
 
-/**
- * Description: 包含离线圈客关联计划和任务状态详情
- * Summary: 营销盾离线圈客计划执行详情
- */
+// Description:
+//
+// Description: 包含离线圈客关联计划和任务状态详情
+//
+// Summary: 营销盾离线圈客计划执行详情
 func (client *Client) QueryUmktOfflinedecisionPlandetails(request *QueryUmktOfflinedecisionPlandetailsRequest) (_result *QueryUmktOfflinedecisionPlandetailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51682,10 +55584,11 @@ func (client *Client) QueryUmktOfflinedecisionPlandetails(request *QueryUmktOffl
 	return _result, _err
 }
 
-/**
- * Description: 包含离线圈客关联计划和任务状态详情
- * Summary: 营销盾离线圈客计划执行详情
- */
+// Description:
+//
+// Description: 包含离线圈客关联计划和任务状态详情
+//
+// Summary: 营销盾离线圈客计划执行详情
 func (client *Client) QueryUmktOfflinedecisionPlandetailsEx(request *QueryUmktOfflinedecisionPlandetailsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktOfflinedecisionPlandetailsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51700,10 +55603,11 @@ func (client *Client) QueryUmktOfflinedecisionPlandetailsEx(request *QueryUmktOf
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈投一体文件上传
- * Summary: 营销盾离线圈投一体文件上传
- */
+// Description:
+//
+// Description: 营销盾离线圈投一体文件上传
+//
+// Summary: 营销盾离线圈投一体文件上传
 func (client *Client) UploadUmktOfflineImportrecord(request *UploadUmktOfflineImportrecordRequest) (_result *UploadUmktOfflineImportrecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51716,10 +55620,11 @@ func (client *Client) UploadUmktOfflineImportrecord(request *UploadUmktOfflineIm
 	return _result, _err
 }
 
-/**
- * Description: 营销盾离线圈投一体文件上传
- * Summary: 营销盾离线圈投一体文件上传
- */
+// Description:
+//
+// Description: 营销盾离线圈投一体文件上传
+//
+// Summary: 营销盾离线圈投一体文件上传
 func (client *Client) UploadUmktOfflineImportrecordEx(request *UploadUmktOfflineImportrecordRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadUmktOfflineImportrecordResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -51764,10 +55669,11 @@ func (client *Client) UploadUmktOfflineImportrecordEx(request *UploadUmktOffline
 	return _result, _err
 }
 
-/**
- * Description: 圈投一体圈客结果文件url获取
- * Summary: 圈投一体圈客结果文件url获取
- */
+// Description:
+//
+// Description: 圈投一体圈客结果文件url获取
+//
+// Summary: 圈投一体圈客结果文件url获取
 func (client *Client) DownloadUmktOfflineCampaign(request *DownloadUmktOfflineCampaignRequest) (_result *DownloadUmktOfflineCampaignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51780,10 +55686,11 @@ func (client *Client) DownloadUmktOfflineCampaign(request *DownloadUmktOfflineCa
 	return _result, _err
 }
 
-/**
- * Description: 圈投一体圈客结果文件url获取
- * Summary: 圈投一体圈客结果文件url获取
- */
+// Description:
+//
+// Description: 圈投一体圈客结果文件url获取
+//
+// Summary: 圈投一体圈客结果文件url获取
 func (client *Client) DownloadUmktOfflineCampaignEx(request *DownloadUmktOfflineCampaignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DownloadUmktOfflineCampaignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51798,10 +55705,11 @@ func (client *Client) DownloadUmktOfflineCampaignEx(request *DownloadUmktOffline
 	return _result, _err
 }
 
-/**
- * Description: 营销盾半圈投任务查询
- * Summary: 营销盾半圈投任务查询
- */
+// Description:
+//
+// Description: 营销盾半圈投任务查询
+//
+// Summary: 营销盾半圈投任务查询
 func (client *Client) QueryUmktCampaignTask(request *QueryUmktCampaignTaskRequest) (_result *QueryUmktCampaignTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51814,10 +55722,11 @@ func (client *Client) QueryUmktCampaignTask(request *QueryUmktCampaignTaskReques
 	return _result, _err
 }
 
-/**
- * Description: 营销盾半圈投任务查询
- * Summary: 营销盾半圈投任务查询
- */
+// Description:
+//
+// Description: 营销盾半圈投任务查询
+//
+// Summary: 营销盾半圈投任务查询
 func (client *Client) QueryUmktCampaignTaskEx(request *QueryUmktCampaignTaskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUmktCampaignTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51832,10 +55741,11 @@ func (client *Client) QueryUmktCampaignTaskEx(request *QueryUmktCampaignTaskRequ
 	return _result, _err
 }
 
-/**
- * Description: ai圈投取消圈投任务接口
- * Summary: ai圈投取消圈投任务接口
- */
+// Description:
+//
+// Description: ai圈投取消圈投任务接口
+//
+// Summary: ai圈投取消圈投任务接口
 func (client *Client) CancelUmktCampaign(request *CancelUmktCampaignRequest) (_result *CancelUmktCampaignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51848,10 +55758,11 @@ func (client *Client) CancelUmktCampaign(request *CancelUmktCampaignRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: ai圈投取消圈投任务接口
- * Summary: ai圈投取消圈投任务接口
- */
+// Description:
+//
+// Description: ai圈投取消圈投任务接口
+//
+// Summary: ai圈投取消圈投任务接口
 func (client *Client) CancelUmktCampaignEx(request *CancelUmktCampaignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CancelUmktCampaignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -51866,10 +55777,11 @@ func (client *Client) CancelUmktCampaignEx(request *CancelUmktCampaignRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGatewayxFileUploadRequest) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -51882,10 +55794,11 @@ func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGa
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUploadEx(request *CreateAntcloudGatewayxFileUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
