@@ -5466,6 +5466,68 @@ func (s *RpcommonResp) SetData(v string) *RpcommonResp {
 	return s
 }
 
+// 补充信息
+type ReplenishInfo struct {
+	// 客户姓名
+	// example:
+	//
+	// 张三
+	CustomName *string `json:"custom_name,omitempty" xml:"custom_name,omitempty"`
+	// 手机号
+	// example:
+	//
+	// 13800000000
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// 省份
+	// example:
+	//
+	// 浙江省
+	Province *string `json:"province,omitempty" xml:"province,omitempty"`
+	// 城市
+	// example:
+	//
+	// 杭州市
+	City *string `json:"city,omitempty" xml:"city,omitempty"`
+	// 地区名称
+	// example:
+	//
+	// 滨江区
+	Area *string `json:"area,omitempty" xml:"area,omitempty"`
+}
+
+func (s ReplenishInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ReplenishInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ReplenishInfo) SetCustomName(v string) *ReplenishInfo {
+	s.CustomName = &v
+	return s
+}
+
+func (s *ReplenishInfo) SetMobile(v string) *ReplenishInfo {
+	s.Mobile = &v
+	return s
+}
+
+func (s *ReplenishInfo) SetProvince(v string) *ReplenishInfo {
+	s.Province = &v
+	return s
+}
+
+func (s *ReplenishInfo) SetCity(v string) *ReplenishInfo {
+	s.City = &v
+	return s
+}
+
+func (s *ReplenishInfo) SetArea(v string) *ReplenishInfo {
+	s.Area = &v
+	return s
+}
+
 // 渠道扩展信息
 type PetCashierApplyExtInfo struct {
 	// 门店名称
@@ -27996,6 +28058,111 @@ func (s *QueryDubbridgePetorderResponse) SetInstallNum(v string) *QueryDubbridge
 	return s
 }
 
+type SyncDubbridgeCustomRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 资产方用户唯一标识
+	OpenId *string `json:"open_id,omitempty" xml:"open_id,omitempty" require:"true"`
+	// 补充信息
+	ReplenishInfo *ReplenishInfo `json:"replenish_info,omitempty" xml:"replenish_info,omitempty"`
+	// 扩展信息，json格式字符串
+	ExtInfo *string `json:"ext_info,omitempty" xml:"ext_info,omitempty"`
+	// 资金方编码
+	FundCode *string `json:"fund_code,omitempty" xml:"fund_code,omitempty"`
+}
+
+func (s SyncDubbridgeCustomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDubbridgeCustomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDubbridgeCustomRequest) SetAuthToken(v string) *SyncDubbridgeCustomRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomRequest) SetProductInstanceId(v string) *SyncDubbridgeCustomRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomRequest) SetOpenId(v string) *SyncDubbridgeCustomRequest {
+	s.OpenId = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomRequest) SetReplenishInfo(v *ReplenishInfo) *SyncDubbridgeCustomRequest {
+	s.ReplenishInfo = v
+	return s
+}
+
+func (s *SyncDubbridgeCustomRequest) SetExtInfo(v string) *SyncDubbridgeCustomRequest {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomRequest) SetFundCode(v string) *SyncDubbridgeCustomRequest {
+	s.FundCode = &v
+	return s
+}
+
+type SyncDubbridgeCustomResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 信息同步结果， Y-成功；N-失败
+	SyncResult *string `json:"sync_result,omitempty" xml:"sync_result,omitempty"`
+	// 同步失败原因
+	FailReason *string `json:"fail_reason,omitempty" xml:"fail_reason,omitempty"`
+	// 客户号
+	CustomerNo *string `json:"customer_no,omitempty" xml:"customer_no,omitempty"`
+}
+
+func (s SyncDubbridgeCustomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDubbridgeCustomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDubbridgeCustomResponse) SetReqMsgId(v string) *SyncDubbridgeCustomResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomResponse) SetResultCode(v string) *SyncDubbridgeCustomResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomResponse) SetResultMsg(v string) *SyncDubbridgeCustomResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomResponse) SetSyncResult(v string) *SyncDubbridgeCustomResponse {
+	s.SyncResult = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomResponse) SetFailReason(v string) *SyncDubbridgeCustomResponse {
+	s.FailReason = &v
+	return s
+}
+
+func (s *SyncDubbridgeCustomResponse) SetCustomerNo(v string) *SyncDubbridgeCustomResponse {
+	s.CustomerNo = &v
+	return s
+}
+
 type VerifyFinserviceZhimaIdentifyRequest struct {
 	// OAuth模式下的授权token
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
@@ -46080,7 +46247,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.31.31"),
+				"sdk_version":      tea.String("1.31.32"),
 				"_prod_code":       tea.String("RISKPLUS"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -50841,6 +51008,42 @@ func (client *Client) QueryDubbridgePetorderEx(request *QueryDubbridgePetorderRe
 	}
 	_result = &QueryDubbridgePetorderResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.dubbridge.petorder.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 用户信息补充并同步至下游资金方
+//
+// Summary: 用户信息补充并同步至下游资金方
+func (client *Client) SyncDubbridgeCustom(request *SyncDubbridgeCustomRequest) (_result *SyncDubbridgeCustomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &SyncDubbridgeCustomResponse{}
+	_body, _err := client.SyncDubbridgeCustomEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 用户信息补充并同步至下游资金方
+//
+// Summary: 用户信息补充并同步至下游资金方
+func (client *Client) SyncDubbridgeCustomEx(request *SyncDubbridgeCustomRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncDubbridgeCustomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &SyncDubbridgeCustomResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.dubbridge.custom.sync"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
