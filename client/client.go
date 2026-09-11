@@ -13085,6 +13085,8 @@ type ExecFlowRunResponse struct {
 	FlowCode *string `json:"flow_code,omitempty" xml:"flow_code,omitempty"`
 	// 创建完成后的执行状态，固定返回 RUNNING。
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// 用户须知，用于展示本平台的使用须知。
+	UserNotice *string `json:"user_notice,omitempty" xml:"user_notice,omitempty"`
 }
 
 func (s ExecFlowRunResponse) String() string {
@@ -13122,6 +13124,11 @@ func (s *ExecFlowRunResponse) SetFlowCode(v string) *ExecFlowRunResponse {
 
 func (s *ExecFlowRunResponse) SetStatus(v string) *ExecFlowRunResponse {
 	s.Status = &v
+	return s
+}
+
+func (s *ExecFlowRunResponse) SetUserNotice(v string) *ExecFlowRunResponse {
+	s.UserNotice = &v
 	return s
 }
 
@@ -13171,6 +13178,8 @@ type QueryFlowRunResponse struct {
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// Flow 执行产出列表，每个元素为 FlowRunOutput 结构。仅当 status=SUCCESS 时返回产出内容；可包含文本、数字、布尔值、JSON 和文件。FILE 类型的 value 为短期有效的 HTTPS 下载地址。存在多个产出或多个文件时返回多个列表元素；RUNNING 或 FAILED 状态下返回空列表。
 	Outputs []*FlowRunOutput `json:"outputs,omitempty" xml:"outputs,omitempty" type:"Repeated"`
+	// 用户须知，用于展示本平台的使用须知。
+	UserNotice *string `json:"user_notice,omitempty" xml:"user_notice,omitempty"`
 }
 
 func (s QueryFlowRunResponse) String() string {
@@ -13213,6 +13222,11 @@ func (s *QueryFlowRunResponse) SetStatus(v string) *QueryFlowRunResponse {
 
 func (s *QueryFlowRunResponse) SetOutputs(v []*FlowRunOutput) *QueryFlowRunResponse {
 	s.Outputs = v
+	return s
+}
+
+func (s *QueryFlowRunResponse) SetUserNotice(v string) *QueryFlowRunResponse {
+	s.UserNotice = &v
 	return s
 }
 
@@ -13841,6 +13855,118 @@ func (s *QueryBenefithubReportEffectiveResponse) SetReportValidFrom(v string) *Q
 
 func (s *QueryBenefithubReportEffectiveResponse) SetReportValidTo(v string) *QueryBenefithubReportEffectiveResponse {
 	s.ReportValidTo = &v
+	return s
+}
+
+type QueryBenefithubSubscriptionlinkRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 平台码 注：不同平台的平台码都是固定好的，如果传入的平台码有误会抛出平台码错误的信息
+	PlatformCode *string `json:"platform_code,omitempty" xml:"platform_code,omitempty" require:"true"`
+	// 用户id
+	UserUniqueId *string `json:"user_unique_id,omitempty" xml:"user_unique_id,omitempty" require:"true"`
+	// 产品code必填，后续多产品时可以区分
+	ProductCode *string `json:"product_code,omitempty" xml:"product_code,omitempty"`
+	// 渠道、平台方推送的手机号
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
+	// 场景配置信息字符串，用于透传
+	SceneConfig *string `json:"scene_config,omitempty" xml:"scene_config,omitempty" require:"true"`
+	// 区分流量来源
+	TrafficSource *string `json:"traffic_source,omitempty" xml:"traffic_source,omitempty"`
+	// json字符串包含姓名md5、手机号md5、身份证md5，（非必传，用于后续扩展字段使用）
+	ExtraInfo *string `json:"extra_info,omitempty" xml:"extra_info,omitempty"`
+}
+
+func (s QueryBenefithubSubscriptionlinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefithubSubscriptionlinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetAuthToken(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetProductInstanceId(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetPlatformCode(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.PlatformCode = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetUserUniqueId(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.UserUniqueId = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetProductCode(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetMobile(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetSceneConfig(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.SceneConfig = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetTrafficSource(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.TrafficSource = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkRequest) SetExtraInfo(v string) *QueryBenefithubSubscriptionlinkRequest {
+	s.ExtraInfo = &v
+	return s
+}
+
+type QueryBenefithubSubscriptionlinkResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// h5跳转链接
+	H5Url *string `json:"h5_url,omitempty" xml:"h5_url,omitempty"`
+}
+
+func (s QueryBenefithubSubscriptionlinkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefithubSubscriptionlinkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefithubSubscriptionlinkResponse) SetReqMsgId(v string) *QueryBenefithubSubscriptionlinkResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkResponse) SetResultCode(v string) *QueryBenefithubSubscriptionlinkResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkResponse) SetResultMsg(v string) *QueryBenefithubSubscriptionlinkResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryBenefithubSubscriptionlinkResponse) SetH5Url(v string) *QueryBenefithubSubscriptionlinkResponse {
+	s.H5Url = &v
 	return s
 }
 
@@ -27732,6 +27858,13 @@ type ApplyDubbridgePetcashierRequest struct {
 	EnableTransfer *string `json:"enable_transfer,omitempty" xml:"enable_transfer,omitempty"`
 	// 渠道扩展信息
 	ExtInfo *PetCashierApplyExtInfo `json:"ext_info,omitempty" xml:"ext_info,omitempty"`
+	// 1:单活体
+	// 2:活体+商城套餐（领宠模式）
+	// 3:活体+商城套餐（零售模式）
+	// 4:单商品
+	// 5:单积分
+	// 6:宠秘会员订阅
+	ProductCategory *string `json:"product_category,omitempty" xml:"product_category,omitempty"`
 }
 
 func (s ApplyDubbridgePetcashierRequest) String() string {
@@ -27834,6 +27967,11 @@ func (s *ApplyDubbridgePetcashierRequest) SetEnableTransfer(v string) *ApplyDubb
 
 func (s *ApplyDubbridgePetcashierRequest) SetExtInfo(v *PetCashierApplyExtInfo) *ApplyDubbridgePetcashierRequest {
 	s.ExtInfo = v
+	return s
+}
+
+func (s *ApplyDubbridgePetcashierRequest) SetProductCategory(v string) *ApplyDubbridgePetcashierRequest {
+	s.ProductCategory = &v
 	return s
 }
 
@@ -28160,6 +28298,104 @@ func (s *SyncDubbridgeCustomResponse) SetFailReason(v string) *SyncDubbridgeCust
 
 func (s *SyncDubbridgeCustomResponse) SetCustomerNo(v string) *SyncDubbridgeCustomResponse {
 	s.CustomerNo = &v
+	return s
+}
+
+type QueryDubbridgeMerchantriskRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 申请单号
+	ApplyNo *string `json:"apply_no,omitempty" xml:"apply_no,omitempty" require:"true"`
+	// 渠道租户
+	ChannelTenant *string `json:"channel_tenant,omitempty" xml:"channel_tenant,omitempty" require:"true"`
+	// 来源类型
+	SourceType *string `json:"source_type,omitempty" xml:"source_type,omitempty"`
+}
+
+func (s QueryDubbridgeMerchantriskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDubbridgeMerchantriskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDubbridgeMerchantriskRequest) SetAuthToken(v string) *QueryDubbridgeMerchantriskRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskRequest) SetProductInstanceId(v string) *QueryDubbridgeMerchantriskRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskRequest) SetApplyNo(v string) *QueryDubbridgeMerchantriskRequest {
+	s.ApplyNo = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskRequest) SetChannelTenant(v string) *QueryDubbridgeMerchantriskRequest {
+	s.ChannelTenant = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskRequest) SetSourceType(v string) *QueryDubbridgeMerchantriskRequest {
+	s.SourceType = &v
+	return s
+}
+
+type QueryDubbridgeMerchantriskResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 申请单号
+	ApplyNo *string `json:"apply_no,omitempty" xml:"apply_no,omitempty"`
+	// 风控状态
+	RiskStatus *string `json:"risk_status,omitempty" xml:"risk_status,omitempty"`
+	// 扩展信息
+	ExtInfo *string `json:"ext_info,omitempty" xml:"ext_info,omitempty"`
+}
+
+func (s QueryDubbridgeMerchantriskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDubbridgeMerchantriskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetReqMsgId(v string) *QueryDubbridgeMerchantriskResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetResultCode(v string) *QueryDubbridgeMerchantriskResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetResultMsg(v string) *QueryDubbridgeMerchantriskResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetApplyNo(v string) *QueryDubbridgeMerchantriskResponse {
+	s.ApplyNo = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetRiskStatus(v string) *QueryDubbridgeMerchantriskResponse {
+	s.RiskStatus = &v
+	return s
+}
+
+func (s *QueryDubbridgeMerchantriskResponse) SetExtInfo(v string) *QueryDubbridgeMerchantriskResponse {
+	s.ExtInfo = &v
 	return s
 }
 
@@ -46247,7 +46483,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.31.32"),
+				"sdk_version":      tea.String("1.32.0"),
 				"_prod_code":       tea.String("RISKPLUS"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -46550,6 +46786,42 @@ func (client *Client) QueryBenefithubReportEffectiveEx(request *QueryBenefithubR
 	}
 	_result = &QueryBenefithubReportEffectiveResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.benefithub.report.effective.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 风险报告包月订阅页面链接获取接口
+//
+// Summary: 风险报告包月订阅页面链接获取接口
+func (client *Client) QueryBenefithubSubscriptionlink(request *QueryBenefithubSubscriptionlinkRequest) (_result *QueryBenefithubSubscriptionlinkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryBenefithubSubscriptionlinkResponse{}
+	_body, _err := client.QueryBenefithubSubscriptionlinkEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 风险报告包月订阅页面链接获取接口
+//
+// Summary: 风险报告包月订阅页面链接获取接口
+func (client *Client) QueryBenefithubSubscriptionlinkEx(request *QueryBenefithubSubscriptionlinkRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBenefithubSubscriptionlinkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryBenefithubSubscriptionlinkResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.benefithub.subscriptionlink.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -51044,6 +51316,42 @@ func (client *Client) SyncDubbridgeCustomEx(request *SyncDubbridgeCustomRequest,
 	}
 	_result = &SyncDubbridgeCustomResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.dubbridge.custom.sync"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 商户入驻风控结果查询
+//
+// Summary: 商户入驻风控结果查询
+func (client *Client) QueryDubbridgeMerchantrisk(request *QueryDubbridgeMerchantriskRequest) (_result *QueryDubbridgeMerchantriskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryDubbridgeMerchantriskResponse{}
+	_body, _err := client.QueryDubbridgeMerchantriskEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 商户入驻风控结果查询
+//
+// Summary: 商户入驻风控结果查询
+func (client *Client) QueryDubbridgeMerchantriskEx(request *QueryDubbridgeMerchantriskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDubbridgeMerchantriskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryDubbridgeMerchantriskResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("riskplus.dubbridge.merchantrisk.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
